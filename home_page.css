@@ -1,0 +1,284 @@
+/* Styles généraux */
+body {
+    font-family: 'Arial', sans-serif;  /* Police de caractères par défaut */
+    margin: 0;                         /* Supprime les marges par défaut */
+    padding: 0;                        /* Supprime les paddings par défaut */
+    background-color: #f5f5f5;         /* Couleur de fond gris clair */
+}
+
+/* Header */
+header {
+    background-color: #8b142b;         /* Rouge bordeaux (couleur CAN) */
+    color: white;                      /* Texte en blanc */
+    padding: 15px 5%;                 /* Espacement interne (15px haut/bas, 5% gauche/droite) */
+    display: flex;                    /* Active Flexbox pour aligner les éléments */
+    align-items: center;              /* Centre verticalement les éléments */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Ombre légère sous l'en-tête */
+    position: sticky;
+    top: 0%;                     /* Reste en haut lors du défilement */
+    z-index: 1000; 
+                      /* Assure que l'en-tête reste au-dessus des autres éléments */
+}
+
+
+.logo {
+    margin-right: auto; /* Pousse le logo à gauche */
+}
+
+.defaussit-nav ul {
+    display: flex;                   /* Affiche les éléments en ligne (Flexbox) */
+    list-style-type: none;           /* Supprime les puces de liste */
+    margin: 0;                       /* Supprime les marges */
+    padding: 0;                      /* Supprime les paddings */
+    /*overflow-x: auto;*/                /* Permet le défilement horizontal si nécessaire */
+}
+
+.defaussit-nav li {
+    margin: 0 10px;                 /* Marge horizontale entre les éléments du menu */
+}
+
+.defaussit-nav a {
+    color: white;                   /* Couleur du texte en blanc */
+    text-decoration: none;          /* Supprime le soulignement des liens */
+    font-weight: bold;              /* Texte en gras */
+    padding: 8px 12px;              /* Espacement interne des liens */
+    border-radius: 4px;             /* Coins arrondis */
+    transition: background-color 0.3s; /* Animation fluide au survol */
+    text-transform: uppercase;      /* Texte en majuscules */
+    font-size: 14px;                /* Taille de police */
+}
+
+.defaussit-nav a:hover {
+    background-color: #f0c14b;      /* Fond jaune au survol */
+    color: #725b1a;                 /* Texte marron au survol */
+}
+
+/* Contenu principal */
+.content {
+    display: flex;                  /* Active Flexbox pour aligner image et texte */
+    align-items: center;            /* Centre verticalement les éléments */
+    justify-content: flex-start;    /* Aligne les éléments à gauche */
+    gap: 40px;                      /* Espacement entre l'image et le texte */
+    padding: 40px 5%;               /* Espacement interne */
+    max-width: 1200px;              /* Largeur maximale du contenu */
+    margin: 0 auto;                 /* Centre le contenu horizontalement */
+}
+.video {
+    max-width: 800px; /* ou la largeur que vous souhaitez */
+    margin: 20px auto; /* Centre horizontalement */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.video h2 {
+    color: #8b142b;
+    margin-bottom: 20px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+.video-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.text-with-image {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+}
+.text-with-image img {
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    flex-shrink: 0; /* Empêche l'image de rétrécir */
+}
+
+.description {
+    max-width: 60%;                 /* Limite la largeur du texte à 60% */
+}
+
+h1 {
+    font-size: 28px;                /* Taille du titre */
+    color: #040d1a;                 /* Couleur du texte (noir bleuté) */
+    margin-bottom: 20px;            /* Marge sous le titre */
+}
+
+p {
+    font-size: 16px;                /* Taille du paragraphe */
+    line-height: 1.6;               /* Hauteur de ligne (espacement) */
+    color: #555;                    /* Couleur du texte (gris foncé) */
+}
+     /* Section images */
+     .images {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin: 40px 0;
+        flex-wrap: wrap;
+    }
+
+    .images img {
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        transition: transform 0.3s, box-shadow 0.3s;
+        object-fit: cover;
+        border: 3px solid #8b142b;
+    }
+
+    .images img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    /* Légendes pour images */
+    .image-container {
+        position: relative;
+        text-align: center;
+    }
+
+    .image-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(139, 20, 43, 0.8);
+        color: white;
+        padding: 10px;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        font-weight: bold;
+    }
+     /* Footer styles */
+     footer {
+        background-color: #8b142b;
+        color: white;
+        padding: 40px 5%;
+        margin-top: 50px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .footer-section {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .footer-section h3 {
+        color: #f0c14b;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-section li {
+        margin-bottom: 10px;
+    }
+
+    .footer-section a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+        color: #f0c14b;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        font-size: 14px;
+    }
+
+    .footer-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .footer-nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;     /* Passe l'en-tête en colonne sur mobile */
+        padding: 15px;             /* Réduit l'espacement */
+    }
+    
+    .logo {
+        margin-right: 0;           /* Réinitialise la marge */
+        margin-bottom: 15px;       /* Ajoute une marge sous le logo */
+    }
+    
+    .defaussit-nav ul {
+        flex-wrap: wrap;           /* Permet le retour à la ligne des éléments */
+        justify-content: center;   /* Centre les éléments du menu */
+    }
+    
+    .defaussit-nav li {
+        margin: 5px;              /* Réduit l'espace entre les éléments */
+    }
+    
+    .content {
+        flex-direction: column;    /* Passe le contenu en colonne */
+        padding: 20px;            /* Ajuste l'espacement */
+    }
+    
+    
+    .description {
+        max-width: 100%;          /* Le texte prend toute la largeur */
+        text-align: center;       /* Centre le texte */
+    }
+    .images {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .images img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
