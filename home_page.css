@@ -79,8 +79,7 @@ header {
     transform: scale(1.08) translateY(-2px) perspective(400px) rotateX(8deg);
     box-shadow: 0 8px 24px rgba(139,20,43,0.18), 0 1.5px 0 #fff inset;
     perspective: 400px;
-}
-.defaussit-nav ul li a:hover,
+}.defaussit-nav ul li a:hover,
 .defaussit-nav ul li a:focus {
     background: #f0c14b;
     color: #8b142b;
@@ -346,7 +345,7 @@ html {
 
 body {
     /* Ajoute ces propriétés pour un fond dynamique */
-    background: linear-gradient(120deg, #b1f6b1 0%, #f9faf5 50%, #ff2020 100%);
+    background: linear-gradient(120deg, #ff2020 0%, #f9faf5 50%,#b1f6b1  100%);
     background-size: 200% 200%;
     animation: bgMove 10s ease-in-out infinite;
     /* Pour que le fond bouge avec le scroll */
@@ -363,4 +362,61 @@ body {
     100% {
         background-position: 0% 50%;
     }
+}
+h1, h2, h3 {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #8b142b;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: 2.8em;
+    text-shadow: 1px 2px 8px #f0c14b33;
+}
+
+h2 {
+    font-size: 2em;
+    color: #1a2a36;
+}
+
+h3 {
+    font-size: 1.3em;
+    color: #333;
+}
+
+p, li, a, td, th {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-size: 1.08em;
+    color: #222;
+    line-height: 1.7;
+    letter-spacing: 0.2px;
+}
+
+a {
+    color: #8b142b;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #f0c14b;
+    text-decoration: underline;
+}
+
+.description p {
+    font-size: 1.15em;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.logo-img {
+    filter: drop-shadow(0 2px 8px #8b142b22);
+}
+
+.footer-content h3 {
+    color: #8b142b;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
 }
