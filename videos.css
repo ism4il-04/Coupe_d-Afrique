@@ -1,0 +1,325 @@
+/* Variables */
+:root {
+    --primary-color: #f0c14b;
+    --secondary-color: #1a1a1a;
+    --accent-color: #8b142b;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --transition: all 0.3s ease;
+}
+
+/* Styles généraux */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--light-bg);
+    padding-top: 76px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('Images/StadiumsCAN.webp') center/cover;
+    padding: 100px 0;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--accent-color), transparent);
+    opacity: 0.3;
+}
+
+/* Filtres Section */
+.filters-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.form-select, .form-control {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(240, 193, 75, 0.25);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+/* Vidéos Grid */
+.video-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.video-thumbnail {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+}
+
+.video-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.video-card:hover .video-thumbnail img {
+    transform: scale(1.05);
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.play-button i {
+    color: white;
+    font-size: 24px;
+}
+
+.video-card:hover .play-button {
+    background: var(--primary-color);
+}
+
+.video-info {
+    padding: 15px;
+}
+
+.video-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.video-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.video-category {
+    background: var(--light-bg);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+/* Modal Styles */
+.modal-content {
+    border: none;
+    border-radius: 15px;
+}
+
+.modal-header {
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 15px 15px 0 0;
+}
+
+.video-container {
+    position: relative;
+    padding-top: 56.25%;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-info {
+    padding: 20px;
+}
+
+.video-description {
+    color: #666;
+    margin: 15px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.video-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+
+    .filters-section {
+        padding: 15px;
+    }
+
+    .video-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--primary-color) !important;
+    transform: translateY(-3px);
+}
+
+/* Navbar interactive unifiée */
+.navbar {
+    background: rgba(20, 38, 61, 0.98) !important;
+    transition: box-shadow 0.3s;
+    box-shadow: none;
+}
+
+.navbar.sticky-shadow {
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    background: rgba(20, 38, 61, 0.98) !important;
+}
+
+.navbar .navbar-brand img {
+    transition: transform 0.3s cubic-bezier(.77,0,.18,1);
+}
+
+.navbar .navbar-brand:hover img {
+    transform: scale(1.12) rotate(-6deg);
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    color: #fff !important;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+    padding-bottom: 4px;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2.5px;
+    background: linear-gradient(90deg, #b80000, #006400);
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(.77,0,.18,1);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-nav .nav-link.active {
+    color: #ffd700 !important;
+    font-weight: 700;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+    box-shadow: none !important;
+    transition: background 0.2s;
+}
+
+.navbar-toggler:focus {
+    background: #b80000;
+}
+
+@media (max-width: 991px) {
+    .navbar-nav .nav-link {
+        padding: 10px 0;
+        font-size: 1.1em;
+    }
+    .navbar-collapse {
+        background: rgba(20,38,61,0.98);
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+} 
