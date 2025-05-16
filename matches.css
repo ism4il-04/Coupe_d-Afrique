@@ -4,9 +4,9 @@
     --accent-color: #8b142b;
     --text-color: #333;
     --light-bg: #f8f9fa;
-    --transition: all 0.3s ease;
 }
-/* Barre Interactive */
+
+/* Interactive Bar */
 .interactive-bar {
     position: fixed;
     top: 0;
@@ -32,25 +32,14 @@
     align-items: center;
     padding: 10px 20px;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     border-radius: 8px;
-    color: var(--text-color);
 }
 
 .interactive-item i {
     font-size: 1.5rem;
     margin-bottom: 5px;
     color: var(--accent-color);
-}
-
-.interactive-item span {
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.interactive-item:hover {
-    background: var(--light-bg);
-    transform: translateY(-2px);
 }
 
 .interactive-item.active {
@@ -62,93 +51,59 @@
     color: white;
 }
 
-body {
-    margin: 0;
-    padding-top: calc(140px); /* Adjusted to account for both bars */
-}
+/* Calendar Bar */
 .calendar-bar {
     position: fixed;
-    top: 120px; /* Position it right below the interactive bar */
+    top: 120px;
     width: 100%;
-    height: 80px; /* Adjusted height to be more compact */
+    height: 80px;
     background-color: #001845;
     z-index: 999;
     color: white;
     display: flex;
     align-items: center;
-    overflow-x: hidden; /* Hide the horizontal scrollbar */
+    overflow-x: hidden;
     padding: 0 10px;
 }
-    .calendar-date {
-      background-color: #003566;
-      color: white;
-      margin: 0 5px;
-      padding: 10px 20px;
-      border-radius: 20px;
-      white-space: nowrap;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .calendar-date:hover {
-      background-color: #ffc300;
-      color: black;
-    }
-    .calendar-nav {
-      font-size: 2rem;
-      cursor: pointer;
-      margin: 0 10px;
-    }
-    .match-section {
-      padding: 40px 20px;
-    }
-    .match-section h3 {
-      color: #001845;
-    }
 
-#calendarDates {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-    padding: 0 20px;
+.calendar-date {
+    background-color: #003566;
+    color: white;
+    margin: 0 5px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-#calendarDates::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+.calendar-date:hover {
+    background-color: var(--primary-color);
+    color: black;
 }
 
-#mainContent {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.calendar-nav {
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 0 10px;
 }
 
+/* Match Sections */
 .match-section {
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
 }
 
 .day-header {
-    margin-bottom: 20px;
-    padding: 10px 0;
-    border-bottom: 2px solid #001845;
-}
-
-.day-header h3 {
-    margin: 0;
-    color: #001845;
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 1.5rem;
 }
 
 .match-card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.2s ease;
 }
 
 .match-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 .match-info {
