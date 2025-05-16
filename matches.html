@@ -46,8 +46,16 @@
         </div>
     </div>
 
+    <!-- Barre Calendrier -->
+    <div class="calendar-bar d-flex align-items-center">
+        <div class="calendar-nav" onclick="scrollCalendar(-1)">&#8592;</div>
+        <div id="calendarDates" class="d-flex flex-nowrap overflow-auto w-100"></div>
+        <div class="calendar-nav" onclick="scrollCalendar(1)">&#8594;</div>
+    </div>
+
 
     
+
     <script type="text/javascript" src="bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="matches.js"> </script>
 </body>
