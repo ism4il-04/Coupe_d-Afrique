@@ -10,12 +10,12 @@ const countryToCode = {
   'Côte d\'Ivoire': 'ci',
   'Égypte': 'eg',
   'Gabon': 'ga',
-  'Guinée équatoriale': 'gq',
+  'Guinée Équatoriale': 'gq',
   'Mali': 'ml',
   'Mozambique': 'mz',
   'Nigeria': 'ng',
   'Ouganda': 'ug',
-  'République Démocratique du Congo': 'cd',
+  'Rép. Dém. Congo': 'cd',
   'Sénégal': 'sn',
   'Soudan': 'sd',
   'Afrique du Sud': 'za',
@@ -27,57 +27,109 @@ const countryToCode = {
 
 const matchData = [
   {
-    date: '2025-06-14',
-    label: 'sam. 14 juin',
+    date: '2025-12-21',
+    label: 'dim. 21 déc.',
     tour: 'Phase de groupes - Groupe A',
     matches: [
-      { teams: 'Maroc vs Égypte', time: '20:00', stadium: 'Stade Mohammed V, Casablanca' },
-      { teams: 'Tanzanie vs Zimbabwe', time: '17:00', stadium: 'Stade Adrar, Agadir' }
+      { teams: 'Maroc vs Comores', time: 'à déterminer', stadium: 'à déterminer' }
     ]
   },
   {
-    date: '2025-06-15',
-    label: 'dim. 15 juin',
-    tour: 'Phase de groupes - Groupe B',
+    date: '2025-12-22',
+    label: 'lun. 22 déc.',
+    tour: 'Phase de groupes - Groupes A et B',
     matches: [
-      { teams: 'Sénégal vs Cameroun', time: '17:00', stadium: 'Stade Ibn Batouta, Tanger' },
-      { teams: 'Algérie vs Burkina Faso', time: '20:00', stadium: 'Stade de Fès' }
+      { teams: 'Mali vs Zambie', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Afrique du Sud vs Angola', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Égypte vs Zimbabwe', time: 'à déterminer', stadium: 'à déterminer' }
     ]
   },
   {
-    date: '2025-06-16',
-    label: 'lun. 16 juin',
-    tour: 'Phase de groupes - Groupe C',
+    date: '2025-12-23',
+    label: 'mar. 23 déc.',
+    tour: 'Phase de groupes - Groupes C et D',
     matches: [
-      { teams: 'Tunisie vs Nigeria', time: '17:00', stadium: 'Stade de Marrakech' },
-      { teams: 'Afrique du Sud vs Mali', time: '20:00', stadium: 'Complexe Sportif de Rabat' }
+      { teams: 'Nigeria vs Tanzanie', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Tunisie vs Ouganda', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Rép. Dém. Congo vs Bénin', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Sénégal vs Botswana', time: 'à déterminer', stadium: 'à déterminer' }
     ]
   },
   {
-    date: '2025-06-17',
-    label: 'mar. 17 juin',
-    tour: 'Phase de groupes - Groupe D',
+    date: '2025-12-24',
+    label: 'mer. 24 déc.',
+    tour: 'Phase de groupes - Groupes E et F',
     matches: [
-      { teams: 'Côte d\'Ivoire vs Angola', time: '17:00', stadium: 'Stade Mohammed V, Casablanca' },
-      { teams: 'Gabon vs République Démocratique du Congo', time: '20:00', stadium: 'Stade Adrar, Agadir' }
+      { teams: 'Algérie vs Soudan', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Burkina Faso vs Guinée Équatoriale', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Cameroun vs Gabon', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Côte d\'Ivoire vs Mozambique', time: 'à déterminer', stadium: 'à déterminer' }
     ]
   },
   {
-    date: '2025-06-18',
-    label: 'mer. 18 juin',
-    tour: 'Phase de groupes - Groupe E',
+    date: '2025-12-26',
+    label: 'ven. 26 déc.',
+    tour: 'Phase de groupes - Groupes A et B',
     matches: [
-      { teams: 'Mozambique vs Comores', time: '17:00', stadium: 'Stade Ibn Batouta, Tanger' },
-      { teams: 'Botswana vs Bénin', time: '20:00', stadium: 'Stade de Fès' }
+      { teams: 'Maroc vs Mali', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Zambie vs Comores', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Angola vs Zimbabwe', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Égypte vs Afrique du Sud', time: 'à déterminer', stadium: 'à déterminer' }
     ]
   },
   {
-    date: '2025-06-19',
-    label: 'jeu. 19 juin',
-    tour: 'Phase de groupes - Groupe F',
+    date: '2025-12-27',
+    label: 'sam. 27 déc.',
+    tour: 'Phase de groupes - Groupes C et D',
     matches: [
-      { teams: 'Ouganda vs Guinée équatoriale', time: '17:00', stadium: 'Stade de Marrakech' },
-      { teams: 'Soudan vs Zambie', time: '20:00', stadium: 'Complexe Sportif de Rabat' }
+      { teams: 'Nigeria vs Tunisie', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Ouganda vs Tanzanie', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Bénin vs Botswana', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Sénégal vs Rép. Dém. Congo', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2025-12-28',
+    label: 'dim. 28 déc.',
+    tour: 'Phase de groupes - Groupes E et F',
+    matches: [
+      { teams: 'Algérie vs Burkina Faso', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Guinée Équatoriale vs Soudan', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Côte d\'Ivoire vs Cameroun', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Gabon vs Mozambique', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2025-12-29',
+    label: 'lun. 29 déc.',
+    tour: 'Phase de groupes - Groupes A et B',
+    matches: [
+      { teams: 'Comores vs Mali', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Zambie vs Maroc', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Angola vs Égypte', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Zimbabwe vs Afrique du Sud', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2025-12-30',
+    label: 'mar. 30 déc.',
+    tour: 'Phase de groupes - Groupes C et D',
+    matches: [
+      { teams: 'Ouganda vs Nigeria', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Tanzanie vs Tunisie', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Botswana vs Rép. Dém. Congo', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Bénin vs Sénégal', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2025-12-31',
+    label: 'mer. 31 déc.',
+    tour: 'Phase de groupes - Groupes E et F',
+    matches: [
+      { teams: 'Guinée Équatoriale vs Algérie', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Soudan vs Burkina Faso', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Gabon vs Côte d\'Ivoire', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'Mozambique vs Cameroun', time: 'à déterminer', stadium: 'à déterminer' }
     ]
   }
 ];
