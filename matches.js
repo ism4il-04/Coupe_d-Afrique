@@ -1,86 +1,83 @@
 const countryToCode = {
   'Maroc': 'ma',
-  'Égypte': 'eg',
-  'Sénégal': 'sn',
-  'Tunisie': 'tn',
-  'Cameroun': 'cm',
-  'Ghana': 'gh',
-  'Burkina Faso': 'bf',
-  'Mozambique': 'mz',
   'Algérie': 'dz',
-  'Nigeria': 'ng',
-  'Afrique du Sud': 'za',
-  'Côte d\'Ivoire': 'ci',
-  'Mali': 'ml',
-  'RD Congo': 'cd',
-  'Guinée': 'gn',
-  'Zambie': 'zm',
-  'Gabon': 'ga',
   'Angola': 'ao',
-  'Madagascar': 'mg',
-  'Soudan': 'sd',
-  'Cap-Vert': 'cv',
-  'Niger': 'ne',
-  'Mauritanie': 'mr',
+  'Bénin': 'bj',
+  'Botswana': 'bw',
+  'Burkina Faso': 'bf',
+  'Cameroun': 'cm',
+  'Comores': 'km',
+  'Côte d\'Ivoire': 'ci',
+  'Égypte': 'eg',
+  'Gabon': 'ga',
+  'Guinée équatoriale': 'gq',
+  'Mali': 'ml',
+  'Mozambique': 'mz',
+  'Nigeria': 'ng',
   'Ouganda': 'ug',
-  'Togo': 'tg',
-  'Bénin': 'bj'
+  'République Démocratique du Congo': 'cd',
+  'Sénégal': 'sn',
+  'Soudan': 'sd',
+  'Afrique du Sud': 'za',
+  'Tanzanie': 'tz',
+  'Tunisie': 'tn',
+  'Zambie': 'zm',
+  'Zimbabwe': 'zw'
 };
 
 const matchData = [
   {
     date: '2025-06-14',
-    label: 'dim. 14 juin',
+    label: 'sam. 14 juin',
     tour: 'Phase de groupes - Groupe A',
     matches: [
-      { teams: 'Maroc vs Égypte', time: '18:00', stadium: 'Stade Mohammed V, Casablanca' },
-      { teams: 'Sénégal vs Tunisie', time: '21:00', stadium: 'Stade Adrar, Agadir' }
+      { teams: 'Maroc vs Égypte', time: '20:00', stadium: 'Stade Mohammed V, Casablanca' },
+      { teams: 'Tanzanie vs Zimbabwe', time: '17:00', stadium: 'Stade Adrar, Agadir' }
     ]
   },
   {
     date: '2025-06-15',
-    label: 'lun. 15 juin',
+    label: 'dim. 15 juin',
     tour: 'Phase de groupes - Groupe B',
     matches: [
-      { teams: 'Cameroun vs Ghana', time: '17:00', stadium: 'Stade Ibn Batouta, Tanger' },
-      { teams: 'Burkina Faso vs Mozambique', time: '20:00', stadium: 'Stade de Fès' }
+      { teams: 'Sénégal vs Cameroun', time: '17:00', stadium: 'Stade Ibn Batouta, Tanger' },
+      { teams: 'Algérie vs Burkina Faso', time: '20:00', stadium: 'Stade de Fès' }
     ]
   },
   {
     date: '2025-06-16',
-    label: 'mar. 16 juin',
+    label: 'lun. 16 juin',
     tour: 'Phase de groupes - Groupe C',
     matches: [
-      { teams: 'Algérie vs Nigeria', time: '15:00', stadium: 'Stade de Marrakech' },
-      { teams: 'Afrique du Sud vs Côte d\'Ivoire', time: '18:00', stadium: 'Stade Mohammed V, Casablanca' },
-      { teams: 'Mali vs RD Congo', time: '21:00', stadium: 'Stade Adrar, Agadir' }
+      { teams: 'Tunisie vs Nigeria', time: '17:00', stadium: 'Stade de Marrakech' },
+      { teams: 'Afrique du Sud vs Mali', time: '20:00', stadium: 'Complexe Sportif de Rabat' }
     ]
   },
   {
     date: '2025-06-17',
-    label: 'mer. 17 juin',
+    label: 'mar. 17 juin',
     tour: 'Phase de groupes - Groupe D',
     matches: [
-      { teams: 'Guinée vs Zambie', time: '18:00', stadium: 'Stade Ibn Batouta, Tanger' },
-      { teams: 'Gabon vs Angola', time: '21:00', stadium: 'Stade de Fès' }
+      { teams: 'Côte d\'Ivoire vs Angola', time: '17:00', stadium: 'Stade Mohammed V, Casablanca' },
+      { teams: 'Gabon vs République Démocratique du Congo', time: '20:00', stadium: 'Stade Adrar, Agadir' }
     ]
   },
   {
     date: '2025-06-18',
-    label: 'jeu. 18 juin',
+    label: 'mer. 18 juin',
     tour: 'Phase de groupes - Groupe E',
     matches: [
-      { teams: 'Madagascar vs Soudan', time: '17:00', stadium: 'Stade de Marrakech' },
-      { teams: 'Cap-Vert vs Niger', time: '20:00', stadium: 'Stade Mohammed V, Casablanca' }
+      { teams: 'Mozambique vs Comores', time: '17:00', stadium: 'Stade Ibn Batouta, Tanger' },
+      { teams: 'Botswana vs Bénin', time: '20:00', stadium: 'Stade de Fès' }
     ]
   },
   {
     date: '2025-06-19',
-    label: 'ven. 19 juin',
+    label: 'jeu. 19 juin',
     tour: 'Phase de groupes - Groupe F',
     matches: [
-      { teams: 'Mauritanie vs Ouganda', time: '18:00', stadium: 'Stade Adrar, Agadir' },
-      { teams: 'Togo vs Bénin', time: '21:00', stadium: 'Stade Ibn Batouta, Tanger' }
+      { teams: 'Ouganda vs Guinée équatoriale', time: '17:00', stadium: 'Stade de Marrakech' },
+      { teams: 'Soudan vs Zambie', time: '20:00', stadium: 'Complexe Sportif de Rabat' }
     ]
   }
 ];
