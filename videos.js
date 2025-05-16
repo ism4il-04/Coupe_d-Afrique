@@ -133,7 +133,7 @@ function attachVideoCardListeners() {
 }
 
 // Initialisation
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     // Afficher toutes les vidéos initialement
     displayVideos(videos);
 
