@@ -149,7 +149,7 @@ function updateTeamModal(equipe) {
 }
 
 // Initialisation
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById('groups-container');
     
     // Générer les cartes de groupe

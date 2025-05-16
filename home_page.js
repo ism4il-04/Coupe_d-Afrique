@@ -45,6 +45,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialiser les effets de parallaxe
     initParallax();
 
+    // Gestion du clic sur le logo pour retourner à la section hero
+    const logoContainer = document.getElementById('logo-container');
+    if (logoContainer) {
+        logoContainer.addEventListener('click', () => {
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                heroSection.scrollIntoView({ behavior: 'smooth' });
+                // Réinitialiser l'élément actif de la barre interactive
+                document.querySelectorAll('.interactive-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+            }
+        });
+        // Ajouter le style du curseur pointer
+        logoContainer.style.cursor = 'pointer';
+    }
+
     // Animation des éléments au scroll
     const observerOptions = {
         threshold: 0.1,
@@ -118,6 +135,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Effet de particules pour le fond
     createParticles();
+
+    // Gestion de la barre interactive
+    const interactiveItems = document.querySelectorAll('.interactive-item');
+    const sections = document.querySelectorAll('.content-section');
+
+    // Fonction pour mettre à jour l'élément actif
+    function updateActiveItem(targetId) {
+        interactiveItems.forEach(item => {
+            if (item.dataset.section === targetId) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    // Gestion du clic sur les éléments de la barre
+    interactiveItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const targetId = item.dataset.section;
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                updateActiveItem(targetId);
+            }
+        });
+    });
+
+    // Gestion du scroll pour mettre à jour l'élément actif
+    window.addEventListener('scroll', () => {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (window.pageYOffset >= (sectionTop - 100)) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        if (currentSection) {
+            updateActiveItem(currentSection);
+        }
+    });
 });
 
 // Animation du titre lettre par lettre
