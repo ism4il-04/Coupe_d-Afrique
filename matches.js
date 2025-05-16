@@ -111,6 +111,9 @@ const matchContainer = document.createElement('div');
 matchContainer.id = "matchContainer";
 mainContainer.appendChild(matchContainer);
 
+// Calculate offset for scroll (height of both bars plus some padding)
+const SCROLL_OFFSET = 220; // 120px (interactive bar) + 80px (calendar bar) + 20px padding
+
 // Populate calendar dates
 matchData.forEach(day => {
   // Calendar button
@@ -118,7 +121,14 @@ matchData.forEach(day => {
   dateBtn.className = "calendar-date";
   dateBtn.textContent = day.label;
   dateBtn.onclick = () => {
-    document.getElementById(day.date).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const element = document.getElementById(day.date);
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - SCROLL_OFFSET;
+    
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
   };
   calendarDatesDiv.appendChild(dateBtn);
 
