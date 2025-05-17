@@ -89,18 +89,17 @@
     top: 120px;            /* Position sous la barre de navigation */
     width: 100%;           /* Pleine largeur */
     height: 80px;          /* Hauteur fixe */
-    background-color: #001845; /* Fond bleu foncé */
+    background-color: #C1272D;  /* Rouge du drapeau marocain */
     z-index: 999;          /* Au-dessus du contenu mais sous la navigation */
     color: white;          /* Texte blanc */
     display: flex;         /* Utilise Flexbox */
     align-items: center;   /* Centre verticalement */
-    overflow-x: hidden;    /* Cache le défilement horizontal */
     padding: 0 10px;       /* Espacement horizontal */
 }
 
 /* Style des dates dans le calendrier */
 .calendar-date {
-    background-color: #003566; /* Fond bleu plus clair */
+    background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
     color: white;             /* Texte blanc */
     margin: 0 5px;            /* Espacement entre les dates */
     padding: 10px 20px;       /* Espacement interne */
@@ -112,8 +111,8 @@
 
 /* Effet au survol des dates */
 .calendar-date:hover {
-    background-color: var(--primary-color); /* Change la couleur de fond au survol */
-    color: black;                          /* Texte noir au survol */
+    background-color: #006233; /* Vert du drapeau marocain */
+    color: white;             /* Texte blanc au survol */
 }
 
 /* Style des flèches de navigation du calendrier */
@@ -121,6 +120,26 @@
     font-size: 2rem;          /* Grande taille pour les flèches */
     cursor: pointer;          /* Curseur pointeur */
     margin: 0 10px;           /* Espacement */
+    color: white;             /* Flèches blanches */
+}
+
+/* Masquer la barre de défilement tout en gardant la fonctionnalité */
+#calendarDates {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+    overflow-x: auto;
+}
+
+/* Masquer la barre de défilement pour Chrome, Safari et Opera */
+#calendarDates::-webkit-scrollbar {
+    display: none;
+}
+
+/* Style pour la date active */
+.calendar-date.active {
+    background-color: #006233; /* Vert du drapeau marocain */
+    color: white;
+    font-weight: bold;
 }
 
 /* Style des sections de matches */

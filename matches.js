@@ -23,7 +23,8 @@ const countryToCode = {
   'Tanzanie': 'tz',
   'Tunisie': 'tn',
   'Zambie': 'zm',
-  'Zimbabwe': 'zw'
+  'Zimbabwe': 'zw',
+  'en attente': 'xx'        // Code par défaut pour les équipes en attente
 };
 
 /* Données des matches de la CAN 2025 */
@@ -133,6 +134,85 @@ const matchData = [
       { teams: 'Gabon vs Côte d\'Ivoire', time: 'à déterminer', stadium: 'à déterminer' },
       { teams: 'Mozambique vs Cameroun', time: 'à déterminer', stadium: 'à déterminer' }
     ]
+  },
+  {
+    date: '2026-01-03',
+    label: 'sam. 3 jan.',
+    tour: '1/8 de finale',
+    matches: [
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2026-01-04',
+    label: 'dim. 4 jan.',
+    tour: '1/8 de finale',
+    matches: [
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2026-01-05',
+    label: 'lun. 5 jan.',
+    tour: '1/8 de finale',
+    matches: [
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2026-01-06',
+    label: 'mar. 6 jan.',
+    tour: '1/8 de finale',
+    matches: [
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2026-01-09',
+    label: 'ven. 9 jan.',
+    tour: '1/4 de finale',
+    matches: [
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2026-01-10',
+    label: 'sam. 10 jan.',
+    tour: '1/4 de finale',
+    matches: [
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2026-01-14',
+    label: 'mer. 14 jan.',
+    tour: '1/2 finale',
+    matches: [
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2026-01-17',
+    label: 'sam. 17 jan.',
+    tour: 'Match pour la 3ème place',
+    matches: [
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
+  },
+  {
+    date: '2026-01-18',
+    label: 'dim. 18 jan.',
+    tour: 'Finale',
+    matches: [
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+    ]
   }
 ];
 
@@ -148,6 +228,18 @@ function formatTeams(teamsString) {
     code1: countryToCode[team1.trim()],           // Code du pays de l'équipe 1
     code2: countryToCode[team2.trim()]            // Code du pays de l'équipe 2
   };
+}
+
+/* Fonction pour générer l'HTML du drapeau ou de l'icône par défaut */
+function getFlagHtml(teamName, countryCode, isLeft = true) {
+  if (teamName === 'en attente') {
+    return `<span class="default-team-icon ${isLeft ? 'me-2' : 'ms-2'}">
+              <i class="fas fa-circle-question"></i>
+            </span>`;
+  }
+  return `<img src="https://flagcdn.com/24x18/${countryCode}.png" 
+               alt="${teamName}" 
+               class="${isLeft ? 'me-2' : 'ms-2'}">`;
 }
 
 /* Création du conteneur principal */
@@ -213,13 +305,13 @@ matchData.forEach(day => {
             <div class="col">
               <div class="d-flex justify-content-center align-items-center match-teams">
                 <div class="text-end" style="width: 40%;">
-                  <img src="https://flagcdn.com/24x18/${teams.code1}.png" alt="${teams.team1}" class="me-2">
+                  ${getFlagHtml(teams.team1, teams.code1, true)}
                   ${teams.team1}
                 </div>
                 <div class="mx-4 text-muted">-</div>
                 <div class="text-start" style="width: 40%;">
                   ${teams.team2}
-                  <img src="https://flagcdn.com/24x18/${teams.code2}.png" alt="${teams.team2}" class="ms-2">
+                  ${getFlagHtml(teams.team2, teams.code2, false)}
                 </div>
               </div>
             </div>
@@ -248,3 +340,39 @@ function scrollCalendar(direction) {
     behavior: 'smooth'         // Animation fluide
   });
 }
+
+/* Fonction pour mettre à jour la date active dans le calendrier */
+function updateActiveDate() {
+  const scrollPosition = window.pageYOffset + SCROLL_OFFSET;
+  const sections = document.querySelectorAll('.match-section');
+  const dates = document.querySelectorAll('.calendar-date');
+
+  // Enlever la classe active de toutes les dates
+  dates.forEach(date => date.classList.remove('active'));
+
+  // Trouver la section actuellement visible
+  for (let i = 0; i < sections.length; i++) {
+    const section = sections[i];
+    const sectionTop = section.offsetTop;
+    const sectionBottom = sectionTop + section.offsetHeight;
+
+    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+      // Ajouter la classe active à la date correspondante
+      dates[i].classList.add('active');
+      
+      // Faire défiler le calendrier pour centrer la date active
+      const calendar = document.getElementById('calendarDates');
+      const dateElement = dates[i];
+      const scrollLeft = dateElement.offsetLeft - (calendar.offsetWidth / 2) + (dateElement.offsetWidth / 2);
+      calendar.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth'
+      });
+      break;
+    }
+  }
+}
+
+// Ajouter les écouteurs d'événements pour la synchronisation
+window.addEventListener('scroll', updateActiveDate);
+window.addEventListener('load', updateActiveDate);
