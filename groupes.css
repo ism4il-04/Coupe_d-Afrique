@@ -1,119 +1,125 @@
-/* Variables */
+/* Variables globales utilisées pour la palette de couleurs et les transitions */
 :root {
-    --primary-color: #f0c14b;
-    --secondary-color: #1a1a1a;
-    --accent-color: #8b142b;
-    --text-color: #333;
-    --light-bg: #f8f9fa;
-    --transition: all 0.3s ease;
-    --green-color: #4CAF50;
-    --red-color: #FF5252;
-    --light-green: rgba(76, 175, 80, 0.2);
-    --light-red: rgba(255, 82, 82, 0.2);
+    --primary-color: #f0c14b; /* Couleur principale jaune */
+    --secondary-color: #1a1a1a; /* Couleur secondaire foncée */
+    --accent-color: #8b142b; /* Couleur d'accent rouge bordeaux */
+    --text-color: #333; /* Couleur texte standard gris foncé */
+    --light-bg: #f8f9fa; /* Fond clair */
+    --transition: all 0.3s ease; /* Transition douce sur tous les changements */
+    --green-color: #4CAF50; /* Vert */
+    --red-color: #FF5252; /* Rouge */
+    --light-green: rgba(76, 175, 80, 0.2); /* Vert clair transparent */
+    --light-red: rgba(255, 82, 82, 0.2); /* Rouge clair transparent */
 }
 
-/* Styles généraux */
+/* Styles de base du corps de la page */
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--light-bg);
-    padding-top: 120px;
+    font-family: 'Montserrat', sans-serif; /* Police principale */
+    background-color: var(--light-bg); /* Fond clair */
+    padding-top: 120px; /* Espace en haut pour la barre fixe */
 }
 
-/* Hero Section */
+/* Section Hero avec image de fond + superposition */
 .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('Images/qualifiees.jpeg') center/cover;
-    padding: 120px 0;
-    margin-bottom: 2rem;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), /* dégradé noir transparent */
+                url('Images/qualifiees.jpeg') center/cover; /* image centrée et couverte */
+    padding: 120px 0; /* espace vertical */
+    margin-bottom: 2rem; /* marge sous la section */
+    position: relative; /* contexte pour pseudo-élément */
+    overflow: hidden; /* masque tout dépassement */
+    text-align: center; /* texte centré */
 }
 
+/* Overlay coloré en dégradé sur la hero */
 .hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, #8b142b, #4CAF50);
-    opacity: 0.3;
+    content: ''; /* élément vide */
+    position: absolute; /* position absolue */
+    top: 0; left: 0; right: 0; bottom: 0; /* occupe toute la section */
+    background: linear-gradient(45deg, #8b142b, #4CAF50); /* dégradé diagonal */
+    opacity: 0.3; /* transparence */
 }
 
+/* Titre principal dans la hero */
 .hero-section h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin-bottom: 1rem;
-    letter-spacing: 2px;
+    font-size: 3.5rem; /* grosse taille */
+    font-weight: 800; /* très gras */
+    color: white; /* blanc */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* ombre portée */
+    margin-bottom: 1rem; /* marge dessous */
+    letter-spacing: 2px; /* espacement des lettres */
 }
 
+/* Paragraphe dans la hero */
 .hero-section p {
-    font-size: 1.5rem;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    font-size: 1.5rem; /* taille plus petite */
+    color: white; /* blanc */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* ombre portée plus légère */
+    margin-bottom: 0.5rem; /* petite marge */
+    font-weight: 500; /* semi-gras */
 }
 
+/* Ajustement responsive pour petits écrans */
 @media (max-width: 768px) {
     .hero-section {
-        padding: 60px 0;
+        padding: 60px 0; /* réduit le padding vertical */
     }
 }
 
-/* Groupes Container */
+/* Container des groupes en flex colonne */
 .groups-container {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    align-items: center;
-    width: 100%;
+    display: flex; /* flexbox */
+    flex-direction: column; /* colonne */
+    gap: 32px; /* espace entre éléments */
+    align-items: center; /* centre horizontalement */
+    width: 100%; /* pleine largeur */
 }
 
-/* Group Card */
+/* Carte groupe avec fond blanc et ombre */
 .group-card {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(30,40,60,0.08);
-    padding: 24px;
-    width: 100%;
-    max-width: 1200px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff; /* blanc */
+    border-radius: 18px; /* bords arrondis */
+    box-shadow: 0 4px 24px rgba(30,40,60,0.08); /* ombre légère */
+    padding: 24px; /* espacement intérieur */
+    width: 100%; /* largeur complète */
+    max-width: 1200px; /* largeur max */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* transition animation */
 }
 
+/* Animation au survol de la carte groupe */
 .group-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 32px rgba(30,40,60,0.12);
+    transform: translateY(-5px); /* remonte un peu */
+    box-shadow: 0 8px 32px rgba(30,40,60,0.12); /* ombre plus marquée */
 }
 
+/* En-tête du groupe en flex pour aligner icon et texte */
 .group-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 12px; /* espace entre icon et nom */
+    margin-bottom: 20px; /* marge en bas */
 }
 
+/* Icône du groupe taille 2rem */
 .group-icon {
     font-size: 2rem;
 }
 
+/* Nom du groupe style texte */
 .group-name {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--secondary-color);
 }
 
-/* Table Styles */
+/* Table du groupe, style pour tableau */
 .group-table {
     width: 100%;
-    border-collapse: separate;
+    border-collapse: separate; /* bordures séparées */
     border-spacing: 0;
     margin-bottom: 20px;
 }
 
+/* En-têtes du tableau */
 .group-table th {
     background: var(--light-bg);
     padding: 12px;
@@ -123,33 +129,37 @@ body {
     border-bottom: 2px solid #e0e0e0;
 }
 
+/* Cellules du tableau */
 .group-table td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #e0e0e0;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease; /* transition couleur fond */
 }
 
+/* Changement de fond au survol des lignes */
 .group-table tr:hover td {
-    background-color: rgba(240, 193, 75, 0.1);
+    background-color: rgba(240, 193, 75, 0.1); /* fond jaune clair */
 }
 
+/* Drapeau équipe petit format */
 .team-flag {
     width: 28px;
     height: 20px;
     border-radius: 3px;
     vertical-align: middle;
-    margin-right: 8px;
+    margin-right: 8px; /* espace à droite */
 }
 
-/* Stats Grid */
+/* Grille des statistiques */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
     gap: 16px;
     margin-top: 20px;
 }
 
+/* Item de statistique individuel */
 .stat-item {
     background: var(--light-bg);
     padding: 16px;
@@ -158,10 +168,12 @@ body {
     transition: transform 0.2s ease;
 }
 
+/* Animation au survol des stats */
 .stat-item:hover {
     transform: translateY(-3px);
 }
 
+/* Label de la stat */
 .stat-label {
     display: block;
     font-size: 0.9rem;
@@ -169,34 +181,39 @@ body {
     margin-bottom: 8px;
 }
 
+/* Valeur de la stat en gras et couleur accent */
 .stat-value {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--accent-color);
 }
 
-/* Modal Styles */
+/* Style de la fenêtre modale */
 .modal-content {
     border: none;
     border-radius: 15px;
 }
 
+/* En-tête de la modale */
 .modal-header {
     background-color: var(--secondary-color);
     color: white;
     border-radius: 15px 15px 0 0;
 }
 
+/* Conteneur infos équipe */
 .team-info {
     padding: 20px;
 }
 
+/* Drapeau grand dans la modale */
 .team-flag {
     width: 150px;
     height: auto;
     margin-bottom: 16px;
 }
 
+/* Nom de l'équipe dans la modale */
 .team-name {
     font-size: 1.8rem;
     font-weight: bold;
@@ -204,65 +221,67 @@ body {
     margin-bottom: 24px;
 }
 
-/* Animations */
+/* Animation fadeIn */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Application de l'animation fadeIn aux cartes groupes */
 .group-card {
     animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Responsive Design */
+/* Responsive : ajustements pour écrans < 768px */
 @media (max-width: 768px) {
     .hero-section {
-        padding: 60px 0;
+        padding: 60px 0; /* padding réduit */
     }
 
     .group-card {
-        padding: 16px;
+        padding: 16px; /* padding réduit */
     }
 
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes au lieu de 3 */
     }
 
     .group-table {
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* texte plus petit */
     }
 
     .group-table th,
     .group-table td {
-        padding: 8px;
+        padding: 8px; /* padding réduit */
     }
 }
 
-/* Custom Scrollbar */
+/* Personnalisation de la barre de défilement */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 8px; /* largeur scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--light-bg);
+    background: var(--light-bg); /* fond scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
+    background: var(--primary-color); /* couleur du curseur */
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-color);
+    background: var(--accent-color); /* couleur curseur au hover */
 }
 
-/* Footer */
+/* Styles du footer */
 .footer {
     background-color: var(--secondary-color);
     color: white;
     padding: 50px 0 20px;
 }
 
+/* Contenu du footer en grille responsive */
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -272,6 +291,7 @@ body {
     padding: 0 20px;
 }
 
+/* Titres des sections footer */
 .footer-section h3 {
     color: var(--primary-color);
     margin-bottom: 20px;
@@ -279,6 +299,7 @@ body {
     display: inline-block;
 }
 
+/* Soulignement décoratif sous titres footer */
 .footer-section h3::after {
     content: '';
     position: absolute;
@@ -289,24 +310,31 @@ body {
     background: linear-gradient(to right, var(--light-red), var(--light-green));
 }
 
+/* Liste dans footer sans puces */
 .footer-section ul {
     list-style: none;
     padding: 0;
 }
 
+/* Marges entre éléments de liste */
 .footer-section ul li {
     margin-bottom: 10px;
 }
 
+/* Liens dans footer */
 .footer-section a {
     color: white;
     text-decoration: none;
     transition: var(--transition);
 }
 
+/* Hover sur liens footer */
 .footer-section a:hover {
     color: var(--primary-color);
 }
+
+
+
 
 .social-links {
     display: flex;
