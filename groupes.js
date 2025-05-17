@@ -6,7 +6,7 @@ const groupes = [
         equipes: [
             { nom: "Comores", flag: "Images/flags/comoros.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Mali", flag: "Images/flags/mali.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Maroc", flag: "Images/flags/morocco.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Maroc", flag: "Images/flags/maroc.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Zambie", flag: "Images/flags/zambia.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 }
         ]
     },
@@ -55,7 +55,7 @@ const groupes = [
         icon: "🇨🇲",
         equipes: [
             { nom: "Cameroun", flag: "Images/flags/cameroon.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Côte d'Ivoire", flag: "Images/flags/cote_divoire.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Côte d'Ivoire", flag: "Images/flags/cote_ivoire.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Gabon", flag: "Images/flags/gabon.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Mozambique", flag: "Images/flags/mozambique.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 }
         ]
