@@ -1,0 +1,55 @@
+dimanche 21 décembre 2025
+maroc comores
+lundi 22 décembre 2025 
+Mali	 	-	 	Zambie
+vendredi 26 décembre 2025 
+Maroc	 	-	 	Mali
+Zambie	 	-	 	Comores
+lundi 29 décembre 2025 
+Comores	 	-	 	Mali
+Zambie	 	-	 	Maroc
+lundi 22 décembre 2025
+Afrique du Sud	 	-	 	Angola
+Égypte	 	-	 	Zimbabwe
+vendredi 26 décembre 2025
+Angola	 	-	 	Zimbabwe
+Égypte	 	-	 	Afrique du Sud	
+lundi 29 décembre 2025
+Angola	 	-	 	Égypte
+Zimbabwe	 	-	 	Afrique du Sud
+mardi 23 décembre 2025
+Nigeria	 	-	 	Tanzanie
+Tunisie	 	-	 	Ouganda
+samedi 27 décembre 2025
+Nigeria	 	-	 	Tunisie
+Ouganda	 	-	 	Tanzanie
+mardi 30 décembre 2025
+Ouganda	 	-	 	Nigeria
+Tanzanie	 	-	 	Tunisie	
+mardi 23 décembre 2025
+Rép. Dém. Congo	 	-	 	Bénin
+Sénégal	 	-	 	Botswana
+samedi 27 décembre 2025
+Bénin	 	-	 	Botswana
+Sénégal	 	-	 	Rép. Dém. Congo
+mardi 30 décembre 2025
+Botswana	 	-	 	Rép. Dém. Congo
+Bénin	 	-	 	Sénégal
+mercredi 24 décembre 2025
+Algérie	 	-	 	Soudan
+Burkina Faso	 	-	 	Guinée Équatoriale
+dimanche 28 décembre 2025
+Algérie	 	-	 	Burkina Faso
+Guinée Équatoriale	 	-	 	Soudan
+mercredi 31 décembre 2025
+Guinée Équatoriale	 	-	 	Algérie
+Soudan	 	-	 	Burkina Faso
+mercredi 24 décembre 2025
+Cameroun	 	-	 	Gabon
+Côte d'Ivoire	 	-	 	Mozambique
+dimanche 28 décembre 2025
+Côte d'Ivoire	 	-	 	Cameroun
+Gabon	 	-	 	Mozambique
+mercredi 31 décembre 2025
+Gabon	 	-	 	Côte d'Ivoire
+Mozambique	 	-	 	Cameroun
