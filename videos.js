@@ -257,7 +257,7 @@ interactiveItems.forEach(item => {
                 window.location.href = 'index.html#maroc';
                 break;
             case 'matches':
-                // Déjà sur la page matches, pas d'action
+                window.location.href = 'matches.html';
                 break;
             case 'groups':
                 window.location.href = 'groupes.html';
