@@ -193,6 +193,16 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 }); 
+  // Le logo devient cliquable et ramène à l'accueil
+            const logoContainer = document.getElementById('logo-container');
+            if (logoContainer) {
+                logoContainer.addEventListener('click', () => {
+                    window.location.href = 'index.html';
+                });
+                // On ajoute un curseur pointer pour montrer que c'est cliquable
+                logoContainer.style.cursor = 'pointer';
+            }
+            
 // Gestion de la barre interactive
 const interactiveItems = document.querySelectorAll('.interactive-item');
 

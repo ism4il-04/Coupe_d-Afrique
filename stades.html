@@ -18,46 +18,43 @@
     <script src="stades.js"></script>
 </head>
 <body>
+
+    <!-- Barre Interactive -->
     <div class="interactive-bar">
         <div class="interactive-content">
             <div id="logo-container">
-                <img src="Images/téléchargement.png" alt="Logo CAN">
+                <i><img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180" ></i>
             </div>
-            <a href="index.html" class="interactive-item">
-                <i class="fas fa-home"></i>
+            <div class="interactive-item" data-section="can2025-description">
+                <i class="fas fa-home home-icon"></i>
                 <span>Accueil</span>
-            </a>
-            <a href="matches.html" class="interactive-item">
+            </div>
+            <div class="interactive-item" data-section="maroc">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Maroc</span>
+            </div>
+            <div class="interactive-item " data-section="matches">
                 <i class="fas fa-futbol"></i>
                 <span>Matches</span>
-            </a>
-            <a href="groupes.html" class="interactive-item">
+            </div>
+            <div class="interactive-item" data-section="groups">
                 <i class="fas fa-users"></i>
                 <span>Groupes</span>
-            </a>
-            <a href="#section-video" class="interactive-item">
+            </div>
+            <div class="interactive-item " data-section="videos">
                 <i class="fas fa-play-circle"></i>
                 <span>Vidéos</span>
-            </a>
-            <a href="stades.html" class="interactive-item">
-                <i class="fas fa-chart-bar"></i>
-                <span>Stades</span>
-            </a>
-            <a href="jeux.html" class="interactive-item">
-                <i class="fas fa-gamepad"></i>
-                <span>Jeux</span>
-            </a>
-            <a href="equipes.html" class="interactive-item">
+            </div>
+            <div class="interactive-item active" data-section="stats">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>Stades et villes hôtes</span>
+            </div>
+            <div class="interactive-item" data-section="teams">
                 <i class="fas fa-flag"></i>
                 <span>Équipes</span>
-            </a>
-            <a href="infos.html" class="interactive-item">
-                <i class="fas fa-info-circle"></i>
-                <span>Infos</span>
-            </a>
+            </div>
         </div>
     </div>
-
     <!-- Barre de recherche -->
     <div class="search-container">
         <div class="search-box">
@@ -1743,6 +1740,38 @@
         </div>
     </div>
 
+   
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CAN 2025</h3>
+                <p>Coupe d'Afrique des Nations<br>Maroc</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">  
+                    <a href="https://www.facebook.com/TheAFCON"><i class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/CAF_Online?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/caf_online?igsh=MXVvajljaXVlenFvaw=="><i class="fab fa-instagram"></i></a>
+
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="matches.html">Matches</a></li>
+                    <li><a href="groupes.html">Groupes</a></li>
+                    <li><a href="videos.html">Vidéos</a></li>
+                    <li><a href="stades.html">Stades et villes hôtes</a></li>
+                    <li><a href="equipes.html">Équipes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CAN - Tous droits réservés</p>
+        </div>
+    </footer>
     <!-- Bootstrap JS et Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

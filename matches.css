@@ -5,6 +5,12 @@
     --accent-color: #8b142b;     /* Couleur d'accent (rouge foncé) */
     --text-color: #333;          /* Couleur du texte principal */
     --light-bg: #f8f9fa;         /* Couleur de fond claire */
+
+    --transition: all 0.3s ease;
+    --green-color: #4CAF50;
+    --red-color: #FF5252;
+    --light-green: rgba(76, 175, 80, 0.2);
+    --light-red: rgba(255, 82, 82, 0.2);
 }
 
 /* Styles de la barre de navigation interactive */
@@ -131,6 +137,7 @@
     margin-right: 5px;
     color: #8b142b;
 }
+
 /* Barre Interactive */
 .interactive-bar {
     position: fixed;
@@ -216,4 +223,85 @@
 #logo-container img:hover {
     box-shadow: 0 0 24px 4px #FF5252, 0 0 32px 8px #4CAF50;
     border-color: #FF5252;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, var(--light-red), var(--light-green));
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.social-links a:hover {
+    color: var(--red-color);
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+.social-links a:hover + a {
+    color: var(--green-color);
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }

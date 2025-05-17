@@ -1,6 +1,15 @@
-/* Variables de couleurs */
+/*
+   Ce fichier contient tous les styles pour la page des équipes
+   avec une palette de couleurs inspirée de l'Afrique:
+   - Or (représentant la richesse et le soleil africain)
+   - Vert forêt (représentant la nature et les forêts africaines)
+   - Orange terre (représentant la terre et les paysages africains)
+*/
+
+/* Variables de couleurs - notre palette de base réutilisée partout */
 :root {
-    --primary-color: #f0c14b;
+  
+      --primary-color: #f0c14b;
     --secondary-color: #1a1a1a;
     --accent-color: #8b142b;
     --text-color: #333;
@@ -9,35 +18,36 @@
     --green-color: #4CAF50;
     --red-color: #FF5252;
     --light-green: rgba(76, 175, 80, 0.2);
-    --light-red: rgba(255, 82, 82, 0.2);
+    --light-red: rgba(255, 82, 82, 0.2);
+  /* Rouge transparent */
 
-    --dark-color: #1C1C1C;          /* Noir profond */
-    --light-color: #F5F5F5;         /* Blanc cassé */
-    --gradient-primary: linear-gradient(135deg, #E8B341, #D35400);
-    --gradient-dark: linear-gradient(135deg, #2D4B2D, #1C1C1C);
-    --text-dark: #333333;
-    --text-light: #FFFFFF;
-    --border-color: #E2E2E2;
+    --dark-color: #1C1C1C;          /* Noir profond pour les fonds */
+    --light-color: #F5F5F5;         /* Blanc cassé pour le texte sur fond foncé */
+    --gradient-primary: linear-gradient(135deg, #E8B341, #D35400); /* Dégradé or-orange */
+    --gradient-dark: linear-gradient(135deg, #2D4B2D, #1C1C1C);    /* Dégradé vert-noir */
+    --text-dark: #333333;           /* Texte foncé */
+    --text-light: #FFFFFF;          /* Texte clair */
+    --border-color: #E2E2E2;        /* Couleur standard pour les bordures */
 }
 
-/* Styles généraux */
+/* Styles généraux - base pour toute la page */
 body {
     padding-top: 0;
     background-color: #f8f9fa;
     font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Évite les barres de défilement horizontales */
 }
 
-/* Barre Interactive */
-/* Barre Interactive */
+/*
+   La barre qui reste fixée en haut avec le logo et les liens */
 .interactive-bar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    z-index: 1000; /* Reste au-dessus de tout le reste */
     padding: 10px 0;
 }
 
@@ -50,6 +60,7 @@ body {
     padding: 0 20px;
 }
 
+/* Les éléments de menu dans la barre */
 .interactive-item {
     display: flex;
     flex-direction: column;
@@ -63,6 +74,7 @@ body {
     overflow: hidden;
 }
 
+/* Ligne qui apparaît sous chaque élément quand on passe la souris dessus */
 .interactive-item::after {
     content: '';
     position: absolute;
@@ -75,31 +87,37 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* Animation de la ligne au survol */
 .interactive-item:hover::after {
     transform: scaleX(1);
 }
 
+/* Style pour l'élément actif (page courante) */
 .interactive-item.active {
     background: linear-gradient(45deg, var(--light-red), var(--light-green));
     color: var(--text-color);
 }
 
+/* Style des icônes dans le menu */
 .interactive-item i {
     font-size: 1.5rem;
     margin-bottom: 5px;
     color: var(--accent-color);
 }
 
+/* Style du texte dans le menu */
 .interactive-item span {
     font-size: 0.9rem;
     font-weight: 500;
 }
 
+/* Animation au survol des éléments du menu */
 .interactive-item:hover {
     background: var(--light-bg);
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Effet de léger soulèvement */
 }
 
+/* Style spécial pour le logo */
 #logo-container img {
     border: 3px solid transparent;
     border-radius: 18px;
@@ -111,11 +129,13 @@ body {
     padding: 2px;
 }
 
+/* Animation du logo au survol */
 #logo-container img:hover {
     box-shadow: 0 0 24px 4px #FF5252, 0 0 32px 8px #4CAF50;
     border-color: #FF5252;
 }
 
+/* Style alternatif commenté (conservé comme référence) */
 /* .interactive-item {
     color: rgb(202, 56, 56);
     text-align: center;
@@ -141,7 +161,7 @@ body {
     display: block;
 } */
 
-/* En-tête de la page */
+/* Grande section en haut avec image de fond et titre */
 .teams-header {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Images/CAN.jpeg');
     background-size: cover;
@@ -154,6 +174,7 @@ body {
     overflow: hidden;
 }
 
+/* Overlay coloré sur l'image de fond pour la teinter */
 .teams-header::before {
     content: '';
     position: absolute;
@@ -162,18 +183,20 @@ body {
     right: 0;
     bottom: 0;
     background: linear-gradient(45deg, 
-        rgba(45, 75, 45, 0.8),
-        rgba(232, 179, 65, 0.8),
-        rgba(211, 84, 0, 0.8)
+        rgba(45, 75, 45, 0.8),   /* Vert forêt transparent */
+        rgba(232, 179, 65, 0.8), /* Or transparent */
+        rgba(211, 84, 0, 0.8)    /* Orange terre transparent */
     );
     z-index: 1;
 }
 
+/* Positionnement du contenu par dessus l'image et l'overlay */
 .teams-header .container {
     position: relative;
     z-index: 2;
 }
 
+/* Style du titre principal avec animation */
 .teams-header h1 {
     font-size: 4rem;
     font-weight: 800;
@@ -182,13 +205,14 @@ body {
     animation: fadeInDown 1s ease;
 }
 
+/* Style du sous-titre avec animation */
 .teams-header p {
     font-size: 1.4rem;
     opacity: 0.9;
     animation: fadeInUp 1s ease;
 }
 
-/* Section des filtres */
+/* Barre avec champ de recherche et filtres */
 .filters-section {
     padding: 30px 0;
     background-color: white;
@@ -206,7 +230,7 @@ body {
     left: 0;
     width: 100%;
     height: 5px;
-    background: var(--gradient-primary);
+    background: var(--gradient-primary); /* Bordure colorée sur le dessus */
 }
 
 .filters-section .form-control,
@@ -222,7 +246,7 @@ body {
 .filters-section .form-select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.25rem rgba(232, 179, 65, 0.25);
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Effet de soulèvement subtil */
 }
 
 .input-group-text {
@@ -239,253 +263,293 @@ body {
     background-position: right 20px center;
 }
 
-/* Cartes des équipes */
+/* Style des cartes qui affichent chaque équipe */
 .team-card {
-    background: var(--light-color);
+    background: white;
     border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s ease;
     margin-bottom: 30px;
     cursor: pointer;
     position: relative;
-    perspective: 1000px;
-    transform-style: preserve-3d;
+    border: 1px solid var(--border-color);
 }
 
+/* Animation quand on survole une carte */
 .team-card:hover {
-    transform: translateY(-15px) rotateY(5deg);
-    box-shadow: 15px 15px 30px rgba(232, 179, 65, 0.3);
+    transform: translateY(-10px); /* Effet de soulèvement */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* Conteneur pour le drapeau */
 .team-card .flag-container {
-    height: 200px;
+    width: 100%;
+    height: 170px;
     overflow: hidden;
     position: relative;
 }
 
+/* Effet de brillance sur le drapeau */
 .team-card .flag-container::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    width: 50px;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.4);
+    top: -100%;
+    left: -200px;
+    transform: rotate(35deg);
+    transition: all 1s ease;
     z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    animation: shimmer 4s infinite;
+    pointer-events: none;
 }
 
+/* Animation de l'effet de brillance au survol */
 .team-card:hover .flag-container::before {
-    opacity: 1;
+    left: 200%;
 }
 
+/* Style de l'image du drapeau */
 .team-card .flag-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s ease;
+    transition: transform 0.7s ease;
 }
 
+/* Zoom sur le drapeau au survol */
 .team-card:hover .flag-container img {
-    transform: scale(1.1) rotate(1deg);
-}
-
-.team-card .team-info {
-    padding: 25px;
-    text-align: center;
-    background: var(--light-color);
-    position: relative;
-    z-index: 2;
-    transform: translateZ(20px);
-}
-
-.team-card .team-name {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: var(--secondary-color);
-    position: relative;
-    display: inline-block;
-}
-
-.team-card .team-name::after {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 3px;
-    background: var(--gradient-primary);
-    bottom: -5px;
-    left: 25%;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.team-card:hover .team-name::after {
-    transform: scaleX(1);
-}
-
-.team-card .team-details {
-    color: var(--dark-color);
-    font-size: 1rem;
-    margin-bottom: 15px;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-.team-card:hover .team-details {
-    opacity: 1;
-}
-
-.team-card .team-group {
-    background: var(--gradient-primary);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 25px;
-    display: inline-block;
-    font-weight: 600;
-    margin-top: 10px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.team-card:hover .team-group {
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(211, 84, 0, 0.3);
 }
 
-.team-card .team-group::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-    transform: rotate(45deg);
-    transition: all 0.5s ease;
-    opacity: 0;
-}
-
-.team-card:hover .team-group::before {
-    animation: shimmer 1.5s infinite;
-    opacity: 1;
-}
-
-/* Animation shimmer */
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%) rotate(45deg);
-    }
-    100% {
-        transform: translateX(100%) rotate(45deg);
-    }
-}
-
-/* Style pour la section des joueurs clés */
-.key-players {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.key-player {
-    background: white;
-    border-radius: 12px;
-    padding: 1.5rem;
+/* Zone d'information en bas de la carte */
+.team-card .team-info {
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
-    border: 1px solid var(--border-color);
-    position: relative;
-    overflow: hidden;
-}
-
-.key-player::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: var(--gradient-primary);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 0;
-}
-
-.key-player > * {
     position: relative;
     z-index: 1;
 }
 
-.key-player:hover::before {
-    opacity: 0.05;
-}
-
-.key-player:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    border-color: var(--primary-color);
-}
-
-.key-player h4 {
-    color: var(--accent-color);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+/* Style du nom d'équipe */
+.team-card .team-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
     position: relative;
-    padding-bottom: 0.5rem;
+    display: inline-block;
 }
 
+/* Ligne décorative sous le nom d'équipe */
+.team-card .team-name::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: scaleX(0.3);
+    transform-origin: center;
+    transition: transform 0.4s ease;
+}
+
+/* Animation de la ligne au survol */
+.team-card:hover .team-name::after {
+    transform: scaleX(1);
+}
+
+/* Détails (classement FIFA, participations) */
+.team-card .team-details {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* Animation des détails au survol */
+.team-card:hover .team-details {
+    opacity: 1;
+}
+
+/* Badge pour indiquer le groupe */
+.team-card .team-group {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: var(--gradient-primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
+}
+
+/* Animation du badge au survol */
+.team-card:hover .team-group {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Forme décorative derrière le badge */
+.team-card .team-group::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) rotate(10deg);
+    z-index: -1;
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+}
+
+/* Animation de la forme au survol */
+.team-card:hover .team-group::before {
+    transform: translate(-50%, -50%) rotate(-10deg);
+}
+
+/* Animation de brillance pour les drapeaux */
+@keyframes shimmer {
+    0% {
+        left: -200px;
+    }
+    20%, 100% {
+        left: 200%;
+    }
+}
+
+/* ===============================
+   MODAL DE DÉTAILS D'ÉQUIPE
+   ===============================
+   Style du popup qui apparaît quand on clique sur une équipe */
+
+/* Disposition des joueurs clés */
+.key-players {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Style de chaque joueur clé */
+.key-player {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    z-index: 1;
+}
+
+/* Arrière-plan coloré pour chaque joueur */
+.key-player::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    opacity: 0.05;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+/* Positionnement du texte */
+.key-player > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Animation de l'arrière-plan au survol */
+.key-player:hover::before {
+    opacity: 0.15;
+}
+
+/* Animation de la carte joueur au survol */
+.key-player:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre de chaque carte joueur */
+.key-player h4 {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+/* Ligne sous le titre */
 .key-player h4::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
     height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
-}
-
-.key-player:hover h4::after {
-    width: 50px;
-}
-
-.key-player p {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--secondary-color);
-    margin-bottom: 0.5rem;
+    background: var(--gradient-primary);
+    transform: scaleX(0.5);
+    transform-origin: center;
     transition: transform 0.3s ease;
 }
 
-.key-player:hover p {
-    transform: scale(1.05);
+/* Animation de la ligne au survol */
+.key-player:hover h4::after {
+    transform: scaleX(1);
 }
 
+/* Nom du joueur */
+.key-player p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+/* Animation du nom au survol */
+.key-player:hover p {
+    color: var(--accent-color);
+}
+
+/* Style pour le poste et buts marqués */
 .key-player .position,
 .key-player .goals {
     display: inline-block;
-    padding: 0.3rem 0.8rem;
-    background-color: var(--light-color);
-    border-radius: 15px;
-    font-size: 0.9rem;
-    color: var(--dark-color);
+    padding: 2px 10px;
+    background: var(--light-bg);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    font-weight: 500;
     transition: all 0.3s ease;
 }
 
+/* Animation au survol du poste/buts */
 .key-player:hover .position,
 .key-player:hover .goals {
-    background-color: var(--primary-color);
-    color: var(--text-light);
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Amélioration de l'en-tête modal */
+/* En-tête du modal avec le drapeau et nom d'équipe */
 .team-modal-header {
     position: relative;
     padding: 4rem 2rem 2rem;
@@ -496,6 +560,7 @@ body {
     background: linear-gradient(135deg, var(--secondary-color), var(--dark-color));
 }
 
+/* Overlay pour ajouter une teinte à l'arrière-plan */
 .team-modal-header::before {
     content: '';
     position: absolute;
@@ -507,11 +572,13 @@ body {
     z-index: 0;
 }
 
+/* Positionnement du contenu par dessus l'arrière-plan */
 .team-modal-header > * {
     position: relative;
     z-index: 1;
 }
 
+/* Conteneur du drapeau dans le modal */
 .team-modal-header .flag-container {
     width: 150px;
     height: 100px;
@@ -523,12 +590,14 @@ body {
     transform: perspective(500px) rotateX(5deg);
 }
 
+/* Image du drapeau dans le modal */
 .team-modal-header .flag-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+/* Nom de l'équipe dans le modal */
 .team-modal-header h2 {
     font-size: 2.75rem;
     margin-bottom: 0.75rem;
@@ -536,14 +605,16 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+/* Badge de groupe dans l'en-tête du modal */
 .group-badge {
     display: inline-block;
-    padding: 0.5rem 1.5rem;
-    background-color: var(--primary-color);
-    border-radius: 25px;
+    padding: 0.4rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    font-size: 0.9rem;
     font-weight: 600;
-    color: var(--dark-color);
-    font-size: 1rem;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Animation de l'affichage des équipes */
@@ -647,57 +718,6 @@ body {
 .modal.show .modal-dialog {
     transform: scale(1) translateY(0);
     opacity: 1;
-}
-
-/* Style pour les filtres */
-.filters-section {
-    padding: 30px 0;
-    background-color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    margin-bottom: 40px;
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
-}
-
-.filters-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: var(--gradient-primary);
-}
-
-.filters-section .form-control,
-.filters-section .form-select {
-    border-radius: 30px;
-    padding: 15px 20px;
-    border: 2px solid var(--border-color);
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.filters-section .form-control:focus,
-.filters-section .form-select:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.25rem rgba(232, 179, 65, 0.25);
-    transform: translateY(-2px);
-}
-
-.input-group-text {
-    border-radius: 30px 0 0 30px;
-    background: var(--light-color);
-    border: 2px solid var(--border-color);
-    border-right: none;
-    color: var(--accent-color);
-}
-
-.form-select {
-    border-radius: 0 30px 30px 0 !important;
-    cursor: pointer;
-    background-position: right 20px center;
 }
 
 /* Responsive design */
@@ -1042,6 +1062,87 @@ body {
     padding-top: 0;
     padding-bottom: 2rem;
     background-color: white;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, var(--light-red), var(--light-green));
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.social-links a:hover {
+    color: var(--red-color);
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+.social-links a:hover + a {
+    color: var(--green-color);
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Animation pour l'affichage des groupes */

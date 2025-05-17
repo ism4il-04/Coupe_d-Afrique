@@ -34,7 +34,7 @@ const matchData = [
     label: 'dim. 21 déc.',
     tour: 'Phase de groupes - Groupe A',
     matches: [
-      { teams: 'Maroc vs Comores', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' }
+      { teams: 'Maroc vs Comores', time: '20:00', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' }
     ]
   },
   {
@@ -42,9 +42,9 @@ const matchData = [
     label: 'lun. 22 déc.',
     tour: 'Phase de groupes - Groupes A et B',
     matches: [
-      { teams: 'Mali vs Zambie', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
-      { teams: 'Afrique du Sud vs Angola', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH MARRAKECH' },
-      { teams: 'Égypte vs Zimbabwe', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
+      { teams: 'Mali vs Zambie', time: '15:30', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Égypte vs Zimbabwe', time: '18:00', stadium: 'GRAND STADE D\'AGADIR' },
+      { teams: 'Afrique du Sud vs Angola', time: '20:30', stadium: 'GRAND STADE DE MARRAKECH MARRAKECH' }
     ]
   },
   {
@@ -52,10 +52,10 @@ const matchData = [
     label: 'mar. 23 déc.',
     tour: 'Phase de groupes - Groupes C et D',
     matches: [
-      { teams: 'Nigeria vs Tanzanie', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF DE FES' },
-      { teams: 'Tunisie vs Ouganda', time: 'à déterminer', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' },
-      { teams: 'Rép. Dém. Congo vs Bénin', time: 'à déterminer', stadium: 'STADE EL BARID RABAT 3' },
-      { teams: 'Sénégal vs Botswana', time: 'à déterminer', stadium: 'GRAND STADE DE TANGER TANGIER' }
+      { teams: 'Nigeria vs Tanzanie', time: '13:00', stadium: 'COMPLEXE SPORTIF DE FES' },
+      { teams: 'Tunisie vs Ouganda', time: '15:30', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' },
+      { teams: 'Sénégal vs Botswana', time: '18:00', stadium: 'GRAND STADE DE TANGER TANGIER' },
+      { teams: 'Rép. Dém. Congo vs Bénin', time: '20:30', stadium: 'STADE EL BARID RABAT 3' }
     ]
   },
   {
@@ -63,10 +63,10 @@ const matchData = [
     label: 'mer. 24 déc.',
     tour: 'Phase de groupes - Groupes E et F',
     matches: [
-      { teams: 'Algérie vs Soudan', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE HÉRITIER MOULAY EL HASSAN RABAT 2' },
-      { teams: 'Burkina Faso vs Guinée Équatoriale', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
-      { teams: 'Cameroun vs Gabon', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH MARRAKECH' },
-      { teams: 'Côte d\'Ivoire vs Mozambique', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
+      { teams: 'Algérie vs Soudan', time: '13:00', stadium: 'COMPLEXE SPORTIF PRINCE HÉRITIER MOULAY EL HASSAN RABAT 2' },
+      { teams: 'Burkina Faso vs Guinée Équatoriale', time: '15:30', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Côte d\'Ivoire vs Mozambique', time: '18:00', stadium: 'GRAND STADE D\'AGADIR' },
+      { teams: 'Cameroun vs Gabon', time: '20:30', stadium: 'GRAND STADE DE MARRAKECH MARRAKECH' }
     ]
   },
   {
@@ -74,10 +74,10 @@ const matchData = [
     label: 'ven. 26 déc.',
     tour: 'Phase de groupes - Groupes A et B',
     matches: [
-      { teams: 'Maroc vs Mali', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' },
-      { teams: 'Zambie vs Comores', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
-      { teams: 'Angola vs Zimbabwe', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH' },
-      { teams: 'Égypte vs Afrique du Sud', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
+      { teams: 'Maroc vs Mali', time: '13:00', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' },
+      { teams: 'Zambie vs Comores', time: '15:30', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Égypte vs Afrique du Sud', time: '18:00', stadium: 'GRAND STADE D\'AGADIR' },
+      { teams: 'Angola vs Zimbabwe', time: '20:30', stadium: 'GRAND STADE DE MARRAKECH' }
     ]
   },
   {
@@ -85,10 +85,10 @@ const matchData = [
     label: 'sam. 27 déc.',
     tour: 'Phase de groupes - Groupes C et D',
     matches: [
-      { teams: 'Nigeria vs Tunisie', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF DE FES' },
-      { teams: 'Ouganda vs Tanzanie', time: 'à déterminer', stadium: 'STADE EL BARID RABAT 3' },
-      { teams: 'Bénin vs Botswana', time: 'à déterminer', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' },
-      { teams: 'Sénégal vs Rép. Dém. Congo', time: 'à déterminer', stadium: 'GRAND STADE DE TANGER TANGIER' }
+      { teams: 'Nigeria vs Tunisie', time: '13:00', stadium: 'COMPLEXE SPORTIF DE FES' },
+      { teams: 'Ouganda vs Tanzanie', time: '13:30', stadium: 'STADE EL BARID RABAT 3' },
+      { teams: 'Sénégal vs Rép. Dém. Congo', time: '18:00', stadium: 'GRAND STADE DE TANGER TANGIER' },
+      { teams: 'Bénin vs Botswana', time: '20:30', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' }
     ]
   },
   {
@@ -96,10 +96,10 @@ const matchData = [
     label: 'dim. 28 déc.',
     tour: 'Phase de groupes - Groupes E et F',
     matches: [
-      { teams: 'Algérie vs Burkina Faso', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE HÉRITIER MOULAY EL HASSAN RABAT 2' },
-      { teams: 'Guinée Équatoriale vs Soudan', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
-      { teams: 'Côte d\'Ivoire vs Cameroun', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH' },
-      { teams: 'Gabon vs Mozambique', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
+      { teams: 'Algérie vs Burkina Faso', time: '13:00', stadium: 'COMPLEXE SPORTIF PRINCE HÉRITIER MOULAY EL HASSAN RABAT 2' },
+      { teams: 'Guinée Équatoriale vs Soudan', time: '15:30', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Côte d\'Ivoire vs Cameroun', time: '18:00', stadium: 'GRAND STADE DE MARRAKECH' },
+      { teams: 'Gabon vs Mozambique', time: '20:30', stadium: 'GRAND STADE D\'AGADIR' }
     ]
   },
   {
@@ -107,10 +107,10 @@ const matchData = [
     label: 'lun. 29 déc.',
     tour: 'Phase de groupes - Groupes A et B',
     matches: [
-      { teams: 'Comores vs Mali', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
-      { teams: 'Zambie vs Maroc', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' },
-      { teams: 'Angola vs Égypte', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' },
-      { teams: 'Zimbabwe vs Afrique du Sud', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH' }
+      { teams: 'Comores vs Mali', time: '18:30', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Zambie vs Maroc', time: '18:30', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' },
+      { teams: 'Angola vs Égypte', time: '20:30', stadium: 'GRAND STADE D\'AGADIR' },
+      { teams: 'Zimbabwe vs Afrique du Sud', time: '20:30', stadium: 'GRAND STADE DE MARRAKECH' }
     ]
   },
   {
@@ -118,10 +118,10 @@ const matchData = [
     label: 'mar. 30 déc.',
     tour: 'Phase de groupes - Groupes C et D',
     matches: [
-      { teams: 'Ouganda vs Nigeria', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' },
-      { teams: 'Tanzanie vs Tunisie', time: 'à déterminer', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' },
-      { teams: 'Botswana vs Rép. Dém. Congo', time: 'à déterminer', stadium: 'STADE EL BARID RABAT 3' },
-      { teams: 'Bénin vs Sénégal', time: 'à déterminer', stadium: 'GRAND STADE DE TANGER TANGIER' }
+      { teams: 'Ouganda vs Nigeria', time: '18:00', stadium: 'GRAND STADE D\'AGADIR' },
+      { teams: 'Tanzanie vs Tunisie', time: '18:00', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' },
+      { teams: 'Botswana vs Rép. Dém. Congo', time: '20:30', stadium: 'STADE EL BARID RABAT 3' },
+      { teams: 'Bénin vs Sénégal', time: '20:30', stadium: 'GRAND STADE DE TANGER TANGIER' }
     ]
   },
   {
@@ -129,10 +129,10 @@ const matchData = [
     label: 'mer. 31 déc.',
     tour: 'Phase de groupes - Groupes E et F',
     matches: [
-      { teams: 'Guinée Équatoriale vs Algérie', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE HÉRITIER MOULAY EL HASSAN RABAT 2' },
-      { teams: 'Soudan vs Burkina Faso', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
-      { teams: 'Gabon vs Côte d\'Ivoire', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH' },
-      { teams: 'Mozambique vs Cameroun', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
+      { teams: 'Guinée Équatoriale vs Algérie', time: '18:00', stadium: 'COMPLEXE SPORTIF PRINCE HÉRITIER MOULAY EL HASSAN RABAT 2' },
+      { teams: 'Soudan vs Burkina Faso', time: '18:00', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Gabon vs Côte d\'Ivoire', time: '20:30', stadium: 'GRAND STADE DE MARRAKECH' },
+      { teams: 'Mozambique vs Cameroun', time: '20:30', stadium: 'GRAND STADE D\'AGADIR' }
     ]
   },
   {
@@ -219,6 +219,9 @@ const matchData = [
 /* Calcul de l'offset pour le défilement (hauteur des barres + padding) */
 const SCROLL_OFFSET = 220; // 120px (barre interactive) + 80px (barre calendrier) + 20px padding
 
+/* Variable pour suivre le numéro global des matches */
+let globalMatchNumber = 1;
+
 /* Fonction utilitaire pour formater les équipes et obtenir leurs codes de pays */
 function formatTeams(teamsString) {
   const [team1, team2] = teamsString.split(' vs '); // Sépare les noms des équipes
@@ -291,7 +294,7 @@ matchData.forEach(day => {
   `;
   
   // Création des cartes de match
-  day.matches.forEach((match, index) => {
+  day.matches.forEach((match) => {
     const teams = formatTeams(match.teams);
     innerHTML += `
       <div class="card mb-3 match-card">
@@ -299,7 +302,7 @@ matchData.forEach(day => {
           <div class="row align-items-center">
             <!-- Numéro du match -->
             <div class="col-auto">
-              <span class="badge bg-primary">Match ${index + 1}</span>
+              <span class="badge bg-primary">Match ${globalMatchNumber}</span>
             </div>
             <!-- Affichage des équipes avec leurs drapeaux -->
             <div class="col">
@@ -327,6 +330,7 @@ matchData.forEach(day => {
         </div>
       </div>
     `;
+    globalMatchNumber++; // Incrémente le numéro global du match
   });
 
   matchSection.innerHTML = innerHTML;
@@ -377,37 +381,53 @@ function updateActiveDate() {
 window.addEventListener('scroll', updateActiveDate);
 window.addEventListener('load', updateActiveDate);
 
-// Gestion de la barre interactive
-const interactiveItems = document.querySelectorAll('.interactive-item');
+// Attendre que le DOM soit chargé
+document.addEventListener('DOMContentLoaded', () => {
+    // Gestion du clic sur le logo pour retourner à la page d'accueil
+    const logoContainer = document.getElementById('logo-container');
+    if (logoContainer) {
+        logoContainer.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+        // Ajouter le style du curseur pointer
+        logoContainer.style.cursor = 'pointer';
+    }
 
-// Gestion du clic sur les éléments de la barre
-interactiveItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const targetId = item.dataset.section;
-        
-        // Navigation vers les différentes pages
-        switch(targetId) {
-            case 'can2025-description':
-                window.location.href = 'index.html';
-                break;
-            case 'maroc':
-                window.location.href = 'index.html#maroc';
-                break;
-            case 'matches':
-                // Déjà sur la page matches, ne rien faire
-                break;
-            case 'groups':
-                window.location.href = 'groupes.html';
-                break;
-            case 'videos':
-                window.location.href = 'videos.html';
-                break;
-            case 'stats':
-                window.location.href = 'stades.html';
-                break;
-            case 'teams':
-                window.location.href = 'equipes.html';
-                break;
-        }
+    // Gestion de la barre interactive
+    const interactiveItems = document.querySelectorAll('.interactive-item');
+
+    // Gestion du clic sur les éléments de la barre
+    interactiveItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const targetId = item.dataset.section;
+            
+            // Navigation vers les différentes pages
+            switch(targetId) {
+                case 'can2025-description':
+                    window.location.href = 'index.html';
+                    break;
+                case 'maroc':
+                    window.location.href = 'index.html#maroc';
+                    break;
+                case 'matches':
+                    // Déjà sur la page matches, ne rien faire
+                    break;
+                case 'groups':
+                    window.location.href = 'groupes.html';
+                    break;
+                case 'videos':
+                    window.location.href = 'videos.html';
+                    break;
+                case 'stats':
+                    window.location.href = 'stades.html';
+                    break;
+                case 'teams':
+                    window.location.href = 'equipes.html';
+                    break;
+            }
+        });
     });
+
+    // Initialiser le calendrier
+    updateActiveDate();
 });

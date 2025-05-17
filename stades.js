@@ -147,6 +147,50 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 100);
     }
+      // Le logo devient cliquable et ramène à l'accueil
+            const logoContainer = document.getElementById('logo-container');
+            if (logoContainer) {
+                logoContainer.addEventListener('click', () => {
+                    window.location.href = 'index.html';
+                });
+                // On ajoute un curseur pointer pour montrer que c'est cliquable
+                logoContainer.style.cursor = 'pointer';
+            }
+            
+// Gestion de la barre interactive
+const interactiveItems = document.querySelectorAll('.interactive-item');
+
+// Gestion du clic sur les éléments de la barre
+interactiveItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const targetId = item.dataset.section;
+        
+        // Navigation vers les différentes pages
+        switch(targetId) {
+            case 'can2025-description':
+                window.location.href = 'index.html';
+                break;
+            case 'maroc':
+                window.location.href = 'index.html#maroc';
+                break;
+            case 'matches':
+                window.location.href = 'matches.html';
+                break;
+            case 'groups':
+                window.location.href = 'groupes.html';
+                break;
+            case 'videos':
+                window.location.href = 'videos.html';
+                break;
+            case 'stat':
+              
+                break;
+            case 'teams':
+                window.location.href = 'equipes.html';
+                break;
+        }
+    });
+});
 
     // Fonctions pour toutes les modals
     window.openPriceModal = function() {

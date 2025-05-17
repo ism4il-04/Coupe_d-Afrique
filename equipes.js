@@ -1,4 +1,6 @@
 // Données des équipes de la CAN 2025
+// C'est notre "base de données" qui contient toutes les infos sur les 24 équipes qualifiées
+// Chaque équipe a un ID unique, un nom, un groupe, un drapeau, et plein d'infos utiles
 const teams = [
     {
         id: 1,
@@ -387,6 +389,8 @@ const teams = [
 ];
 
 // Fonction pour créer une carte d'équipe
+// Cette fonction prend les données d'une équipe et génère le HTML pour l'afficher dans la grille
+// Chaque carte montre le drapeau, le nom, le classement et les participations
 function createTeamCard(team) {
     return `
         <div class="col-md-4 col-sm-6">
@@ -408,6 +412,8 @@ function createTeamCard(team) {
 }
 
 // Fonction pour créer le contenu du modal
+// Cette fonction génère le HTML pour le popup qui s'affiche quand on clique sur une équipe
+// On y voit plus d'infos comme les titres, les joueurs clés et le sélectionneur
 function createModalContent(team) {
     return `
         <div class="team-modal-header">
@@ -465,60 +471,259 @@ function createModalContent(team) {
     `;
 }
 
-// Fonction pour filtrer les équipes
+// *** FILTRAGE DES ÉQUIPES ***
+// Cette fonction est appelée quand l'utilisateur cherche ou filtre les équipes
+// Elle gère à la fois la recherche par texte et le filtre par groupe
 function filterTeams() {
+    // On récupère la valeur de la barre de recherche (en minuscules pour une recherche insensible à la casse)
     const searchTerm = document.getElementById('searchTeam').value.toLowerCase();
+    // On récupère le groupe sélectionné dans le menu déroulant
     const groupFilter = document.getElementById('groupFilter').value;
 
-    // Si on est en vue groupes, revenir à la vue grille automatiquement
+    // Si on est en vue groupes et qu'on fait une recherche, on bascule automatiquement en vue grille
+    // pour mieux afficher les résultats de recherche
     const groupsContainer = document.getElementById('groupsContainer');
     const teamsContainer = document.getElementById('teamsContainer');
     const gridView = document.getElementById('gridView');
     const groupView = document.getElementById('groupView');
     
     if (groupsContainer.style.display !== 'none' && (searchTerm || groupFilter !== 'all')) {
-        // Basculer vers la vue grille
+        // On revient à la vue grille si on lance une recherche depuis la vue groupes
         teamsContainer.style.display = 'flex';
         groupsContainer.style.display = 'none';
         gridView.classList.add('active');
         groupView.classList.remove('active');
     }
 
+    // On filtre le tableau des équipes selon les critères de recherche
     const filteredTeams = teams.filter(team => {
+        // Une équipe correspond si son nom contient le terme recherché...
         const matchesSearch = team.name.toLowerCase().includes(searchTerm);
+        // ...et si elle est dans le groupe sélectionné (ou si "Tous les groupes" est sélectionné)
         const matchesGroup = groupFilter === 'all' || team.group === groupFilter;
+        // On ne garde l'équipe que si les deux conditions sont vraies
         return matchesSearch && matchesGroup;
     });
 
+    // On affiche les résultats filtrés
     displayTeams(filteredTeams);
 }
 
-// Fonction pour afficher les équipes
+// *** AFFICHAGE DES ÉQUIPES ***
+// Cette fonction prend un tableau d'équipes et les affiche dans la vue grille
+// Elle est appelée après le filtrage ou au chargement initial
 function displayTeams(teamsToDisplay) {
+    // On récupère le conteneur HTML où on va insérer les cartes d'équipe
     const container = document.getElementById('teamsContainer');
+    
+    // Pour chaque équipe, on crée sa carte HTML puis on les joint toutes ensemble
+    // La méthode .map() transforme chaque objet équipe en HTML, puis .join('') les concatène
     container.innerHTML = teamsToDisplay.map(team => createTeamCard(team)).join('');
+    
+    // Une fois les cartes insérées dans le DOM, on ajoute des écouteurs d'événements
+    // pour que chaque carte ouvre un modal quand on clique dessus
+    addTeamCardEventListeners();
 }
 
-// Initialisation
+// *** INITIALISATION AU CHARGEMENT DE LA PAGE ***
+// Cette fonction s'exécute quand tout le HTML est chargé
+// Elle met en place les événements et affiche les équipes initiales
 document.addEventListener('DOMContentLoaded', () => {
-    // Afficher toutes les équipes au chargement
+    // On commence par afficher toutes les équipes
     displayTeams(teams);
-
-    // Ajouter les écouteurs d'événements pour les filtres
+    
+    // On ajoute les écouteurs d'événements pour les boutons de navigation du modal
+    setupModalNavigation();
+    
+    // On rend la barre de recherche et le filtre par groupe fonctionnels
     document.getElementById('searchTeam').addEventListener('input', filterTeams);
     document.getElementById('groupFilter').addEventListener('change', filterTeams);
+    
+    // On configure les boutons de basculement entre vue grille et vue groupes
+    setupViewToggle();
+});
 
-    // Gérer l'ouverture du modal
-    document.getElementById('teamsContainer').addEventListener('click', (e) => {
-        const teamCard = e.target.closest('.team-card');
-        if (teamCard) {
-            const teamId = parseInt(teamCard.dataset.teamId);
+// *** MISE EN PLACE DES ÉCOUTEURS D'ÉVÉNEMENTS POUR LES CARTES D'ÉQUIPE ***
+// Cette fonction ajoute un événement de clic à chaque carte d'équipe
+function addTeamCardEventListeners() {
+    document.querySelectorAll('.team-card').forEach(card => {
+        card.addEventListener('click', () => {
+            // Récupère l'ID de l'équipe à partir de l'attribut data-team-id
+            const teamId = parseInt(card.dataset.teamId);
+            // Trouve cette équipe dans notre tableau de données
+            const team = teams.find(t => t.id === teamId);
+            
+            if (team) {
+                // Stocke l'ID de l'équipe actuellement affichée (pour la navigation)
+                window.currentTeamId = teamId;
+                // Remplit le modal avec le contenu de cette équipe
+                document.getElementById('teamModalContent').innerHTML = createModalContent(team);
+                // Affiche le modal
+                const modal = new bootstrap.Modal(document.getElementById('teamModal'));
+                modal.show();
+            }
+        });
+    });
+}
+
+// *** CONFIGURATION DE LA NAVIGATION ENTRE ÉQUIPES DANS LE MODAL ***
+// Cette fonction configure les boutons "Équipe précédente" et "Équipe suivante"
+function setupModalNavigation() {
+    const prevTeamBtn = document.getElementById('prevTeam');
+    const nextTeamBtn = document.getElementById('nextTeam');
+    
+    // Variable globale pour stocker l'ID de l'équipe actuellement affichée
+    window.currentTeamId = 0;
+    
+    prevTeamBtn.addEventListener('click', () => {
+        navigateTeam(-1); // Aller à l'équipe précédente
+    });
+    
+    nextTeamBtn.addEventListener('click', () => {
+        navigateTeam(1); // Aller à l'équipe suivante
+    });
+}
+
+// *** NAVIGATION ENTRE LES ÉQUIPES DANS LE MODAL ***
+// Cette fonction permet de passer d'une équipe à une autre sans fermer le modal
+function navigateTeam(direction) {
+    if (window.currentTeamId === 0) return;
+    
+    // Trouver l'index actuel de l'équipe dans le tableau
+    let currentIndex = teams.findIndex(t => t.id === window.currentTeamId);
+    // Calculer le nouvel index en ajoutant la direction (-1 ou +1)
+    let newIndex = currentIndex + direction;
+    
+    // Gérer le cas où on dépasse les bornes du tableau (boucler)
+    if (newIndex < 0) newIndex = teams.length - 1; // Si on recule depuis la première équipe, aller à la dernière
+    if (newIndex >= teams.length) newIndex = 0; // Si on avance depuis la dernière équipe, revenir à la première
+    
+    // Récupérer la nouvelle équipe et mettre à jour l'affichage
+    const newTeam = teams[newIndex];
+    window.currentTeamId = newTeam.id;
+    
+    // Mettre à jour le contenu du modal
+    document.getElementById('teamModalContent').innerHTML = createModalContent(newTeam);
+}
+
+// *** CONFIGURATION DU BASCULEMENT ENTRE VUE GRILLE ET VUE GROUPES ***
+// Cette fonction configure les boutons pour passer d'une vue à l'autre
+function setupViewToggle() {
+    const gridView = document.getElementById('gridView');
+    const groupView = document.getElementById('groupView');
+    const teamsContainer = document.getElementById('teamsContainer');
+    const groupsContainer = document.getElementById('groupsContainer');
+    
+    // Quand on clique sur le bouton "Grille"
+    gridView.addEventListener('click', () => {
+        // On active visuellement ce bouton
+        gridView.classList.add('active');
+        groupView.classList.remove('active');
+        // On affiche la vue grille et on cache la vue groupes
+        teamsContainer.style.display = 'flex';
+        groupsContainer.style.display = 'none';
+    });
+    
+    // Quand on clique sur le bouton "Groupes"
+    groupView.addEventListener('click', () => {
+        // On active visuellement ce bouton
+        groupView.classList.add('active');
+        gridView.classList.remove('active');
+        // On affiche la vue groupes et on cache la vue grille
+        teamsContainer.style.display = 'none';
+        groupsContainer.style.display = 'block';
+        
+        // Si c'est la première fois qu'on affiche les groupes, on génère la vue
+        if (groupsContainer.querySelector('.group-card') === null) {
+            generateGroupsView();
+        }
+    });
+}
+
+// *** GÉNÉRATION DE LA VUE PAR GROUPES ***
+// Cette fonction crée la vue qui organise les équipes par groupe (A, B, C, etc.)
+function generateGroupsView() {
+    // On prépare un objet pour stocker les équipes par groupe
+    const groups = {A: [], B: [], C: [], D: [], E: [], F: []};
+    
+    // On place chaque équipe dans son groupe correspondant
+    teams.forEach(team => {
+        if (groups[team.group]) {
+            groups[team.group].push(team);
+        }
+    });
+    
+    // On vide le conteneur et on prépare la structure
+    const groupsContainer = document.getElementById('groupsContainer');
+    groupsContainer.innerHTML = '<div class="row"></div>';
+    const groupsRow = groupsContainer.querySelector('.row');
+    
+    // Pour chaque groupe, on crée un bloc avec ses équipes
+    Object.keys(groups).forEach(groupKey => {
+        const groupTeams = groups[groupKey];
+        const groupCard = document.createElement('div');
+        groupCard.className = 'col-md-6 mb-4';
+        
+        // On crée le HTML pour l'en-tête du groupe
+        let groupContent = `
+            <div class="group-card">
+                <div class="group-header">
+                    <h3>Groupe ${groupKey}</h3>
+                </div>
+                <div class="group-teams">
+        `;
+        
+        // On ajoute chaque équipe du groupe
+        groupTeams.forEach(team => {
+            groupContent += `
+                <div class="group-team-item" data-team-id="${team.id}">
+                    <div class="team-flag">
+                        <img src="${team.flag}" alt="${team.name}" width="50" height="35">
+                    </div>
+                    <div class="team-name">${team.name}</div>
+                </div>
+            `;
+        });
+        
+        // On ferme les balises HTML
+        groupContent += `
+                </div>
+            </div>
+        `;
+        
+        // On insère le contenu dans le DOM
+        groupCard.innerHTML = groupContent;
+        groupsRow.appendChild(groupCard);
+    });
+    
+    // On ajoute un message et un bouton pour voir plus de détails
+    const detailsMessage = document.createElement('div');
+    detailsMessage.className = 'col-12 text-center mt-4 mb-5 groups-more-details';
+    detailsMessage.innerHTML = `
+        <div class="more-details-container">
+            <p>Pour plus de détails sur les groupes, les classements et les statistiques</p>
+            <a href="groupes.html" class="btn btn-primary more-details-btn">
+                <i class="fas fa-users me-2"></i>Consulter la page Groupes
+            </a>
+        </div>
+    `;
+    groupsRow.appendChild(detailsMessage);
+    
+    // On rend les équipes cliquables dans cette vue aussi
+    document.querySelectorAll('.group-team-item').forEach(teamItem => {
+        teamItem.addEventListener('click', () => {
+            const teamId = parseInt(teamItem.dataset.teamId);
             const team = teams.find(t => t.id === teamId);
             if (team) {
+                // Même logique que pour les cartes: on remplit et affiche le modal
+                window.currentTeamId = teamId;
                 document.getElementById('teamModalContent').innerHTML = createModalContent(team);
                 const modal = new bootstrap.Modal(document.getElementById('teamModal'));
                 modal.show();
             }
-        }
+        });
     });
-}); 
+}
+
+// Au chargement initial, on affiche toutes les équipes
+displayTeams(teams); 
