@@ -1,4 +1,11 @@
-// Données des vidéos (à remplacer par une API réelle)
+/**
+ * videos.js
+ * Ce fichier gère l'affichage et l'interaction avec la galerie de vidéos
+ * Il inclut la gestion des filtres, l'affichage des vidéos et les interactions modales
+ */
+
+// Base de données statique des vidéos (simulation d'une API)
+// Chaque vidéo contient : id, titre, description, miniature, URL, catégorie, date, équipes et durée
 const videos = [
     {
         id: 1,
@@ -68,17 +75,23 @@ const videos = [
     }
 ];
 
-// Fonction pour créer une carte vidéo
+/**
+ * Crée une carte HTML pour une vidéo donnée
+ * @param {Object} video - Objet contenant les informations de la vidéo
+ * @returns {string} - Code HTML de la carte vidéo
+ */
 function createVideoCard(video) {
     return `
         <div class="col-md-6 col-lg-4">
             <div class="video-card" data-video-id="${video.id}">
+                <!-- Conteneur de la miniature avec bouton de lecture -->
                 <div class="video-thumbnail">
                     <img src="${video.thumbnail}" alt="${video.title}">
                     <div class="play-button">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
+                <!-- Informations de la vidéo -->
                 <div class="video-info">
                     <h3 class="video-title">${video.title}</h3>
                     <div class="video-meta">
@@ -91,13 +104,20 @@ function createVideoCard(video) {
     `;
 }
 
-// Fonction pour formater la date
+/**
+ * Formate une date en format français
+ * @param {string} dateString - Date au format ISO
+ * @returns {string} - Date formatée en français
+ */
 function formatDate(dateString) {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString('fr-FR', options);
 }
 
-// Fonction pour mettre à jour le modal vidéo
+/**
+ * Met à jour le contenu de la fenêtre modale avec les informations de la vidéo
+ * @param {Object} video - Objet contenant les informations de la vidéo
+ */
 function updateVideoModal(video) {
     const modal = document.getElementById('videoModal');
     const iframe = modal.querySelector('iframe');
@@ -106,6 +126,7 @@ function updateVideoModal(video) {
     const date = modal.querySelector('.video-date');
     const category = modal.querySelector('.video-category');
 
+    // Mise à jour des éléments de la modale
     iframe.src = video.videoUrl;
     title.textContent = video.title;
     description.textContent = video.description;
@@ -113,12 +134,17 @@ function updateVideoModal(video) {
     category.textContent = video.category;
 }
 
-// Fonction pour filtrer les vidéos
+/**
+ * Filtre les vidéos selon les critères sélectionnés
+ * Combine les filtres de catégorie, équipe et recherche textuelle
+ */
 function filterVideos() {
+    // Récupération des valeurs des filtres
     const categoryFilter = document.getElementById('categoryFilter').value;
     const teamFilter = document.getElementById('teamFilter').value;
     const searchInput = document.getElementById('searchInput').value.toLowerCase();
 
+    // Application des filtres
     const filteredVideos = videos.filter(video => {
         const matchesCategory = categoryFilter === 'all' || video.category === categoryFilter;
         const matchesTeam = teamFilter === 'all' || video.teams.includes(teamFilter);
@@ -128,19 +154,27 @@ function filterVideos() {
         return matchesCategory && matchesTeam && matchesSearch;
     });
 
+    // Affichage des résultats filtrés
     displayVideos(filteredVideos);
 }
 
-// Fonction pour afficher les vidéos
+/**
+ * Affiche les vidéos dans la grille
+ * @param {Array} videosToShow - Liste des vidéos à afficher
+ */
 function displayVideos(videosToShow) {
     const grid = document.getElementById('videosGrid');
+    // Génération du HTML pour chaque vidéo
     grid.innerHTML = videosToShow.map(video => createVideoCard(video)).join('');
 
-    // Réattacher les écouteurs d'événements
+    // Réinitialisation des écouteurs d'événements
     attachVideoCardListeners();
 }
 
-// Fonction pour attacher les écouteurs d'événements aux cartes vidéo
+/**
+ * Attache les écouteurs d'événements aux cartes vidéo
+ * Gère l'ouverture de la modale au clic
+ */
 function attachVideoCardListeners() {
     document.querySelectorAll('.video-card').forEach(card => {
         card.addEventListener('click', () => {
@@ -148,18 +182,19 @@ function attachVideoCardListeners() {
             const video = videos.find(v => v.id === videoId);
             updateVideoModal(video);
             
+            // Ouverture de la modale
             const modal = new bootstrap.Modal(document.getElementById('videoModal'));
             modal.show();
         });
     });
 }
 
-// Initialisation
+// Initialisation au chargement du document
 document.addEventListener('DOMContentLoaded', function() {
-    // Afficher toutes les vidéos initialement
+    // Affichage initial de toutes les vidéos
     displayVideos(videos);
 
-    // Ajouter les équipes au filtre
+    // Population dynamique du filtre d'équipes
     const teamFilter = document.getElementById('teamFilter');
     const teams = [...new Set(videos.flatMap(video => video.teams))];
     teams.forEach(team => {
@@ -169,17 +204,18 @@ document.addEventListener('DOMContentLoaded', function() {
         teamFilter.appendChild(option);
     });
 
-    // Ajouter les écouteurs d'événements pour les filtres
+    // Configuration des écouteurs d'événements pour les filtres
     document.getElementById('categoryFilter').addEventListener('change', filterVideos);
     document.getElementById('teamFilter').addEventListener('change', filterVideos);
     document.getElementById('searchInput').addEventListener('input', filterVideos);
 
-    // Animation au défilement
+    // Configuration de l'animation au défilement
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
     
+    // Observateur d'intersection pour les animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -189,29 +225,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
+    // Application de l'observateur à toutes les cartes
     document.querySelectorAll('.video-card').forEach(card => {
         observer.observe(card);
     });
 }); 
-  // Le logo devient cliquable et ramène à l'accueil
-            const logoContainer = document.getElementById('logo-container');
-            if (logoContainer) {
-                logoContainer.addEventListener('click', () => {
-                    window.location.href = 'index.html';
-                });
-                // On ajoute un curseur pointer pour montrer que c'est cliquable
-                logoContainer.style.cursor = 'pointer';
-            }
-            
-// Gestion de la barre interactive
+
+// Configuration du logo cliquable
+document.addEventListener('DOMContentLoaded', function() {
+    const logoContainer = document.getElementById('logo-container');
+    if (logoContainer) {
+        // Ajout de l'événement de clic pour la navigation
+        logoContainer.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+        // Indication visuelle de l'interactivité
+        logoContainer.style.cursor = 'pointer';
+    }
+});
+
+// Gestion de la navigation interactive
 const interactiveItems = document.querySelectorAll('.interactive-item');
 
-// Gestion du clic sur les éléments de la barre
+/**
+ * Configuration des événements de navigation pour la barre interactive
+ * Chaque élément déclenche une navigation vers la page correspondante
+ */
 interactiveItems.forEach(item => {
     item.addEventListener('click', () => {
         const targetId = item.dataset.section;
         
-        // Navigation vers les différentes pages
+        // Routage vers les différentes pages
         switch(targetId) {
             case 'can2025-description':
                 window.location.href = 'index.html';
@@ -220,7 +264,7 @@ interactiveItems.forEach(item => {
                 window.location.href = 'index.html#maroc';
                 break;
             case 'matches':
-                // Déjà sur la page matches, ne rien faire
+                // Déjà sur la page matches, pas d'action
                 break;
             case 'groups':
                 window.location.href = 'groupes.html';
