@@ -1,175 +1,175 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groupes - CAN 2025</title>
+<!DOCTYPE html> <!-- Déclaration du type de document HTML5 -->
+<html lang="fr"> <!-- Balise racine du document, langue définie en français -->
+<head> <!-- Début de l'en-tête du document -->
+    <meta charset="UTF-8"> <!-- Encodage des caractères en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuration pour affichage responsive sur mobile -->
+    <title>Groupes - CAN 2025</title> <!-- Titre de la page affiché dans l'onglet du navigateur -->
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Inclusion de la feuille de style Bootstrap -->
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="groupes.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Inclusion des icônes Font Awesome -->
+    <link rel="stylesheet" href="groupes.css"> <!-- Inclusion de la feuille de style personnalisée groupes.css -->
+</head> <!-- Fin de l'en-tête -->
 
 <!-- Barre Interactive -->
-<div class="interactive-bar">
-    <div class="interactive-content">
-        <div id="logo-container">
-            <i><img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180" ></i>
+<div class="interactive-bar"> <!-- Conteneur de la barre interactive latérale ou supérieure -->
+    <div class="interactive-content"> <!-- Contenu interne de la barre interactive -->
+        <div id="logo-container"> <!-- Conteneur du logo -->
+            <i><img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180" ></i> <!-- Logo CAN affiché via une image -->
         </div>
-        <div class="interactive-item" data-section="can2025-description">
-            <i class="fas fa-home home-icon"></i>
-            <span>Accueil</span>
+        <div class="interactive-item" data-section="can2025-description"> <!-- Élément interactif pointant vers la section accueil -->
+            <i class="fas fa-home home-icon"></i> <!-- Icône maison -->
+            <span>Accueil</span> <!-- Texte associé -->
         </div>
-        <div class="interactive-item" data-section="maroc">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Maroc</span>
+        <div class="interactive-item" data-section="maroc"> <!-- Élément interactif pointant vers la section Maroc -->
+            <i class="fas fa-map-marker-alt"></i> <!-- Icône de localisation -->
+            <span>Maroc</span> <!-- Texte associé -->
         </div>
-        <div class="interactive-item " data-section="matches">
-            <i class="fas fa-futbol"></i>
-            <span>Matches</span>
+        <div class="interactive-item " data-section="matches"> <!-- Élément interactif pour la section matches -->
+            <i class="fas fa-futbol"></i> <!-- Icône ballon de football -->
+            <span>Matches</span> <!-- Texte associé -->
         </div>
-        <div class="interactive-item active" data-section="groups">
-            <i class="fas fa-users"></i>
-            <span>Groupes</span>
+        <div class="interactive-item active" data-section="groups"> <!-- Élément interactif actif, section groupes -->
+            <i class="fas fa-users"></i> <!-- Icône groupe d'utilisateurs -->
+            <span>Groupes</span> <!-- Texte associé -->
         </div>
-        <div class="interactive-item" data-section="videos">
-            <i class="fas fa-play-circle"></i>
-            <span>Vidéos</span>
+        <div class="interactive-item" data-section="videos"> <!-- Élément interactif section vidéos -->
+            <i class="fas fa-play-circle"></i> <!-- Icône bouton lecture -->
+            <span>Vidéos</span> <!-- Texte associé -->
         </div>
-        <div class="interactive-item" data-section="stats">
-            <i class="fas fa-map-marked-alt"></i>
-            <span>Stades et villes hôtes</span>
+        <div class="interactive-item" data-section="stats"> <!-- Élément interactif section stades et villes hôtes -->
+            <i class="fas fa-map-marked-alt"></i> <!-- Icône carte -->
+            <span>Stades et villes hôtes</span> <!-- Texte associé -->
         </div>
-        <div class="interactive-item" data-section="teams">
-            <i class="fas fa-flag"></i>
-            <span>Équipes</span>
+        <div class="interactive-item" data-section="teams"> <!-- Élément interactif section équipes -->
+            <i class="fas fa-flag"></i> <!-- Icône drapeau -->
+            <span>Équipes</span> <!-- Texte associé -->
         </div>
     </div>
 </div>
-    <!-- Hero Section -->
-    <div class="hero-section">
-        <div class="container text-center">
-            <img src="Images/téléchargement.png" alt="Photo CAN" class="img-fluid mb-3" style="max-height:180px; display:block; margin-left:auto; margin-right:auto;">
-            <h1 class="display-4 text-white">Groupes de la CAN 2025</h1>
-            <p class="lead text-white">Découvrez les groupes et suivez la progression des équipes</p>
-        </div>
-    </div>
 
-    <!-- Groupes Section -->
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-12">
-                <div class="groups-container" id="groups-container">
-                    <!-- Les groupes seront générés dynamiquement ici -->
-                </div>
+<!-- Hero Section -->
+<div class="hero-section"> <!-- Section d'introduction visuelle -->
+    <div class="container text-center"> <!-- Conteneur Bootstrap centré -->
+        <img src="Images/téléchargement.png" alt="Photo CAN" class="img-fluid mb-3" style="max-height:180px; display:block; margin-left:auto; margin-right:auto;"> <!-- Image responsive du logo/photo principale -->
+        <h1 class="display-4 text-white">Groupes de la CAN 2025</h1> <!-- Titre principal avec style Bootstrap et texte blanc -->
+        <p class="lead text-white">Découvrez les groupes et suivez la progression des équipes</p> <!-- Phrase d'accroche -->
+    </div>
+</div>
+
+<!-- Groupes Section -->
+<div class="container mt-4"> <!-- Conteneur Bootstrap avec marge haute -->
+    <div class="row"> <!-- Ligne Bootstrap pour structuration en grille -->
+        <div class="col-12"> <!-- Colonne pleine largeur -->
+            <div class="groups-container" id="groups-container"> <!-- Conteneur dynamique où seront générés les groupes -->
+                <!-- Les groupes seront générés dynamiquement ici -->
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Modal pour les détails d'une équipe -->
-    <div class="modal fade" id="teamDetailsModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Détails de l'équipe</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="team-info">
-                        <div class="row">
-                            <div class="col-md-4 text-center">
-                                <img src="" alt="Drapeau" class="team-flag mb-3" style="width: 150px;">
-                                <h3 class="team-name"></h3>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="team-stats">
-                                    <h4>Statistiques</h4>
-                                    <div class="stats-grid">
-                                        <div class="stat-item">
-                                            <span class="stat-label">Matches joués</span>
-                                            <span class="stat-value" id="matches-played">0</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-label">Victoires</span>
-                                            <span class="stat-value" id="matches-won">0</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-label">Nuls</span>
-                                            <span class="stat-value" id="matches-drawn">0</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-label">Défaites</span>
-                                            <span class="stat-value" id="matches-lost">0</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-label">Buts marqués</span>
-                                            <span class="stat-value" id="goals-for">0</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-label">Buts encaissés</span>
-                                            <span class="stat-value" id="goals-against">0</span>
-                                        </div>
+<!-- Modal pour les détails d'une équipe -->
+<div class="modal fade" id="teamDetailsModal" tabindex="-1"> <!-- Fenêtre modale Bootstrap cachée par défaut -->
+    <div class="modal-dialog modal-lg"> <!-- Taille large pour la boîte modale -->
+        <div class="modal-content"> <!-- Contenu de la modale -->
+            <div class="modal-header"> <!-- En-tête modale -->
+                <h5 class="modal-title">Détails de l'équipe</h5> <!-- Titre de la modale -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button> <!-- Bouton de fermeture de la modale -->
+            </div>
+            <div class="modal-body"> <!-- Corps de la modale -->
+                <div class="team-info"> <!-- Conteneur infos équipe -->
+                    <div class="row"> <!-- Ligne Bootstrap -->
+                        <div class="col-md-4 text-center"> <!-- Colonne 4/12 avec centrage texte -->
+                            <img src="" alt="Drapeau" class="team-flag mb-3" style="width: 150px;"> <!-- Image du drapeau de l'équipe -->
+                            <h3 class="team-name"></h3> <!-- Nom de l'équipe -->
+                        </div>
+                        <div class="col-md-8"> <!-- Colonne 8/12 -->
+                            <div class="team-stats"> <!-- Statistiques de l'équipe -->
+                                <h4>Statistiques</h4> <!-- Titre section stats -->
+                                <div class="stats-grid"> <!-- Grille pour stats -->
+                                    <div class="stat-item"> <!-- Item stat -->
+                                        <span class="stat-label">Matches joués</span> <!-- Label -->
+                                        <span class="stat-value" id="matches-played">0</span> <!-- Valeur initiale -->
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Victoires</span>
+                                        <span class="stat-value" id="matches-won">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Nuls</span>
+                                        <span class="stat-value" id="matches-drawn">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Défaites</span>
+                                        <span class="stat-value" id="matches-lost">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Buts marqués</span>
+                                        <span class="stat-value" id="goals-for">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Buts encaissés</span>
+                                        <span class="stat-value" id="goals-against">0</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="team-matches mt-4">
-                            <h4>Prochains matches</h4>
-                            <div class="upcoming-matches">
-                                <!-- Les prochains matches seront ajoutés ici -->
-                            </div>
+                    </div>
+                    <div class="team-matches mt-4"> <!-- Section prochains matches avec marge haute -->
+                        <h4>Prochains matches</h4> <!-- Titre -->
+                        <div class="upcoming-matches"> <!-- Conteneur dynamique pour prochains matches -->
+                            <!-- Les prochains matches seront ajoutés ici -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-  
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>CAN 2025</h3>
-                <p>Coupe d'Afrique des Nations<br>Maroc</p>
-            </div>
-            <div class="footer-section">
-                <h3>Suivez-nous</h3>
-                <div class="social-links">  
-                    <a href="https://www.facebook.com/TheAFCON"><i class="fab fa-facebook"></i></a>
-                    <a href="https://x.com/CAF_Online?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/caf_online?igsh=MXVvajljaXVlenFvaw=="><i class="fab fa-instagram"></i></a>
-
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Liens rapides</h3>
-                <ul>
-                    <li><a href="matches.html">Matches</a></li>
-                    <li><a href="groupes.html">Groupes</a></li>
-                    <li><a href="videos.html">Vidéos</a></li>
-                    <li><a href="stades.html">Stades et villes hôtes</a></li>
-                    <li><a href="equipes.html">Équipes</a></li>
-                </ul>
+<!-- Footer -->
+<footer class="footer"> <!-- Pied de page -->
+    <div class="footer-content"> <!-- Contenu interne du footer -->
+        <div class="footer-section"> <!-- Section CAN 2025 -->
+            <h3>CAN 2025</h3> <!-- Titre de section -->
+            <p>Coupe d'Afrique des Nations<br>Maroc</p> <!-- Description -->
+        </div>
+        <div class="footer-section"> <!-- Section réseaux sociaux -->
+            <h3>Suivez-nous</h3> <!-- Titre -->
+            <div class="social-links">  <!-- Liens vers réseaux sociaux -->
+                <a href="https://www.facebook.com/TheAFCON"><i class="fab fa-facebook"></i></a> <!-- Facebook -->
+                <a href="https://x.com/CAF_Online?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a> <!-- Twitter -->
+                <a href="https://www.instagram.com/caf_online?igsh=MXVvajljaXVlenFvaw=="><i class="fab fa-instagram"></i></a> <!-- Instagram -->
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 CAN - Tous droits réservés</p>
+        <div class="footer-section"> <!-- Section liens rapides -->
+            <h3>Liens rapides</h3> <!-- Titre -->
+            <ul> <!-- Liste non ordonnée -->
+                <li><a href="matches.html">Matches</a></li> <!-- Lien vers matches -->
+                <li><a href="groupes.html">Groupes</a></li> <!-- Lien vers groupes -->
+                <li><a href="videos.html">Vidéos</a></li> <!-- Lien vers vidéos -->
+                <li><a href="stades.html">Stades et villes hôtes</a></li> <!-- Lien vers stades -->
+                <li><a href="equipes.html">Équipes</a></li> <!-- Lien vers équipes -->
+            </ul>
         </div>
-    </footer>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="groupes.js"></script>
-    <script>
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 10) {
-            navbar.classList.add('sticky-shadow');
-        } else {
-            navbar.classList.remove('sticky-shadow');
-        }
-    });
-    </script>
+    </div>
+    <div class="footer-bottom"> <!-- Bas du footer -->
+        <p>&copy; 2025 CAN - Tous droits réservés</p> <!-- Mention légale copyright -->
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> <!-- Inclusion du bundle JS Bootstrap -->
+<script src="groupes.js"></script> <!-- Inclusion du script JavaScript personnalisé groupes.js -->
+<script>
+window.addEventListener('scroll', function() { 
+    const navbar = document.querySelector('.navbar'); 
+    if (window.scrollY > 10) { 
+        navbar.classList.add('sticky-shadow'); 
+    } else {
+        navbar.classList.remove('sticky-shadow'); 
+    }
+});
+</script>
 </body>
 </html>

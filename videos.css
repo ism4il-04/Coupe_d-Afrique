@@ -1,484 +1,773 @@
-/* Variables */
+/* Variables globales pour la cohérence des couleurs et des transitions à travers le site */
 :root {
+    /* Couleur principale utilisée pour les éléments de mise en avant */
     --primary-color: #f0c14b;
+    /* Couleur secondaire pour les fonds sombres et textes importants */
     --secondary-color: #1a1a1a;
+    /* Couleur d'accent pour les éléments interactifs et décoratifs */
     --accent-color: #8b142b;
+    /* Couleur par défaut pour le texte standard */
     --text-color: #333;
+    /* Couleur de fond claire pour les sections alternées */
     --light-bg: #f8f9fa;
+    /* Durée et type de transition standard pour les animations */
     --transition: all 0.3s ease;
+    /* Couleur verte pour les indicateurs de succès et validations */
     --green-color: #4CAF50;
+    /* Couleur rouge pour les erreurs et alertes */
     --red-color: #FF5252;
+    /* Version transparente du vert pour les fonds et survols */
     --light-green: rgba(76, 175, 80, 0.2);
+    /* Version transparente du rouge pour les fonds et survols */
     --light-red: rgba(255, 82, 82, 0.2);
 }
-/* Styles généraux */
+
+/* Styles de base pour le corps de la page */
 body {
+    /* Police de caractères moderne et lisible */
     font-family: 'Montserrat', sans-serif;
+    /* Fond dégradé subtil combinant vert et rouge avec faible opacité */
     background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(231, 76, 60, 0.1));
+    /* Espace en haut pour la barre de navigation fixe */
     padding-top: 80px;
+    /* Assure que le contenu remplit au minimum toute la hauteur de la fenêtre */
     min-height: 100vh;
 }
 
 
-/* Barre Interactive */
+/* Barre de navigation interactive fixée en haut de la page */
 .interactive-bar {
+    /* Position fixe en haut de la page */
     position: fixed;
     top: 0;
     left: 0;
+    /* Occupe toute la largeur de l'écran */
     width: 100%;
+    /* Fond blanc pour la lisibilité */
     background: white;
+    /* Ombre légère pour la profondeur */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Assure que la barre reste au-dessus des autres éléments */
     z-index: 1000;
+    /* Espacement interne vertical */
     padding: 10px 0;
 }
 
+/* Conteneur des éléments de la barre interactive */
 .interactive-content {
+    /* Largeur maximale pour la mise en page responsive */
     max-width: 1200px;
+    /* Centrage horizontal */
     margin: 0 auto;
+    /* Disposition flexible des éléments */
     display: flex;
+    /* Répartition égale des éléments */
     justify-content: space-around;
+    /* Alignement vertical au centre */
     align-items: center;
+    /* Espacement horizontal */
     padding: 0 20px;
 }
 
+/* Style des éléments individuels de la barre */
 .interactive-item {
+    /* Disposition en colonne des icônes et textes */
     display: flex;
     flex-direction: column;
+    /* Centrage des éléments */
     align-items: center;
+    /* Espacement interne */
     padding: 10px 20px;
+    /* Curseur pointeur pour indiquer l'interactivité */
     cursor: pointer;
+    /* Animation douce au survol */
     transition: var(--transition);
+    /* Coins arrondis */
     border-radius: 8px;
+    /* Couleur du texte */
     color: var(--text-color);
+    /* Pour l'effet de soulignement */
     position: relative;
     overflow: hidden;
 }
 
+/* Effet de soulignement au survol */
 .interactive-item::after {
+    /* Création d'un pseudo-élément */
     content: '';
+    /* Positionnement absolu */
     position: absolute;
     bottom: 0;
     left: 0;
+    /* Dimensions */
     width: 100%;
     height: 2px;
+    /* Dégradé de couleur */
     background: linear-gradient(to right, var(--light-red), var(--light-green));
+    /* Initial scale à 0 pour l'animation */
     transform: scaleX(0);
+    /* Animation de l'effet */
     transition: transform 0.3s ease;
 }
 
+/* Animation du soulignement au survol */
 .interactive-item:hover::after {
+    /* Scale à 1 pour afficher le soulignement */
     transform: scaleX(1);
 }
 
+/* Style de l'élément actif */
 .interactive-item.active {
+    /* Fond dégradé pour l'élément actif */
     background: linear-gradient(45deg, var(--light-red), var(--light-green));
     color: var(--text-color);
 }
 
+/* Style des icônes dans la barre */
 .interactive-item i {
+    /* Taille de l'icône */
     font-size: 1.5rem;
+    /* Espacement sous l'icône */
     margin-bottom: 5px;
+    /* Couleur de l'icône */
     color: var(--accent-color);
 }
 
+/* Style du texte sous les icônes */
 .interactive-item span {
+    /* Taille du texte */
     font-size: 0.9rem;
+    /* Épaisseur de la police */
     font-weight: 500;
 }
 
+/* Effet au survol des éléments */
 .interactive-item:hover {
+    /* Changement de fond */
     background: var(--light-bg);
+    /* Léger déplacement vers le haut */
     transform: translateY(-2px);
 }
 
+/* Style du logo dans la barre */
 #logo-container img {
+    /* Bordure transparente pour l'effet de gradient */
     border: 3px solid transparent;
+    /* Coins arrondis */
     border-radius: 18px;
+    /* Dégradé de fond */
     background: linear-gradient(120deg, #FF5252 30%, #4CAF50 100%);
+    /* Application du gradient à la bordure */
     background-origin: border-box;
     background-clip: padding-box, border-box;
+    /* Transitions pour les effets */
     transition: box-shadow 0.4s, border-color 0.4s;
+    /* Ombre portée */
     box-shadow: 0 2px 16px rgba(76, 175, 80, 0.08), 0 2px 8px rgba(255, 82, 82, 0.08);
+    /* Espacement interne */
     padding: 2px;
 }
 
+/* Effet au survol du logo */
 #logo-container img:hover {
+    /* Ombre colorée au survol */
     box-shadow: 0 0 24px 4px #FF5252, 0 0 32px 8px #4CAF50;
+    /* Couleur de bordure au survol */
     border-color: #FF5252;
 }
 
 
-/* Hero Section */
+/* Section héro avec image de fond et superposition */
 .hero-section {
+    /* Image de fond avec superposition sombre */
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                 url('Images/CAN.jpeg') center/cover;
+    /* Espacement vertical */
     padding: 120px 0;
+    /* Marge inférieure */
     margin-bottom: 2rem;
+    /* Pour le positionnement des éléments enfants */
     position: relative;
+    /* Cache tout débordement */
     overflow: hidden;
+    /* Alignement du texte au centre */
     text-align: center;
 }
 
+/* Effet de superposition colorée sur la section héro */
 .hero-section::before {
+    /* Création d'un pseudo-élément */
     content: '';
+    /* Positionnement absolu pour couvrir toute la section */
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    /* Dégradé de couleurs d'accent */
     background: linear-gradient(45deg, var(--accent-color), var(--green-color));
+    /* Transparence de l'effet */
     opacity: 0.3;
 }
 
+/* Style du titre principal dans la section héro */
 .hero-section h1 {
+    /* Taille de police importante */
     font-size: 3.5rem;
+    /* Police en gras */
     font-weight: 800;
+    /* Texte en blanc */
     color: white;
+    /* Ombre du texte pour meilleure lisibilité */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Espacement sous le titre */
     margin-bottom: 1rem;
+    /* Espacement entre les lettres */
     letter-spacing: 2px;
 }
 
+/* Style du sous-titre dans la section héro */
 .hero-section p {
+    /* Taille de police moyenne */
     font-size: 1.5rem;
+    /* Texte en blanc */
     color: white;
+    /* Ombre légère pour la lisibilité */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    /* Espacement sous le paragraphe */
     margin-bottom: 0.5rem;
+    /* Police semi-grasse */
     font-weight: 500;
 }
 
-/* Filtres Section */
+/* Section des filtres de recherche */
 .filters-section {
+    /* Fond blanc */
     background: white;
+    /* Espacement interne */
     padding: 20px;
+    /* Coins arrondis */
     border-radius: 10px;
+    /* Ombre portée légère */
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    /* Espacement sous la section */
     margin-bottom: 30px;
 }
 
+/* Style des menus déroulants et champs de texte */
 .form-select, .form-control {
+    /* Bordure fine */
     border: 1px solid #ddd;
+    /* Espacement interne */
     padding: 10px;
+    /* Coins arrondis */
     border-radius: 5px;
+    /* Animation au focus */
     transition: var(--transition);
 }
 
+/* Style au focus des éléments de formulaire */
 .form-select:focus, .form-control:focus {
+    /* Couleur de bordure au focus */
     border-color: var(--primary-color);
+    /* Ombre au focus */
     box-shadow: 0 0 0 0.2rem rgba(240, 193, 75, 0.25);
 }
 
+/* Style du bouton principal */
 .btn-primary {
+    /* Couleur de fond */
     background-color: var(--primary-color);
+    /* Couleur de bordure */
     border-color: var(--primary-color);
+    /* Couleur du texte */
     color: var(--secondary-color);
 }
 
+/* Effet au survol du bouton */
 .btn-primary:hover {
+    /* Changement de couleur de fond */
     background-color: var(--accent-color);
+    /* Changement de couleur de bordure */
     border-color: var(--accent-color);
+    /* Texte en blanc */
     color: white;
 }
 
-/* Vidéos Grid */
+/* Style des cartes contenant les vidéos */
 .video-card {
+    /* Fond blanc */
     background: white;
+    /* Coins arrondis */
     border-radius: 10px;
+    /* Cache les débordements */
     overflow: hidden;
+    /* Ombre portée légère */
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    /* Espacement sous la carte */
     margin-bottom: 30px;
+    /* Animation au survol */
     transition: var(--transition);
+    /* Curseur pointeur */
     cursor: pointer;
 }
 
+/* Effet de survol sur les cartes vidéo */
 .video-card:hover {
+    /* Léger déplacement vers le haut */
     transform: translateY(-5px);
+    /* Ombre plus prononcée */
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Conteneur de la miniature vidéo */
 .video-thumbnail {
+    /* Position relative pour les éléments enfants */
     position: relative;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    /* Ratio d'aspect 16:9 */
+    padding-top: 56.25%;
+    /* Cache les débordements */
     overflow: hidden;
 }
 
+/* Style de l'image miniature */
 .video-thumbnail img {
+    /* Position absolue dans le conteneur */
     position: absolute;
     top: 0;
     left: 0;
+    /* Couvre tout l'espace disponible */
     width: 100%;
     height: 100%;
+    /* Ajustement de l'image */
     object-fit: cover;
+    /* Animation au survol */
     transition: var(--transition);
 }
 
+/* Effet de zoom sur l'image au survol */
 .video-card:hover .video-thumbnail img {
+    /* Agrandissement de l'image */
     transform: scale(1.05);
 }
 
+/* Bouton de lecture sur la miniature */
 .play-button {
+    /* Position centrée sur la miniature */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /* Dimensions du bouton */
     width: 60px;
     height: 60px;
+    /* Fond semi-transparent */
     background: rgba(0, 0, 0, 0.7);
+    /* Forme circulaire */
     border-radius: 50%;
+    /* Centrage de l'icône */
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Animation au survol */
     transition: var(--transition);
 }
 
+/* Style de l'icône de lecture */
 .play-button i {
+    /* Couleur blanche */
     color: white;
+    /* Taille de l'icône */
     font-size: 24px;
 }
 
+/* Effet au survol du bouton de lecture */
 .video-card:hover .play-button {
+    /* Changement de couleur de fond */
     background: var(--primary-color);
 }
 
+/* Informations de la vidéo */
 .video-info {
+    /* Espacement interne */
     padding: 15px;
 }
 
+/* Titre de la vidéo */
 .video-title {
+    /* Taille de police */
     font-size: 1.1rem;
+    /* Police en gras */
     font-weight: 600;
+    /* Espacement sous le titre */
     margin-bottom: 10px;
+    /* Couleur du texte */
     color: var(--secondary-color);
 }
 
+/* Métadonnées de la vidéo */
 .video-meta {
+    /* Disposition flexible */
     display: flex;
+    /* Espacement entre les éléments */
     justify-content: space-between;
+    /* Couleur grise */
     color: #666;
+    /* Taille de police réduite */
     font-size: 0.9rem;
 }
 
+/* Catégorie de la vidéo */
 .video-category {
+    /* Fond clair */
     background: var(--light-bg);
+    /* Espacement interne */
     padding: 3px 8px;
+    /* Coins arrondis */
     border-radius: 3px;
+    /* Petite taille de police */
     font-size: 0.8rem;
 }
 
-/* Modal Styles */
+/* Style de la fenêtre modale */
 .modal-content {
+    /* Pas de bordure */
     border: none;
+    /* Coins très arrondis */
     border-radius: 15px;
 }
 
+/* En-tête de la modale */
 .modal-header {
+    /* Fond sombre */
     background-color: var(--secondary-color);
+    /* Texte blanc */
     color: white;
+    /* Coins arrondis supérieurs */
     border-radius: 15px 15px 0 0;
 }
 
+/* Conteneur de la vidéo dans la modale */
 .video-container {
+    /* Position relative pour l'iframe */
     position: relative;
+    /* Ratio d'aspect 16:9 */
     padding-top: 56.25%;
+    /* Fond noir */
     background: #000;
+    /* Coins arrondis */
     border-radius: 8px;
+    /* Cache les débordements */
     overflow: hidden;
 }
 
+/* Style de l'iframe vidéo */
 .video-container iframe {
+    /* Position absolue dans le conteneur */
     position: absolute;
     top: 0;
     left: 0;
+    /* Couvre tout l'espace disponible */
     width: 100%;
     height: 100%;
 }
 
+/* Informations dans la modale */
 .video-info {
+    /* Espacement interne */
     padding: 20px;
 }
 
+/* Description de la vidéo */
 .video-description {
+    /* Couleur grise */
     color: #666;
+    /* Espacement vertical */
     margin: 15px 0;
 }
 
-/* Animations */
+/* Animation de fondu à l'entrée */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    /* État initial */
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    /* État final */
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
+/* Application de l'animation aux cartes vidéo */
 .video-card {
+    /* Animation avec timing et mode de remplissage */
     animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Responsive Design */
+/* Adaptations pour les écrans mobiles */
 @media (max-width: 768px) {
+    /* Ajustement de la section héro */
     .hero-section {
+        /* Réduction de l'espacement vertical */
         padding: 60px 0;
     }
 
+    /* Ajustement de la section des filtres */
     .filters-section {
+        /* Réduction de l'espacement interne */
         padding: 15px;
     }
 
+    /* Ajustement des cartes vidéo */
     .video-card {
+        /* Réduction de l'espacement inférieur */
         margin-bottom: 20px;
     }
 }
 
-/* Custom Scrollbar */
+/* Personnalisation de la barre de défilement */
 ::-webkit-scrollbar {
+    /* Largeur de la barre */
     width: 8px;
 }
 
+/* Fond de la barre de défilement */
 ::-webkit-scrollbar-track {
+    /* Couleur de fond claire */
     background: var(--light-bg);
 }
 
+/* Style du curseur de défilement */
 ::-webkit-scrollbar-thumb {
+    /* Couleur principale */
     background: var(--primary-color);
+    /* Coins arrondis */
     border-radius: 4px;
 }
 
+/* Effet au survol du curseur de défilement */
 ::-webkit-scrollbar-thumb:hover {
+    /* Changement de couleur au survol */
     background: var(--accent-color);
 }
 
-/* Footer */
+/* Style du pied de page */
 .footer {
+    /* Fond sombre */
     background-color: var(--secondary-color);
+    /* Texte blanc */
     color: white;
+    /* Espacement vertical */
     padding: 50px 0 20px;
 }
 
+/* Conteneur du contenu du pied de page */
 .footer-content {
+    /* Largeur maximale */
     max-width: 1200px;
+    /* Centrage horizontal */
     margin: 0 auto;
+    /* Grille responsive */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Espacement entre les colonnes */
     gap: 40px;
+    /* Espacement horizontal */
     padding: 0 20px;
 }
 
+/* Titres des sections du pied de page */
 .footer-section h3 {
+    /* Couleur principale */
     color: var(--primary-color);
+    /* Espacement inférieur */
     margin-bottom: 20px;
+    /* Pour le soulignement */
     position: relative;
+    /* Affichage en ligne */
     display: inline-block;
 }
 
+/* Soulignement des titres */
 .footer-section h3::after {
+    /* Création du trait */
     content: '';
+    /* Position absolue */
     position: absolute;
     bottom: -5px;
     left: 0;
+    /* Dimensions */
     width: 40px;
     height: 2px;
+    /* Dégradé de couleur */
     background: linear-gradient(to right, var(--light-red), var(--light-green));
 }
 
+/* Listes dans le pied de page */
 .footer-section ul {
+    /* Suppression des puces */
     list-style: none;
+    /* Suppression du padding par défaut */
     padding: 0;
 }
 
+/* Éléments de liste */
 .footer-section ul li {
+    /* Espacement entre les éléments */
     margin-bottom: 10px;
 }
 
+/* Liens dans le pied de page */
 .footer-section a {
+    /* Couleur du texte */
     color: white;
+    /* Suppression du soulignement */
     text-decoration: none;
+    /* Animation au survol */
     transition: var(--transition);
 }
 
+/* Effet au survol des liens */
 .footer-section a:hover {
+    /* Changement de couleur */
     color: var(--primary-color);
 }
 
+/* Conteneur des liens sociaux */
 .social-links {
+    /* Disposition flexible */
     display: flex;
+    /* Espacement entre les icônes */
     gap: 15px;
 }
 
+/* Style des icônes sociales */
 .social-links a {
+    /* Taille des icônes */
     font-size: 1.5rem;
+    /* Animation au survol */
     transition: var(--transition);
+    /* Pour les effets de survol */
     position: relative;
 }
 
+/* Effet au survol des icônes sociales */
 .social-links a:hover {
+    /* Couleur rouge */
     color: var(--red-color);
+    /* Déplacement vers le haut */
     transform: translateY(-3px);
+    /* Légère transparence */
     opacity: 0.8;
 }
 
+/* Effet sur l'icône suivante */
 .social-links a:hover + a {
+    /* Couleur verte */
     color: var(--green-color);
+    /* Légère transparence */
     opacity: 0.8;
 }
 
+/* Bas du pied de page */
 .footer-bottom {
+    /* Centrage du texte */
     text-align: center;
+    /* Espacement supérieur */
     margin-top: 50px;
+    /* Espacement du bord supérieur */
     padding-top: 20px;
+    /* Bordure supérieure */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Navbar Styles */
+/* Style de base de la barre de navigation */
 .navbar {
+    /* Fond semi-transparent avec couleur profonde */
     background: rgba(20, 38, 61, 0.98) !important;
+    /* Espacement vertical */
     padding: 10px 0;
+    /* Animation de l'ombre */
     transition: box-shadow 0.3s;
 }
 
+/* Effet d'ombre lors du défilement */
 .navbar.sticky-shadow {
+    /* Ombre portée subtile */
     box-shadow: 0 4px 18px rgba(0,0,0,0.18);
 }
 
+/* Animation du logo */
 .navbar-brand img {
+    /* Transition douce pour l'effet de survol */
     transition: transform 0.3s ease;
 }
 
+/* Effet de survol sur le logo */
 .navbar-brand:hover img {
+    /* Léger agrandissement */
     transform: scale(1.05);
 }
 
+/* Style des liens de navigation */
 .navbar-nav .nav-link {
+    /* Texte blanc */
     color: #fff !important;
+    /* Police semi-grasse */
     font-weight: 500;
+    /* Espacement interne */
     padding: 8px 16px;
+    /* Animation de la couleur */
     transition: color 0.3s ease;
 }
 
+/* Effet au survol des liens */
 .navbar-nav .nav-link:hover {
+    /* Changement de couleur au survol */
     color: var(--primary-color) !important;
 }
 
+/* Style du lien actif */
 .navbar-nav .nav-link.active {
+    /* Couleur du lien actif */
     color: var(--primary-color) !important;
+    /* Police plus grasse */
     font-weight: 600;
 }
 
+/* Style du bouton de menu mobile */
 .navbar-toggler {
+    /* Suppression de la bordure */
     border: none;
+    /* Suppression du padding */
     padding: 0;
 }
 
+/* Suppression de l'effet de focus du bouton */
 .navbar-toggler:focus {
+    /* Pas d'ombre au focus */
     box-shadow: none;
 }
 
+/* Adaptations pour les écrans mobiles */
 @media (max-width: 991px) {
+    /* Style du menu déroulant mobile */
     .navbar-collapse {
+        /* Fond semi-transparent */
         background: rgba(20, 38, 61, 0.98);
+        /* Espacement interne */
         padding: 20px;
+        /* Coins arrondis */
         border-radius: 8px;
+        /* Espacement supérieur */
         margin-top: 10px;
     }
     
+    /* Ajustement des liens en mode mobile */
     .navbar-nav .nav-link {
+        /* Espacement vertical uniquement */
         padding: 10px 0;
     }
 } 

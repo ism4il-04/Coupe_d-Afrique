@@ -1,23 +1,31 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Méta-données essentielles pour le SEO et l'affichage -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vidéos - CAN 2025</title>
-    <!-- Bootstrap CSS -->
+    
+    <!-- Importation des bibliothèques CSS externes -->
+    <!-- Bootstrap pour la mise en page responsive -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+    <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Feuille de style personnalisée -->
     <link rel="stylesheet" href="videos.css">
 </head>
 <body>  
    
-<!-- Barre Interactive -->
+<!-- Barre de navigation interactive fixe -->
 <div class="interactive-bar">
     <div class="interactive-content">
+        <!-- Logo de la CAN -->
         <div id="logo-container">
             <i><img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180" ></i>
         </div>
+        <!-- Liens de navigation avec icônes -->
         <div class="interactive-item" data-section="can2025-description">
             <i class="fas fa-home home-icon"></i>
             <span>Accueil</span>
@@ -48,92 +56,110 @@
         </div>
     </div>
 </div>
-    <!-- Hero Section -->
-    <div class="hero-section">
-        <div class="container text-center">
-            <img src="Images/téléchargement.png" alt="Photo CAN" class="img-fluid mb-3" style="max-height:180px; display:block; margin-left:auto; margin-right:auto;">
-            <h1 class="display-4 text-white">Vidéos CAN </h1>
-            <p class="lead text-white">Revivez les meilleurs moments de la Coupe d'Afrique des Nations</p>
-        </div>
-    </div>
 
-    <!-- Vidéos Grid -->
-    <div class="container mt-4">
-        <div class="row" id="videosGrid">
-            <!-- Les vidéos seront générées dynamiquement ici -->
-        </div>
+<!-- Section héro avec image et texte d'introduction -->
+<div class="hero-section">
+    <div class="container text-center">
+        <!-- Logo central -->
+        <img src="Images/téléchargement.png" alt="Photo CAN" class="img-fluid mb-3" style="max-height:180px; display:block; margin-left:auto; margin-right:auto;">
+        <!-- Titre principal -->
+        <h1 class="display-4 text-white">Vidéos CAN </h1>
+        <!-- Sous-titre descriptif -->
+        <p class="lead text-white">Revivez les meilleurs moments de la Coupe d'Afrique des Nations</p>
     </div>
+</div>
 
-    <!-- Modal pour la lecture vidéo -->
-    <div class="modal fade" id="videoModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Titre de la vidéo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+<!-- Grille des vidéos -->
+<div class="container mt-4">
+    <!-- Les vidéos seront injectées dynamiquement via JavaScript -->
+    <div class="row" id="videosGrid">
+        <!-- Les vidéos seront générées dynamiquement ici -->
+    </div>
+</div>
+
+<!-- Fenêtre modale pour la lecture des vidéos -->
+<div class="modal fade" id="videoModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- En-tête de la modale -->
+            <div class="modal-header">
+                <h5 class="modal-title">Titre de la vidéo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Corps de la modale -->
+            <div class="modal-body">
+                <!-- Conteneur de la vidéo -->
+                <div class="video-container">
+                    <iframe width="100%" height="500" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="modal-body">
-                    <div class="video-container">
-                        <iframe width="100%" height="500" frameborder="0" allowfullscreen></iframe>
+                <!-- Informations sur la vidéo -->
+                <div class="video-info mt-3">
+                    <h4 class="video-title"></h4>
+                    <p class="video-description"></p>
+                    <div class="video-meta">
+                        <span class="video-date"></span>
+                        <span class="video-category"></span>
                     </div>
-                    <div class="video-info mt-3">
-                        <h4 class="video-title"></h4>
-                        <p class="video-description"></p>
-                        <div class="video-meta">
-                            <span class="video-date"></span>
-                            <span class="video-category"></span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-   
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>CAN 2025</h3>
-                <p>Coupe d'Afrique des Nations<br>Maroc</p>
-            </div>
-            <div class="footer-section">
-                <h3>Suivez-nous</h3>
-                <div class="social-links">  
-                    <a href="https://www.facebook.com/TheAFCON"><i class="fab fa-facebook"></i></a>
-                    <a href="https://x.com/CAF_Online?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/caf_online?igsh=MXVvajljaXVlenFvaw=="><i class="fab fa-instagram"></i></a>
-
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Liens rapides</h3>
-                <ul>
-                    <li><a href="matches.html">Matches</a></li>
-                    <li><a href="groupes.html">Groupes</a></li>
-                    <li><a href="videos.html">Vidéos</a></li>
-                    <li><a href="stades.html">Stades et villes hôtes</a></li>
-                    <li><a href="equipes.html">Équipes</a></li>
-                </ul>
+<!-- Pied de page -->
+<footer class="footer">
+    <div class="footer-content">
+        <!-- Section d'information sur la CAN -->
+        <div class="footer-section">
+            <h3>CAN 2025</h3>
+            <p>Coupe d'Afrique des Nations<br>Maroc</p>
+        </div>
+        <!-- Section des réseaux sociaux -->
+        <div class="footer-section">
+            <h3>Suivez-nous</h3>
+            <div class="social-links">  
+                <!-- Liens vers les réseaux sociaux avec icônes -->
+                <a href="https://www.facebook.com/TheAFCON" title="Facebook officiel de la CAN"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/CAF_Online" title="Twitter officiel de la CAF"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/caf_online" title="Instagram officiel de la CAF"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 CAN - Tous droits réservés</p>
+        <!-- Section des liens rapides -->
+        <div class="footer-section">
+            <h3>Liens rapides</h3>
+            <!-- Navigation rapide du site -->
+            <ul>
+                <li><a href="matches.html" title="Calendrier des matches">Matches</a></li>
+                <li><a href="groupes.html" title="Groupes de la compétition">Groupes</a></li>
+                <li><a href="videos.html" title="Vidéos et highlights">Vidéos</a></li>
+                <li><a href="stades.html" title="Informations sur les stades">Stades et villes hôtes</a></li>
+                <li><a href="equipes.html" title="Équipes participantes">Équipes</a></li>
+            </ul>
         </div>
-    </footer>
+    </div>
+    <!-- Copyright et mentions légales -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 CAN - Tous droits réservés</p>
+    </div>
+</footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="videos.js"></script>
-    <script>
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 10) {
-            navbar.classList.add('sticky-shadow');
-        } else {
-            navbar.classList.remove('sticky-shadow');
-        }
-    });
-    </script>
+<!-- Scripts JavaScript -->
+<!-- Bootstrap pour les composants interactifs -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Script personnalisé pour la gestion des vidéos -->
+<script src="videos.js"></script>
+<!-- Script pour l'effet d'ombre de la barre de navigation au défilement -->
+<script>
+window.addEventListener('scroll', function() {
+    // Sélection de la barre de navigation
+    const navbar = document.querySelector('.navbar');
+    // Ajout/suppression de l'ombre selon la position de défilement
+    if (window.scrollY > 10) {
+        navbar.classList.add('sticky-shadow');
+    } else {
+        navbar.classList.remove('sticky-shadow');
+    }
+});
+</script>
 </body>
 </html>
