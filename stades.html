@@ -119,7 +119,8 @@
                     <button type="button" data-bs-target="#rabatStadesCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Stade Prince Moulay Abdellah"></button>
                     <button type="button" data-bs-target="#rabatStadesCarousel" data-bs-slide-to="1" aria-label="Stade Moulay Hassan"></button>
                     <button type="button" data-bs-target="#rabatStadesCarousel" data-bs-slide-to="2" aria-label="Stade Al Barid"></button>
-        </div>
+                    <button type="button" data-bs-target="#rabatStadesCarousel" data-bs-slide-to="3" aria-label="Stade Olympique"></button>
+                </div>
 
                 <div class="carousel-inner">
         <!-- Stade Prince Moulay Abdellah -->
@@ -304,6 +305,67 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Ajout du Stade Olympique -->
+                    <div class="carousel-item">
+                        <div class="stadium-showcase">
+                            <div class="stade-info">
+                                <div class="image-container">
+                                    <img src="Images/Olympique_Stadiums.jpg" alt="Stade Olympique" class="clickable-image" onclick="openOlympiqueModal()">
+                                </div>
+                                <div class="texte-stade">
+                                    <h4>Stade Olympique</h4>
+                                    <p>Un complexe sportif moderne offrant une expérience immersive unique, avec des installations de pointe et une architecture innovante qui en fait un lieu idéal pour les grands événements de la CAN 2025.</p>
+                                    
+                                    <div class="stadium-stats">
+                                        <div class="stat-item">
+                                            <div class="stat-label">Capacité</div>
+                                            <div class="stat-value">25,000</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-label">Rénovation</div>
+                                            <div class="stat-value">2023</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stadium-features">
+                                        <div class="feature-item">
+                                            <i class="fas fa-running"></i>
+                                            <span>Piste olympique</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-solar-panel"></i>
+                                            <span>Énergie verte</span>
+                                        </div>
+                                        <div class="feature-item">
+                                            <i class="fas fa-universal-access"></i>
+                                            <span>100% accessible</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="stadium-quick-info">
+                                        <div class="quick-info-item">
+                                            <i class="fas fa-subway"></i>
+                                            <span>Métro L1</span>
+                                        </div>
+                                        <div class="quick-info-item">
+                                            <i class="fas fa-parking"></i>
+                                            <span>1200 places</span>
+                                        </div>
+                                        <div class="quick-info-item">
+                                            <i class="fas fa-utensils"></i>
+                                            <span>Food court</span>
+                                        </div>
+                                    </div>
+
+                                    <button class="view-details-btn" onclick="openOlympiqueModal()">
+                                        <i class="fas fa-info-circle"></i>
+                                        Voir les détails
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Enhanced Navigation Controls -->
@@ -330,7 +392,7 @@
                         <div class="col-md-6">
                             <div class="stadium-info">
                                 <h4>Informations du Stade</h4>
-                                <p><i class="fas fa-users"></i> Capacité: 69 500 places</p>
+                                <p><i class="fas fa-users"></i> Capacité:  53000 places</p>
                                 <p><i class="fas fa-map-marker-alt"></i> Avenue Hassan II, Rabat</p>
                                 <p><i class="fas fa-calendar"></i> Inauguré en: 1983</p>
                                 <p><i class="fas fa-info-circle"></i> Dernière rénovation: 2022</p>
@@ -383,8 +445,8 @@
                                             <li>Accès salon VIP</li>
                                             <li>Service de restauration</li>
                                             <li>Parking réservé</li>
-                                        </ul>
-                                </div>
+        </ul>
+    </div>
                             </div>
                                 <div class="zone-indicator category1">
                                     <span class="zone-dot zone-category1"></span>
@@ -434,6 +496,7 @@
                 </div>
             </div>
         </div>
+        
 
         <!-- Modal pour Stade Moulay Hassan -->
         <div id="moulayHassanModal" class="modal">
@@ -653,6 +716,121 @@
             </div>
         </div>
 
+        <!-- Modal pour le Stade Olympique -->
+        <div id="olympiqueModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeOlympiqueModal()">&times;</span>
+                <div class="modal-header">
+                    <h3>Stade Olympique - Rabat</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="stadium-info">
+                                <h4>Informations du Stade</h4>
+                                <p><i class="fas fa-users"></i> Capacité: 25 000 places</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Avenue de l'Olympique, Rabat</p>
+                                <p><i class="fas fa-calendar"></i> Inauguré en: 2015</p>
+                                <p><i class="fas fa-info-circle"></i> Dernière rénovation: 2023</p>
+                                <a href="https://www.google.com/maps?q=34.0231,-6.8344" target="_blank" class="maps-button">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                    Voir sur Google Maps
+                                </a>
+                            </div>
+                            <div class="city-info">
+                                <h4>À propos de Rabat</h4>
+                                <p><i class="fas fa-city"></i> Capitale administrative du Maroc</p>
+                                <p><i class="fas fa-users"></i> Population: ~580 000 habitants</p>
+                                <p><i class="fas fa-temperature-high"></i> Climat: Méditerranéen modéré</p>
+                                <p><i class="fas fa-landmark"></i> Sites à visiter: Kasbah des Oudayas, Tour Hassan, Chellah</p>
+                            </div>
+                            <div class="transport-info">
+                                <h4>Transport</h4>
+                                <div class="transport-options">
+                                    <p><i class="fas fa-train"></i> Train: Gare Rabat-Ville (2.5 km)</p>
+                                    <p><i class="fas fa-bus"></i> Bus: Lignes 8, 12, 15 (arrêt Olympique)</p>
+                                    <p><i class="fas fa-subway"></i> Métro: Ligne 1 (station Olympique)</p>
+                                    <p><i class="fas fa-taxi"></i> Taxis: Station permanente</p>
+                                </div>
+                            </div>
+                            <button class="view-stadium-button" onclick="toggleStadiumView('olympiqueStadiumView')">
+                                <i class="fas fa-eye"></i>
+                                Voir le plan du stade
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="map-container" id="olympiqueMap"></div>
+                            <div class="stadium-image-large">
+                                <img src="Images/Olympique_Stadiums.jpg" alt="Stade Olympique" class="full-width-image">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Stadium View Section -->
+                    <div id="olympiqueStadiumView" class="stadium-view-section" style="display: none;">
+                        <h4>Plan du Stade</h4>
+                        <div class="stadium-layout">
+                            <img src="Images/Olympique_Stadiums.jpg" alt="Plan du Stade" class="stadium-layout-image">
+                            <div class="zone-indicators">
+                                <div class="zone-indicator vip">
+                                    <span class="zone-dot zone-vip"></span>
+                                    <div class="zone-details">
+                                        <h5>Zone VIP</h5>
+                                        <p>450 DH</p>
+                                        <ul>
+                                            <li>Sièges premium en cuir</li>
+                                            <li>Accès salon VIP climatisé</li>
+                                            <li>Service de restauration haut de gamme</li>
+                                            <li>Parking réservé avec voiturier</li>
+                                            <li>Entrée privée au stade</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="zone-indicator category1">
+                                    <span class="zone-dot zone-category1"></span>
+                                    <div class="zone-details">
+                                        <h5>Tribune Centrale</h5>
+                                        <p>300 DH</p>
+                                        <ul>
+                                            <li>Vue optimale sur le terrain</li>
+                                            <li>Places couvertes et climatisées</li>
+                                            <li>Accès aux buvettes premium</li>
+                                            <li>Sièges confortables</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="zone-indicator category2">
+                                    <span class="zone-dot zone-category2"></span>
+                                    <div class="zone-details">
+                                        <h5>Tribune Latérale</h5>
+                                        <p>200 DH</p>
+                                        <ul>
+                                            <li>Bonne visibilité du terrain</li>
+                                            <li>Places couvertes</li>
+                                            <li>Accès aux buvettes standard</li>
+                                            <li>Zone famille disponible</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="zone-indicator category3">
+                                    <span class="zone-dot zone-category3"></span>
+                                    <div class="zone-details">
+                                        <h5>Tribune Populaire</h5>
+                                        <p>100 DH</p>
+                                        <ul>
+                                            <li>Ambiance supporters garantie</li>
+                                            <li>Zone animation</li>
+                                            <li>Accès aux buvettes standard</li>
+                                            <li>Expérience authentique</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Agadir Section -->
         <div class="city-section agadir-section">
             <div class="city-header">
@@ -847,7 +1025,7 @@
                         <div class="stadium-stats">
                             <div class="stat-item">
                                 <div class="stat-label">Capacité</div>
-                                <div class="stat-value">45,891</div>
+                                <div class="stat-value">65,000</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stat-label">Inauguration</div>
@@ -1401,7 +1579,7 @@
                         <div class="stadium-stats">
                             <div class="stat-item">
                                 <div class="stat-label">Capacité</div>
-                                <div class="stat-value">35,468</div>
+                                <div class="stat-value">45,468</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stat-label">Inauguration</div>

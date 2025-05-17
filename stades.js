@@ -229,6 +229,16 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('adrarPriceModal').style.display = 'none';
     }
 
+    window.openOlympiqueModal = function() {
+        const modal = document.getElementById('olympiqueModal');
+        modal.style.display = 'flex';
+        initMap({lat: 34.0231, lng: -6.8344}, 'olympiqueMap');
+    }
+
+    window.closeOlympiqueModal = function() {
+        document.getElementById('olympiqueModal').style.display = 'none';
+    }
+
     // Mise à jour de la fonction de fermeture des modales
     window.onclick = function(event) {
         const modals = [
@@ -239,7 +249,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('moulayAbdellahModal'),
             document.getElementById('moulayHassanModal'),
             document.getElementById('alBaridModal'),
-            document.getElementById('adrarPriceModal')
+            document.getElementById('adrarPriceModal'),
+            document.getElementById('olympiqueModal')
         ];
         
         modals.forEach(modal => {
@@ -390,7 +401,8 @@ document.addEventListener('DOMContentLoaded', function() {
             'Stade Ibn-Battouta': 'openTangerPriceModal',
             'Stade de Marrakech': 'openMarrakechPriceModal',
             'Stade Adrar': 'openAdrarPriceModal',
-            'Stade de Fès': 'openFesPriceModal'
+            'Stade de Fès': 'openFesPriceModal',
+            'Stade Olympique': 'openOlympiqueModal'
         };
         return modalFunctions[stadeName] || 'alert("Modal non disponible")';
     }
