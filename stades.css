@@ -1,522 +1,548 @@
 :root {
-    --primary-color: #f0c14b;
-    --secondary-color: #1a1a1a;
-    --accent-color: #8b142b;
-    --text-color: #333;
-    --light-bg: #f8f9fa;
-    --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    --hover-transform: translateY(-5px);
-    --transition-speed: 0.3s;
-    --transition: all 0.3s ease;
-    --green-color: #4CAF50;
-    --red-color: #FF5252;
-    --light-green: rgba(76, 175, 80, 0.2);
-    --light-red: rgba(255, 82, 82, 0.2);
+    --primary-color: #f0c14b; /* Couleur principale (jaune doré) */
+    --secondary-color: #1a1a1a; /* Couleur secondaire (presque noir) */
+    --accent-color: #8b142b; /* Couleur d’accentuation (rouge bordeaux) */
+    --text-color: #333; /* Couleur principale du texte (gris foncé) */
+    --light-bg: #f8f9fa; /* Couleur de fond claire */
+    --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); /* Ombre portée des cartes */
+    --hover-transform: translateY(-5px); /* Effet de déplacement vers le haut au survol */
+    --transition-speed: 0.3s; /* Durée des transitions */
+    --transition: all 0.3s ease; /* Transition générale douce */
+    --green-color: #4CAF50; /* Vert standard (confirmation, succès) */
+    --red-color: #FF5252; /* Rouge standard (erreur, alerte) */
+    --light-green: rgba(76, 175, 80, 0.2); /* Vert transparent clair (fond de succès) */
+    --light-red: rgba(255, 82, 82, 0.2); /* Rouge transparent clair (fond d’erreur) */
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--light-bg);
-    color: var(--text-color);
-    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif; /* Police principale : Montserrat, sinon sans-serif */
+    margin: 0; /* Suppression des marges par défaut du navigateur */
+    padding: 0; /* Suppression des espacements internes par défaut */
+    background-color: var(--light-bg); /* Fond clair défini dans les variables */
+    color: var(--text-color); /* Couleur du texte principal */
+    line-height: 1.6; /* Hauteur de ligne pour faciliter la lecture */
+}
+.stade-info {
+    display: flex; /* Mise en page flexible pour placer image + texte côte à côte */
+    align-items: flex-start; /* Alignement vertical en haut */
+    gap: 30px; /* Espace horizontal entre image et texte */
+    margin-bottom: 40px; /* Espace sous la carte */
+    position: relative; /* Positionnement contextuel pour les éléments internes */
+    background: transparent; /* Fond transparent */
+    border-radius: 20px; /* Bords arrondis */
+    padding: 30px; /* Espacement interne */
+    box-shadow: var(--card-shadow); /* Ombre douce autour de la carte */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; /* Animation au survol */
 }
 
-.stade-info {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-    margin-bottom: 40px;
-    position: relative;
-    background: transparent;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: var(--card-shadow);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-}
 
 .stade-info:hover {
-    transform: var(--hover-transform);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: var(--hover-transform); /* Légère translation vers le haut */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Ombre plus marquée au survol */
 }
+
 
 .image-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: var(--card-shadow);
-    transition: all var(--transition-speed) ease-out;
-    perspective: 1000px;
-    flex: 1;
+    position: relative; /* Position de référence pour les enfants */
+    overflow: hidden; /* Masque tout ce qui dépasse du conteneur */
+    border-radius: 15px; /* Coins arrondis pour l’image */
+    box-shadow: var(--card-shadow); /* Ombre douce autour de l’image */
+    transition: all var(--transition-speed) ease-out; /* Animation douce */
+    perspective: 1000px; /* Perspective pour effets 3D éventuels */
+    flex: 1; /* Prend autant d’espace que possible dans le flex */
 }
+
 
 .stade-info img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 15px;
-    transition: transform var(--transition-speed) ease;
+    width: 100%; /* Largeur maximale du conteneur */
+    height: 400px; /* Hauteur fixe */
+    object-fit: cover; /* L’image remplit l’espace sans se déformer */
+    border-radius: 15px; /* Coins arrondis identiques au conteneur */
+    transition: transform var(--transition-speed) ease; /* Animation de zoom */
 }
+
 
 .stade-info img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Agrandissement de 5% */
 }
+
 
 .texte-stade {
-    flex: 1;
-    padding: 20px;
+    flex: 1; /* Prend l’espace restant dans le flex */
+    padding: 20px; /* Espacement intérieur */
 }
+
 
 .texte-stade h3 {
-    color: var(--accent-color);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    position: relative;
+    color: var(--accent-color); /* Couleur d’accentuation */
+    font-size: 2.5rem; /* Grande taille de police */
+    margin-bottom: 20px; /* Espace sous le titre */
+    font-weight: 700; /* Titre en gras */
+    position: relative; /* Nécessaire pour le pseudo-élément ::after */
 }
 
+
 .texte-stade h3::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: var(--accent-color);
-    border-radius: 2px;
+    content: ''; /* Contenu vide */
+    position: absolute; /* Positionnement par rapport à h3 */
+    bottom: -10px; /* 10px sous le texte */
+    left: 0; /* Aligné à gauche */
+    width: 60px; /* Longueur du soulignement */
+    height: 4px; /* Épaisseur du soulignement */
+    background: var(--accent-color); /* Couleur rouge bordeaux */
+    border-radius: 2px; /* Coins arrondis du soulignement */
 }
 
 .texte-stade p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #666;
+    font-size: 1.1rem; /* Taille de texte légèrement supérieure */
+    line-height: 1.8; /* Interligne pour meilleure lisibilité */
+    color: #666; /* Gris moyen pour contraste doux */
 }
+
 
 /* Carousel Enhancements */
 .carousel {
-    margin: 3rem 0;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--card-shadow);
+    margin: 3rem 0; /* Marge verticale de 3rem en haut et en bas */
+    border-radius: 20px; /* Bords arrondis */
+    overflow: hidden; /* Masque tout contenu dépassant */
+    box-shadow: var(--card-shadow); /* Ombre définie par la variable */
 }
 
 .carousel-item {
-    background-color: transparent;
+    background-color: transparent; /* Fond transparent */
 }
 
 .carousel-control-prev,
 .carousel-control-next {
-    width: 10%;
-    background: linear-gradient(to right, rgba(0,0,0,0.6), transparent);
-    opacity: 0;
-    transition: opacity var(--transition-speed) ease;
+    width: 10%; /* Largeur des boutons de navigation */
+    background: linear-gradient(to right, rgba(0,0,0,0.6), transparent); /* Dégradé noir vers transparent */
+    opacity: 0; /* Invisible par défaut */
+    transition: opacity var(--transition-speed) ease; /* Transition douce pour l’opacité */
 }
 
 .carousel-control-next {
-    background: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
+    background: linear-gradient(to left, rgba(0,0,0,0.6), transparent); /* Dégradé inversé pour bouton suivant */
 }
 
 .carousel:hover .carousel-control-prev,
 .carousel:hover .carousel-control-next {
-    opacity: 1;
+    opacity: 1; /* Visible au survol */
 }
 
 .carousel-indicators {
-    bottom: 20px;
+    bottom: 20px; /* Position à 20px du bas */
 }
 
 .carousel-indicators button {
-    width: 40px;
-    height: 4px;
-    margin: 0 5px;
-    border-radius: 2px;
-    background-color: var(--accent-color);
-    opacity: 0.5;
-    transition: all var(--transition-speed) ease;
+    width: 40px; /* Largeur des indicateurs */
+    height: 4px; /* Hauteur des indicateurs */
+    margin: 0 5px; /* Espace entre eux */
+    border-radius: 2px; /* Bords arrondis */
+    background-color: var(--accent-color); /* Couleur principale (rouge bordeaux) */
+    opacity: 0.5; /* Semi-transparent */
+    transition: all var(--transition-speed) ease; /* Transition fluide */
 }
 
 .carousel-indicators button.active {
-    width: 50px;
-    opacity: 1;
+    width: 50px; /* Plus large quand actif */
+    opacity: 1; /* Pleinement visible */
 }
 
 #rabatStadesCarousel {
-    margin: 0;
+    margin: 0; /* Pas de marge autour */
 }
 
 #rabatStadesCarousel .stade-info {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-    margin-bottom: 0;
-    position: relative;
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: var(--card-shadow);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    display: flex; /* Disposition en ligne */
+    align-items: flex-start; /* Aligner en haut */
+    gap: 30px; /* Espacement entre les éléments */
+    margin-bottom: 0; /* Pas d’espace en bas */
+    position: relative; /* Position relative pour placement des enfants */
+    background: white; /* Fond blanc */
+    border-radius: 20px; /* Bords arrondis */
+    padding: 30px; /* Espace intérieur */
+    box-shadow: var(--card-shadow); /* Ombre légère */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; /* Transition fluide */
 }
 
 #rabatStadesCarousel .stade-info:hover {
-    transform: var(--hover-transform);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: var(--hover-transform); /* Effet d’élévation */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* Ombre accentuée au survol */
 }
 
 #rabatStadesCarousel .image-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: var(--card-shadow);
-    transition: all var(--transition-speed) ease-out;
-    perspective: 1000px;
-    flex: 1;
+    position: relative; /* Position relative */
+    overflow: hidden; /* Cache le débordement */
+    border-radius: 15px; /* Bords arrondis */
+    box-shadow: var(--card-shadow); /* Ombre légère */
+    transition: all var(--transition-speed) ease-out; /* Transition fluide */
+    perspective: 1000px; /* Perspective pour effets 3D */
+    flex: 1; /* Prend la moitié de l’espace */
 }
 
 #rabatStadesCarousel .image-container img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 15px;
-    transition: transform var(--transition-speed) ease;
+    width: 100%; /* Largeur maximale */
+    height: 400px; /* Hauteur fixe */
+    object-fit: cover; /* Coupe l’image pour la remplir sans la déformer */
+    border-radius: 15px; /* Bords arrondis */
+    transition: transform var(--transition-speed) ease; /* Animation de zoom */
 }
 
 #rabatStadesCarousel .image-container img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Zoom léger au survol */
 }
 
 #rabatStadesCarousel .texte-stade {
-    flex: 1;
-    padding: 20px;
+    flex: 1; /* Prend l’autre moitié de l’espace */
+    padding: 20px; /* Espacement interne */
 }
 
 #rabatStadesCarousel .texte-stade h4 {
-    color: var(--accent-color);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    position: relative;
+    color: var(--accent-color); /* Couleur rouge bordeaux */
+    font-size: 2.5rem; /* Taille de police importante */
+    margin-bottom: 20px; /* Espace sous le titre */
+    font-weight: 700; /* Police en gras */
+    position: relative; /* Nécessaire pour le pseudo-élément ::after */
 }
 
 #rabatStadesCarousel .texte-stade h4::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: var(--accent-color);
-    border-radius: 2px;
+    content: ''; /* Élément décoratif vide */
+    position: absolute; /* Position absolue par rapport à h4 */
+    bottom: -10px; /* Placé sous le texte */
+    left: 0; /* Aligné à gauche */
+    width: 60px; /* Longueur de la ligne */
+    height: 4px; /* Épaisseur */
+    background: var(--accent-color); /* Couleur rouge bordeaux */
+    border-radius: 2px; /* Légers arrondis */
 }
 
 #rabatStadesCarousel .texte-stade p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #666;
+    font-size: 1.1rem; /* Taille légèrement agrandie */
+    line-height: 1.8; /* Interligne confortable */
+    color: #666; /* Gris foncé */
 }
 
 #rabatStadesCarousel .stadium-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin: 30px 0;
+    display: grid; /* Disposition en grille */
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes égales */
+    gap: 20px; /* Espacement entre les éléments */
+    margin: 30px 0; /* Marge verticale */
 }
 
 #rabatStadesCarousel .stat-item {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background: #f8f9fa; /* Gris très clair */
+    padding: 20px; /* Espacement interne */
+    border-radius: 15px; /* Bords arrondis */
+    text-align: center; /* Texte centré */
+    transition: transform 0.3s ease; /* Transition au survol */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Ombre légère */
 }
 
 #rabatStadesCarousel .stat-item:hover {
-    transform: translateY(-5px);
-    background: transparent;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); /* Léger effet de soulèvement */
+    background: transparent; /* Fond transparent */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Ombre plus forte */
 }
 
 #rabatStadesCarousel .stat-label {
-    font-size: 0.9rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
+    font-size: 0.9rem; /* Petite taille */
+    color: #666; /* Gris foncé */
+    text-transform: uppercase; /* Tout en majuscules */
+    letter-spacing: 1px; /* Espacement entre lettres */
+    margin-bottom: 8px; /* Espace sous le label */
 }
 
 #rabatStadesCarousel .stat-value {
-    font-size: 1.8rem;
-    color: var(--accent-color);
-    font-weight: 700;
+    font-size: 1.8rem; /* Grande taille pour la valeur */
+    color: var(--accent-color); /* Rouge bordeaux */
+    font-weight: 700; /* Gras */
 }
 
 #rabatStadesCarousel .stadium-features {
-    display: flex;
-    gap: 20px;
-    margin: 20px 0;
+    display: flex; /* Disposition horizontale */
+    gap: 20px; /* Espacement entre éléments */
+    margin: 20px 0; /* Marge verticale */
 }
 
 #rabatStadesCarousel .feature-item {
-    background: #f8f9fa;
-    padding: 10px 20px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
+    background: #f8f9fa; /* Fond gris clair */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 15px; /* Bords arrondis */
+    display: flex; /* Disposition horizontale */
+    align-items: center; /* Centrage vertical */
+    gap: 10px; /* Espace entre icône et texte */
+    transition: all 0.3s ease; /* Transition fluide */
 }
 
 #rabatStadesCarousel .feature-item:hover {
-    transform: translateY(-3px);
-    background: transparent;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px); /* Léger effet de soulèvement */
+    background: transparent; /* Fond transparent */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre au survol */
 }
 
 #rabatStadesCarousel .feature-item i {
-    color: var(--accent-color);
-    font-size: 1.2em;
+    color: var(--accent-color); /* Icône rouge bordeaux */
+    font-size: 1.2em; /* Taille de l’icône */
 }
 
 #rabatStadesCarousel .stadium-quick-info {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-    flex-wrap: wrap;
+    display: flex; /* Disposition horizontale */
+    gap: 15px; /* Espacement entre les infos */
+    margin-top: 20px; /* Marge au-dessus */
+    flex-wrap: wrap; /* Retour à la ligne si nécessaire */
 }
 
 #rabatStadesCarousel .quick-info-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 15px;
-    background: #f8f9fa;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: #666;
-    transition: all 0.3s ease;
+    display: flex; /* Disposition ligne */
+    align-items: center; /* Centrage vertical */
+    gap: 8px; /* Espacement icône/texte */
+    padding: 8px 15px; /* Espacement interne */
+    background: #f8f9fa; /* Fond gris clair */
+    border-radius: 20px; /* Bords bien arrondis */
+    font-size: 0.9rem; /* Taille de texte moyenne */
+    color: #666; /* Gris foncé */
+    transition: all 0.3s ease; /* Transition au survol */
 }
 
 #rabatStadesCarousel .quick-info-item:hover {
-    transform: translateY(-2px);
-    background: transparent;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px); /* Soulèvement léger */
+    background: transparent; /* Fond transparent */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre */
 }
 
 #rabatStadesCarousel .quick-info-item i {
-    color: var(--accent-color);
+    color: var(--accent-color); /* Icône rouge bordeaux */
 }
 
 #rabatStadesCarousel .view-details-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 30px;
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-weight: 600;
-    margin-top: 30px;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    display: inline-flex; /* Élément en ligne avec flex */
+    align-items: center; /* Centrage vertical */
+    gap: 10px; /* Espace entre icône et texte */
+    padding: 15px 30px; /* Espacement interne */
+    background: var(--accent-color); /* Fond rouge bordeaux */
+    color: white; /* Texte blanc */
+    border: none; /* Sans bordure */
+    border-radius: 25px; /* Bords bien arrondis */
+    font-weight: 600; /* Texte en semi-gras */
+    margin-top: 30px; /* Marge supérieure */
+    transition: all 0.3s ease; /* Transition fluide */
+    cursor: pointer; /* Curseur main */
 }
 
 #rabatStadesCarousel .view-details-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(139, 20, 43, 0.3);
+    transform: translateY(-3px); /* Soulèvement */
+    box-shadow: 0 8px 20px rgba(139, 20, 43, 0.3); /* Ombre colorée */
 }
 
 /* Stadium Layout */
 .stadium-layout {
-    margin-top: 30px;
+    margin-top: 30px; /* Marge en haut */
 }
 
 .stadium-layout-image {
-    border-radius: 15px;
-    box-shadow: var(--card-shadow);
-    transition: transform var(--transition-speed) ease;
+    border-radius: 15px; /* Bords arrondis */
+    box-shadow: var(--card-shadow); /* Ombre douce */
+    transition: transform var(--transition-speed) ease; /* Transition fluide */
 }
+
 
 .stadium-layout-image:hover {
     transform: scale(1.02);
 }
 
+/* Conteneur principal pour les indicateurs de zones : grille responsive */
 .zone-indicators {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
+    display: grid; /* Utilise CSS Grid pour organiser les enfants */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adapte dynamiquement les colonnes selon la taille */
+    gap: 25px; /* Espacement entre les éléments enfants */
+    margin-top: 30px; /* Marge au-dessus du conteneur */
 }
 
+/* Carte individuelle représentant une zone */
 .zone-indicator {
-    background: transparent;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: all var(--transition-speed) ease;
-    border-left: 4px solid var(--accent-color);
+    background: transparent; /* Fond transparent */
+    border-radius: 15px; /* Coins arrondis */
+    padding: 20px; /* Espacement intérieur */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Légère ombre portée pour l’effet carte */
+    transition: all var(--transition-speed) ease; /* Animation douce basée sur une variable CSS */
+    border-left: 4px solid var(--accent-color); /* Trait coloré à gauche pour différencier visuellement */
 }
 
+/* Effet au survol d'une carte */
 .zone-indicator:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); /* Légère élévation vers le haut */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Ombre plus intense pour accentuer l’effet de survol */
 }
 
+/* Titre de la zone dans la carte */
 .zone-details h5 {
-    font-size: 1.2rem;
-    color: var(--accent-color);
-    margin-bottom: 15px;
+    font-size: 1.2rem; /* Taille du texte du titre */
+    color: var(--accent-color); /* Couleur principale définie dans les variables */
+    margin-bottom: 15px; /* Espacement sous le titre */
 }
 
+/* Prix ou détail principal */
 .zone-details p {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #333;
-    margin: 10px 0;
+    font-size: 1.4rem; /* Texte plus grand pour attirer l’attention */
+    font-weight: 700; /* Gras */
+    color: #333; /* Couleur foncée pour le contraste */
+    margin: 10px 0; /* Marge au-dessus et en dessous */
 }
 
+/* Liste d'avantages ou infos supplémentaires */
 .zone-details ul {
-    list-style: none;
-    padding: 0;
-    margin: 15px 0 0 0;
+    list-style: none; /* Supprime les puces par défaut */
+    padding: 0; /* Pas d’espace intérieur */
+    margin: 15px 0 0 0; /* Marge uniquement en haut */
 }
 
+/* Élément de la liste */
 .zone-details li {
-    margin: 8px 0;
-    color: #666;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    margin: 8px 0; /* Espacement vertical entre chaque élément */
+    color: #666; /* Gris clair pour rester lisible mais discret */
+    display: flex; /* Alignement flexible pour aligner l’icône et le texte */
+    align-items: center; /* Centrer verticalement */
+    gap: 10px; /* Espace entre la puce et le texte */
 }
 
+/* Ajoute une puce stylisée avant chaque élément de liste */
 .zone-details li:before {
-    content: "•";
-    color: var(--accent-color);
-    font-size: 1.5em;
+    content: "•"; /* Symbole de puce personnalisé */
+    color: var(--accent-color); /* Couleur principale pour rester cohérent */
+    font-size: 1.5em; /* Plus grande que le texte */
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
+    /* Mise en colonne pour les infos du stade sur petit écran */
     .stade-info {
         flex-direction: column;
         padding: 20px;
     }
 
+    /* Réduction de la taille du titre */
     .texte-stade h3 {
         font-size: 2rem;
     }
 
+    /* Redimensionnement de l'image du stade */
     .stade-info img {
         height: 300px;
     }
 
+    /* Réduction des contrôles de carrousel */
     .carousel-control-prev,
     .carousel-control-next {
         width: 15%;
     }
 
+    /* Affichage des zones en une seule colonne */
     .zone-indicators {
         grid-template-columns: 1fr;
     }
 
+    /* Réduction du padding de la modale */
     .modal-content {
         padding: 15px;
     }
 
+    /* Réduction de la taille du titre de la modale */
     .modal-header h3 {
         font-size: 1.5rem;
     }
 }
 
+
 .price-zones {
-    position: absolute;
+    position: absolute; /* Positionné relativement au conteneur parent */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Couvre toute la largeur */
+    height: 100%; /* Couvre toute la hauteur */
 }
 
 .tribune-zone {
-    position: absolute;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
+    position: absolute; /* Position libre dans le stade */
+    cursor: pointer; /* Change le curseur pour montrer l'interaction */
+    transition: all 0.3s ease; /* Animation fluide */
+    display: flex; /* Centrer le contenu */
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.2); /* Fond semi-transparent */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Bord clair */
 }
 
 .tribune-zone:hover {
-    background-color: rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.4); /* Fond plus sombre au survol */
+    border-color: rgba(255, 255, 255, 0.8); /* Bord plus visible */
 }
+
 
 .zone-name {
-    color: white;
-    font-weight: bold;
-    font-size: 0.9em;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    color: white; /* Texte blanc */
+    font-weight: bold; /* En gras */
+    font-size: 0.9em; /* Légèrement réduit */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Ombre pour contraste */
     text-align: center;
     opacity: 1;
-    pointer-events: none;
+    pointer-events: none; /* Ne bloque pas les clics */
 }
 
+
 .price-tooltip {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 0.85em;
-    line-height: 1.5;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    width: max-content;
-    max-width: 250px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: absolute; /* Position par rapport à la tribune */
+    background-color: rgba(0, 0, 0, 0.9); /* Fond sombre opaque */
+    color: white; /* Texte blanc */
+    padding: 15px; /* Espace intérieur */
+    border-radius: 10px; /* Coins arrondis */
+    font-size: 0.85em; /* Texte réduit */
+    line-height: 1.5; /* Interligne confortable */
+    opacity: 0; /* Invisible par défaut */
+    visibility: hidden; /* Masqué */
+    transition: all 0.3s ease; /* Apparition fluide */
+    z-index: 1000; /* Passe au-dessus du reste */
+    width: max-content; /* S’adapte au contenu */
+    max-width: 250px; /* Largeur maximale */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre portée */
 }
 
 .tribune-nord .price-tooltip {
-    bottom: 100%;
+    bottom: 100%; /* Affiche au-dessus */
     left: 50%;
-    transform: translateX(-50%) translateY(-10px);
-    border-top: 3px solid rgba(255, 0, 0, 0.8);
+    transform: translateX(-50%) translateY(-10px); /* Centrage horizontal */
+    border-top: 3px solid rgba(255, 0, 0, 0.8); /* Bord supérieur rouge */
 }
 
 .tribune-sud .price-tooltip {
-    top: 100%;
+    top: 100%; /* Affiche en dessous */
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    border-bottom: 3px solid rgba(0, 255, 0, 0.8);
+    border-bottom: 3px solid rgba(0, 255, 0, 0.8); /* Bord vert */
 }
 
 .tribune-est .price-tooltip {
-    left: 100%;
+    left: 100%; /* À droite */
     top: 50%;
     transform: translateY(-50%) translateX(10px);
-    border-left: 3px solid rgba(255, 215, 0, 0.8);
+    border-left: 3px solid rgba(255, 215, 0, 0.8); /* Jaune doré */
 }
 
 .tribune-ouest .price-tooltip {
-    right: 100%;
+    right: 100%; /* À gauche */
     top: 50%;
     transform: translateY(-50%) translateX(-10px);
-    border-right: 3px solid rgba(0, 191, 255, 0.8);
+    border-right: 3px solid rgba(0, 191, 255, 0.8); /* Bleu clair */
 }
 
+
 .tribune-zone:hover .price-tooltip {
-    opacity: 1;
+    opacity: 1; /* Devient visible */
     visibility: visible;
 }
 
 .price-tooltip .price {
-    font-size: 1.2em;
+    font-size: 1.2em; /* Plus grand que le reste */
     font-weight: bold;
-    color: #ffd700;
+    color: #ffd700; /* Or brillant */
     display: block;
     margin-bottom: 8px;
 }
@@ -527,16 +553,17 @@ body {
 }
 
 .price-tooltip .check {
-    color: #4CAF50;
+    color: #4CAF50; /* Vert pour "check" */
     margin-right: 5px;
 }
+
 
 .zone-vip {
     top: 40%;
     left: 50%;
     width: 30%;
     height: 20%;
-    border: 2px solid rgba(255, 215, 0, 0.5);
+    border: 2px solid rgba(255, 215, 0, 0.5); /* Doré */
 }
 
 .zone-category1 {
@@ -544,7 +571,7 @@ body {
     right: 10%;
     width: 25%;
     height: 30%;
-    border: 2px solid rgba(255, 0, 0, 0.5);
+    border: 2px solid rgba(255, 0, 0, 0.5); /* Rouge */
 }
 
 .zone-category2 {
@@ -552,33 +579,36 @@ body {
     right: 15%;
     width: 25%;
     height: 30%;
-    border: 2px solid rgba(0, 255, 0, 0.5);
+    border: 2px solid rgba(0, 255, 0, 0.5); /* Vert */
 }
 
+
 .price-tooltip.vip {
-    background-color: rgba(255, 215, 0, 0.9);
+    background-color: rgba(255, 215, 0, 0.9); /* Doré transparent */
     color: black;
 }
 
 .price-tooltip.cat1 {
-    background-color: rgba(255, 0, 0, 0.9);
+    background-color: rgba(255, 0, 0, 0.9); /* Rouge vif */
 }
 
 .price-tooltip.cat2 {
-    background-color: rgba(0, 255, 0, 0.9);
+    background-color: rgba(0, 255, 0, 0.9); /* Vert vif */
     color: black;
 }
+
 /* Barre Interactive */
 .interactive-bar {
-    position: fixed;
+    position: fixed; /* Fixée en haut */
     top: 0;
     left: 0;
     width: 100%;
     background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
     z-index: 1000;
     padding: 10px 0;
 }
+
 
 .interactive-content {
     max-width: 1200px;
@@ -588,6 +618,7 @@ body {
     align-items: center;
     padding: 0 20px;
 }
+
 
 .interactive-item {
     display: flex;
@@ -610,18 +641,20 @@ body {
     width: 100%;
     height: 2px;
     background: linear-gradient(to right, var(--light-red), var(--light-green));
-    transform: scaleX(0);
+    transform: scaleX(0); /* Cachée initialement */
     transition: transform 0.3s ease;
 }
 
 .interactive-item:hover::after {
-    transform: scaleX(1);
+    transform: scaleX(1); /* Devient visible au survol */
 }
+
 
 .interactive-item.active {
     background: linear-gradient(45deg, var(--light-red), var(--light-green));
     color: var(--text-color);
 }
+
 
 .interactive-item i {
     font-size: 1.5rem;
@@ -629,16 +662,20 @@ body {
     color: var(--accent-color);
 }
 
+
 .interactive-item span {
     font-size: 0.9rem;
     font-weight: 500;
 }
 
+
+/* Effet de survol pour les éléments interactifs */
 .interactive-item:hover {
-    background: var(--light-bg);
-    transform: translateY(-2px);
+    background: var(--light-bg); /* Changement de fond au survol */
+    transform: translateY(-2px); /* Léger soulèvement */
 }
 
+/* Style du logo avec dégradé et bordure */
 #logo-container img {
     border: 3px solid transparent;
     border-radius: 18px;
@@ -650,71 +687,13 @@ body {
     padding: 2px;
 }
 
+/* Effet de survol du logo avec ombres et couleur de bordure */
 #logo-container img:hover {
     box-shadow: 0 0 24px 4px #FF5252, 0 0 32px 8px #4CAF50;
     border-color: #FF5252;
 }
 
-/* .interactive-bar {
-    position: sticky;
-    top: 0;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    padding: 10px 0;
-} */
-
-/* .interactive-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 20px;
-} */
-
-/* .interactive-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 8px;
-    color: var(--text-color);
-    text-decoration: none;
-} */
-
-/* .interactive-item i {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    color: var(--accent-color);
-}
-
-.interactive-item span {
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.interactive-item:hover {
-    background: var(--light-bg);
-    transform: translateY(-2px);
-}
-
-.interactive-item.active {
-    background: var(--accent-color);
-    color: white;
-}
-
-.interactive-item.active i {
-    color: white;
-}
-
-#logo-container img {
-    height: 60px;
-    width: auto;
-} */
-
+/* Conteneur général de la barre de recherche */
 .search-container {
     max-width: 800px;
     margin: 20px auto;
@@ -723,6 +702,7 @@ body {
     z-index: 1001;
 }
 
+/* Boîte de recherche stylisée */
 .search-box {
     display: flex;
     gap: 10px;
@@ -733,11 +713,13 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Style actif lorsque l'utilisateur clique à l'intérieur de la boîte */
 .search-box:focus-within {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
 
+/* Champ de saisie de la recherche */
 #searchInput {
     flex: 1;
     border: none;
@@ -748,15 +730,18 @@ body {
     color: var(--text-color);
 }
 
+/* Style de l'espace réservé (placeholder) */
 #searchInput::placeholder {
     color: #999;
     transition: color 0.3s ease;
 }
 
+/* Changement de couleur du placeholder lors du focus */
 #searchInput:focus::placeholder {
     color: #ccc;
 }
 
+/* Bouton de recherche */
 #searchButton {
     background: var(--accent-color);
     color: white;
@@ -767,11 +752,13 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Effet de survol du bouton de recherche */
 #searchButton:hover {
     background: #6d0f21;
     transform: translateY(-2px);
 }
 
+/* Résultats de recherche positionnés sous la barre */
 .search-results {
     position: absolute;
     top: calc(100% + 5px);
@@ -789,6 +776,7 @@ body {
     scrollbar-color: var(--accent-color) #f0f0f0;
 }
 
+/* Style de la barre de défilement (webkit) */
 .search-results::-webkit-scrollbar {
     width: 8px;
 }
@@ -803,6 +791,7 @@ body {
     border-radius: 4px;
 }
 
+/* Éléments individuels des résultats */
 .search-result-item {
     padding: 15px 20px;
     cursor: pointer;
@@ -811,6 +800,7 @@ body {
     animation: fadeIn 0.3s ease;
 }
 
+/* Animation d’apparition en douceur */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -822,33 +812,39 @@ body {
     }
 }
 
+/* Effet de survol sur les éléments de résultats */
 .search-result-item:hover {
     background: var(--light-bg);
     transform: translateX(5px);
 }
 
+/* Conteneur de contenu de résultat */
 .search-result-content {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
+/* Infos textuelles à droite du résultat */
 .search-result-info {
     flex: 1;
 }
 
+/* Titre du résultat */
 .search-result-info h4 {
     margin: 0 0 5px 0;
     color: var(--accent-color);
     font-size: 1.1rem;
 }
 
+/* Description du résultat */
 .search-result-info p {
     margin: 3px 0;
     color: #666;
     font-size: 0.9rem;
 }
 
+/* Message lorsque aucun résultat trouvé */
 .no-results {
     padding: 20px;
     text-align: center;
@@ -856,32 +852,38 @@ body {
     font-style: italic;
 }
 
+/* Conteneur principal du contenu */
 .content-container {
     max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
 }
 
+/* Titres principaux dans les infos du stade */
 .stade-info h2 {
     color: var(--accent-color);
     margin-bottom: 20px;
 }
 
+/* Titres secondaires */
 .stade-info h3 {
     color: var(--secondary-color);
     margin-bottom: 15px;
 }
 
+/* Liste dans les infos du stade */
 .stade-info ul {
     list-style-type: none;
     padding-left: 20px;
 }
 
+/* Élément de liste stylisé */
 .stade-info ul li {
     margin-bottom: 10px;
     position: relative;
 }
 
+/* Ajout d’un point personnalisé avant chaque élément */
 .stade-info ul li:before {
     content: "•";
     color: var(--accent-color);
@@ -890,6 +892,7 @@ body {
     left: -20px;
 }
 
+/* Mise en évidence de texte */
 .highlight {
     background-color: #ffd700;
     padding: 2px 4px;
@@ -897,18 +900,21 @@ body {
     font-weight: bold;
 }
 
+/* Conteneur vidéo */
 .video-wrapper {
     margin: 20px 0;
 }
 
+/* Vidéo responsive en 16:9 */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* Ratio 16:9 */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: 10px;
 }
 
+/* Iframe de la vidéo (positionné dans le conteneur) */
 .video-container iframe {
     position: absolute;
     top: 0;
@@ -918,26 +924,30 @@ body {
     border: none;
 }
 
+/* Carte sans bordures */
 .card {
     border: none;
     border-radius: 15px;
     overflow: hidden;
 }
 
+/* Contenu de la carte */
 .card-body {
     padding: 20px;
 }
 
+/* Réorganisation des vidéos et textes pour petits écrans */
 @media (max-width: 991px) {
     .row.align-items-center {
         flex-direction: column;
     }
-    
+
     .video-wrapper {
         margin-top: 30px;
     }
 }
 
+/* Responsive mobile pour éléments interactifs et recherche */
 @media (max-width: 768px) {
     .interactive-content {
         flex-wrap: wrap;
@@ -978,6 +988,7 @@ body {
     }
 }
 
+/* Zone Nord du stade */
 .tribune-nord {
     top: 0;
     left: 25%;
@@ -987,6 +998,7 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* Texte de la zone nord */
 .tribune-nord .zone-name {
     font-size: 1.2em;
     color: white;
@@ -994,6 +1006,7 @@ body {
     font-weight: bold;
 }
 
+/* Infobulle de la zone nord */
 .tribune-nord .price-tooltip {
     background-color: rgba(0, 0, 0, 0.95);
     border: 2px solid rgba(255, 0, 0, 0.8);
@@ -1001,17 +1014,20 @@ body {
     min-width: 250px;
 }
 
+/* Effet de survol sur la tribune nord */
 .tribune-nord:hover {
     background-color: rgba(255, 0, 0, 0.3);
     border-color: rgba(255, 0, 0, 1);
 }
 
+/* Apparition de l’infobulle au survol */
 .tribune-nord:hover .price-tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(-5px);
 }
 
+/* Zone Sud du stade */
 .tribune-sud {
     bottom: 0;
     left: 25%;
@@ -1019,6 +1035,7 @@ body {
     height: 25%;
     border-bottom-color: rgba(0, 255, 0, 0.8);
 }
+
 
 .tribune-est {
     top: 25%;
@@ -1029,997 +1046,1051 @@ body {
 }
 
 .tribune-ouest {
-    top: 25%;
-    right: 0;
-    width: 25%;
-    height: 50%;
-    border-right-color: rgba(0, 191, 255, 0.8);
+    top: 25%; /* Position verticale à 25% du conteneur parent */
+    right: 0; /* Aligne la tribune à droite du conteneur */
+    width: 25%; /* Largeur fixée à 25% du conteneur parent */
+    height: 50%; /* Hauteur fixée à 50% du conteneur parent */
+    border-right-color: rgba(0, 191, 255, 0.8); /* Couleur bleu ciel semi-transparente pour la bordure droite */
 }
 
 .tribune-zone {
-    transform: scale(1);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: scale(1); /* Échelle de départ normale (pas d'agrandissement) */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Animation fluide sur la transformation et la couleur de fond */
 }
 
 .tribune-zone:hover {
-    transform: scale(1.02);
-    z-index: 2;
+    transform: scale(1.02); /* Agrandissement léger au survol pour effet dynamique */
+    z-index: 2; /* Place la zone au-dessus des autres éléments */
 }
 
 /* Styles pour l'image cliquable */
 .clickable-image {
-    cursor: pointer;
-    transition: all 0.5s ease-out;
-    transform-style: preserve-3d;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    filter: brightness(1);
+    cursor: pointer; /* Curseur indiquant que l'image est cliquable */
+    transition: all 0.5s ease-out; /* Transition douce pour toutes les propriétés */
+    transform-style: preserve-3d; /* Préserve l’effet 3D lors des transformations */
+    width: 100%; /* Prend toute la largeur disponible */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+    border-radius: 8px; /* Bords arrondis */
+    filter: brightness(1); /* Luminosité initiale normale */
 }
 
 .image-container:hover .clickable-image {
-    transform: scale(1.02);
-    filter: brightness(1.05);
+    transform: scale(1.02); /* Légère mise à l’échelle au survol du conteneur */
+    filter: brightness(1.05); /* Augmente légèrement la luminosité */
 }
 
-/* Remove the gray background overlays */
+/* Supprime les superpositions grises */
 .image-container::before {
-    display: none;
+    display: none; /* Masque l’élément pseudo avant */
 }
 
 .image-container::after {
-    content: 'Voir plus d\'informations';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    background: none;
+    content: 'Voir plus d\'informations'; /* Texte affiché sur l’image */
+    position: absolute; /* Positionnement absolu pour centrer */
+    top: 50%; /* Centre vertical */
+    left: 50%; /* Centre horizontal */
+    transform: translate(-50%, -50%); /* Ajuste la position pour un centrage parfait */
+    color: white; /* Couleur blanche du texte */
+    font-size: 1.2em; /* Taille de texte augmentée */
+    font-weight: bold; /* Texte en gras */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre portée pour lisibilité */
+    opacity: 0; /* Texte invisible par défaut */
+    transition: opacity 0.3s ease; /* Transition douce pour l’apparition */
+    pointer-events: none; /* Ignorer les interactions souris */
+    background: none; /* Pas de fond */
 }
 
-/* Buttons Styles */
+/* Styles pour les boutons d’action */
 .action-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
+    display: flex; /* Affichage en ligne flexible */
+    gap: 10px; /* Espacement entre boutons */
+    margin-top: 15px; /* Marge haute */
 }
 
 .maps-button, .ticket-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
+    display: inline-flex; /* Boutons en ligne avec flexbox */
+    align-items: center; /* Alignement vertical centré */
+    gap: 8px; /* Espacement interne entre icône et texte */
+    padding: 12px 24px; /* Rembourrage interne */
+    border-radius: 25px; /* Boutons arrondis */
+    text-decoration: none; /* Pas de soulignement */
+    font-weight: 500; /* Poids de police moyen */
+    transition: all 0.3s ease; /* Transitions sur toutes les propriétés */
+    border: none; /* Pas de bordure */
+    cursor: pointer; /* Curseur pointeur */
 }
 
 .maps-button {
-    background-color: #4285f4;
-    color: white;
+    background-color: #4285f4; /* Bleu Google Maps */
+    color: white; /* Texte blanc */
 }
 
 .ticket-button {
-    background-color: #34a853;
-    color: white;
+    background-color: #34a853; /* Vert Google */
+    color: white; /* Texte blanc */
 }
 
 .maps-button:hover, .ticket-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Légère remontée au survol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
 }
 
 .maps-button:hover {
-    background-color: #3367d6;
+    background-color: #3367d6; /* Bleu plus foncé au survol */
 }
 
 .ticket-button:hover {
-    background-color: #2d8544;
+    background-color: #2d8544; /* Vert plus foncé au survol */
 }
 
-/* Price zones styles */
+/* Styles pour les zones de prix */
 .price-zones {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
+    margin-top: 20px; /* Marge haute */
+    padding: 20px; /* Rembourrage interne */
+    background-color: #f8f9fa; /* Fond gris clair */
+    border-radius: 10px; /* Bords arrondis */
 }
 
 .price-zone {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    background-color: white;
-    transition: transform 0.3s ease;
+    display: flex; /* Flexbox pour aligner contenu horizontalement */
+    align-items: center; /* Alignement vertical centré */
+    gap: 10px; /* Espacement entre éléments */
+    padding: 10px; /* Rembourrage interne */
+    margin-bottom: 10px; /* Marge basse entre zones */
+    border-radius: 8px; /* Bords arrondis */
+    background-color: white; /* Fond blanc */
+    transition: transform 0.3s ease; /* Animation sur la transformation */
 }
 
 .price-zone:hover {
-    transform: translateX(5px);
+    transform: translateX(5px); /* Décalage horizontal au survol */
 }
 
 .zone-color {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+    width: 20px; /* Largeur du cercle de couleur */
+    height: 20px; /* Hauteur du cercle de couleur */
+    border-radius: 50%; /* Cercle parfait */
 }
 
 .zone-vip {
-    background-color: #ffd700;
+    background-color: #ffd700; /* Or pour zone VIP */
 }
 
 .zone-category1 {
-    background-color: #ff4444;
+    background-color: #ff4444; /* Rouge vif pour catégorie 1 */
 }
 
 .zone-category2 {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Vert pour catégorie 2 */
 }
 
 .zone-category3 {
-    background-color: #2196F3;
+    background-color: #2196F3; /* Bleu pour catégorie 3 */
 }
 
-/* Styles pour la modal */
+/* Styles pour la fenêtre modale */
 .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
+    display: none; /* Masquée par défaut */
+    position: fixed; /* Position fixe par rapport à la fenêtre */
+    top: 0; /* En haut */
+    left: 0; /* À gauche */
+    width: 100%; /* Prend toute la largeur */
+    height: 100%; /* Prend toute la hauteur */
+    background-color: rgba(0, 0, 0, 0.8); /* Fond sombre transparent */
+    z-index: 1000; /* Au-dessus du contenu principal */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
 }
 
 .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;
-    max-width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    width: 1200px;
+    background-color: white; /* Fond blanc */
+    padding: 20px; /* Rembourrage */
+    border-radius: 15px; /* Bords arrondis */
+    max-width: 90%; /* Largeur max 90% de l’écran */
+    max-height: 90vh; /* Hauteur max 90% de la fenêtre */
+    overflow-y: auto; /* Scroll vertical si contenu dépasse */
+    position: relative; /* Position relative pour enfants absolus */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Ombre portée */
+    width: 1200px; /* Largeur fixe */
 }
 
 .modal-header {
-    border-bottom: 1px solid #dee2e6;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
+    border-bottom: 1px solid #dee2e6; /* Ligne de séparation */
+    padding-bottom: 15px; /* Rembourrage bas */
+    margin-bottom: 20px; /* Marge bas */
 }
 
 .modal-header h3 {
-    margin: 0;
-    color: var(--accent-color);
-    font-size: 24px;
+    margin: 0; /* Suppression marge par défaut */
+    color: var(--accent-color); /* Couleur accentuée */
+    font-size: 24px; /* Taille de police importante */
 }
 
 .modal-body {
-    padding: 20px;
+    padding: 20px; /* Rembourrage interne */
 }
 
 .stadium-info {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
+    margin-bottom: 30px; /* Marge basse */
+    padding: 20px; /* Rembourrage */
+    background-color: #f8f9fa; /* Fond gris clair */
+    border-radius: 10px; /* Bords arrondis */
 }
 
 .stadium-info h4 {
-    color: var(--accent-color);
-    margin-bottom: 15px;
+    color: var(--accent-color); /* Couleur accentuée */
+    margin-bottom: 15px; /* Marge basse */
 }
 
 .stadium-info p {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    margin-bottom: 10px; /* Marge basse */
+    display: flex; /* Flex pour aligner éléments */
+    align-items: center; /* Alignement vertical */
+    gap: 10px; /* Espacement */
 }
 
 .stadium-info i {
-    color: var(--accent-color);
-    width: 20px;
+    color: var(--accent-color); /* Couleur accentuée icône */
+    width: 20px; /* Largeur fixe pour alignement */
 }
 
 .map-container {
-    height: 400px;
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    position: relative;
+    height: 400px; /* Hauteur fixe pour la carte */
+    width: 100%; /* Largeur complète */
+    border-radius: 10px; /* Bords arrondis */
+    overflow: hidden; /* Cache tout débordement */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre portée légère */
+    z-index: 1; /* Position en arrière */
+    position: relative; /* Position relative */
 }
 
-/* Ensure Leaflet controls appear above modal */
+/* Assure que les contrôles Leaflet restent visibles au-dessus de la modale */
 .leaflet-control-container .leaflet-top,
 .leaflet-control-container .leaflet-bottom {
-    z-index: 1000;
+    z-index: 1000; /* Z-index élevé */
 }
 
-/* Hover effect for stadium images */
+/* Effet au survol pour images de stade */
 .image-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    position: relative; /* Position relative pour pseudo-éléments */
+    overflow: hidden; /* Cache débordements */
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+    transition: transform 0.3s ease; /* Transition douce */
 }
 
 .image-container:hover {
-    transform: scale(1.02);
+    transform: scale(1.02); /* Zoom léger */
 }
 
 .image-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    content: ''; /* Pseudo-élément vide */
+    position: absolute; /* Position absolue */
+    top: 0; left: 0; right: 0; bottom: 0; /* Recouvre tout */
+    background: rgba(0, 0, 0, 0.3); /* Overlay noir semi-transparent */
+    opacity: 0; /* Invisible par défaut */
+    transition: opacity 0.3s ease; /* Transition d’apparition */
 }
 
 .image-container:hover::before {
-    opacity: 1;
+    opacity: 1; /* Overlay visible au survol */
 }
 
 .image-container::after {
-    content: 'Voir les détails';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    content: 'Voir les détails'; /* Texte affiché */
+    position: absolute; /* Position absolue */
+    top: 50%; left: 50%; /* Centré */
+    transform: translate(-50%, -50%); /* Ajustement centré */
+    color: white; /* Texte blanc */
+    font-size: 1.2em; /* Taille du texte */
+    font-weight: bold; /* Gras */
+    opacity: 0; /* Invisible */
+    transition: opacity 0.3s ease; /* Transition apparition */
 }
 
 .image-container:hover::after {
-    opacity: 1;
+    opacity: 1; /* Texte visible au survol */
 }
 
-/* Responsive styles */
+
+/* Responsive styles for screens up to 768px */
 @media (max-width: 768px) {
     .modal-content {
-        width: 95%;
-        padding: 15px;
+        width: 95%; /* Modal width reduced to 95% of viewport */
+        padding: 15px; /* Padding inside modal */
     }
 
     .map-container {
-        height: 300px;
-        margin-top: 20px;
+        height: 300px; /* Set map container height */
+        margin-top: 20px; /* Space above the map */
     }
 
     .stadium-info {
-        padding: 15px;
+        padding: 15px; /* Padding inside stadium info section */
     }
 }
 
+/* Style for the close button in modals */
 .close-button {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    font-size: 30px;
-    cursor: pointer;
-    color: #666;
-    transition: color 0.3s ease;
+    position: absolute; /* Positioned relative to closest positioned ancestor */
+    right: 20px; /* 20px from right */
+    top: 10px; /* 10px from top */
+    font-size: 30px; /* Large icon size */
+    cursor: pointer; /* Cursor changes on hover */
+    color: #666; /* Default color */
+    transition: color 0.3s ease; /* Smooth color change on hover */
 }
 
+/* Change close button color on hover */
 .close-button:hover {
-    color: #000;
+    color: #000; /* Darker color when hovered */
 }
 
+/* Container for stadium price view */
 .stadium-price-view {
-    position: relative;
-    margin-top: 20px;
+    position: relative; /* For absolute children positioning */
+    margin-top: 20px; /* Space above */
 }
 
+/* Style for the main stadium image */
 .stadium-image {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto;
+    width: 100%; /* Full container width */
+    max-width: 800px; /* Max width constraint */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+    display: block; /* Make image block level */
+    margin: 0 auto; /* Center horizontally */
 }
 
+/* Modal headings styling */
 .modal h3 {
-    text-align: center;
-    color: var(--accent-color);
-    margin-bottom: 20px;
-    padding-right: 40px;
+    text-align: center; /* Centered text */
+    color: var(--accent-color); /* Accent color from CSS variable */
+    margin-bottom: 20px; /* Space below heading */
+    padding-right: 40px; /* Padding on right to avoid overlap */
 }
 
-/* Ajustements pour les zones de prix dans la modal */
+/* Price zones container in modal positioned absolutely */
 .modal .price-zones {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute; /* Positioned relative to modal */
+    top: 0; /* Aligned top */
+    left: 0; /* Aligned left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
 }
 
+/* Styling for each tribune (section) zone */
 .modal .tribune-zone {
-    opacity: 0.7;
+    opacity: 0.7; /* Slightly transparent */
 }
 
+/* On hover, make the tribune zone fully opaque */
 .modal .tribune-zone:hover {
-    opacity: 1;
+    opacity: 1; /* Fully visible */
 }
 
+/* Tooltip showing price info */
 .modal .price-tooltip {
-    background-color: rgba(0, 0, 0, 0.95);
-    padding: 15px;
-    border-radius: 10px;
-    min-width: 200px;
+    background-color: rgba(0, 0, 0, 0.95); /* Nearly opaque black background */
+    padding: 15px; /* Inner spacing */
+    border-radius: 10px; /* Rounded corners */
+    min-width: 200px; /* Minimum width */
 }
 
-/* Responsive design pour la modal */
+/* Responsive adjustments for modal on small screens */
 @media (max-width: 768px) {
     .modal-content {
-        padding: 15px;
-        width: 95%;
+        padding: 15px; /* Same padding */
+        width: 95%; /* Width adjustment */
     }
 
     .modal .price-tooltip {
-        min-width: 150px;
-        font-size: 0.8em;
+        min-width: 150px; /* Smaller minimum width */
+        font-size: 0.8em; /* Smaller font size */
     }
 }
 
+/* Row container using flexbox */
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -10px;
+    display: flex; /* Flex container */
+    flex-wrap: wrap; /* Allow wrapping */
+    margin: -10px; /* Negative margin for gutters */
 }
 
+/* Column occupying half width on medium+ screens */
 .col-md-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-    padding: 10px;
+    flex: 0 0 50%; /* Flex basis 50% */
+    max-width: 50%; /* Max width 50% */
+    padding: 10px; /* Inner padding */
 }
 
+/* Responsive full width columns on small screens */
 @media (max-width: 768px) {
     .col-md-6 {
-        flex: 0 0 100%;
-        max-width: 100%;
+        flex: 0 0 100%; /* Full width */
+        max-width: 100%; /* Max width 100% */
     }
     
     .map-container {
-        height: 300px;
-        margin-top: 20px;
+        height: 300px; /* Fixed height */
+        margin-top: 20px; /* Space above */
     }
 }
 
+/* Styling for city and transport info boxes */
 .city-info, .transport-info {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Space above */
+    padding: 20px; /* Inner spacing */
+    background-color: #f8f9fa; /* Light background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
+/* Headings inside city and transport info */
 .city-info h4, .transport-info h4 {
-    color: var(--accent-color);
-    margin-bottom: 15px;
-    font-size: 1.2em;
+    color: var(--accent-color); /* Accent color */
+    margin-bottom: 15px; /* Space below */
+    font-size: 1.2em; /* Slightly larger font */
 }
 
+/* Paragraphs inside city and transport info */
 .city-info p, .transport-info p {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    margin-bottom: 10px; /* Space below */
+    display: flex; /* Flex layout */
+    align-items: center; /* Center vertically */
+    gap: 10px; /* Space between items */
 }
 
+/* Icons inside city and transport info */
 .city-info i, .transport-info i {
-    color: var(--accent-color);
-    width: 20px;
-    text-align: center;
+    color: var(--accent-color); /* Accent color */
+    width: 20px; /* Fixed width */
+    text-align: center; /* Center icon */
 }
 
+/* Container for transport options using grid layout */
 .transport-options {
-    display: grid;
-    gap: 15px;
+    display: grid; /* Grid container */
+    gap: 15px; /* Gap between grid items */
 }
 
+/* Styling individual transport option */
 .transport-options p {
-    background-color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
+    background-color: white; /* White background */
+    padding: 10px 15px; /* Inner padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Light shadow */
+    transition: transform 0.2s ease; /* Smooth transform */
 }
 
+/* Hover effect on transport options */
 .transport-options p:hover {
-    transform: translateX(5px);
+    transform: translateX(5px); /* Slide right slightly */
 }
 
+/* Large stadium image container */
 .stadium-image-large {
-    margin-top: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px; /* Space above */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Clip overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Strong shadow */
 }
 
+/* Full width image styling */
 .full-width-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
+    width: 100%; /* Full container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Block element */
+    transition: transform 0.3s ease; /* Smooth zoom */
 }
 
+/* Zoom effect on hover for large image */
 .stadium-image-large:hover .full-width-image {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Slight zoom */
 }
 
-/* Google Maps Button Styles */
+/* Google Maps button styling */
 .maps-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #4285f4;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    margin-top: 15px;
-    border: none;
-    cursor: pointer;
+    display: inline-flex; /* Inline flex container */
+    align-items: center; /* Center items vertically */
+    gap: 8px; /* Space between icon and text */
+    background-color: #4285f4; /* Google blue */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    border-radius: 25px; /* Pill shape */
+    text-decoration: none; /* No underline */
+    font-weight: 500; /* Medium weight */
+    transition: all 0.3s ease; /* Smooth hover */
+    margin-top: 15px; /* Space above */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer on hover */
 }
 
+/* Hover effect for Google Maps button */
 .maps-button:hover {
-    background-color: #3367d6;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #3367d6; /* Darker blue */
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow */
 }
 
+/* Icon inside maps button */
 .maps-button i {
-    font-size: 1.2em;
+    font-size: 1.2em; /* Larger icon */
 }
 
+/* Carousel container styling */
 .carousel {
-    margin: 2rem 0;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0; /* Vertical spacing */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Clip overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
 }
 
+/* Individual carousel item background */
 .carousel-item {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* Light background */
 }
 
+/* Carousel control buttons */
 .carousel-control-prev,
 .carousel-control-next {
-    width: 5%;
-    background: rgba(0, 0, 0, 0.3);
+    width: 5%; /* Narrow width */
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
 }
 
+/* Hover effect on carousel controls */
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* Darker on hover */
 }
 
+/* Positioning of carousel indicators */
 .carousel-indicators {
-    bottom: -10px;
+    bottom: -10px; /* Positioned below carousel */
 }
 
+/* Carousel indicator buttons */
 .carousel-indicators button {
-    background-color: var(--accent-color);
-    width: 30px;
-    height: 3px;
-    margin: 0 4px;
+    background-color: var(--accent-color); /* Accent color */
+    width: 30px; /* Wide indicator */
+    height: 3px; /* Thin bar */
+    margin: 0 4px; /* Spacing between */
 }
 
+/* Specific styles for Rabat stadium carousel text section */
 #rabatStadesCarousel .stade-info {
-    padding: 2rem;
-    margin: 0;
+    padding: 2rem; /* Padding */
+    margin: 0; /* Reset margin */
 }
 
+/* Image container in Rabat carousel */
 #rabatStadesCarousel .image-container {
-    margin: 1rem 0;
-    text-align: center;
+    margin: 1rem 0; /* Vertical spacing */
+    text-align: center; /* Center content */
 }
 
+/* Images inside the carousel */
 #rabatStadesCarousel .image-container img {
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+    max-height: 400px; /* Max height */
+    object-fit: cover; /* Crop to fill */
+    border-radius: 8px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth zoom */
 }
 
+/* Zoom on hover for carousel images */
 #rabatStadesCarousel .image-container img:hover {
-    transform: scale(1.02);
+    transform: scale(1.02); /* Slight zoom */
 }
 
+/* Text content for stadium description */
 #rabatStadesCarousel .texte-stade {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 30px; /* Padding */
+    display: flex; /* Flex container */
+    flex-direction: column; /* Vertical layout */
+    justify-content: center; /* Center vertically */
 }
 
+/* Stadium title */
 #rabatStadesCarousel .texte-stade h4 {
-    font-size: 2.4rem;
-    color: var(--accent-color);
-    margin-bottom: 25px;
-    font-weight: 700;
-    position: relative;
+    font-size: 2.4rem; /* Large font */
+    color: var(--accent-color); /* Accent color */
+    margin-bottom: 25px; /* Space below */
+    font-weight: 700; /* Bold text */
+    position: relative; /* For after pseudo */
 }
 
+/* Underline accent below stadium title */
 #rabatStadesCarousel .texte-stade h4::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 80px;
-    height: 4px;
-    background: var(--accent-color);
-    border-radius: 2px;
+    content: ''; /* Empty content */
+    position: absolute; /* Positioned relative to h4 */
+    bottom: -10px; /* Below text */
+    left: 0; /* Aligned left */
+    width: 80px; /* Width of underline */
+    height: 4px; /* Thickness */
+    background: var(--accent-color); /* Accent color */
+    border-radius: 2px; /* Rounded edges */
 }
 
+/* Paragraph styling in stadium text */
 #rabatStadesCarousel .texte-stade p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 30px;
+    font-size: 1.2rem; /* Larger font */
+    line-height: 1.8; /* Line spacing */
+    color: #555; /* Gray text */
+    margin-bottom: 30px; /* Space below */
 }
 
+/* Container for stadium stats in grid layout */
 #rabatStadesCarousel .stadium-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-top: 20px;
+    display: grid; /* Grid container */
+    grid-template-columns: repeat(2, 1fr); /* Two columns equal width */
+    gap: 20px; /* Spacing */
+    margin-top: 20px; /* Space above */
 }
 
+/* Individual stat box */
 #rabatStadesCarousel .stat-item {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    transition: transform 0.3s ease;
+    background: #f8f9fa; /* Light background */
+    padding: 15px; /* Inner padding */
+    border-radius: 12px; /* Rounded corners */
+    text-align: center; /* Center text */
+    transition: transform 0.3s ease; /* Smooth hover */
 }
 
+/* Hover effect on stat item */
 #rabatStadesCarousel .stat-item:hover {
-    transform: translateY(-5px);
-    background: transparent;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); /* Raise up */
+    background: transparent; /* Transparent background */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Shadow */
 }
 
+/* Label text in stats */
 #rabatStadesCarousel .stat-label {
-    font-size: 0.9rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
+    font-size: 0.9rem; /* Smaller font */
+    color: #666; /* Gray text */
+    text-transform: uppercase; /* Uppercase letters */
+    letter-spacing: 1px; /* Spacing between letters */
+    margin-bottom: 5px; /* Space below */
 }
 
+/* Value text in stats */
 #rabatStadesCarousel .stat-value {
-    font-size: 1.8rem;
-    color: var(--accent-color);
-    font-weight: 700;
+    font-size: 1.8rem; /* Large font */
+    color: var(--accent-color); /* Accent color */
+    font-weight: 700; /* Bold */
 }
 
-/* Enhanced Carousel Controls */
+/* Enhanced styling for carousel control buttons */
 #rabatStadesCarousel .carousel-control-prev,
 #rabatStadesCarousel .carousel-control-next {
-    width: 60px;
-    height: 60px;
-    background: transparent;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 1;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    width: 60px; /* Wider buttons */
+    height: 60px; /* Taller buttons */
+    background: transparent; /* Transparent background */
+    border-radius: 50%; /* Circular shape */
+    top: 50%; /* Vertically centered */
+    transform: translateY(-50%); /* Center vertically */
+    opacity: 1; /* Fully visible */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow */
+    transition: all 0.3s ease; /* Smooth hover */
 }
 
+/* Positioning of prev button */
 #rabatStadesCarousel .carousel-control-prev {
-    left: 20px;
+    left: 20px; /* Left side */
 }
 
+/* Positioning of next button */
 #rabatStadesCarousel .carousel-control-next {
-    right: 20px;
+    right: 20px; /* Right side */
 }
 
+/* Hover effect on carousel control buttons */
 #rabatStadesCarousel .carousel-control-prev:hover,
 #rabatStadesCarousel .carousel-control-next:hover {
-    background: var(--accent-color);
-    transform: translateY(-50%) scale(1.1);
+    background: var(--accent-color); /* Accent background */
+    transform: translateY(-50%) scale(1.1); /* Slight enlarge */
 }
 
+/* Icons inside carousel controls */
 #rabatStadesCarousel .carousel-control-prev-icon,
 #rabatStadesCarousel .carousel-control-next-icon {
-    width: 24px;
-    height: 24px;
-    filter: invert(1) grayscale(100%) brightness(200%);
+    width: 24px; /* Icon width */
+    height: 24px; /* Icon height */
+    filter: invert(1) grayscale(100%) brightness(200%); /* White bright icons */
 }
 
+/* Position and style for carousel indicators */
 #rabatStadesCarousel .carousel-indicators {
-    bottom: 20px;
-    margin-bottom: 0;
+    bottom: 20px; /* Up from bottom */
+    margin-bottom: 0; /* Reset margin */
 }
 
+/* Indicator buttons styling */
 #rabatStadesCarousel .carousel-indicators button {
-    width: 40px;
-    height: 6px;
-    border-radius: 3px;
-    background-color: rgba(139, 20, 43, 0.5);
-    margin: 0 5px;
-    transition: all 0.3s ease;
+    width: 40px; /* Wide buttons */
+    height: 6px; /* Thin height */
+    border-radius: 3px; /* Rounded edges */
+    background-color: rgba(139, 20, 43, 0.5); /* Semi-transparent dark red */
+    margin: 0 5px; /* Spacing */
+    transition: all 0.3s ease; /* Smooth hover */
 }
 
+/* Active indicator styling */
 #rabatStadesCarousel .carousel-indicators button.active {
-    width: 50px;
-    background-color: var(--accent-color);
+    width: 50px; /* Wider active indicator */
+    background-color: var(--accent-color); /* Accent color */
 }
 
-/* Stadium Quick Info */
+/* Container for quick stadium info displayed horizontally */
 .stadium-quick-info {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
+    display: flex; /* Flex container */
+    gap: 15px; /* Space between items */
+    margin-top: 20px; /* Space above */
 }
 
+/* Individual quick info items */
 .quick-info-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 15px;
-    background: #f8f9fa;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: #666;
+    display: flex; /* Flex container */
+    align-items: center; /* Center vertically */
+    gap: 8px; /* Space between icon and text */
+    padding: 8px 15px; /* Padding */
+    background: #f8f9fa; /* Light background */
+    border-radius: 20px; /* Rounded pill shape */
+    font-size: 0.9rem; /* Slightly smaller font */
+    color: #666; /* Gray text */
 }
 
+/* Icon inside quick info */
 .quick-info-item i {
-    color: var(--accent-color);
+    color: var(--accent-color); /* Accent color */
 }
 
-/* View Details Button */
+/* Button to view more details */
 .view-details-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 30px;
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-weight: 600;
-    margin-top: 30px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    cursor: pointer;
+    display: inline-flex; /* Inline flex */
+    align-items: center; /* Center vertically */
+    gap: 10px; /* Space between icon and text */
+    padding: 15px 30px; /* Padding */
+    background: var(--accent-color); /* Accent background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 25px; /* Rounded pill */
+    font-weight: 600; /* Semi-bold text */
+    margin-top: 30px; /* Space above */
+    transition: all 0.3s ease; /* Smooth hover */
+    text-decoration: none; /* No underline */
+    cursor: pointer; /* Pointer on hover */
 }
+
 
 .view-details-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(139, 20, 43, 0.3);
+    transform: translateY(-3px); /* Légère translation vers le haut au survol pour effet dynamique */
+    box-shadow: 0 8px 20px rgba(139, 20, 43, 0.3); /* Ombre portée colorée qui apparaît au survol */
 }
 
-/* Responsive Design for Rabat Section */
+/* Design responsive pour la section Rabat */
 @media (max-width: 992px) {
     #rabatStadesCarousel .stade-info {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Passage à une seule colonne sur écrans moyens */
     }
 
     #rabatStadesCarousel .image-container {
-        height: 400px;
+        height: 400px; /* Hauteur fixe réduite pour s'adapter aux écrans moyens */
     }
 
     #rabatStadesCarousel .texte-stade {
-        padding: 20px 0;
+        padding: 20px 0; /* Espacement vertical ajusté */
     }
 
     #rabatStadesCarousel .carousel-control-prev,
     #rabatStadesCarousel .carousel-control-next {
-        width: 45px;
+        width: 45px; /* Contrôles du carrousel plus petits */
         height: 45px;
     }
 }
 
 @media (max-width: 768px) {
     .rabat-header h3 {
-        font-size: 2.2rem;
+        font-size: 2.2rem; /* Réduction de la taille de police pour petits écrans */
     }
 
     #rabatStadesCarousel .image-container {
-        height: 300px;
+        height: 300px; /* Hauteur réduite pour petits écrans */
     }
 
     #rabatStadesCarousel .texte-stade h4 {
-        font-size: 2rem;
+        font-size: 2rem; /* Titre plus petit pour mobiles */
     }
 
     #rabatStadesCarousel .stadium-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Une seule colonne sur petits écrans */
     }
 
     .stadium-quick-info {
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Passage en plusieurs lignes si besoin */
     }
 }
 
-/* City Sections Styling */
+/* Style des sections "City" */
 .city-section {
-    padding: 20px;
-    margin: 0;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
+    padding: 20px; /* Espacement intérieur */
+    margin: 0; /* Suppression marge externe */
+    background: #fff; /* Fond blanc */
+    border-radius: 20px; /* Coins arrondis */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Ombre légère */
+    transition: transform 0.3s ease; /* Animation douce au changement */
 }
 
 .city-section:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Espace sous chaque section sauf la dernière */
 }
 
 .city-section:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Légère translation vers le haut au survol */
 }
 
 .city-header {
-    text-align: center;
-    padding: 15px 0;
-    margin-bottom: 15px;
-    border-bottom: 2px solid rgba(139, 20, 43, 0.1);
+    text-align: center; /* Centrage du texte */
+    padding: 15px 0; /* Espacement vertical */
+    margin-bottom: 15px; /* Espace sous le header */
+    border-bottom: 2px solid rgba(139, 20, 43, 0.1); /* Ligne de séparation fine */
 }
 
 .city-header h3 {
-    font-size: 2.8rem;
-    color: var(--accent-color);
-    margin-bottom: 20px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 2.8rem; /* Taille importante du titre */
+    color: var(--accent-color); /* Couleur accentuée */
+    margin-bottom: 20px; /* Marge sous le titre */
+    font-weight: 800; /* Texte très gras */
+    text-transform: uppercase; /* Texte en majuscules */
+    letter-spacing: 1px; /* Espacement des lettres */
 }
 
 .city-header p {
-    font-size: 1.2rem;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.8;
+    font-size: 1.2rem; /* Taille de texte moyenne */
+    color: #666; /* Gris moyen */
+    max-width: 800px; /* Largeur maximale */
+    margin: 0 auto; /* Centrage horizontal */
+    line-height: 1.8; /* Interligne */
 }
 
 .stadium-showcase {
-    padding: 0;
-    margin: 0;
+    padding: 0; /* Suppression des espacements */
+    margin: 0; /* Suppression des marges */
 }
 
 .stadium-features {
-    display: flex;
-    gap: 20px;
-    margin: 20px 0;
+    display: flex; /* Affichage en flexbox */
+    gap: 20px; /* Espacement entre éléments */
+    margin: 20px 0; /* Marge verticale */
 }
 
 .feature-item {
-    background: #f8f9fa;
-    padding: 10px 20px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
+    background: #f8f9fa; /* Fond gris clair */
+    padding: 10px 20px; /* Espacement intérieur */
+    border-radius: 15px; /* Coins arrondis */
+    display: flex; /* Flexbox interne */
+    align-items: center; /* Alignement vertical centré */
+    gap: 10px; /* Espacement entre contenu */
+    transition: all 0.3s ease; /* Transition douce */
 }
 
 .feature-item:hover {
-    transform: translateY(-3px);
-    background: transparent;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px); /* Légère montée au survol */
+    background: transparent; /* Fond transparent */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre portée légère */
 }
 
 .feature-item i {
-    color: var(--accent-color);
-    font-size: 1.2em;
+    color: var(--accent-color); /* Icône en couleur accent */
+    font-size: 1.2em; /* Taille icône */
 }
 
-/* Responsive adjustments for city sections */
+/* Ajustements responsive pour sections city */
 @media (max-width: 768px) {
     .city-header h3 {
-        font-size: 2.2rem;
+        font-size: 2.2rem; /* Réduction taille titre */
     }
 
     .stadium-features {
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Passage sur plusieurs lignes */
     }
 
     .feature-item {
-        width: calc(50% - 10px);
+        width: calc(50% - 10px); /* Chaque item prend moitié largeur moins marge */
     }
 }
 
 .city-section .texte-stade h4 {
-    font-size: 2.4rem;
-    color: var(--accent-color);
-    margin-bottom: 25px;
-    font-weight: 700;
-    position: relative;
+    font-size: 2.4rem; /* Taille titre important */
+    color: var(--accent-color); /* Couleur accentuée */
+    margin-bottom: 25px; /* Marge sous titre */
+    font-weight: 700; /* Texte gras */
+    position: relative; /* Position relative pour pseudo-élément */
 }
 
 .city-section .texte-stade h4::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 80px;
-    height: 4px;
-    background: var(--accent-color);
-    border-radius: 2px;
+    content: ''; /* Contenu vide */
+    position: absolute; /* Position absolue */
+    bottom: -10px; /* 10px sous le texte */
+    left: 0; /* Aligné à gauche */
+    width: 80px; /* Largeur barre */
+    height: 4px; /* Hauteur barre */
+    background: var(--accent-color); /* Couleur accent */
+    border-radius: 2px; /* Coins arrondis */
 }
 
 .city-section .texte-stade p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 30px;
+    font-size: 1.2rem; /* Taille texte */
+    line-height: 1.8; /* Interligne */
+    color: #555; /* Gris foncé */
+    margin-bottom: 30px; /* Marge sous paragraphe */
 }
 
 .city-section .stadium-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin: 30px 0;
+    display: grid; /* Affichage en grille */
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes égales */
+    gap: 20px; /* Espacement entre items */
+    margin: 30px 0; /* Marge verticale */
 }
 
 .city-section .stat-item {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background: #f8f9fa; /* Fond gris clair */
+    padding: 20px; /* Espacement intérieur */
+    border-radius: 15px; /* Coins arrondis */
+    text-align: center; /* Centrage texte */
+    transition: transform 0.3s ease; /* Transition douce */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Ombre légère */
 }
 
 .city-section .stat-item:hover {
-    transform: translateY(-5px);
-    background: transparent;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); /* Légère montée au survol */
+    background: transparent; /* Fond transparent */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Ombre portée plus importante */
 }
 
 .city-section .stat-label {
-    font-size: 0.9rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
+    font-size: 0.9rem; /* Taille plus petite pour label */
+    color: #666; /* Gris moyen */
+    text-transform: uppercase; /* Texte en majuscules */
+    letter-spacing: 1px; /* Espacement des lettres */
+    margin-bottom: 8px; /* Marge sous label */
 }
 
 .city-section .stat-value {
-    font-size: 1.8rem;
-    color: var(--accent-color);
-    font-weight: 700;
+    font-size: 1.8rem; /* Taille importante pour valeur */
+    color: var(--accent-color); /* Couleur accent */
+    font-weight: 700; /* Texte gras */
 }
 
 @media (max-width: 768px) {
     .city-section .texte-stade h4 {
-        font-size: 2rem;
+        font-size: 2rem; /* Réduction de la taille du titre pour s'adapter aux petits écrans */
     }
 
     .city-section .texte-stade p {
-        font-size: 1.1rem;
+        font-size: 1.1rem; /* Réduction de la taille du texte des paragraphes pour meilleure lisibilité */
     }
 
     .city-section .stadium-stats {
-        grid-template-columns: 1fr;
-        gap: 15px;
+        grid-template-columns: 1fr; /* Passage à une seule colonne pour un affichage vertical */
+        gap: 15px; /* Réduction de l'espacement entre les éléments */
     }
 }
 
-/* Espacement entre les sections de ville */
+/* Ajoute une marge verticale entre les sections de ville consécutives */
 .city-section + .city-section {
     margin-top: 10px;
 }
 
-/* Effet de surbrillance pour les sections */
+/* Animation pour mettre en surbrillance une section (background et translation verticale) */
 @keyframes highlightSection {
     0% {
-        background-color: rgba(139, 20, 43, 0.1);
-        transform: translateY(-5px);
+        background-color: rgba(139, 20, 43, 0.1); /* Couleur de fond initiale */
+        transform: translateY(-5px); /* Décalage vers le haut */
     }
     50% {
-        background-color: rgba(139, 20, 43, 0.05);
-        transform: translateY(0);
+        background-color: rgba(139, 20, 43, 0.05); /* Couleur de fond intermédiaire */
+        transform: translateY(0); /* Retour à la position normale */
     }
     100% {
-        background-color: transparent;
-        transform: translateY(0);
+        background-color: transparent; /* Fond transparent à la fin */
+        transform: translateY(0); /* Position normale */
     }
 }
 
+/* Application de l'animation de surbrillance sur les sections */
 .highlight-section {
     animation: highlightSection 2s ease;
 }
 
-/* Styles pour les résultats de recherche */
+/* Styles de base pour les conteneurs des résultats de recherche */
 .city-section-results, .stadium-section-results {
-    padding: 10px 15px;
+    padding: 10px 15px; /* Espacement interne */
 }
 
+/* Titres des résultats de recherche avec couleur accentuée et soulignement */
 .city-section-results h4, .stadium-section-results h4 {
-    color: var(--accent-color);
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid rgba(139, 20, 43, 0.1);
+    color: var(--accent-color); /* Couleur principale */
+    font-size: 1.1rem; /* Taille du texte */
+    margin-bottom: 10px; /* Marge en bas */
+    padding-bottom: 5px; /* Padding en bas */
+    border-bottom: 2px solid rgba(139, 20, 43, 0.1); /* Ligne de séparation discrète */
 }
 
+/* Style des éléments individuels des résultats de recherche */
 .city-result {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    margin: 5px 0;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    display: flex; /* Mise en ligne des éléments internes */
+    align-items: center; /* Alignement vertical centré */
+    padding: 10px 15px; /* Espacement interne */
+    margin: 5px 0; /* Marge verticale */
+    background-color: #f8f9fa; /* Couleur de fond claire */
+    border-radius: 8px; /* Bords arrondis */
+    cursor: pointer; /* Curseur pointeur pour indiquer cliquable */
+    transition: all 0.3s ease; /* Transition fluide sur les propriétés modifiées */
 }
 
+/* Effet au survol des résultats : fond coloré, texte blanc, translation à droite */
 .city-result:hover {
     background-color: var(--accent-color);
     color: white;
     transform: translateX(5px);
 }
 
+/* Icônes des résultats avec marge droite */
 .city-result i {
     margin-right: 10px;
-    font-size: 1.2em;
+    font-size: 1.2em; /* Taille d'icône */
 }
 
-/* Amélioration de la visibilité des sections de ville */
+/* Amélioration visibilité des sections de ville avec position relative et transition */
 .city-section {
     position: relative;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Transition sur toutes les propriétés */
 }
 
+/* Pseudo-élément avant pour effets décoratifs (bord arrondi, transition, superposition) */
 .city-section::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: -1;
-    transition: all 0.3s ease;
-    border-radius: 20px;
+    top: 0; left: 0; right: 0; bottom: 0; /* Pleine couverture du parent */
+    pointer-events: none; /* Ignore les interactions souris */
+    z-index: -1; /* Derrière le contenu */
+    transition: all 0.3s ease; /* Transition fluide */
+    border-radius: 20px; /* Arrondi des bords */
 }
 
+/* Style du titre principal de la page */
 .main-title {
-    font-size: 2.5rem;
-    color: var(--accent-color);
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-bottom: 3px solid var(--accent-color);
-    padding-bottom: 0.5rem;
+    font-size: 2.5rem; /* Taille importante */
+    color: var(--accent-color); /* Couleur accentuée */
+    text-align: center; /* Centré horizontalement */
+    margin-bottom: 1.5rem; /* Marge inférieure */
+    font-weight: bold; /* Texte en gras */
+    text-transform: uppercase; /* Majuscules */
+    border-bottom: 3px solid var(--accent-color); /* Bordure basse */
+    padding-bottom: 0.5rem; /* Padding sous le texte */
 }
 
+/* Section d'affichage du stade avec marge, padding, fond blanc, bord arrondi et ombre */
 .stadium-view-section {
     margin-top: 30px;
     padding: 20px;
@@ -2028,31 +2099,35 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
+/* Conteneur du layout du stade avec position relative, marges, bord arrondi et ombre */
 .stadium-layout {
     position: relative;
     margin-top: 20px;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: hidden; /* Coupe le dépassement */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Image du stade avec pleine largeur, hauteur auto, arrondi, et transition */
 .stadium-layout-image {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: cover; /* Couvre sans déformation */
     border-radius: 15px;
     transition: transform 0.3s ease;
 }
 
+/* Zoom léger sur image au survol du conteneur */
 .stadium-layout:hover .stadium-layout-image {
     transform: scale(1.02);
 }
 
+/* Bouton pour voir le stade : styles flex, couleurs, padding, bord arrondi, ombre, et transition */
 .view-stadium-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 12px; /* Espace entre icône et texte */
     width: 100%;
     padding: 15px 30px;
     background: linear-gradient(135deg, var(--accent-color) 0%, #6d0f21 100%);
@@ -2069,21 +2144,25 @@ body {
     box-shadow: 0 4px 15px rgba(139, 20, 43, 0.2);
 }
 
+/* Icône dans le bouton avec taille et transition */
 .view-stadium-button i {
     font-size: 1.2em;
     transition: transform 0.3s ease;
 }
 
+/* Effet hover sur bouton : translation, ombre renforcée, inversion dégradé */
 .view-stadium-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(139, 20, 43, 0.3);
     background: linear-gradient(135deg, #6d0f21 0%, var(--accent-color) 100%);
 }
 
+/* Agrandissement de l'icône au hover */
 .view-stadium-button:hover i {
     transform: scale(1.1);
 }
 
+/* Grille pour indicateurs de zones, auto-ajustement des colonnes, espacement et padding */
 .zone-indicators {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -2092,6 +2171,7 @@ body {
     padding: 20px;
 }
 
+/* Style des cartes indicateurs de zones avec fond blanc, padding, arrondi, ombre, transition, bord */
 .zone-indicator {
     background: white;
     padding: 20px;
@@ -2101,12 +2181,14 @@ body {
     border: 1px solid rgba(139, 20, 43, 0.1);
 }
 
+/* Effet hover sur indicateurs : translation vers le haut, ombre et couleur de bord accentuées */
 .zone-indicator:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     border-color: var(--accent-color);
 }
 
+/* Titres des détails de zone avec couleur, taille, marges, poids et alignement avec icônes */
 .zone-details h5 {
     color: var(--accent-color);
     font-size: 1.3rem;
@@ -2117,6 +2199,7 @@ body {
     gap: 10px;
 }
 
+/* Cercle décoratif avant le titre */
 .zone-details h5::before {
     content: '';
     display: inline-block;
@@ -2126,6 +2209,7 @@ body {
     border-radius: 50%;
 }
 
+/* Style du texte principal avec effet dégradé en texte transparent */
 .zone-details p {
     font-size: 1.8rem;
     font-weight: 700;
@@ -2136,12 +2220,14 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+/* Liste sans puces et sans marges */
 .zone-details ul {
     list-style: none;
     padding: 0;
     margin: 15px 0 0 0;
 }
 
+/* Style des éléments de liste : padding, couleur, flex, espacement, taille */
 .zone-details li {
     padding: 8px 0;
     color: #666;
@@ -2151,30 +2237,33 @@ body {
     font-size: 0.95rem;
 }
 
+/* Puce personnalisée avant chaque élément de liste avec couleur et taille */
 .zone-details li::before {
     content: '•';
     color: var(--accent-color);
     font-size: 1.5em;
 }
 
+/* Adaptation responsive pour les indicateurs de zones et bouton */
 @media (max-width: 768px) {
     .zone-indicators {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Une colonne sur petits écrans */
     }
 
     .view-stadium-button {
-        font-size: 1rem;
-        padding: 12px 25px;
+        font-size: 1rem; /* Taille de texte réduite */
+        padding: 12px 25px; /* Padding réduit */
     }
 }
 
-/* Footer */
+/* Styles du footer : fond couleur secondaire, texte blanc, padding */
 .footer {
     background-color: var(--secondary-color);
     color: white;
     padding: 50px 0 20px;
 }
 
+/* Contenu du footer avec largeur max, centrage, grille responsive et espacement */
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -2184,6 +2273,7 @@ body {
     padding: 0 20px;
 }
 
+/* Titres des sections du footer avec couleur, marge, positionnement relatif */
 .footer-section h3 {
     color: var(--primary-color);
     margin-bottom: 20px;
@@ -2191,6 +2281,7 @@ body {
     display: inline-block;
 }
 
+/* Ligne décorative sous les titres du footer avec dégradé */
 .footer-section h3::after {
     content: '';
     position: absolute;
@@ -2201,47 +2292,56 @@ body {
     background: linear-gradient(to right, var(--light-red), var(--light-green));
 }
 
+/* Liste sans puces et padding dans les sections footer */
 .footer-section ul {
     list-style: none;
     padding: 0;
 }
 
+/* Marge entre les éléments de liste du footer */
 .footer-section ul li {
     margin-bottom: 10px;
 }
 
+/* Liens dans le footer avec couleur blanche et transition */
 .footer-section a {
     color: white;
     text-decoration: none;
     transition: var(--transition);
 }
 
+/* Effet hover sur liens footer : changement de couleur */
 .footer-section a:hover {
     color: var(--primary-color);
 }
 
+/* Conteneur des icônes sociales avec flex et espacement */
 .social-links {
     display: flex;
     gap: 15px;
 }
 
+/* Style des liens sociaux : taille, transition, position relative */
 .social-links a {
     font-size: 1.5rem;
     transition: var(--transition);
     position: relative;
 }
 
+/* Effet hover sur icônes sociales : couleur, translation, opacité */
 .social-links a:hover {
     color: var(--red-color);
     transform: translateY(-3px);
     opacity: 0.8;
 }
 
+/* Sélecteur sibling pour changement de couleur/opacité sur icônes adjacentes au hover */
 .social-links a:hover + a {
     color: var(--green-color);
     opacity: 0.8;
 }
 
+/* Bas du footer avec texte centré, marge et bordure haute */
 .footer-bottom {
     text-align: center;
     margin-top: 50px;
