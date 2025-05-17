@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Équipes - CAN 2025</title>
-    <!-- Bootstrap CSS -->
+    <!-- On charge d'abord Bootstrap pour avoir un design responsive tout prêt -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+    <!-- Les icônes Font Awesome pour avoir de jolis pictogrammes partout -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
+    <!-- Une police Google bien propre et lisible -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Notre propre CSS pour personnaliser tout ça -->
     <link rel="stylesheet" href="equipes.css">
 </head>
 
 <body style="padding-top:120px;">
-   <!-- Barre Interactive -->
+   <!-- La barre de navigation interactive qui reste fixée en haut -->
    <div class="interactive-bar">
     <div class="bar-pattern left"></div>
     <div class="interactive-content">
         <div class="bar-pattern right"></div>
 
+        <!-- Logo cliquable qui ramène à l'accueil -->
         <div id="logo-container">
             <i><img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180" ></i>
         </div>
+        <!-- Menu de navigation avec des icônes et textes explicites -->
         <div class="interactive-item" data-section="can2025-description">
             <i class="fas fa-home home-icon"></i>
             <span>Accueil</span>
@@ -57,11 +60,12 @@
 
 </div>
 
-    <!-- En-tête de la page -->
+    <!-- Grande bannière en haut qui présente la page avec style -->
     <header class="teams-header">
         <div class="container">
             <h1>Équipes Qualifiées</h1>
             <p>Découvrez les 24 équipes participant à la CAN 2025 au Maroc</p>
+            <!-- Compteurs animés qui attirent l'attention -->
             <div class="teams-counter">
                 <div class="counter-item">
                     <span class="counter-number" data-count="24">0</span>
@@ -79,10 +83,11 @@
         </div>
     </header>
 
-    <!-- Filtres -->
+    <!-- Zone de recherche et filtres pour trouver facilement une équipe -->
     <section class="filters-section">
         <div class="container">
             <div class="row mb-4">
+                <!-- Barre de recherche par nom d'équipe -->
                 <div class="col-md-5 mb-3 mb-md-0">
                     <div class="input-group">
                         <span class="input-group-text bg-white border-end-0">
@@ -91,6 +96,7 @@
                         <input type="text" class="form-control border-start-0" id="searchTeam" placeholder="Rechercher une équipe...">
                     </div>
                 </div>
+                <!-- Filtre par groupe (A, B, C, etc.) -->
                 <div class="col-md-4">
                     <div class="input-group">
                         <span class="input-group-text bg-white border-end-0">
@@ -107,6 +113,7 @@
                         </select>
                     </div>
                 </div>
+                <!-- Boutons pour basculer entre vue grille et vue groupes -->
                 <div class="col-md-3">
                     <div class="view-toggles">
                         <button class="btn btn-outline-primary active" id="gridView">
@@ -121,16 +128,16 @@
         </div>
     </section>
 
-    <!-- Liste des équipes -->
+    <!-- Contenu principal: les équipes -->
     <section class="teams-section">
         <div class="container">
             <div class="view-container">
-                <!-- Vue Grille -->
+                <!-- Vue Grille: affiche toutes les équipes en cartes -->
                 <div class="row" id="teamsContainer">
                     <!-- Les équipes seront ajoutées dynamiquement ici via JavaScript -->
                 </div>
                 
-                <!-- Vue Groupes (caché par défaut) -->
+                <!-- Vue Groupes: organise les équipes par groupe (A, B, C, etc.) -->
                 <div class="groups-view" id="groupsContainer" style="display: none;">
                     <div class="row">
                         <!-- Les groupes seront ajoutés dynamiquement ici via JavaScript -->
@@ -140,7 +147,7 @@
         </div>
     </section>
 
-    <!-- Modal pour les détails de l'équipe -->
+    <!-- Fenêtre modale qui s'ouvre quand on clique sur une équipe pour voir ses détails -->
     <div class="modal fade" id="teamModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -148,8 +155,9 @@
                     <button type="button" class="btn-close position-absolute top-0 end-0 m-3 bg-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div id="teamModalContent">
-                    <!-- Le contenu sera ajouté dynamiquement -->
+                    <!-- Le contenu sera ajouté dynamiquement quand on clique sur une équipe -->
                 </div>
+                <!-- Boutons pour naviguer entre les équipes sans fermer le modal -->
                 <div class="modal-footer">
                     <div class="team-navigation">
                         <button class="btn btn-outline-primary" id="prevTeam">
@@ -164,53 +172,66 @@
         </div>
     </div>
 
+    
     <!-- Footer -->
-    <footer class="footer bg-dark text-white mt-5">
-        <div class="container py-4">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>CAN 2025 - Maroc</h5>
-                    <p>La plus grande compétition de football africain</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="social-links">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
-                    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CAN 2025</h3>
+                <p>Coupe d'Afrique des Nations<br>Maroc</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">  
+                    <a href="https://www.facebook.com/TheAFCON"><i class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/CAF_Online?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/caf_online?igsh=MXVvajljaXVlenFvaw=="><i class="fab fa-instagram"></i></a>
+
                 </div>
             </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="matches.html">Matches</a></li>
+                    <li><a href="groupes.html">Groupes</a></li>
+                    <li><a href="videos.html">Vidéos</a></li>
+                    <li><a href="stades.html">Stades et villes hôtes</a></li>
+                    <li><a href="equipes.html">Équipes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CAN - Tous droits réservés</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Chargement des scripts JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="equipes.js"></script>
     <script>
-        // Gestion de la barre interactive
+        // Quand la page est complètement chargée, on initialise tout
         document.addEventListener('DOMContentLoaded', () => {
             const interactiveItems = document.querySelectorAll('.interactive-item');
             
-            // Gestion du clic sur le logo pour retourner à la page d'accueil
+            // Le logo devient cliquable et ramène à l'accueil
             const logoContainer = document.getElementById('logo-container');
             if (logoContainer) {
                 logoContainer.addEventListener('click', () => {
                     window.location.href = 'index.html';
                 });
-                // Ajouter le style du curseur pointer
+                // On ajoute un curseur pointer pour montrer que c'est cliquable
                 logoContainer.style.cursor = 'pointer';
             }
             
-            // Définir l'élément actif en fonction de la page courante
+            // Active automatiquement le bon élément du menu selon la page où on se trouve
             const currentPage = window.location.pathname.split('/').pop();
             interactiveItems.forEach(item => {
                 const section = item.dataset.section;
                 
-                // Supprimer la classe active de tous les éléments
+                // Supprime d'abord toutes les classes active
                 item.classList.remove('active');
                 
-                // Ajouter la classe active à l'élément correspondant à la page actuelle
+                // Puis ajoute la classe active au bon élément
                 switch(currentPage) {
                     case 'index.html':
                         if (section === 'can2025-description') item.classList.add('active');
@@ -236,12 +257,12 @@
                 }
             });
             
-            // Gestion du clic sur les éléments de la barre
+            // Rend chaque élément du menu cliquable et redirige vers la bonne page
             interactiveItems.forEach(item => {
                 item.addEventListener('click', () => {
                     const section = item.dataset.section;
                     
-                    // Redirection vers les pages correspondantes
+                    // Redirection vers les différentes pages du site
                     switch(section) {
                         case 'can2025-description':
                             window.location.href = 'index.html';
@@ -268,7 +289,7 @@
                 });
             });
 
-            // Animation du compteur
+            // Animation des compteurs: ils commencent à zéro puis montent progressivement
             const counters = document.querySelectorAll('.counter-number');
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-count'));
@@ -283,16 +304,17 @@
                 requestAnimationFrame(count);
             });
 
-            // Écouteurs d'événements pour le filtrage
+            // Active le filtrage des équipes en temps réel quand on tape ou sélectionne un groupe
             document.getElementById('searchTeam').addEventListener('input', filterTeams);
             document.getElementById('groupFilter').addEventListener('change', filterTeams);
 
-            // Gestion des vues (grille/groupes)
+            // Gestion du basculement entre vue en grille et vue par groupes
             const gridView = document.getElementById('gridView');
             const groupView = document.getElementById('groupView');
             const teamsContainer = document.getElementById('teamsContainer');
             const groupsContainer = document.getElementById('groupsContainer');
 
+            // Quand on clique sur "Grille", on affiche les équipes en cartes
             gridView.addEventListener('click', () => {
                 gridView.classList.add('active');
                 groupView.classList.remove('active');
@@ -300,39 +322,42 @@
                 groupsContainer.style.display = 'none';
             });
 
+            // Quand on clique sur "Groupes", on affiche les équipes organisées par groupe
             groupView.addEventListener('click', () => {
                 groupView.classList.add('active');
                 gridView.classList.remove('active');
                 teamsContainer.style.display = 'none';
                 groupsContainer.style.display = 'block';
                 
-                // Générer l'affichage par groupes s'il est vide
+                // Génère la vue par groupes au besoin (une seule fois)
                 if (groupsContainer.querySelector('.group-card') === null) {
                     generateGroupsView();
                 }
             });
 
-            // Fonction pour générer la vue par groupes (simplifiée)
+            // Fonction qui crée dynamiquement la vue par groupes
             function generateGroupsView() {
+                // Prépare un objet vide pour chaque groupe
                 const groups = {A: [], B: [], C: [], D: [], E: [], F: []};
                 
-                // Regrouper les équipes par groupe
+                // Répartit chaque équipe dans son groupe correspondant
                 teams.forEach(team => {
                     if (groups[team.group]) {
                         groups[team.group].push(team);
                     }
                 });
                 
-                // Vider le conteneur
+                // Prépare le conteneur HTML
                 groupsContainer.innerHTML = '<div class="row"></div>';
                 const groupsRow = groupsContainer.querySelector('.row');
                 
-                // Créer les cartes de groupe (2 par ligne)
+                // Crée un bloc pour chaque groupe et y insère les équipes
                 Object.keys(groups).forEach(groupKey => {
                     const groupTeams = groups[groupKey];
                     const groupCard = document.createElement('div');
                     groupCard.className = 'col-md-6 mb-4';
                     
+                    // Construit le HTML pour la carte de groupe
                     let groupContent = `
                         <div class="group-card">
                             <div class="group-header">
@@ -341,6 +366,7 @@
                             <div class="group-teams">
                     `;
                     
+                    // Ajoute chaque équipe du groupe avec son drapeau
                     groupTeams.forEach(team => {
                         groupContent += `
                             <div class="group-team-item" data-team-id="${team.id}">
@@ -352,16 +378,18 @@
                         `;
                     });
                     
+                    // Ferme le HTML de la carte
                     groupContent += `
                             </div>
                         </div>
                     `;
                     
+                    // Insère dans le DOM
                     groupCard.innerHTML = groupContent;
                     groupsRow.appendChild(groupCard);
                 });
                 
-                // Ajouter le message et le bouton pour plus de détails
+                // Ajoute un message et un bouton pour consulter la page des groupes détaillés
                 const detailsMessage = document.createElement('div');
                 detailsMessage.className = 'col-12 text-center mt-4 mb-5 groups-more-details';
                 detailsMessage.innerHTML = `
@@ -374,14 +402,14 @@
                 `;
                 groupsRow.appendChild(detailsMessage);
                 
-                // Ajouter les écouteurs d'événements pour les équipes dans la vue groupes
+                // Rend chaque équipe cliquable pour ouvrir son modal de détails
                 document.querySelectorAll('.group-team-item').forEach(teamItem => {
                     teamItem.addEventListener('click', () => {
                         const teamId = parseInt(teamItem.dataset.teamId);
                         const team = teams.find(t => t.id === teamId);
                         if (team) {
                             document.getElementById('teamModalContent').innerHTML = createModalContent(team);
-                            currentTeamId = teamId; // Mettre à jour l'ID de l'équipe actuelle
+                            currentTeamId = teamId; // Pour la navigation entre équipes
                             const modal = new bootstrap.Modal(document.getElementById('teamModal'));
                             modal.show();
                         }
@@ -389,40 +417,43 @@
                 });
             }
 
-            // Navigation entre les équipes dans le modal
+            // Configuration des boutons pour naviguer entre les équipes dans le modal
             const prevTeamBtn = document.getElementById('prevTeam');
             const nextTeamBtn = document.getElementById('nextTeam');
-            let currentTeamId = 0;
+            let currentTeamId = 0; // Garde en mémoire l'équipe actuellement affichée
 
             prevTeamBtn.addEventListener('click', () => {
-                navigateTeam(-1);
+                navigateTeam(-1); // Équipe précédente
             });
 
             nextTeamBtn.addEventListener('click', () => {
-                navigateTeam(1);
+                navigateTeam(1); // Équipe suivante
             });
 
+            // Fonction qui fait la navigation d'une équipe à l'autre
             function navigateTeam(direction) {
                 if (currentTeamId === 0) return;
                 
+                // Calcule l'index de la nouvelle équipe à afficher
                 let newIndex = teams.findIndex(t => t.id === currentTeamId) + direction;
                 
-                // Gérer le bouclage
+                // Gère les cas où on dépasse les limites (boucle de la première à la dernière et vice versa)
                 if (newIndex < 0) newIndex = teams.length - 1;
                 if (newIndex >= teams.length) newIndex = 0;
                 
+                // Récupère la nouvelle équipe et met à jour l'affichage
                 const newTeam = teams[newIndex];
                 currentTeamId = newTeam.id;
                 
-                // Mettre à jour le contenu du modal
+                // Met à jour le contenu du modal avec la nouvelle équipe
                 document.getElementById('teamModalContent').innerHTML = createModalContent(newTeam);
                 console.log('Navigation vers équipe:', newTeam.name, 'ID:', newTeam.id);
             }
 
-            // Mise à jour de l'ouverture du modal pour définir l'équipe actuelle
+            // Configuration pour enregistrer l'ID de l'équipe quand on ouvre le modal
             const teamModal = document.getElementById('teamModal');
             
-            // Écouteur pour les cartes d'équipe dans la vue grille
+            // Détecte les clics sur les cartes d'équipe pour stocker l'ID
             document.addEventListener('click', function(e) {
                 const teamCard = e.target.closest('.team-card');
                 if (teamCard) {
@@ -431,7 +462,7 @@
                 }
             });
             
-            // Mise à jour sur l'affichage du modal
+            // Vérifie que tout fonctionne à l'ouverture du modal
             teamModal.addEventListener('shown.bs.modal', (event) => {
                 console.log('Modal shown, current team ID:', currentTeamId);
             });

@@ -1,15 +1,16 @@
 /* Variables */
 :root {
-    --primary-color: #f0c14b; /* Jaune principal utilisé comme couleur dominante */
-    --secondary-color: #1a1a1a; /* Noir profond utilisé comme couleur secondaire */
-    --accent-color: #8b142b; /* Rouge foncé pour les accents visuels */
-    --text-color: #333; /* Gris foncé pour la couleur du texte */
-    --light-bg: #f8f9fa; /* Fond clair général de la page */
-    --transition: all 0.3s ease; /* Transition fluide par défaut */
-    --green-color: #4CAF50; /* Vert utilisé pour les éléments positifs */
-    --red-color: #FF5252; /* Rouge vif pour les éléments d’alerte ou négatifs */
-    --light-green: rgba(76, 175, 80, 0.2); /* Vert clair transparent pour fond ou effets */
-    --light-red: rgba(255, 82, 82, 0.2); /* Rouge clair transparent pour fond ou effets */
+    --primary-color: #f0c14b;    /* Couleur principale (jaune doré) */
+    --secondary-color: #1a1a1a;  /* Couleur secondaire (noir) */
+    --accent-color: #8b142b;     /* Couleur d'accent (rouge foncé) */
+    --text-color: #333;          /* Couleur du texte principal */
+    --light-bg: #f8f9fa;         /* Couleur de fond claire */
+
+    --transition: all 0.3s ease;
+    --green-color: #4CAF50;
+    --red-color: #FF5252;
+    --light-green: rgba(76, 175, 80, 0.2);
+    --light-red: rgba(255, 82, 82, 0.2);
 }
 
 /* Styles généraux */
@@ -188,32 +189,208 @@ body {
 }
 
 .match-card:hover {
-    transform: translateY(-2px); /* Soulèvement au survol */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre plus forte */
+    transform: translateY(-2px); /* Léger effet de soulèvement */
+}
+
+.match-info {
+    display: grid; /* Utilise un modèle de mise en page en grille */
+    grid-template-columns: auto 1fr auto; /* Trois colonnes : largeur automatique, une colonne flexible, largeur automatique */
+    gap: 15px; /* Espacement de 15px entre les éléments de la grille */
+    align-items: center; /* Aligne les éléments verticalement au centre */
+}
+
+.match-number {
+    color: #8b142b; /* Couleur du texte : rouge foncé */
+    font-weight: bold; /* Met le texte en gras */
 }
 
 .match-teams {
-    font-size: 1.1em; /* Taille du nom des équipes */
-    font-weight: 500; /* Légèrement en gras */
+    font-size: 1.1em; /* Agrandit légèrement la taille du texte */
+    font-weight: 500; /* Donne une épaisseur moyenne au texte */
 }
 
-.default-team-icon {
-    color: #666; /* Couleur grise des icônes d’équipe */
-    font-size: 1.2em; /* Taille de l’icône */
+.match-time {
+    color: #001845; /* Couleur bleu foncé */
+    font-weight: bold; /* Met le texte en gras */
+}
+
+.match-stadium {
+    grid-column: 1 / -1; /* Étend l'élément sur toutes les colonnes de la grille */
+    color: #666; /* Couleur grise */
+    font-size: 0.9em; /* Réduit légèrement la taille du texte */
+    margin-top: 10px; /* Ajoute une marge supérieure de 10px */
+}
+
+.match-stadium i {
+    margin-right: 5px; /* Marge à droite de 5px pour les icônes */
+    color: #8b142b; /* Couleur rouge foncé pour les icônes */
+}
+
+/* Barre Interactive */
+.interactive-bar {
+    position: fixed; /* Position fixe : reste en haut de la page même en scrollant */
+    top: 0; /* Collée en haut de la fenêtre */
+    left: 0; /* Collée à gauche de la fenêtre */
+    width: 100%; /* Prend toute la largeur */
+    background: white; /* Fond blanc */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile pour donner du relief */
+    z-index: 1000; /* Priorité d'affichage très haute */
+    padding: 10px 0; /* Espacement vertical de 10px */
+}
+
+.interactive-content {
+    max-width: 1200px; /* Largeur maximale de 1200px */
+    margin: 0 auto; /* Centrage horizontal */
+    display: flex; /* Mise en page en flexbox */
+    justify-content: space-around; /* Répartit les éléments avec espace autour */
+    align-items: center; /* Aligne les éléments verticalement */
+    padding: 0 20px; /* Espacement horizontal de 20px */
+}
+
+.interactive-item {
+    display: flex; /* Disposition en flexbox */
+    flex-direction: column; /* Aligne les enfants en colonne */
+    align-items: center; /* Centre les éléments horizontalement */
+    padding: 10px 20px; /* Espacement interne */
+    cursor: pointer; /* Change le curseur au survol */
+    transition: var(--transition); /* Animation fluide lors du changement */
+    border-radius: 8px; /* Coins arrondis */
+    color: var(--text-color); /* Couleur du texte depuis une variable CSS */
+    position: relative; /* Permet un positionnement absolu à l'intérieur */
+    overflow: hidden; /* Cache les débordements */
+}
+
+.interactive-item::after {
+    content: ''; /* Génère un élément vide */
+    position: absolute; /* Position absolue par rapport à son parent */
+    bottom: 0; /* Collé en bas */
+    left: 0; /* Collé à gauche */
+    width: 100%; /* Prend toute la largeur */
+    height: 2px; /* Hauteur de 2px */
+    background: linear-gradient(to right, var(--light-red), var(--light-green)); /* Dégradé de gauche à droite */
+    transform: scaleX(0); /* Réduit horizontalement à 0 (invisible) */
+    transition: transform 0.3s ease; /* Animation fluide lors de l’apparition */
+}
+
+.interactive-item:hover::after {
+    transform: scaleX(1); /* Affiche la ligne horizontale au survol */
+}
+
+.interactive-item.active {
+    background: linear-gradient(45deg, var(--light-red), var(--light-green)); /* Fond en dégradé en diagonale */
+    color: var(--text-color); /* Couleur du texte depuis la variable */
+}
+
+.interactive-item i {
+    font-size: 1.5rem; /* Taille des icônes */
+    margin-bottom: 5px; /* Espace sous l’icône */
+    color: var(--accent-color); /* Couleur via une variable */
+}
+
+.interactive-item span {
+    font-size: 0.9rem; /* Taille du texte réduite */
+    font-weight: 500; /* Épaisseur moyenne */
+}
+
+.interactive-item:hover {
+    background: var(--light-bg); /* Change le fond au survol */
+    transform: translateY(-2px); /* Légère élévation */
 }
 
 #logo-container img {
-    border: 3px solid transparent; /* Bordure invisible par défaut */
-    border-radius: 18px; /* Image arrondie */
-    background: linear-gradient(120deg, #FF5252 30%, #4CAF50 100%); /* Dégradé autour de l’image */
-    background-origin: border-box; /* Origine du fond dans la bordure */
-    background-clip: padding-box, border-box; /* Découpe le fond pour le dégradé */
-    transition: box-shadow 0.4s, border-color 0.4s; /* Animation sur l'ombre et la bordure */
-    box-shadow: 0 2px 16px rgba(76, 175, 80, 0.08), 0 2px 8px rgba(255, 82, 82, 0.08); /* Ombres colorées */
-    padding: 2px; /* Espacement entre l’image et la bordure */
+    border: 3px solid transparent; /* Bordure transparente par défaut */
+    border-radius: 18px; /* Coins très arrondis */
+    background: linear-gradient(120deg, #FF5252 30%, #4CAF50 100%); /* Dégradé rouge-vert en diagonale */
+    background-origin: border-box; /* Origine du fond : bordure */
+    background-clip: padding-box, border-box; /* Applique le fond au contenu et à la bordure */
+    transition: box-shadow 0.4s, border-color 0.4s; /* Transition fluide des ombres et bordures */
+    box-shadow: 0 2px 16px rgba(76, 175, 80, 0.08), 0 2px 8px rgba(255, 82, 82, 0.08); /* Ombre verte et rouge subtile */
+    padding: 2px; /* Petit espace intérieur */
 }
 
 #logo-container img:hover {
-    box-shadow: 0 0 24px 4px #FF5252, 0 0 32px 8px #4CAF50; /* Effet lumineux au survol */
+    box-shadow: 0 0 24px 4px #FF5252, 0 0 32px 8px #4CAF50; /* Grosses ombres rouge et verte au survol */
     border-color: #FF5252; /* Bordure rouge au survol */
 }
+
+/* Footer */
+.footer {
+    background-color: var(--secondary-color); /* Couleur de fond du pied de page */
+    color: white; /* Texte en blanc */
+    padding: 50px 0 20px; /* Espacement interne haut (50px), bas (20px) */
+}
+
+.footer-content {
+    max-width: 1200px; /* Largeur maximale */
+    margin: 0 auto; /* Centrage */
+    display: grid; /* Disposition en grille */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes adaptatives, minimum 250px */
+    gap: 40px; /* Espacement entre les colonnes */
+    padding: 0 20px; /* Espacement latéral */
+}
+
+.footer-section h3 {
+    color: var(--primary-color); /* Titre de section en couleur primaire */
+    margin-bottom: 20px; /* Espace sous le titre */
+    position: relative; /* Nécessaire pour le ::after */
+    display: inline-block; /* Permet à ::after de s’appliquer au bon endroit */
+}
+
+.footer-section h3::after {
+    content: ''; /* Élément vide */
+    position: absolute; /* Placé par rapport au h3 */
+    bottom: -5px; /* Positionné juste sous le texte */
+    left: 0; /* Collé à gauche */
+    width: 40px; /* Longueur de la ligne */
+    height: 2px; /* Épaisseur */
+    background: linear-gradient(to right, var(--light-red), var(--light-green)); /* Dégradé rouge-vert */
+}
+
+.footer-section ul {
+    list-style: none; /* Supprime les puces */
+    padding: 0; /* Supprime le retrait */
+}
+
+.footer-section ul li {
+    margin-bottom: 10px; /* Espacement entre les éléments */
+}
+
+.footer-section a {
+    color: white; /* Liens en blanc */
+    text-decoration: none; /* Supprime le soulignement */
+    transition: var(--transition); /* Animation fluide */
+}
+
+.footer-section a:hover {
+    color: var(--primary-color); /* Change la couleur au survol */
+}
+
+.social-links {
+    display: flex; /* Affiche les liens horizontalement */
+    gap: 15px; /* Espacement entre les icônes */
+}
+
+.social-links a {
+    font-size: 1.5rem; /* Taille des icônes sociales */
+    transition: var(--transition); /* Animation fluide */
+    position: relative; /* Position relative pour de futures décorations */
+}
+
+.social-links a:hover {
+    color: var(--red-color); /* Devient rouge au survol */
+    transform: translateY(-3px); /* S’élève légèrement */
+    opacity: 0.8; /* Rend un peu plus transparent */
+}
+
+.social-links a:hover + a {
+    color: var(--green-color); /* Le lien suivant devient vert au survol */
+    opacity: 0.8; /* Plus transparent */
+}
+
+.footer-bottom {
+    text-align: center; /* Centre le texte */
+    margin-top: 50px; /* Marge au-dessus */
+    padding-top: 20px; /* Espacement en haut */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Ligne de séparation claire */
+}
+
