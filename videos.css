@@ -6,13 +6,15 @@
     --text-color: #333;
     --light-bg: #f8f9fa;
     --transition: all 0.3s ease;
+    --green-color: #2ecc71;
+    --red-color: #e74c3c;
 }
 
 /* Styles généraux */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--light-bg);
-    padding-top: 120px;
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(231, 76, 60, 0.1));
+    padding-top: 80px;
 }
 
 /* Barre Interactive */
@@ -21,51 +23,64 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 10px 0;
+    height: 70px;
 }
 
 .interactive-content {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    height: 100%;
 }
 
 .interactive-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 10px 20px;
+    padding: 8px 15px;
     cursor: pointer;
     transition: var(--transition);
-    border-radius: 8px;
+    border-radius: 5px;
     color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .interactive-item i {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+    font-size: 1.2rem;
+    margin-right: 8px;
     color: var(--accent-color);
+    transition: var(--transition);
 }
 
 .interactive-item span {
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .interactive-item:hover {
-    background: var(--light-bg);
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(231, 76, 60, 0.1));
     transform: translateY(-2px);
 }
 
+.interactive-item:hover i {
+    transform: scale(1.1);
+}
+
 .interactive-item.active {
-    background: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color), #c0392b);
     color: white;
+    box-shadow: 0 4px 15px rgba(139, 20, 43, 0.3);
 }
 
 .interactive-item.active i {
@@ -74,21 +89,26 @@ body {
 
 #logo-container {
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 #logo-container img {
+    height: 50px;
+    width: auto;
     transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 #logo-container:hover img {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(-2deg);
 }
 
 /* Hero Section */
 .hero-section {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                 url('Images/CAN.jpeg') center/cover;
-    padding: 100px 0;
+    padding: 120px 0;
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
@@ -101,8 +121,26 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, var(--accent-color), transparent);
-    opacity: 0.3;
+    background: linear-gradient(135deg, 
+        rgba(46, 204, 113, 0.3), 
+        rgba(231, 76, 60, 0.3));
+    opacity: 0.5;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Filtres Section */
