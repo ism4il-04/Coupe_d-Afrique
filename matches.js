@@ -340,3 +340,39 @@ function scrollCalendar(direction) {
     behavior: 'smooth'         // Animation fluide
   });
 }
+
+/* Fonction pour mettre à jour la date active dans le calendrier */
+function updateActiveDate() {
+  const scrollPosition = window.pageYOffset + SCROLL_OFFSET;
+  const sections = document.querySelectorAll('.match-section');
+  const dates = document.querySelectorAll('.calendar-date');
+
+  // Enlever la classe active de toutes les dates
+  dates.forEach(date => date.classList.remove('active'));
+
+  // Trouver la section actuellement visible
+  for (let i = 0; i < sections.length; i++) {
+    const section = sections[i];
+    const sectionTop = section.offsetTop;
+    const sectionBottom = sectionTop + section.offsetHeight;
+
+    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+      // Ajouter la classe active à la date correspondante
+      dates[i].classList.add('active');
+      
+      // Faire défiler le calendrier pour centrer la date active
+      const calendar = document.getElementById('calendarDates');
+      const dateElement = dates[i];
+      const scrollLeft = dateElement.offsetLeft - (calendar.offsetWidth / 2) + (dateElement.offsetWidth / 2);
+      calendar.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth'
+      });
+      break;
+    }
+  }
+}
+
+// Ajouter les écouteurs d'événements pour la synchronisation
+window.addEventListener('scroll', updateActiveDate);
+window.addEventListener('load', updateActiveDate);
