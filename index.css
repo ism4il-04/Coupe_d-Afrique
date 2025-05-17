@@ -1,571 +1,910 @@
-/* Variables */
+/* ========== VARIABLES GLOBALES ==========
+ * Définition des couleurs principales et des transitions
+ * Utilisation de variables CSS pour une maintenance facile
+ * Les couleurs sont inspirées des couleurs de la CAN (vert et rouge)
+ */
 :root {
-    --primary-color: #f0c14b;
-    --secondary-color: #1a1a1a;
-    --accent-color: #8b142b;
-    --text-color: #333;
-    --light-bg: #f8f9fa;
-    --transition: all 0.3s ease;
-    --green-color: #4CAF50;
-    --red-color: #FF5252;
-    --light-green: rgba(76, 175, 80, 0.2);
-    --light-red: rgba(255, 82, 82, 0.2);
+    /* Couleur principale dorée utilisée pour les éléments importants et les accents */
+    --primary-color: #f0c14b;      
+    /* Couleur de fond sombre pour créer du contraste */
+    --secondary-color: #1a1a1a;    
+    /* Couleur d'accent bordeaux pour les éléments interactifs */
+    --accent-color: #8b142b;       
+    /* Couleur standard pour le texte principal */
+    --text-color: #333;            
+    /* Couleur de fond claire pour les sections */
+    --light-bg: #f8f9fa;           
+    /* Animation fluide pour tous les éléments interactifs */
+    --transition: all 0.3s ease;    
+    /* Couleur verte pour les indicateurs positifs */
+    --green-color: #4CAF50;        
+    /* Couleur rouge pour les alertes et accents */
+    --red-color: #FF5252;          
+    /* Version transparente du vert pour les effets subtils */
+    --light-green: rgba(76, 175, 80, 0.2); 
+    /* Version transparente du rouge pour les effets subtils */
+    --light-red: rgba(255, 82, 82, 0.2);   
 }
 
-/* Styles généraux */
+/* ========== STYLES DE BASE ==========
+ * Configuration générale du document
+ * Utilisation de la police Montserrat pour une meilleure lisibilité
+ */
 body {
+    /* Police principale du site */
     font-family: 'Montserrat', sans-serif;
+    /* Suppression des marges par défaut */
     margin: 0;
+    /* Suppression des paddings par défaut */
     padding: 0;
+    /* Couleur de fond claire définie dans les variables */
     background-color: var(--light-bg);
+    /* Couleur de texte standard */
     color: var(--text-color);
+    /* Empêche le défilement horizontal */
     overflow-x: hidden;
 }
 
-/* Hero Section */
+/* ========== SECTION HÉRO ==========
+ * Section d'en-tête principale avec image de fond et overlay
+ * Effets de dégradé et animations pour un impact visuel fort
+ */
 .hero-section {
+    /* Hauteur égale à la hauteur de la fenêtre */
     height: 100vh;
+    /* Superposition d'un dégradé noir semi-transparent sur l'image de fond */
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                 url('Images/can_coupe_20213.jpg') center/cover;
+    /* Positionnement relatif pour les éléments enfants */
     position: relative;
+    /* Centrage vertical et horizontal du contenu */
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Alignement du texte au centre */
     text-align: center;
+    /* Texte en blanc */
     color: white;
+    /* Cache tout contenu qui déborde */
     overflow: hidden;
 }
 
+/* Effet de dégradé animé en arrière-plan */
 .hero-section::before {
+    /* Création d'un pseudo-élément */
     content: '';
+    /* Positionnement absolu par rapport au parent */
     position: absolute;
+    /* Étirement sur toute la surface */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    /* Dégradé diagonal avec les couleurs du thème */
     background: linear-gradient(45deg, var(--red-color) 0%, transparent 50%, var(--green-color) 100%);
+    /* Transparence pour un effet subtil */
     opacity: 0.2;
+    /* Animation continue du dégradé */
     animation: gradientShift 8s ease infinite;
 }
 
+/* ========== CONTENU HÉRO ==========
+ * Styles pour le contenu central de la section héro
+ */
 .hero-content {
+    /* Place le contenu au-dessus de l'overlay */
     z-index: 2;
+    /* Animation d'apparition en fondu */
     animation: fadeIn 1s ease-out;
+    /* Positionnement pour la ligne décorative */
     position: relative;
+    /* Limite la largeur maximale du contenu */
     max-width: 800px;
+    /* Espacement horizontal */
     padding: 0 20px;
 }
 
+/* Ligne décorative sous le contenu */
 .hero-content::after {
+    /* Création de l'élément décoratif */
     content: '';
+    /* Positionnement absolu par rapport au parent */
     position: absolute;
+    /* Position en bas du contenu */
     bottom: -30px;
+    /* Centrage horizontal */
     left: 50%;
     transform: translateX(-50%);
+    /* Dimensions de la ligne */
     width: 150px;
     height: 4px;
+    /* Dégradé de couleurs thématiques */
     background: linear-gradient(to right, var(--red-color), var(--green-color));
+    /* Animation de pulsation */
     animation: borderPulse 2s ease-in-out infinite;
 }
 
+/* Styles du titre principal */
 .main-title {
+    /* Taille de police imposante */
     font-size: 6rem;
+    /* Police en gras */
     font-weight: 900;
+    /* Suppression des marges par défaut */
     margin: 0;
+    /* Ombre portée pour la profondeur */
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    /* Animation d'entrée par le haut */
     animation: slideDown 1s ease-out;
+    /* Effet de texte dégradé */
     background: linear-gradient(to bottom, #ffffff, var(--primary-color));
     -webkit-background-clip: text;
     background-clip: text;
+    /* Rend le texte transparent pour voir le dégradé */
     color: transparent;
+    /* Espacement des lettres */
     letter-spacing: 4px;
+    /* Marge en bas */
     margin-bottom: 20px;
 }
 
+/* Style du sous-titre */
 .subtitle {
+    /* Taille de police adaptée */
     font-size: 2.5rem;
+    /* Espacement vertical */
     margin: 1.5rem 0;
+    /* Animation d'entrée par le bas */
     animation: slideUp 1s ease-out;
+    /* Ombre du texte */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Police semi-grasse */
     font-weight: 600;
+    /* Couleur blanche */
     color: #ffffff;
+    /* Espacement des lettres */
     letter-spacing: 2px;
 }
 
+/* Style de la localisation */
 .location {
+    /* Taille de police moyenne */
     font-size: 2rem;
+    /* Marge en bas */
     margin-bottom: 3rem;
+    /* Animation d'entrée retardée */
     animation: slideUp 1s ease-out 0.3s backwards;
+    /* Couleur dorée */
     color: var(--primary-color);
+    /* Police grasse */
     font-weight: 700;
+    /* Ombre du texte */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Espacement des lettres */
     letter-spacing: 1px;
 }
 
+/* ========== COMPTE À REBOURS ==========
+ * Style des éléments du compte à rebours
+ */
 .countdown {
+    /* Disposition en ligne avec flexbox */
     display: flex;
+    /* Centrage horizontal */
     justify-content: center;
+    /* Espacement entre les éléments */
     gap: 30px;
+    /* Marge supérieure */
     margin-top: 4rem;
+    /* Animation d'apparition retardée */
     animation: fadeIn 1s ease-out 0.6s backwards;
+    /* Effet de perspective 3D */
     perspective: 1000px;
 }
 
+/* Style des éléments individuels du compte à rebours */
 .countdown-item {
+    /* Fond semi-transparent */
     background: rgba(255, 255, 255, 0.1);
+    /* Effet de flou sur l'arrière-plan */
     backdrop-filter: blur(10px);
+    /* Espacement interne */
     padding: 30px;
+    /* Coins arrondis */
     border-radius: 15px;
+    /* Largeur minimale fixe */
     min-width: 160px;
+    /* Centrage du texte */
     text-align: center;
+    /* Ombres multiples pour l'effet de profondeur */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 0 20px rgba(255, 255, 255, 0.15);
+    /* Bordure subtile */
     border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Animation fluide personnalisée */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Positionnement relatif pour les pseudo-éléments */
     position: relative;
+    /* Cache les débordements */
     overflow: hidden;
+    /* Préserve l'effet 3D */
     transform-style: preserve-3d;
 }
 
 .countdown-item::before {
+    /* Création du pseudo-élément pour l'effet de brillance */
     content: '';
+    /* Positionnement absolu par rapport à l'élément parent */
     position: absolute;
+    /* Étirement sur toute la surface */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    /* Dégradé de couleurs thématiques */
     background: linear-gradient(45deg, var(--red-color), var(--green-color));
+    /* Initialement transparent */
     opacity: 0;
+    /* Animation fluide */
     transition: all 0.4s ease;
+    /* Placement en arrière-plan */
     z-index: -1;
 }
 
 .countdown-item::after {
+    /* Création du pseudo-élément pour l'effet de brillance */
     content: '';
+    /* Positionnement absolu */
     position: absolute;
+    /* Position initiale hors cadre */
     top: -50%;
     left: -50%;
+    /* Dimensions doublées pour la rotation */
     width: 200%;
     height: 200%;
+    /* Dégradé pour l'effet de brillance */
     background: linear-gradient(
         45deg,
         transparent,
         rgba(255, 255, 255, 0.1),
         transparent
     );
+    /* Rotation de l'effet */
     transform: rotate(45deg);
+    /* Animation continue de brillance */
     animation: shine 3s infinite;
 }
 
 .countdown-item:hover {
+    /* Effet de soulèvement et rotation 3D au survol */
     transform: translateY(-10px) scale(1.05) rotateX(10deg);
+    /* Bordure plus visible au survol */
     border-color: rgba(255, 255, 255, 0.3);
+    /* Effets d'ombre multiples pour la profondeur */
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3),
                 0 0 20px rgba(255, 255, 255, 0.2),
                 inset 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 .countdown-item:hover::before {
+    /* Augmentation de l'opacité du dégradé au survol */
     opacity: 0.15;
 }
 
 .countdown-item span {
+    /* Affichage en bloc pour le positionnement */
     display: block;
+    /* Grande taille pour les chiffres */
     font-size: 3.5rem;
+    /* Police très grasse */
     font-weight: 800;
+    /* Effet de dégradé sur le texte */
     background: linear-gradient(to bottom, #ffffff, var(--primary-color));
     -webkit-background-clip: text;
     background-clip: text;
+    /* Texte transparent pour voir le dégradé */
     color: transparent;
+    /* Espacement en bas */
     margin-bottom: 10px;
+    /* Effet de lueur */
     text-shadow: 0 0 25px rgba(240, 193, 75, 0.6);
+    /* Animation continue de pulsation */
     animation: numberPulse 2s infinite;
 }
 
 .countdown-item p {
+    /* Taille de texte adaptée */
     font-size: 1.1rem;
+    /* Texte en majuscules */
     text-transform: uppercase;
+    /* Grand espacement entre les lettres */
     letter-spacing: 3px;
+    /* Suppression des marges */
     margin: 0;
+    /* Couleur blanche semi-transparente */
     color: rgba(255, 255, 255, 0.95);
+    /* Police semi-grasse */
     font-weight: 600;
+    /* Effet de lueur subtil */
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
+/* Animations du compte à rebours */
 @keyframes gradientShift {
+    /* Position initiale du dégradé */
     0% { background-position: 0% 50%; }
+    /* Position médiane du dégradé */
     50% { background-position: 100% 50%; }
+    /* Retour à la position initiale */
     100% { background-position: 0% 50%; }
 }
 
 @keyframes borderPulse {
+    /* État initial de la bordure */
     0% { width: 50px; opacity: 0.5; }
+    /* État maximal de la bordure */
     50% { width: 150px; opacity: 1; }
+    /* Retour à l'état initial */
     100% { width: 50px; opacity: 0.5; }
 }
 
+/* Overlay sombre sur la section héro */
 .hero-overlay {
+    /* Positionnement absolu */
     position: absolute;
+    /* Étirement sur toute la surface */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    /* Fond noir semi-transparent */
     background: rgba(0, 0, 0, 0.4);
+    /* Au-dessus du fond mais sous le contenu */
     z-index: 1;
 }
 
-/* Barre Interactive */
+/* ========== BARRE DE NAVIGATION INTERACTIVE ==========
+ * Barre fixe en haut de la page avec effets de survol
+ */
 .interactive-bar {
+    /* Fixe la barre lors du défilement */
     position: sticky;
+    /* Colle la barre en haut de la fenêtre */
     top: 0;
+    /* Fond blanc pour la lisibilité */
     background: white;
+    /* Ombre légère pour la profondeur */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Assure que la barre reste au-dessus des autres éléments */
     z-index: 1000;
+    /* Espacement vertical */
     padding: 10px 0;
 }
 
 .interactive-content {
+    /* Limite la largeur maximale du contenu */
     max-width: 1200px;
+    /* Centre le contenu horizontalement */
     margin: 0 auto;
+    /* Disposition flexible des éléments */
     display: flex;
+    /* Répartit l'espace entre les éléments */
     justify-content: space-around;
+    /* Centre les éléments verticalement */
     align-items: center;
+    /* Espacement horizontal */
     padding: 0 20px;
 }
 
 .interactive-item {
+    /* Organisation verticale des éléments */
     display: flex;
     flex-direction: column;
+    /* Centre les éléments */
     align-items: center;
+    /* Espacement interne */
     padding: 10px 20px;
+    /* Indique que l'élément est cliquable */
     cursor: pointer;
+    /* Animation fluide au survol */
     transition: var(--transition);
+    /* Coins arrondis */
     border-radius: 8px;
+    /* Couleur du texte */
     color: var(--text-color);
+    /* Pour le positionnement des pseudo-éléments */
     position: relative;
+    /* Cache les débordements */
     overflow: hidden;
 }
 
 .interactive-item::after {
+    /* Création de la ligne d'effet */
     content: '';
+    /* Positionnement absolu */
     position: absolute;
+    /* Placement en bas de l'élément */
     bottom: 0;
     left: 0;
+    /* Dimensions complètes */
     width: 100%;
     height: 2px;
+    /* Dégradé de couleurs */
     background: linear-gradient(to right, var(--light-red), var(--light-green));
+    /* Initialement invisible */
     transform: scaleX(0);
+    /* Animation de l'apparition */
     transition: transform 0.3s ease;
 }
 
 .interactive-item:hover::after {
+    /* Affiche la ligne au survol */
     transform: scaleX(1);
 }
 
 .interactive-item.active {
+    /* Fond dégradé pour l'élément actif */
     background: linear-gradient(45deg, var(--light-red), var(--light-green));
+    /* Couleur du texte */
     color: var(--text-color);
 }
 
 .interactive-item i {
+    /* Taille de l'icône */
     font-size: 1.5rem;
+    /* Espacement sous l'icône */
     margin-bottom: 5px;
+    /* Couleur de l'icône */
     color: var(--accent-color);
 }
 
 .interactive-item span {
+    /* Taille du texte */
     font-size: 0.9rem;
+    /* Épaisseur moyenne du texte */
     font-weight: 500;
 }
 
 .interactive-item:hover {
+    /* Fond clair au survol */
     background: var(--light-bg);
+    /* Effet de soulèvement */
     transform: translateY(-2px);
 }
 
-/* Content Sections */
+/* ========== SECTIONS DE CONTENU ==========
+ * Styles communs pour toutes les sections de contenu
+ */
 .content-section {
+    /* Espacement vertical important */
     padding: 100px 0;
+    /* Pour les éléments positionnés en absolu */
     position: relative;
+    /* Évite les débordements */
     overflow: hidden;
 }
 
 .section-content {
+    /* Limite la largeur maximale */
     max-width: 1200px;
+    /* Centre horizontalement */
     margin: 0 auto;
+    /* Disposition flexible */
     display: flex;
+    /* Alignement vertical centré */
     align-items: center;
+    /* Espacement entre les éléments */
     gap: 50px;
+    /* Marges horizontales */
     padding: 0 20px;
 }
 
 .section-content.reverse {
+    /* Inverse l'ordre des éléments */
     flex-direction: row-reverse;
 }
 
 .section-text {
+    /* Occupe l'espace disponible */
     flex: 1;
+    /* Initialement invisible */
     opacity: 0;
+    /* Position de départ pour l'animation */
     transform: translateX(-50px);
+    /* Animation fluide */
     transition: var(--transition);
 }
 
 .section-text.visible {
+    /* État final de l'animation */
     opacity: 1;
     transform: translateX(0);
 }
 
 .section-text h2 {
+    /* Taille du titre */
     font-size: 2.5rem;
+    /* Couleur sombre */
     color: var(--secondary-color);
+    /* Espacement bas */
     margin-bottom: 1rem;
+    /* Pour la ligne décorative */
     position: relative;
+    /* Pour limiter la ligne à la largeur du texte */
     display: inline-block;
 }
 
 .section-text h2::after {
+    /* Ligne décorative */
     content: '';
     position: absolute;
     bottom: -5px;
     left: 0;
+    /* Dimensions de la ligne */
     width: 60px;
     height: 3px;
+    /* Dégradé de couleurs */
     background: linear-gradient(to right, var(--light-red), var(--light-green));
 }
 
 .section-text p {
+    /* Taille du texte */
     font-size: 1.1rem;
+    /* Hauteur de ligne pour la lisibilité */
     line-height: 1.6;
+    /* Espacement bas */
     margin-bottom: 2rem;
 }
 
 .section-link {
+    /* Disposition horizontale avec icône */
     display: inline-flex;
     align-items: center;
+    /* Espace entre texte et icône */
     gap: 10px;
+    /* Couleur du lien */
     color: var(--accent-color);
+    /* Supprime le soulignement */
     text-decoration: none;
+    /* Texte en gras */
     font-weight: 600;
+    /* Animation au survol */
     transition: var(--transition);
 }
 
 .section-link:hover {
+    /* Changement de couleur au survol */
     color: var(--primary-color);
+    /* Effet de déplacement */
     transform: translateX(10px);
 }
 
 .section-image {
+    /* Occupe l'espace disponible */
     flex: 1;
+    /* Initialement invisible */
     opacity: 0;
+    /* Position de départ pour l'animation */
     transform: translateX(50px);
+    /* Animation fluide */
     transition: var(--transition);
 }
 
 .section-image.visible {
+    /* État final de l'animation */
     opacity: 1;
     transform: translateX(0);
 }
 
 .section-image img {
+    /* Occupe toute la largeur disponible */
     width: 100%;
+    /* Hauteur automatique pour garder les proportions */
     height: auto;
+    /* Coins arrondis */
     border-radius: 10px;
+    /* Ombre portée */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Animation au survol */
     transition: var(--transition);
 }
 
 .section-image img:hover {
+    /* Effet de zoom au survol */
     transform: scale(1.05);
 }
 
-/* News Section */
+/* ========== SECTION ACTUALITÉS ==========
+ * Grille responsive pour les cartes d'actualités
+ */
 .news-section {
+    /* Espacement vertical */
     padding: 100px 0;
+    /* Fond blanc pour contraste */
     background-color: white;
 }
 
 .news-section h2 {
+    /* Centrage du titre */
     text-align: center;
+    /* Taille importante pour le titre */
     font-size: 2.5rem;
+    /* Espacement sous le titre */
     margin-bottom: 50px;
 }
 
 .news-grid {
+    /* Mise en page en grille */
     display: grid;
+    /* Colonnes responsives automatiques */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Espacement entre les cartes */
     gap: 30px;
+    /* Largeur maximale du conteneur */
     max-width: 1200px;
+    /* Centrage horizontal */
     margin: 0 auto;
+    /* Espacement horizontal */
     padding: 0 20px;
 }
 
 .news-card {
+    /* Fond blanc pour la carte */
     background: white;
+    /* Coins arrondis */
     border-radius: 10px;
+    /* Cache les débordements */
     overflow: hidden;
+    /* Ombre légère */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* Animation au survol */
     transition: var(--transition);
+    /* Bordure initiale invisible */
     border: 1px solid transparent;
 }
 
 .news-card:hover {
+    /* Effet de soulèvement au survol */
     transform: translateY(-10px);
+    /* Ombre plus prononcée */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    /* Bordure colorée */
     border-color: var(--light-green);
 }
 
 .news-card img {
+    /* Occupe toute la largeur */
     width: 100%;
+    /* Hauteur fixe */
     height: 200px;
+    /* Ajuste l'image sans déformation */
     object-fit: cover;
 }
 
 .news-content {
+    /* Espacement interne */
     padding: 20px;
 }
 
 .news-content h3 {
+    /* Taille du titre */
     font-size: 1.3rem;
+    /* Espacement bas */
     margin-bottom: 10px;
+    /* Couleur sombre */
     color: var(--secondary-color);
+    /* Pour la ligne décorative */
     position: relative;
+    /* Espacement pour la ligne */
     padding-bottom: 10px;
 }
 
 .news-content h3::after {
+    /* Ligne décorative */
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
+    /* Dimensions de la ligne */
     width: 40px;
     height: 2px;
+    /* Dégradé de couleurs */
     background: linear-gradient(to right, var(--light-red), var(--light-green));
 }
 
 .news-content p {
+    /* Couleur de texte grise */
     color: #666;
+    /* Espacement bas */
     margin-bottom: 15px;
 }
 
 .news-date {
+    /* Couleur d'accent */
     color: var(--accent-color);
+    /* Taille réduite */
     font-size: 0.9rem;
 }
 
-/* Footer */
+/* ========== PIED DE PAGE ==========
+ * Style du footer avec dégradés et effets de survol
+ * Organisation en grille responsive
+ */
 .footer {
+    /* Fond sombre */
     background-color: var(--secondary-color);
+    /* Texte en blanc */
     color: white;
+    /* Espacement vertical */
     padding: 50px 0 20px;
 }
 
 .footer-content {
+    /* Largeur maximale */
     max-width: 1200px;
+    /* Centrage horizontal */
     margin: 0 auto;
+    /* Mise en page en grille */
     display: grid;
+    /* Colonnes responsives */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Espacement entre les sections */
     gap: 40px;
+    /* Marges horizontales */
     padding: 0 20px;
 }
 
 .footer-section h3 {
+    /* Couleur dorée pour les titres */
     color: var(--primary-color);
+    /* Espacement bas */
     margin-bottom: 20px;
+    /* Pour la ligne décorative */
     position: relative;
+    /* Limite la ligne à la largeur du texte */
     display: inline-block;
 }
 
 .footer-section h3::after {
+    /* Ligne décorative */
     content: '';
     position: absolute;
     bottom: -5px;
     left: 0;
+    /* Dimensions de la ligne */
     width: 40px;
     height: 2px;
+    /* Dégradé de couleurs */
     background: linear-gradient(to right, var(--light-red), var(--light-green));
 }
 
 .footer-section ul {
+    /* Supprime les puces */
     list-style: none;
+    /* Supprime le padding par défaut */
     padding: 0;
 }
 
 .footer-section ul li {
+    /* Espacement entre les éléments */
     margin-bottom: 10px;
 }
 
 .footer-section a {
+    /* Liens en blanc */
     color: white;
+    /* Supprime le soulignement */
     text-decoration: none;
+    /* Animation au survol */
     transition: var(--transition);
 }
 
 .footer-section a:hover {
+    /* Couleur dorée au survol */
     color: var(--primary-color);
 }
 
 .social-links {
+    /* Disposition horizontale */
     display: flex;
+    /* Espacement entre les icônes */
     gap: 15px;
 }
 
 .social-links a {
+    /* Taille des icônes */
     font-size: 1.5rem;
+    /* Animation au survol */
     transition: var(--transition);
+    /* Pour les effets de survol */
     position: relative;
 }
 
 .social-links a:hover {
+    /* Couleur rouge au survol */
     color: var(--red-color);
+    /* Effet de soulèvement */
     transform: translateY(-3px);
+    /* Légère transparence */
     opacity: 0.8;
 }
 
 .social-links a:hover + a {
+    /* Effet sur l'icône suivante */
     color: var(--green-color);
     opacity: 0.8;
 }
 
 .footer-bottom {
+    /* Centrage du texte */
     text-align: center;
+    /* Espacement supérieur */
     margin-top: 50px;
+    /* Espacement pour la bordure */
     padding-top: 20px;
+    /* Ligne de séparation */
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Animations */
+/* ========== ANIMATIONS ==========
+ * Définition des animations keyframes
+ * Utilisées pour les transitions et effets visuels
+ */
 @keyframes fadeIn {
+    /* État initial */
     from { opacity: 0; }
+    /* État final */
     to { opacity: 1; }
 }
 
 @keyframes slideDown {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    /* État initial */
+    from { 
+        transform: translateY(-50px); 
+        opacity: 0; 
+    }
+    /* État final */
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
 }
 
 @keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    /* État initial */
+    from { 
+        transform: translateY(50px); 
+        opacity: 0; 
+    }
+    /* État final */
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
 }
 
 @keyframes shine {
+    /* État initial */
     0% {
         transform: translateX(-100%) rotate(45deg);
     }
+    /* État final */
     100% {
         transform: translateX(100%) rotate(45deg);
     }
 }
 
 @keyframes numberPulse {
+    /* État initial */
     0% {
         text-shadow: 0 0 20px rgba(240, 193, 75, 0.5);
     }
+    /* État maximal */
     50% {
         text-shadow: 0 0 30px rgba(240, 193, 75, 0.8),
                      0 0 40px rgba(240, 193, 75, 0.4);
     }
+    /* Retour à l'état initial */
     100% {
         text-shadow: 0 0 20px rgba(240, 193, 75, 0.5);
     }
@@ -586,117 +925,164 @@ body {
     }
 }
 
-/* Responsive Design */
+/* ========== RESPONSIVE DESIGN ==========
+ * Adaptations pour différentes tailles d'écran
+ */
 @media (max-width: 768px) {
+    /* Réduction de la taille du titre principal */
     .main-title {
         font-size: 3rem;
     }
 
+    /* Réduction de la taille du sous-titre */
     .subtitle {
         font-size: 1.5rem;
     }
 
+    /* Réorganisation verticale du contenu */
     .section-content {
         flex-direction: column;
         text-align: center;
     }
 
+    /* Maintien de l'ordre vertical en mode inversé */
     .section-content.reverse {
         flex-direction: column;
     }
 
+    /* Ajustement de l'animation du texte */
     .section-text {
         transform: translateY(50px);
     }
 
+    /* Ajustement de l'animation de l'image */
     .section-image {
         transform: translateY(-50px);
     }
 
+    /* Une seule colonne pour les actualités */
     .news-grid {
         grid-template-columns: 1fr;
     }
 
+    /* Adaptation du compte à rebours */
     .countdown {
         flex-wrap: wrap;
         gap: 10px;
     }
 
+    /* Redimensionnement des éléments du compte à rebours */
     .countdown-item {
         min-width: calc(50% - 10px);
         padding: 15px;
     }
 
+    /* Réduction de la taille des chiffres */
     .countdown-item span {
         font-size: 2rem;
     }
 }
 
+/* Ajustements pour les très petits écrans */
 @media (max-width: 480px) {
+    /* Réduction de la taille des éléments du compte à rebours */
     .countdown-item {
         min-width: calc(50% - 5px);
         padding: 10px;
     }
 
+    /* Réduction de la taille des chiffres */
     .countdown-item span {
         font-size: 1.5rem;
     }
 
+    /* Réduction de la taille du texte */
     .countdown-item p {
         font-size: 0.8rem;
     }
 }
 
-/* Custom Scrollbar */
+/* ========== PERSONNALISATION DE LA BARRE DE DÉFILEMENT ==========
+ * Style personnalisé pour la barre de défilement
+ */
 ::-webkit-scrollbar {
+    /* Largeur de la barre */
     width: 8px;
 }
 
 ::-webkit-scrollbar-track {
+    /* Couleur de fond de la piste */
     background: var(--light-bg);
 }
 
 ::-webkit-scrollbar-thumb {
+    /* Couleur de la barre */
     background: var(--primary-color);
+    /* Coins arrondis */
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
+    /* Changement de couleur au survol */
     background: var(--accent-color);
 }
 
+/* ========== EFFETS DES BOUTONS ==========
+ * Animation de brillance au survol des boutons
+ */
 .btn {
+    /* Pour l'effet de brillance */
     position: relative;
+    /* Cache les débordements */
     overflow: hidden;
 }
 
 .btn::after {
+    /* Création de l'effet de brillance */
     content: '';
+    /* Positionnement absolu */
     position: absolute;
+    /* Position initiale hors cadre */
     top: 0;
     left: -100%;
+    /* Dimensions complètes */
     width: 100%;
     height: 100%;
+    /* Effet de brillance */
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    /* Animation de l'effet */
     transition: 0.5s;
 }
 
 .btn:hover::after {
+    /* Animation de balayage */
     left: 100%;
 }
 
+/* ========== STYLE DU LOGO ==========
+ * Effets spéciaux pour le conteneur du logo
+ */
 #logo-container img {
+    /* Bordure spéciale */
     border: 3px solid transparent;
+    /* Coins arrondis */
     border-radius: 18px;
+    /* Dégradé de fond */
     background: linear-gradient(120deg, #FF5252 30%, #4CAF50 100%);
+    /* Application du dégradé à la bordure */
     background-origin: border-box;
     background-clip: padding-box, border-box;
+    /* Animation des effets */
     transition: box-shadow 0.4s, border-color 0.4s;
+    /* Ombre initiale */
     box-shadow: 0 2px 16px rgba(76, 175, 80, 0.08), 0 2px 8px rgba(255, 82, 82, 0.08);
+    /* Espacement interne */
     padding: 2px;
 }
 
 #logo-container img:hover {
+    /* Effet de lueur au survol */
     box-shadow: 0 0 24px 4px #FF5252, 0 0 32px 8px #4CAF50;
+    /* Changement de couleur de la bordure */
     border-color: #FF5252;
 }
