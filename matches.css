@@ -1,0 +1,198 @@
+/* Définition des variables CSS pour une cohérence des couleurs dans tout le site */
+:root {
+    --primary-color: #f0c14b;    /* Couleur principale (jaune doré) */
+    --secondary-color: #1a1a1a;  /* Couleur secondaire (noir) */
+    --accent-color: #8b142b;     /* Couleur d'accent (rouge foncé) */
+    --text-color: #333;          /* Couleur du texte principal */
+    --light-bg: #f8f9fa;         /* Couleur de fond claire */
+}
+
+/* Styles de la barre de navigation interactive */
+.interactive-bar {
+    position: fixed;           /* Fixe la barre en haut de l'écran */
+    top: 0;                   /* Positionne la barre tout en haut */
+    width: 100%;              /* Occupe toute la largeur de l'écran */
+    background: white;        /* Fond blanc */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère pour la profondeur */
+    z-index: 1000;           /* S'assure que la barre reste au-dessus des autres éléments */
+    padding: 10px 0;         /* Espacement vertical */
+}
+
+/* Conteneur des éléments de la barre interactive */
+.interactive-content {
+    max-width: 1200px;       /* Largeur maximale pour grands écrans */
+    margin: 0 auto;          /* Centre le contenu horizontalement */
+    display: flex;           /* Utilise Flexbox pour l'alignement */
+    justify-content: space-around; /* Répartit l'espace entre les éléments */
+    align-items: center;     /* Centre verticalement les éléments */
+    padding: 0 20px;         /* Espacement horizontal */
+}
+
+/* Style des éléments interactifs (liens et boutons) */
+.interactive-item {
+    display: flex;           /* Utilise Flexbox pour l'alignement */
+    flex-direction: column;  /* Empile les éléments verticalement */
+    align-items: center;     /* Centre les éléments horizontalement */
+    padding: 10px 20px;      /* Espacement interne */
+    cursor: pointer;         /* Curseur pointeur au survol */
+    transition: all 0.3s ease; /* Animation douce pour les interactions */
+    border-radius: 8px;      /* Coins arrondis */
+    text-decoration: none;   /* Supprime le soulignement des liens */
+    color: var(--text-color); /* Utilise la couleur de texte définie */
+}
+
+/* Effet au survol des éléments interactifs */
+.interactive-item:hover {
+    background: var(--light-bg);     /* Fond clair au survol */
+    transform: translateY(-2px);      /* Léger effet de soulèvement */
+    color: var(--accent-color);       /* Change la couleur au survol */
+}
+
+/* Style du texte sous les icônes */
+.interactive-item span {
+    font-size: 0.9rem;      /* Taille de police réduite */
+    font-weight: 500;       /* Police semi-grasse */
+}
+
+/* Style des icônes */
+.interactive-item i {
+    font-size: 1.5rem;      /* Taille des icônes */
+    margin-bottom: 5px;     /* Espace sous les icônes */
+    color: var(--accent-color); /* Couleur d'accent pour les icônes */
+}
+
+/* Style de l'élément actif dans la navigation */
+.interactive-item.active {
+    background: var(--accent-color); /* Fond coloré pour l'élément actif */
+    color: white;                    /* Texte blanc */
+}
+
+/* Style de l'icône dans l'élément actif */
+.interactive-item.active i {
+    color: white;           /* Icône blanche dans l'élément actif */
+}
+
+/* Style spécial pour le conteneur du logo */
+#logo-container {
+    padding: 0;            /* Supprime l'espacement interne */
+}
+
+/* Désactive les effets de survol pour le logo */
+#logo-container:hover {
+    transform: none;       /* Pas d'effet de soulèvement */
+    background: none;      /* Pas de fond au survol */
+}
+
+/* Styles de la barre de calendrier */
+.calendar-bar {
+    position: fixed;        /* Fixe sous la barre de navigation */
+    top: 120px;            /* Position sous la barre de navigation */
+    width: 100%;           /* Pleine largeur */
+    height: 80px;          /* Hauteur fixe */
+    background-color: #C1272D;  /* Rouge du drapeau marocain */
+    z-index: 999;          /* Au-dessus du contenu mais sous la navigation */
+    color: white;          /* Texte blanc */
+    display: flex;         /* Utilise Flexbox */
+    align-items: center;   /* Centre verticalement */
+    padding: 0 10px;       /* Espacement horizontal */
+}
+
+/* Style des dates dans le calendrier */
+.calendar-date {
+    background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
+    color: white;             /* Texte blanc */
+    margin: 0 5px;            /* Espacement entre les dates */
+    padding: 10px 20px;       /* Espacement interne */
+    border-radius: 20px;      /* Coins très arrondis */
+    white-space: nowrap;      /* Empêche le retour à la ligne */
+    cursor: pointer;          /* Curseur pointeur */
+    transition: 0.3s;         /* Animation douce */
+}
+
+/* Effet au survol des dates */
+.calendar-date:hover {
+    background-color: #006233; /* Vert du drapeau marocain */
+    color: white;             /* Texte blanc au survol */
+}
+
+/* Style des flèches de navigation du calendrier */
+.calendar-nav {
+    font-size: 2rem;          /* Grande taille pour les flèches */
+    cursor: pointer;          /* Curseur pointeur */
+    margin: 0 10px;           /* Espacement */
+    color: white;             /* Flèches blanches */
+}
+
+/* Masquer la barre de défilement tout en gardant la fonctionnalité */
+#calendarDates {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+    overflow-x: auto;
+}
+
+/* Masquer la barre de défilement pour Chrome, Safari et Opera */
+#calendarDates::-webkit-scrollbar {
+    display: none;
+}
+
+/* Style pour la date active */
+.calendar-date.active {
+    background-color: #006233; /* Vert du drapeau marocain */
+    color: white;
+    font-weight: bold;
+}
+
+/* Style des sections de matches */
+.match-section {
+    margin-bottom: 2rem;      /* Espacement entre les sections */
+}
+
+/* En-tête de chaque journée de matches */
+.day-header {
+    border-bottom: 2px solid var(--accent-color); /* Ligne de séparation */
+    margin-bottom: 1.5rem;                        /* Espacement sous l'en-tête */
+}
+
+/* Style des cartes de match */
+.match-card {
+    transition: transform 0.2s ease; /* Animation au survol */
+}
+
+/* Effet de survol sur les cartes de match */
+.match-card:hover {
+    transform: translateY(-2px); /* Léger effet de soulèvement */
+}
+
+.match-info {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 15px;
+    align-items: center;
+}
+
+.match-number {
+    color: #8b142b;
+    font-weight: bold;
+}
+
+.match-teams {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.match-time {
+    color: #001845;
+    font-weight: bold;
+}
+
+.match-stadium {
+    grid-column: 1 / -1;
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.match-stadium i {
+    margin-right: 5px;
+    color: #8b142b;
+}

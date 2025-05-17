@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stades - CAN 2025</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="stades.css">
+    <script src="stades.js"></script>
+</head>
+<body>
+    <div class="interactive-bar">
+        <div class="interactive-content">
+            <div id="logo-container">
+                <img src="Images/téléchargement.png" alt="Logo CAN">
+            </div>
+            <a href="home_page.html" class="interactive-item">
+                <i class="fas fa-home"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="matches.html" class="interactive-item">
+                <i class="fas fa-futbol"></i>
+                <span>Matches</span>
+            </a>
+            <a href="groupes.html" class="interactive-item">
+                <i class="fas fa-users"></i>
+                <span>Groupes</span>
+            </a>
+            <a href="#section-video" class="interactive-item">
+                <i class="fas fa-play-circle"></i>
+                <span>Vidéos</span>
+            </a>
+            <a href="stades.html" class="interactive-item">
+                <i class="fas fa-chart-bar"></i>
+                <span>Stades</span>
+            </a>
+            <a href="jeux.html" class="interactive-item">
+                <i class="fas fa-gamepad"></i>
+                <span>Jeux</span>
+            </a>
+            <a href="equipes.html" class="interactive-item">
+                <i class="fas fa-flag"></i>
+                <span>Équipes</span>
+            </a>
+            <a href="infos.html" class="interactive-item">
+                <i class="fas fa-info-circle"></i>
+                <span>Infos</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Barre de recherche -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Rechercher une ville ou un stade...">
+            <button type="button" id="searchButton">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <div id="searchResults" class="search-results"></div>
+    </div>
+
+    <div class="content-container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="stade-info">
+                    <h2>Les Stades de la CAN 2025</h2>
+                    <p>La Coupe d'Afrique des Nations (CAN) 2025, prévue au Maroc du 21 décembre 2025 au 18 janvier 2026, se déroulera dans neuf stades répartis sur six villes hôtes, offrant ainsi une infrastructure de qualité pour accueillir les 24 équipes participantes.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="video-wrapper">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h3 class="card-title text-center mb-4" style="color: var(--accent-color);">Découvrez les stades</h3>
+                            <div class="video-container">
+                                <iframe 
+                                    width="100%" 
+                                    height="315" 
+                                    src="https://www.youtube.com/embed/MDoGpSAE0Fc" 
+                                    title="Les stades de la CAN 2025" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stade-info">
+            <div class="texte-stade">
+                <h3>Rabat</h3>
+                <p>La capitale se distingue en accueillant quatre stades prestigieux, offrant une infrastructure sportive exceptionnelle :</p>
+            </div>
+        </div>
+
+        <!-- Stade Prince Moulay Abdellah -->
+        <div class="stade-info">
+            <div class="texte-stade">
+                <h4>Stade Prince Moulay Abdellah</h4>
+                <p>Le plus grand stade de la capitale avec une capacité de 69 500 places. Ce stade moderne, rénové en 2022, offre des installations de premier ordre et une acoustique exceptionnelle. Il accueillera les matchs les plus importants de la CAN 2025.</p>
+            </div>
+            <div class="image-container">
+                <img src="Images/MoulayAbdelah.jpeg" alt="Stade Prince Moulay Abdellah Rabat" class="clickable-image" onclick="openMoulayAbdellahModal()">
+            </div>
+        </div>
+
+        <!-- Modal pour Stade Prince Moulay Abdellah -->
+        <div id="moulayAbdellahModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeMoulayAbdellahModal()">&times;</span>
+                <h3>Prix des Places - Stade Prince Moulay Abdellah</h3>
+                <div class="stadium-price-view">
+                    <img src="Images/MoulayAbdelah.jpeg" alt="Stade Prince Moulay Abdellah" class="stadium-image">
+                    <div class="price-zones">
+                        <div class="tribune-zone tribune-nord">
+                            <span class="zone-name">TRIBUNE NORD</span>
+                            <div class="price-tooltip">
+                                <span class="price">400 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Vue panoramique</div>
+                                    <div><span class="check">✓</span> Zone supporters principale</div>
+                                    <div><span class="check">✓</span> Accès buvettes premium</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-sud">
+                            <span class="zone-name">TRIBUNE SUD</span>
+                            <div class="price-tooltip">
+                                <span class="price">350 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Proximité animations</div>
+                                    <div><span class="check">✓</span> Zone famille</div>
+                                    <div><span class="check">✓</span> Accès facilité</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-est">
+                            <span class="zone-name">TRIBUNE EST</span>
+                            <div class="price-tooltip">
+                                <span class="price">600 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises couvertes</div>
+                                    <div><span class="check">✓</span> Protection soleil/pluie</div>
+                                    <div><span class="check">✓</span> Accès parking Est</div>
+                                    <div><span class="check">✓</span> Buvettes premium</div>
+                                    <div><span class="check">✓</span> Sièges confort</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-ouest">
+                            <span class="zone-name">TRIBUNE OUEST</span>
+                            <div class="price-tooltip">
+                                <span class="price">900 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places VIP couvertes</div>
+                                    <div><span class="check">✓</span> Vue optimale</div>
+                                    <div><span class="check">✓</span> Accès salon VIP</div>
+                                    <div><span class="check">✓</span> Service restauration</div>
+                                    <div><span class="check">✓</span> Parking VIP réservé</div>
+                                    <div><span class="check">✓</span> Accès lounge exclusif</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stade Moulay Hassan -->
+        <div class="stade-info">
+            <div class="texte-stade">
+                <h4>Stade Moulay Hassan</h4>
+                <p>Un stade historique de 22 000 places, récemment modernisé pour offrir une expérience optimale aux spectateurs. Sa taille moyenne en fait un lieu idéal pour les matchs de groupe de la CAN 2025.</p>
+            </div>
+            <div class="image-container">
+                <img src="Images/moulayLhassan.jpeg" alt="Stade Moulay Hassan" class="clickable-image" onclick="openMoulayHassanModal()">
+            </div>
+        </div>
+
+        <!-- Modal pour Stade Moulay Hassan -->
+        <div id="moulayHassanModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeMoulayHassanModal()">&times;</span>
+                <h3>Prix des Places - Stade Moulay Hassan</h3>
+                <div class="stadium-price-view">
+                    <img src="Images/moulayLhassan.jpeg" alt="Stade Moulay Hassan" class="stadium-image">
+                    <div class="price-zones">
+                        <div class="tribune-zone tribune-nord">
+                            <span class="zone-name">TRIBUNE NORD</span>
+                            <div class="price-tooltip">
+                                <span class="price">200 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Ambiance garantie</div>
+                                    <div><span class="check">✓</span> Accès buvettes</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-sud">
+                            <span class="zone-name">TRIBUNE SUD</span>
+                            <div class="price-tooltip">
+                                <span class="price">180 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Zone famille</div>
+                                    <div><span class="check">✓</span> Accès facile</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-est">
+                            <span class="zone-name">TRIBUNE EST</span>
+                            <div class="price-tooltip">
+                                <span class="price">300 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises couvertes</div>
+                                    <div><span class="check">✓</span> Protection soleil/pluie</div>
+                                    <div><span class="check">✓</span> Accès parking</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-ouest">
+                            <span class="zone-name">TRIBUNE OUEST</span>
+                            <div class="price-tooltip">
+                                <span class="price">400 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places VIP couvertes</div>
+                                    <div><span class="check">✓</span> Vue optimale</div>
+                                    <div><span class="check">✓</span> Service restauration</div>
+                                    <div><span class="check">✓</span> Parking réservé</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stade Al Barid -->
+        <div class="stade-info">
+            <div class="texte-stade">
+                <h4>Stade Al Barid</h4>
+                <p>Avec ses 18 000 places, ce stade compact offre une atmosphère unique et une proximité exceptionnelle avec le terrain. Parfait pour les matchs de groupe de la CAN 2025.</p>
+            </div>
+            <div class="image-container">
+                <img src="Images/lbaridStade.jpg" alt="Stade Al Barid" class="clickable-image" onclick="openAlBaridModal()">
+            </div>
+        </div>
+
+        <!-- Modal pour Stade Al Barid -->
+        <div id="alBaridModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeAlBaridModal()">&times;</span>
+                <h3>Prix des Places - Stade Al Barid</h3>
+                <div class="stadium-price-view">
+                    <img src="Images/lbaridStade.jpg" alt="Stade Al Barid" class="stadium-image">
+                    <div class="price-zones">
+                        <div class="tribune-zone tribune-nord">
+                            <span class="zone-name">TRIBUNE NORD</span>
+                            <div class="price-tooltip">
+                                <span class="price">150 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises</div>
+                                    <div><span class="check">✓</span> Proximité terrain</div>
+                                    <div><span class="check">✓</span> Ambiance garantie</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-sud">
+                            <span class="zone-name">TRIBUNE SUD</span>
+                            <div class="price-tooltip">
+                                <span class="price">130 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises</div>
+                                    <div><span class="check">✓</span> Zone calme</div>
+                                    <div><span class="check">✓</span> Accès facile</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-est">
+                            <span class="zone-name">TRIBUNE EST</span>
+                            <div class="price-tooltip">
+                                <span class="price">200 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places couvertes</div>
+                                    <div><span class="check">✓</span> Vue latérale</div>
+                                    <div><span class="check">✓</span> Accès parking</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-ouest">
+                            <span class="zone-name">TRIBUNE OUEST</span>
+                            <div class="price-tooltip">
+                                <span class="price">250 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places VIP</div>
+                                    <div><span class="check">✓</span> Vue principale</div>
+                                    <div><span class="check">✓</span> Service boissons</div>
+                                    <div><span class="check">✓</span> Parking réservé</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Agadir -->
+        <div class="stade-info">
+            <div class="texte-stade">
+                <h3>Agadir</h3>
+                <p>Le Stade Adrar d'Agadir, avec sa capacité de 45 480 spectateurs, est un chef-d'œuvre architectural moderne. Inauguré en 2013, ce stade écologique intègre des technologies de pointe pour la gestion de l'énergie et de l'eau. Sa conception unique, inspirée des vallées de l'Atlas, offre une excellente visibilité depuis toutes les tribunes. Le stade dispose d'une pelouse naturelle de haute qualité et d'installations modernes qui en font un lieu idéal pour les grands matchs de la CAN 2025.</p>
+            </div>
+            <div class="image-container">
+                <img src="Images/ملعب-ادرار.webp" alt="Stade Adrar Agadir" class="clickable-image" onclick="openAdrarPriceModal()">
+            </div>
+        </div>
+
+        <!-- Modal pour le Stade Adrar -->
+        <div id="adrarPriceModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeAdrarPriceModal()">&times;</span>
+                <h3>Prix des Places - Stade Adrar</h3>
+                <div class="stadium-price-view">
+                    <img src="Images/ملعب-ادرار.webp" alt="Stade Adrar Agadir" class="stadium-image">
+                    <div class="price-zones">
+                        <div class="tribune-zone tribune-nord">
+                            <span class="zone-name">TRIBUNE NORD</span>
+                            <div class="price-tooltip">
+                                <span class="price">300 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Vue sur l'océan</div>
+                                    <div><span class="check">✓</span> Zone supporters</div>
+                                    <div><span class="check">✓</span> Accès buvettes nord</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-sud">
+                            <span class="zone-name">TRIBUNE SUD</span>
+                            <div class="price-tooltip">
+                                <span class="price">250 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Proximité animations</div>
+                                    <div><span class="check">✓</span> Zone famille</div>
+                                    <div><span class="check">✓</span> Accès facilité PMR</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-est">
+                            <span class="zone-name">TRIBUNE EST</span>
+                            <div class="price-tooltip">
+                                <span class="price">450 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises couvertes</div>
+                                    <div><span class="check">✓</span> Protection soleil/pluie</div>
+                                    <div><span class="check">✓</span> Accès parking Est</div>
+                                    <div><span class="check">✓</span> Buvettes premium</div>
+                                    <div><span class="check">✓</span> Vue panoramique</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-ouest">
+                            <span class="zone-name">TRIBUNE OUEST</span>
+                            <div class="price-tooltip">
+                                <span class="price">700 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places VIP couvertes</div>
+                                    <div><span class="check">✓</span> Vue optimale</div>
+                                    <div><span class="check">✓</span> Accès salon VIP</div>
+                                    <div><span class="check">✓</span> Service restauration</div>
+                                    <div><span class="check">✓</span> Parking VIP réservé</div>
+                                    <div><span class="check">✓</span> Accès lounge climatisé</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stade-info">
+            <div class="texte-stade">
+                <h3>Casablanca</h3>
+                <p>La métropole économique du Maroc, Casablanca, accueillera les matchs de la CAN 2025 au sein du Stade Mohammed V, emblème du football national. Situé au centre-ville, ce stade historique, inauguré en 1955 et rénové à plusieurs reprises, dispose aujourd'hui d'une capacité de 45 891 spectateurs. Il a été modernisé pour répondre aux normes de la CAF, avec une pelouse de qualité, un éclairage LED, et des infrastructures de sécurité renforcées. Il abrite les deux plus grands clubs du pays, le Raja et le Wydad de Casablanca, et constitue l'un des lieux les plus emblématiques du football africain, prêt à offrir une ambiance exceptionnelle durant la compétition</p>
+            </div>
+            <div class="image-container">
+                <img src="Images/DONOR.jpg" alt="Stade Mohammed V Casablanca" class="clickable-image" onclick="openPriceModal()">
+            </div>
+        </div>
+
+        <!-- Modal pour les prix -->
+        <div id="priceModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closePriceModal()">&times;</span>
+                <h3>Prix des Places - Stade Mohammed V</h3>
+                <div class="stadium-price-view">
+                    <img src="Images/DONOR.jpg" alt="Stade Mohammed V Casablanca" class="stadium-image">
+                    <div class="price-zones">
+                        <div class="tribune-zone tribune-nord">
+                            <span class="zone-name">TRIBUNE NORD</span>
+                            <div class="price-tooltip">
+                                <span class="price">300 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Vue sur la ville</div>
+                                    <div><span class="check">✓</span> Accès aux buvettes nord</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-sud">
+                            <span class="zone-name">TRIBUNE SUD</span>
+                            <div class="price-tooltip">
+                                <span class="price">250 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Proximité des animations</div>
+                                    <div><span class="check">✓</span> Accès aux buvettes sud</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-est">
+                            <span class="zone-name">TRIBUNE EST</span>
+                            <div class="price-tooltip">
+                                <span class="price">500 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises couvertes</div>
+                                    <div><span class="check">✓</span> Protection soleil/pluie</div>
+                                    <div><span class="check">✓</span> Accès parking Est</div>
+                                    <div><span class="check">✓</span> Buvettes premium</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-ouest">
+                            <span class="zone-name">TRIBUNE OUEST</span>
+                            <div class="price-tooltip">
+                                <span class="price">800 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places VIP couvertes</div>
+                                    <div><span class="check">✓</span> Vue optimale</div>
+                                    <div><span class="check">✓</span> Accès salon VIP</div>
+                                    <div><span class="check">✓</span> Service de restauration</div>
+                                    <div><span class="check">✓</span> Parking réservé</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stade-info">
+            <div class="texte-stade">
+                <h3>Tanger</h3>
+                <p>Le Stade Ibn-Battouta de Tanger, avec sa capacité impressionnante de 75 600 places, est l'un des plus grands stades du Maroc. Inauguré en 2011, ce stade ultramoderne offre des installations de classe mondiale et une architecture remarquable. Sa conception permet une acoustique exceptionnelle, créant une atmosphère électrisante lors des matchs. Équipé des dernières technologies en matière d'éclairage et de pelouse, il représente l'excellence des infrastructures sportives marocaines.</p>
+            </div>
+            <div class="image-container">
+                <img src="Images/stade-ibn-battuta-tanger-1.webp" alt="Stade Ibn-Battouta Tanger" class="clickable-image" onclick="openTangerPriceModal()">
+            </div>
+        </div>
+
+        <!-- Modal pour les prix du Stade de Tanger -->
+        <div id="tangerPriceModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeTangerPriceModal()">&times;</span>
+                <h3>Prix des Places - Stade Ibn-Battouta</h3>
+                <div class="stadium-price-view">
+                    <img src="Images/stade-ibn-battuta-tanger-1.webp" alt="Stade Ibn-Battouta Tanger" class="stadium-image">
+                    <div class="price-zones">
+                        <div class="tribune-zone tribune-nord">
+                            <span class="zone-name">TRIBUNE NORD</span>
+                            <div class="price-tooltip">
+                                <span class="price">350 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Vue panoramique sur la ville</div>
+                                    <div><span class="check">✓</span> Accès aux buvettes premium</div>
+                                    <div><span class="check">✓</span> Zone supporters principale</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-sud">
+                            <span class="zone-name">TRIBUNE SUD</span>
+                            <div class="price-tooltip">
+                                <span class="price">300 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Proximité des animations</div>
+                                    <div><span class="check">✓</span> Accès facile aux services</div>
+                                    <div><span class="check">✓</span> Zone famille</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-est">
+                            <span class="zone-name">TRIBUNE EST</span>
+                            <div class="price-tooltip">
+                                <span class="price">600 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises couvertes</div>
+                                    <div><span class="check">✓</span> Protection soleil/pluie</div>
+                                    <div><span class="check">✓</span> Accès parking dédié</div>
+                                    <div><span class="check">✓</span> Buvettes et restaurants</div>
+                                    <div><span class="check">✓</span> Sièges premium</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-ouest">
+                            <span class="zone-name">TRIBUNE OUEST</span>
+                            <div class="price-tooltip">
+                                <span class="price">1000 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places VIP couvertes</div>
+                                    <div><span class="check">✓</span> Vue optimale sur le terrain</div>
+                                    <div><span class="check">✓</span> Accès salon VIP</div>
+                                    <div><span class="check">✓</span> Service de restauration haut de gamme</div>
+                                    <div><span class="check">✓</span> Parking VIP réservé</div>
+                                    <div><span class="check">✓</span> Accès aux lounges exclusifs</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stade-info">
+            <div class="texte-stade">
+                <h3>Marrakech</h3>
+                <p>Le Stade de Marrakech, joyau architectural de la ville ocre, offre une capacité de 41 245 places. Inauguré en 2011, ce stade moderne allie esthétique traditionnelle marocaine et technologie de pointe. Doté d'une pelouse de dernière génération et d'un système d'éclairage LED sophistiqué, il offre des conditions de jeu optimales. Sa conception unique permet une excellente acoustique et une vue imprenable sur l'Atlas, créant une expérience unique pour les spectateurs.</p>
+            </div>
+            <div class="image-container">
+                <img src="Images/Marrakech.jpg" alt="Stade de Marrakech" class="clickable-image" onclick="openMarrakechPriceModal()">
+            </div>
+        </div>
+
+        <!-- Modal pour les prix du Stade de Marrakech -->
+        <div id="marrakechPriceModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeMarrakechPriceModal()">&times;</span>
+                <h3>Prix des Places - Stade de Marrakech</h3>
+                <div class="stadium-price-view">
+                    <img src="Images/Marrakech.jpg" alt="Stade de Marrakech" class="stadium-image">
+                    <div class="price-zones">
+                        <div class="tribune-zone tribune-nord">
+                            <span class="zone-name">TRIBUNE NORD</span>
+                            <div class="price-tooltip">
+                                <span class="price">300 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Vue sur l'Atlas</div>
+                                    <div><span class="check">✓</span> Zone ambiance garantie</div>
+                                    <div><span class="check">✓</span> Accès buvettes nord</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-sud">
+                            <span class="zone-name">TRIBUNE SUD</span>
+                            <div class="price-tooltip">
+                                <span class="price">250 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Proximité animations</div>
+                                    <div><span class="check">✓</span> Zone famille</div>
+                                    <div><span class="check">✓</span> Accès facilité PMR</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-est">
+                            <span class="zone-name">TRIBUNE EST</span>
+                            <div class="price-tooltip">
+                                <span class="price">450 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises couvertes</div>
+                                    <div><span class="check">✓</span> Protection soleil/pluie</div>
+                                    <div><span class="check">✓</span> Accès parking Est</div>
+                                    <div><span class="check">✓</span> Buvettes premium</div>
+                                    <div><span class="check">✓</span> Vue dégagée</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-ouest">
+                            <span class="zone-name">TRIBUNE OUEST</span>
+                            <div class="price-tooltip">
+                                <span class="price">700 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places VIP couvertes</div>
+                                    <div><span class="check">✓</span> Vue optimale</div>
+                                    <div><span class="check">✓</span> Accès salon VIP</div>
+                                    <div><span class="check">✓</span> Service restauration</div>
+                                    <div><span class="check">✓</span> Parking réservé</div>
+                                    <div><span class="check">✓</span> Accès lounge</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stade-info">
+            <h3>Fès</h3>
+            <p>Le Stade de Fès, un joyau architectural moderne, offre une capacité de 35 468 places. Inauguré en 2007, ce stade multifonctionnel répond aux normes internationales les plus strictes. Doté d'une pelouse naturelle de haute qualité et d'un système d'éclairage moderne, il offre une expérience optimale tant pour les joueurs que pour les spectateurs. Sa conception unique permet une excellente visibilité depuis toutes les tribunes, faisant de chaque match un moment inoubliable.</p>
+        </div>
+        <div class="image-container">
+            <img src="Images/stadeFes1.avif" alt="Stade de Fès" class="clickable-image" onclick="openFesPriceModal()">
+        </div>
+
+        <!-- Modal pour les prix du Stade de Fès -->
+        <div id="fesPriceModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeFesPriceModal()">&times;</span>
+                <h3>Prix des Places - Stade de Fès</h3>
+                <div class="stadium-price-view">
+                    <img src="Images/StadeFes.jpg" alt="Stade de Fès" class="stadium-image">
+                    <div class="price-zones">
+                        <div class="tribune-zone tribune-nord">
+                            <span class="zone-name">TRIBUNE NORD</span>
+                            <div class="price-tooltip">
+                                <span class="price">250 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Ambiance supporters</div>
+                                    <div><span class="check">✓</span> Accès aux buvettes nord</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-sud">
+                            <span class="zone-name">TRIBUNE SUD</span>
+                            <div class="price-tooltip">
+                                <span class="price">200 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises découvertes</div>
+                                    <div><span class="check">✓</span> Proximité des animations</div>
+                                    <div><span class="check">✓</span> Accès aux buvettes sud</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-est">
+                            <span class="zone-name">TRIBUNE EST</span>
+                            <div class="price-tooltip">
+                                <span class="price">400 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places assises couvertes</div>
+                                    <div><span class="check">✓</span> Protection soleil/pluie</div>
+                                    <div><span class="check">✓</span> Accès parking Est</div>
+                                    <div><span class="check">✓</span> Buvettes premium</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tribune-zone tribune-ouest">
+                            <span class="zone-name">TRIBUNE OUEST</span>
+                            <div class="price-tooltip">
+                                <span class="price">600 DH</span>
+                                <div class="benefits">
+                                    <div><span class="check">✓</span> Places VIP couvertes</div>
+                                    <div><span class="check">✓</span> Vue optimale</div>
+                                    <div><span class="check">✓</span> Accès salon VIP</div>
+                                    <div><span class="check">✓</span> Service de restauration</div>
+                                    <div><span class="check">✓</span> Parking réservé</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS et Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script de recherche -->
+    <script>
+        $(document).ready(function() {
+            $('#searchButton').click(function() {
+                var searchTerm = $('#searchInput').val();
+                if (searchTerm) {
+                    // Appel à la fonction de recherche
+                    searchStades(searchTerm);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
