@@ -376,3 +376,65 @@ function updateActiveDate() {
 // Ajouter les écouteurs d'événements pour la synchronisation
 window.addEventListener('scroll', updateActiveDate);
 window.addEventListener('load', updateActiveDate);
+
+// Attendre que le DOM soit chargé
+document.addEventListener('DOMContentLoaded', () => {
+    // Gestion du clic sur le logo pour retourner à la page d'accueil
+    const logoContainer = document.getElementById('logo-container');
+    if (logoContainer) {
+        logoContainer.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+        // Ajouter le style du curseur pointer
+        logoContainer.style.cursor = 'pointer';
+    }
+
+    // Gestion de la barre interactive
+    const interactiveItems = document.querySelectorAll('.interactive-item');
+
+    // Fonction pour mettre à jour l'élément actif
+    function updateActiveItem(targetId) {
+        interactiveItems.forEach(item => {
+            if (item.dataset.section === targetId) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+
+    // Gestion du clic sur les éléments de la barre
+    interactiveItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const targetId = item.dataset.section;
+            
+            // Navigation vers les différentes pages
+            switch(targetId) {
+                case 'can2025-description':
+                    window.location.href = 'index.html#can2025-description';
+                    break;
+                case 'maroc':
+                    window.location.href = 'index.html#maroc';
+                    break;
+                case 'matches':
+                    // Déjà sur la page matches
+                    break;
+                case 'groups':
+                    window.location.href = 'groupes.html';
+                    break;
+                case 'videos':
+                    window.location.href = 'videos.html';
+                    break;
+                case 'stats':
+                    window.location.href = 'stades.html';
+                    break;
+                case 'teams':
+                    window.location.href = 'equipes.html';
+                    break;
+            }
+        });
+    });
+
+    // Initialiser le calendrier
+    initializeCalendar();
+});
