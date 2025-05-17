@@ -1,5 +1,6 @@
+/* Dictionnaire pour convertir les noms des pays en codes de pays pour les drapeaux */
 const countryToCode = {
-  'Maroc': 'ma',
+  'Maroc': 'ma',            // Codes ISO 2 des pays pour l'API de drapeaux
   'Algérie': 'dz',
   'Angola': 'ao',
   'Bénin': 'bj',
@@ -25,6 +26,7 @@ const countryToCode = {
   'Zimbabwe': 'zw'
 };
 
+/* Données des matches de la CAN 2025 */
 const matchData = [
   {
     date: '2025-12-21',
@@ -134,46 +136,48 @@ const matchData = [
   }
 ];
 
-// Helper function to split team names and get their codes
+/* Calcul de l'offset pour le défilement (hauteur des barres + padding) */
+const SCROLL_OFFSET = 220; // 120px (barre interactive) + 80px (barre calendrier) + 20px padding
+
+/* Fonction utilitaire pour formater les équipes et obtenir leurs codes de pays */
 function formatTeams(teamsString) {
-  const [team1, team2] = teamsString.split(' vs ');
+  const [team1, team2] = teamsString.split(' vs '); // Sépare les noms des équipes
   return {
-    team1: team1.trim(),
-    team2: team2.trim(),
-    code1: countryToCode[team1.trim()],
-    code2: countryToCode[team2.trim()]
+    team1: team1.trim(),                          // Nom de la première équipe
+    team2: team2.trim(),                          // Nom de la deuxième équipe
+    code1: countryToCode[team1.trim()],           // Code du pays de l'équipe 1
+    code2: countryToCode[team2.trim()]            // Code du pays de l'équipe 2
   };
 }
 
-// Create main container if it doesn't exist
+/* Création du conteneur principal */
 const mainContainer = document.createElement('div');
 mainContainer.id = 'mainContent';
-mainContainer.className = 'container';
-mainContainer.style.paddingTop = '200px';
+mainContainer.className = 'container';                // Utilise la classe container de Bootstrap
+mainContainer.style.paddingTop = '200px';            // Espace pour les barres fixes
 document.body.appendChild(mainContainer);
 
-// Calendar dates container
+/* Récupération du conteneur des dates du calendrier */
 const calendarDatesDiv = document.getElementById("calendarDates");
 
-// Match container
+/* Création du conteneur des matches */
 const matchContainer = document.createElement('div');
 matchContainer.id = "matchContainer";
 mainContainer.appendChild(matchContainer);
 
-// Calculate offset for scroll (height of both bars plus some padding)
-const SCROLL_OFFSET = 220; // 120px (interactive bar) + 80px (calendar bar) + 20px padding
-
-// Populate calendar dates
+/* Remplissage du calendrier et des sections de matches */
 matchData.forEach(day => {
-  // Calendar button
+  // Création du bouton de date dans le calendrier
   const dateBtn = document.createElement("div");
   dateBtn.className = "calendar-date";
   dateBtn.textContent = day.label;
   dateBtn.onclick = () => {
+    // Calcul de la position de défilement avec offset
     const element = document.getElementById(day.date);
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - SCROLL_OFFSET;
     
+    // Animation de défilement vers la section
     window.scrollTo({
       top: offsetPosition,
       behavior: "smooth"
@@ -181,11 +185,12 @@ matchData.forEach(day => {
   };
   calendarDatesDiv.appendChild(dateBtn);
 
-  // Match section
+  // Création de la section des matches du jour
   const matchSection = document.createElement("div");
   matchSection.className = "match-section";
   matchSection.id = day.date;
 
+  // En-tête de la section (date et tour)
   let innerHTML = `
     <div class="day-header">
       <h3 class="mb-2">${day.label}</h3>
@@ -193,15 +198,18 @@ matchData.forEach(day => {
     </div>
   `;
   
+  // Création des cartes de match
   day.matches.forEach((match, index) => {
     const teams = formatTeams(match.teams);
     innerHTML += `
       <div class="card mb-3 match-card">
         <div class="card-body">
           <div class="row align-items-center">
+            <!-- Numéro du match -->
             <div class="col-auto">
               <span class="badge bg-primary">Match ${index + 1}</span>
             </div>
+            <!-- Affichage des équipes avec leurs drapeaux -->
             <div class="col">
               <div class="d-flex justify-content-center align-items-center match-teams">
                 <div class="text-end" style="width: 40%;">
@@ -215,10 +223,12 @@ matchData.forEach(day => {
                 </div>
               </div>
             </div>
+            <!-- Heure du match -->
             <div class="col-auto">
               <span class="badge bg-secondary">${match.time}</span>
             </div>
           </div>
+          <!-- Stade -->
           <div class="text-muted mt-2 text-center">
             <i class="fas fa-map-marker-alt"></i> ${match.stadium}
           </div>
@@ -231,7 +241,10 @@ matchData.forEach(day => {
   matchContainer.appendChild(matchSection);
 });
 
-// Horizontal calendar scroll function
+/* Fonction pour faire défiler le calendrier horizontalement */
 function scrollCalendar(direction) {
-  calendarDatesDiv.scrollBy({ left: direction * 150, behavior: 'smooth' });
+  calendarDatesDiv.scrollBy({
+    left: direction * 150,     // Défilement de 150px dans la direction spécifiée
+    behavior: 'smooth'         // Animation fluide
+  });
 }
