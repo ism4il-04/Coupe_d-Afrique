@@ -24,7 +24,7 @@ const teams = [
         ranking: 46,
         appearances: 14,
         titles: 0,
-        coach: "Eric Chelle",
+        coach: "Tom Saintfiet",
         players: {
             captain: { name: "Hamari Traoré", position: "Défenseur" },
             historicTopScorer: { name: "Seydou Keita", goals: 25 },
@@ -72,7 +72,7 @@ const teams = [
         ranking: 33,
         appearances: 27,
         titles: 7,
-        coach: "Rui Vitória",
+        coach: "Houssam Hassan",
         players: {
             captain: { name: "Mohamed Salah", position: "Attaquant" },
             historicTopScorer: { name: "Hossam Hassan", goals: 69 },
@@ -120,7 +120,7 @@ const teams = [
         ranking: 125,
         appearances: 6,
         titles: 0,
-        coach: "Baltemar Brito",
+        coach: "Michael Nees",
         players: {
             captain: { name: "Knowledge Musona", position: "Attaquant" },
             historicTopScorer: { name: "Peter Ndlovu", goals: 38 },
@@ -136,7 +136,7 @@ const teams = [
         ranking: 40,
         appearances: 21,
         titles: 3,
-        coach: "José Peseiro",
+        coach: "Éric Chelle",
         players: {
             captain: { name: "William Troost-Ekong", position: "Défenseur" },
             historicTopScorer: { name: "Rashidi Yekini", goals: 37 },
@@ -152,7 +152,7 @@ const teams = [
         ranking: 28,
         appearances: 22,
         titles: 1,
-        coach: "Jalel Kadri",
+        coach: "Sami Trabelsi",
         players: {
             captain: { name: "Youssef Msakni", position: "Attaquant" },
             historicTopScorer: { name: "Issam Jemâa", goals: 36 },
@@ -168,7 +168,7 @@ const teams = [
         ranking: 90,
         appearances: 8,
         titles: 0,
-        coach: "Milutin Sredojević",
+        coach: "Paul Put",
         players: {
             captain: { name: "Emmanuel Okwi", position: "Attaquant" },
             historicTopScorer: { name: "Geoffrey Massa", goals: 29 },
@@ -184,7 +184,7 @@ const teams = [
         ranking: 121,
         appearances: 4,
         titles: 0,
-        coach: "Adel Amrouche",
+        coach: "Hemed Morocco",
         players: {
             captain: { name: "Mbwana Samatta", position: "Attaquant" },
             historicTopScorer: { name: "Mbwana Samatta", goals: 23 },
@@ -200,7 +200,7 @@ const teams = [
         ranking: 20,
         appearances: 18,
         titles: 1,
-        coach: "Aliou Cissé",
+        coach: "Pape Thiaw",
         players: {
             captain: { name: "Kalidou Koulibaly", position: "Défenseur" },
             historicTopScorer: { name: "Henri Camara", goals: 31 },
@@ -248,7 +248,7 @@ const teams = [
         ranking: 150,
         appearances: 2,
         titles: 0,
-        coach: "Mogomotsi Mpote",
+        coach: "Morena Ramoreboli",
         players: {
             captain: { name: "Thatayaone Ditlhokwe", position: "Défenseur" },
             historicTopScorer: { name: "Dipsy Selolwane", goals: 14 },
@@ -264,7 +264,7 @@ const teams = [
         ranking: 30,
         appearances: 21,
         titles: 2,
-        coach: "Djamel Belmadi",
+        coach: "Vladimir Petković",
         players: {
             captain: { name: "Riyad Mahrez", position: "Attaquant" },
             historicTopScorer: { name: "Islam Slimani", goals: 42 },
@@ -280,7 +280,7 @@ const teams = [
         ranking: 61,
         appearances: 14,
         titles: 0,
-        coach: "Hubert Velud",
+        coach: "Brama Traoré[",
         players: {
             captain: { name: "Bertrand Traoré", position: "Attaquant" },
             historicTopScorer: { name: "Moumouni Dagano", goals: 35 },
@@ -312,7 +312,7 @@ const teams = [
         ranking: 128,
         appearances: 10,
         titles: 1,
-        coach: "Zdravko Logarušić",
+        coach: "James Kwesi Appiah",
         players: {
             captain: { name: "Ramadan Agab", position: "Milieu" },
             historicTopScorer: { name: "Mudather El Tahir", goals: 31 },
@@ -344,7 +344,7 @@ const teams = [
         ranking: 46,
         appearances: 22,
         titles: 5,
-        coach: "Rigobert Song",
+        coach: "Marc Brys",
         players: {
             captain: { name: "Vincent Aboubakar", position: "Attaquant" },
             historicTopScorer: { name: "Samuel Eto'o", goals: 56 },
@@ -360,7 +360,7 @@ const teams = [
         ranking: 85,
         appearances: 9,
         titles: 0,
-        coach: "Patrice Neveu",
+        coach: "Thierry Mouyouma",
         players: {
             captain: { name: "Pierre-Emerick Aubameyang", position: "Attaquant" },
             historicTopScorer: { name: "Pierre-Emerick Aubameyang", goals: 30 },
@@ -410,7 +410,7 @@ function createTeamCard(team) {
 // Fonction pour créer le contenu du modal
 function createModalContent(team) {
     return `
-        <div class="team-modal-header" style="background-image: url('${team.flag}')">
+        <div class="team-modal-header">
             <div class="flag-container">
                 <img src="${team.flag}" alt="Drapeau ${team.name}">
             </div>
@@ -422,15 +422,15 @@ function createModalContent(team) {
         <div class="team-stats">
             <div class="stat-item">
                 <div class="stat-value">${team.ranking}</div>
-                <div class="stat-label">Classement FIFA</div>
+                <div class="stat-label">CLASSEMENT FIFA</div>
             </div>
             <div class="stat-item">
                 <div class="stat-value">${team.appearances}</div>
-                <div class="stat-label">Participations</div>
+                <div class="stat-label">PARTICIPATIONS</div>
             </div>
             <div class="stat-item">
                 <div class="stat-value">${team.titles}</div>
-                <div class="stat-label">Titres CAN</div>
+                <div class="stat-label">TITRES CAN</div>
             </div>
         </div>
         <div class="team-players">
@@ -469,6 +469,20 @@ function createModalContent(team) {
 function filterTeams() {
     const searchTerm = document.getElementById('searchTeam').value.toLowerCase();
     const groupFilter = document.getElementById('groupFilter').value;
+
+    // Si on est en vue groupes, revenir à la vue grille automatiquement
+    const groupsContainer = document.getElementById('groupsContainer');
+    const teamsContainer = document.getElementById('teamsContainer');
+    const gridView = document.getElementById('gridView');
+    const groupView = document.getElementById('groupView');
+    
+    if (groupsContainer.style.display !== 'none' && (searchTerm || groupFilter !== 'all')) {
+        // Basculer vers la vue grille
+        teamsContainer.style.display = 'flex';
+        groupsContainer.style.display = 'none';
+        gridView.classList.add('active');
+        groupView.classList.remove('active');
+    }
 
     const filteredTeams = teams.filter(team => {
         const matchesSearch = team.name.toLowerCase().includes(searchTerm);
