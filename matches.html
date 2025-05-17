@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAN 2025 - Matches</title>
-    <link rel="stylesheet" href="bootstrap-5.3.5-dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="matches.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">                 // Définit l'encodage des caractères
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> // Configuration de l'affichage mobile
+    <title>CAN 2025 - Matches</title>      // Titre de la page
+    <link rel="stylesheet" href="bootstrap-5.3.5-dist/css/bootstrap.min.css"/> // Importation de Bootstrap
+    <link rel="stylesheet" href="matches.css"> // Importation des styles personnalisés
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> // Importation des icônes Font Awesome
 </head>
 <body>
-<!-- Barre Interactive -->
-    <div class="interactive-bar">
-        <div class="interactive-content">
-            <a href="index.html" class="interactive-item" id="logo-container">
-                <img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180">
+    <!-- Barre de navigation interactive -->
+    <div class="interactive-bar">          // Conteneur de la barre de navigation
+        <div class="interactive-content">   // Conteneur du contenu de la barre
+            <a href="index.html" class="interactive-item" id="logo-container"> // Lien vers la page d'accueil avec le logo
+                <img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180"> // Logo de la CAN
             </a>
-            <a href="index.html" class="interactive-item" data-section="can2025-description">
-                <i class="fas fa-info-circle"></i>
-                <span>À propos</span>
+            <a href="index.html" class="interactive-item" data-section="can2025-description"> // Lien vers la section À propos
+                <i class="fas fa-info-circle"></i> // Icône d'information
+                <span>À propos</span>       // Texte du lien
             </a>
-            <div class="interactive-item" data-section="maroc">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Maroc</span>
+            <div class="interactive-item" data-section="maroc"> // Section Maroc
+                <i class="fas fa-map-marker-alt"></i> // Icône de localisation
+                <span>Maroc</span>          // Texte de la section
             </div>
-            <a href="matches.html" class="interactive-item active" data-section="matches">
-                <i class="fas fa-futbol"></i>
-                <span>Matches</span>
+            <a href="matches.html" class="interactive-item active" data-section="matches"> // Lien actif vers la page des matches
+                <i class="fas fa-futbol"></i> // Icône de football
+                <span>Matches</span>        // Texte du lien
             </a>
-            <a href="groupes.html" class="interactive-item" data-section="groups">
-                <i class="fas fa-users"></i>
-                <span>Groupes</span>
+            <a href="groupes.html" class="interactive-item" data-section="groups"> // Lien vers la page des groupes
+                <i class="fas fa-users"></i> // Icône de groupe
+                <span>Groupes</span>        // Texte du lien
             </a>
-            <a href="videos.html" class="interactive-item" data-section="videos">
-                <i class="fas fa-play-circle"></i>
-                <span>Vidéos</span>
+            <a href="videos.html" class="interactive-item" data-section="videos"> // Lien vers la page des vidéos
+                <i class="fas fa-play-circle"></i> // Icône de lecture
+                <span>Vidéos</span>         // Texte du lien
             </a>
-            <div class="interactive-item" data-section="stats">
-                <i class="fas fa-chart-bar"></i>
-                <span>Stats</span>
+            <div class="interactive-item" data-section="stats"> // Section Statistiques
+                <i class="fas fa-chart-bar"></i> // Icône de statistiques
+                <span>Stats</span>          // Texte de la section
             </div>
-            <div class="interactive-item" data-section="teams">
-                <i class="fas fa-flag"></i>
-                <span>Équipes</span>
+            <div class="interactive-item" data-section="teams"> // Section Équipes
+                <i class="fas fa-flag"></i> // Icône de drapeau
+                <span>Équipes</span>        // Texte de la section
             </div>
         </div>
     </div>
 
-    <!-- Barre Calendrier -->
-    <div class="calendar-bar d-flex align-items-center">
-        <div class="calendar-nav" onclick="scrollCalendar(-1)">&#8592;</div>
-        <div id="calendarDates" class="d-flex flex-nowrap overflow-auto w-100"></div>
-        <div class="calendar-nav" onclick="scrollCalendar(1)">&#8594;</div>
+    <!-- Barre de calendrier -->
+    <div class="calendar-bar d-flex align-items-center"> // Barre de navigation du calendrier
+        <div class="calendar-nav" onclick="scrollCalendar(-1)">&#8592;</div> // Flèche de défilement gauche
+        <div id="calendarDates" class="d-flex flex-nowrap overflow-auto w-100"></div> // Conteneur des dates
+        <div class="calendar-nav" onclick="scrollCalendar(1)">&#8594;</div> // Flèche de défilement droite
     </div>
 
-    <script type="text/javascript" src="bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="matches.js"></script>
+    // Importation des scripts JavaScript
+    <script type="text/javascript" src="bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script> // Bootstrap JS
+    <script type="text/javascript" src="matches.js"></script> // Script personnalisé
 </body>
 </html>

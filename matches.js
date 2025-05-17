@@ -1,29 +1,29 @@
 /* Dictionnaire pour convertir les noms des pays en codes de pays pour les drapeaux */
 const countryToCode = {
-  'Maroc': 'ma',            // Codes ISO 2 des pays pour l'API de drapeaux
-  'Algérie': 'dz',
-  'Angola': 'ao',
-  'Bénin': 'bj',
-  'Botswana': 'bw',
-  'Burkina Faso': 'bf',
-  'Cameroun': 'cm',
-  'Comores': 'km',
-  'Côte d\'Ivoire': 'ci',
-  'Égypte': 'eg',
-  'Gabon': 'ga',
-  'Guinée Équatoriale': 'gq',
-  'Mali': 'ml',
-  'Mozambique': 'mz',
-  'Nigeria': 'ng',
-  'Ouganda': 'ug',
-  'Rép. Dém. Congo': 'cd',
-  'Sénégal': 'sn',
-  'Soudan': 'sd',
-  'Afrique du Sud': 'za',
-  'Tanzanie': 'tz',
-  'Tunisie': 'tn',
-  'Zambie': 'zm',
-  'Zimbabwe': 'zw',
+  'Maroc': 'ma',            // Code ISO 2 pour le Maroc
+  'Algérie': 'dz',          // Code ISO 2 pour l'Algérie
+  'Angola': 'ao',           // Code ISO 2 pour l'Angola
+  'Bénin': 'bj',            // Code ISO 2 pour le Bénin
+  'Botswana': 'bw',         // Code ISO 2 pour le Botswana
+  'Burkina Faso': 'bf',     // Code ISO 2 pour le Burkina Faso
+  'Cameroun': 'cm',         // Code ISO 2 pour le Cameroun
+  'Comores': 'km',          // Code ISO 2 pour les Comores
+  'Côte d\'Ivoire': 'ci',   // Code ISO 2 pour la Côte d'Ivoire
+  'Égypte': 'eg',           // Code ISO 2 pour l'Égypte
+  'Gabon': 'ga',            // Code ISO 2 pour le Gabon
+  'Guinée Équatoriale': 'gq', // Code ISO 2 pour la Guinée Équatoriale
+  'Mali': 'ml',             // Code ISO 2 pour le Mali
+  'Mozambique': 'mz',       // Code ISO 2 pour le Mozambique
+  'Nigeria': 'ng',          // Code ISO 2 pour le Nigeria
+  'Ouganda': 'ug',          // Code ISO 2 pour l'Ouganda
+  'Rép. Dém. Congo': 'cd',  // Code ISO 2 pour la République Démocratique du Congo
+  'Sénégal': 'sn',          // Code ISO 2 pour le Sénégal
+  'Soudan': 'sd',           // Code ISO 2 pour le Soudan
+  'Afrique du Sud': 'za',   // Code ISO 2 pour l'Afrique du Sud
+  'Tanzanie': 'tz',         // Code ISO 2 pour la Tanzanie
+  'Tunisie': 'tn',          // Code ISO 2 pour la Tunisie
+  'Zambie': 'zm',           // Code ISO 2 pour la Zambie
+  'Zimbabwe': 'zw',         // Code ISO 2 pour le Zimbabwe
   'en attente': 'xx'        // Code par défaut pour les équipes en attente
 };
 
