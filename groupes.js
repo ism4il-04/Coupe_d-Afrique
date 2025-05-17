@@ -2,12 +2,12 @@
 const groupes = [
     {
         nom: "Groupe A",
-        icon: "🇰🇲",
+        icon: "bi-trophy",
         equipes: [
-            { nom: "Comores", flag: "Images/flags/comoros.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Mali", flag: "Images/flags/mali.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Maroc", flag: "Images/flags/morocco.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Zambie", flag: "Images/flags/zambia.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 }
+            { nom: "Comores", flag: "bi-flag-fill", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Mali", flag: "bi-flag-fill", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Maroc", flag: "bi-flag-fill", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Zambie", flag: "bi-flag-fill", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 }
         ]
     },
     {
@@ -83,7 +83,7 @@ function createGroupTable(groupe) {
             <tbody>
                 ${groupe.equipes.map(equipe => `
                     <tr class="team-row" data-team="${equipe.nom}">
-                        <td><img src="${equipe.flag}" alt="${equipe.nom}" class="team-flag"></td>
+                        <td><i class="bi ${equipe.flag} text-primary"></i></td>
                         <td>${equipe.nom}</td>
                         <td>${equipe.played}</td>
                         <td>${equipe.won}</td>
@@ -109,8 +109,8 @@ function updateTeamModal(equipe) {
         <div class="team-info">
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <img src="${equipe.flag}" alt="${equipe.nom}" class="team-flag mb-3">
-                    <h3 class="team-name">${equipe.nom}</h3>
+                    <i class="bi ${equipe.flag} text-primary" style="font-size: 4rem;"></i>
+                    <h3 class="team-name mt-3">${equipe.nom}</h3>
                 </div>
                 <div class="col-md-8">
                     <div class="team-stats">
