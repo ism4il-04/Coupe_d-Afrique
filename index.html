@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Configuration de base du document -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAN 2025 - Coupe d'Afrique des Nations</title>
-    <!-- Bootstrap CSS -->
+    <!-- Intégration des feuilles de style externes -->
+    <!-- Bootstrap pour la mise en page responsive -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+    <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Feuille de style personnalisée -->
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <!-- Hero Section avec Animation -->
+    <!-- Section Hero : Section d'en-tête principale avec animation -->
+    <!-- Cette section contient le titre principal, le sous-titre, la localisation et le compte à rebours -->
     <section class="hero-section">
         <div class="hero-content">
             <h1 class="main-title">CAN 2025</h1>
             <p class="subtitle">Coupe d'Afrique des Nations</p>
             <p class="location">Maroc</p>
+            <!-- Conteneur pour le compte à rebours dynamique -->
             <div class="countdown" id="countdown">
-                <!-- Le compte à rebours sera ajouté dynamiquement -->
+                <!-- Le compte à rebours sera généré dynamiquement par JavaScript -->
             </div>
         </div>
+        <!-- Overlay pour ajouter un effet de contraste sur l'arrière-plan -->
         <div class="hero-overlay"></div>
     </section>
 
-    <!-- Barre Interactive -->
+    <!-- Barre de navigation interactive -->
+    <!-- Cette barre contient le logo et les liens de navigation avec des icônes -->
     <div class="interactive-bar">
+        <!-- Motifs décoratifs de la barre -->
         <div class="bar-pattern left"></div>
         <div class="interactive-content">
             <div class="bar-pattern right"></div>
 
+            <!-- Logo cliquable -->
             <div id="logo-container">
                 <i><img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180" ></i>
             </div>
+
+            <!-- Éléments de navigation avec icônes -->
+            <!-- Chaque élément est lié à une section spécifique de la page -->
             <div class="interactive-item active" data-section="can2025-description">
                 <i class="fas fa-home home-icon"></i>
                 <span>Accueil</span>
@@ -67,7 +79,11 @@
     
     </div>
 
+    <!-- Sections de contenu principales -->
+    <!-- Chaque section suit une structure similaire avec texte et image -->
+
     <!-- Section Description CAN 2025 -->
+    <!-- Présentation générale du tournoi -->
     <section class="content-section can2025-description-section" id="can2025-description">
         <div class="section-content">
             <div class="section-text">
@@ -86,6 +102,7 @@
     </section>
 
     <!-- Section Maroc -->
+    <!-- Présentation du pays hôte -->
     <section class="content-section maroc-section" id="maroc">
         <div class="section-content reverse">
             <div class="section-text">
@@ -102,6 +119,7 @@
     </section>
 
     <!-- Section Matches -->
+    <!-- Calendrier et résultats des matches -->
     <section class="content-section matches-section" id="matches">
         <div class="section-content">
             <div class="section-text">
@@ -118,6 +136,7 @@
     </section>
 
     <!-- Section Groupes -->
+    <!-- Composition des groupes du tournoi -->
     <section class="content-section groups-section" id="groups">
         <div class="section-content reverse">
             <div class="section-text">
@@ -134,6 +153,7 @@
     </section>
 
     <!-- Section Vidéos -->
+    <!-- Contenu multimédia et highlights -->
     <section class="content-section videos-section" id="videos">
         <div class="section-content">
             <div class="section-text">
@@ -156,6 +176,7 @@
     </section>
 
     <!-- Section Statistiques -->
+    <!-- Informations sur les stades et villes hôtes -->
     <section class="content-section stats-section" id="stats">
         <div class="section-content reverse">
             <div class="section-text">
@@ -172,6 +193,7 @@
     </section>
 
     <!-- Section Équipes -->
+    <!-- Présentation des équipes participantes -->
     <section class="content-section teams-section" id="teams">
         <div class="section-content">
             <div class="section-text">
@@ -188,9 +210,12 @@
     </section>
 
     <!-- Section Actualités -->
+    <!-- Grille d'articles d'actualités avec images -->
     <section class="news-section">
         <h2>Dernières Actualités - CAN 2025 Maroc</h2>
+        <!-- Grille responsive d'articles -->
         <div class="news-grid">
+            <!-- Chaque carte représente un article d'actualité -->
             <div class="news-card">
                 <img src="Images/tirage 2025.jpeg" alt="Tirage au sort CAN 2025">
                 <div class="news-content">
@@ -226,23 +251,25 @@
         </div>
     </section>
 
-    
-    <!-- Footer -->
+    <!-- Pied de page -->
+    <!-- Contient les informations de contact, liens sociaux et liens rapides -->
     <footer class="footer">
         <div class="footer-content">
+            <!-- Section d'information générale -->
             <div class="footer-section">
                 <h3>CAN 2025</h3>
                 <p>Coupe d'Afrique des Nations<br>Maroc</p>
             </div>
+            <!-- Section des réseaux sociaux -->
             <div class="footer-section">
                 <h3>Suivez-nous</h3>
                 <div class="social-links">  
                     <a href="https://www.facebook.com/TheAFCON"><i class="fab fa-facebook"></i></a>
                     <a href="https://x.com/CAF_Online?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.instagram.com/caf_online?igsh=MXVvajljaXVlenFvaw=="><i class="fab fa-instagram"></i></a>
-
                 </div>
             </div>
+            <!-- Section des liens rapides -->
             <div class="footer-section">
                 <h3>Liens rapides</h3>
                 <ul>
@@ -254,12 +281,16 @@
                 </ul>
             </div>
         </div>
+        <!-- Copyright -->
         <div class="footer-bottom">
             <p>&copy; 2025 CAN - Tous droits réservés</p>
         </div>
     </footer>
-    <!-- Bootstrap JS -->
+
+    <!-- Scripts JavaScript -->
+    <!-- Bootstrap pour les fonctionnalités interactives -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script personnalisé pour les animations et interactions -->
     <script src="index.js"></script>
 </body>
 </html>
