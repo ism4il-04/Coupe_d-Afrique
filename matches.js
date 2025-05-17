@@ -34,7 +34,7 @@ const matchData = [
     label: 'dim. 21 déc.',
     tour: 'Phase de groupes - Groupe A',
     matches: [
-      { teams: 'Maroc vs Comores', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Maroc vs Comores', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' }
     ]
   },
   {
@@ -42,9 +42,9 @@ const matchData = [
     label: 'lun. 22 déc.',
     tour: 'Phase de groupes - Groupes A et B',
     matches: [
-      { teams: 'Mali vs Zambie', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Afrique du Sud vs Angola', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Égypte vs Zimbabwe', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Mali vs Zambie', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Afrique du Sud vs Angola', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH MARRAKECH' },
+      { teams: 'Égypte vs Zimbabwe', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
     ]
   },
   {
@@ -52,10 +52,10 @@ const matchData = [
     label: 'mar. 23 déc.',
     tour: 'Phase de groupes - Groupes C et D',
     matches: [
-      { teams: 'Nigeria vs Tanzanie', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Tunisie vs Ouganda', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Rép. Dém. Congo vs Bénin', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Sénégal vs Botswana', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Nigeria vs Tanzanie', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF DE FES' },
+      { teams: 'Tunisie vs Ouganda', time: 'à déterminer', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' },
+      { teams: 'Rép. Dém. Congo vs Bénin', time: 'à déterminer', stadium: 'STADE EL BARID RABAT 3' },
+      { teams: 'Sénégal vs Botswana', time: 'à déterminer', stadium: 'GRAND STADE DE TANGER TANGIER' }
     ]
   },
   {
@@ -63,10 +63,10 @@ const matchData = [
     label: 'mer. 24 déc.',
     tour: 'Phase de groupes - Groupes E et F',
     matches: [
-      { teams: 'Algérie vs Soudan', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Burkina Faso vs Guinée Équatoriale', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Cameroun vs Gabon', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Côte d\'Ivoire vs Mozambique', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Algérie vs Soudan', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE HÉRITIER MOULAY EL HASSAN RABAT 2' },
+      { teams: 'Burkina Faso vs Guinée Équatoriale', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Cameroun vs Gabon', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH MARRAKECH' },
+      { teams: 'Côte d\'Ivoire vs Mozambique', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
     ]
   },
   {
@@ -74,10 +74,10 @@ const matchData = [
     label: 'ven. 26 déc.',
     tour: 'Phase de groupes - Groupes A et B',
     matches: [
-      { teams: 'Maroc vs Mali', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Zambie vs Comores', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Angola vs Zimbabwe', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Égypte vs Afrique du Sud', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Maroc vs Mali', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' },
+      { teams: 'Zambie vs Comores', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Angola vs Zimbabwe', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH' },
+      { teams: 'Égypte vs Afrique du Sud', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
     ]
   },
   {
@@ -85,10 +85,10 @@ const matchData = [
     label: 'sam. 27 déc.',
     tour: 'Phase de groupes - Groupes C et D',
     matches: [
-      { teams: 'Nigeria vs Tunisie', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Ouganda vs Tanzanie', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Bénin vs Botswana', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Sénégal vs Rép. Dém. Congo', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Nigeria vs Tunisie', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF DE FES' },
+      { teams: 'Ouganda vs Tanzanie', time: 'à déterminer', stadium: 'STADE EL BARID RABAT 3' },
+      { teams: 'Bénin vs Botswana', time: 'à déterminer', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' },
+      { teams: 'Sénégal vs Rép. Dém. Congo', time: 'à déterminer', stadium: 'GRAND STADE DE TANGER TANGIER' }
     ]
   },
   {
@@ -96,10 +96,10 @@ const matchData = [
     label: 'dim. 28 déc.',
     tour: 'Phase de groupes - Groupes E et F',
     matches: [
-      { teams: 'Algérie vs Burkina Faso', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Guinée Équatoriale vs Soudan', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Côte d\'Ivoire vs Cameroun', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Gabon vs Mozambique', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Algérie vs Burkina Faso', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE HÉRITIER MOULAY EL HASSAN RABAT 2' },
+      { teams: 'Guinée Équatoriale vs Soudan', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Côte d\'Ivoire vs Cameroun', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH' },
+      { teams: 'Gabon vs Mozambique', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
     ]
   },
   {
@@ -107,10 +107,10 @@ const matchData = [
     label: 'lun. 29 déc.',
     tour: 'Phase de groupes - Groupes A et B',
     matches: [
-      { teams: 'Comores vs Mali', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Zambie vs Maroc', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Angola vs Égypte', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Zimbabwe vs Afrique du Sud', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Comores vs Mali', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Zambie vs Maroc', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' },
+      { teams: 'Angola vs Égypte', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' },
+      { teams: 'Zimbabwe vs Afrique du Sud', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH' }
     ]
   },
   {
@@ -118,10 +118,10 @@ const matchData = [
     label: 'mar. 30 déc.',
     tour: 'Phase de groupes - Groupes C et D',
     matches: [
-      { teams: 'Ouganda vs Nigeria', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Tanzanie vs Tunisie', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Botswana vs Rép. Dém. Congo', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Bénin vs Sénégal', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Ouganda vs Nigeria', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' },
+      { teams: 'Tanzanie vs Tunisie', time: 'à déterminer', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' },
+      { teams: 'Botswana vs Rép. Dém. Congo', time: 'à déterminer', stadium: 'STADE EL BARID RABAT 3' },
+      { teams: 'Bénin vs Sénégal', time: 'à déterminer', stadium: 'GRAND STADE DE TANGER TANGIER' }
     ]
   },
   {
@@ -129,10 +129,10 @@ const matchData = [
     label: 'mer. 31 déc.',
     tour: 'Phase de groupes - Groupes E et F',
     matches: [
-      { teams: 'Guinée Équatoriale vs Algérie', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Soudan vs Burkina Faso', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Gabon vs Côte d\'Ivoire', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'Mozambique vs Cameroun', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Guinée Équatoriale vs Algérie', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE HÉRITIER MOULAY EL HASSAN RABAT 2' },
+      { teams: 'Soudan vs Burkina Faso', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'Gabon vs Côte d\'Ivoire', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH' },
+      { teams: 'Mozambique vs Cameroun', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
     ]
   },
   {
@@ -140,8 +140,8 @@ const matchData = [
     label: 'sam. 3 jan.',
     tour: '1/8 de finale',
     matches: [
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'GRAND STADE DE TANGER TANGIER' }
     ]
   },
   {
@@ -149,8 +149,8 @@ const matchData = [
     label: 'dim. 4 jan.',
     tour: '1/8 de finale',
     matches: [
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'STADE EL BARID RABAT 3' }
     ]
   },
   {
@@ -158,8 +158,8 @@ const matchData = [
     label: 'lun. 5 jan.',
     tour: '1/8 de finale',
     matches: [
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF DE FES' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
     ]
   },
   {
@@ -167,8 +167,8 @@ const matchData = [
     label: 'mar. 6 jan.',
     tour: '1/8 de finale',
     matches: [
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE HÉRITIER MOULAY EL HASSAN RABAT 2' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH' }
     ]
   },
   {
@@ -176,8 +176,8 @@ const matchData = [
     label: 'ven. 9 jan.',
     tour: '1/4 de finale',
     matches: [
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'GRAND STADE DE TANGER TANGIER' }
     ]
   },
   {
@@ -185,8 +185,8 @@ const matchData = [
     label: 'sam. 10 jan.',
     tour: '1/4 de finale',
     matches: [
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
     ]
   },
   {
@@ -194,8 +194,8 @@ const matchData = [
     label: 'mer. 14 jan.',
     tour: '1/2 finale',
     matches: [
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' },
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' },
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'GRAND STADE DE TANGER TANGIER' }
     ]
   },
   {
@@ -203,7 +203,7 @@ const matchData = [
     label: 'sam. 17 jan.',
     tour: 'Match pour la 3ème place',
     matches: [
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' }
     ]
   },
   {
@@ -211,7 +211,7 @@ const matchData = [
     label: 'dim. 18 jan.',
     tour: 'Finale',
     matches: [
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' }
     ]
   }
 ];
