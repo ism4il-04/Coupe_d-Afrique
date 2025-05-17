@@ -23,7 +23,7 @@
         <div id="logo-container">
             <i><img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180" ></i>
         </div>
-        <div class="interactive-item active" data-section="can2025-description">
+        <div class="interactive-item" data-section="can2025-description">
             <i class="fas fa-home home-icon"></i>
             <span>Accueil</span>
         </div>
@@ -47,7 +47,7 @@
             <i class="fas fa-map-marked-alt"></i>
             <span>Stades et villes hôtes</span>
         </div>
-        <div class="interactive-item" data-section="teams">
+        <div class="interactive-item active" data-section="teams">
             <i class="fas fa-flag"></i>
             <span>Équipes</span>
         </div>
@@ -202,6 +202,40 @@
                 logoContainer.style.cursor = 'pointer';
             }
             
+            // Définir l'élément actif en fonction de la page courante
+            const currentPage = window.location.pathname.split('/').pop();
+            interactiveItems.forEach(item => {
+                const section = item.dataset.section;
+                
+                // Supprimer la classe active de tous les éléments
+                item.classList.remove('active');
+                
+                // Ajouter la classe active à l'élément correspondant à la page actuelle
+                switch(currentPage) {
+                    case 'index.html':
+                        if (section === 'can2025-description') item.classList.add('active');
+                        break;
+                    case 'matches.html':
+                        if (section === 'matches') item.classList.add('active');
+                        break;
+                    case 'groupes.html':
+                        if (section === 'groups') item.classList.add('active');
+                        break;
+                    case 'videos.html':
+                        if (section === 'videos') item.classList.add('active');
+                        break;
+                    case 'stades.html':
+                        if (section === 'stats') item.classList.add('active');
+                        break;
+                    case 'equipes.html':
+                        if (section === 'teams') item.classList.add('active');
+                        break;
+                    default:
+                        // Par défaut, aucun élément actif
+                        break;
+                }
+            });
+            
             // Gestion du clic sur les éléments de la barre
             interactiveItems.forEach(item => {
                 item.addEventListener('click', () => {
@@ -210,8 +244,10 @@
                     // Redirection vers les pages correspondantes
                     switch(section) {
                         case 'can2025-description':
+                            window.location.href = 'index.html';
+                            break;
                         case 'maroc':
-                            window.location.href = `index.html#${section}`;
+                            window.location.href = 'index.html#maroc';
                             break;
                         case 'matches':
                             window.location.href = 'matches.html';
@@ -223,10 +259,10 @@
                             window.location.href = 'videos.html';
                             break;
                         case 'stats':
-                            window.location.href = 'stats.html';
+                            window.location.href = 'stades.html';
                             break;
                         case 'teams':
-                            // Déjà sur la page des équipes
+                            window.location.href = 'equipes.html';
                             break;
                     }
                 });
