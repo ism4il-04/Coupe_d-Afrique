@@ -34,7 +34,7 @@ const matchData = [
     label: 'dim. 21 déc.',
     tour: 'Phase de groupes - Groupe A',
     matches: [
-      { teams: 'Maroc vs Comores', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' }
+      { teams: 'Maroc vs Comores', time: 'à déterminer', stadium: 'à déterminer' }
     ]
   },
   {
@@ -211,7 +211,7 @@ const matchData = [
     label: 'dim. 18 jan.',
     tour: 'Finale',
     matches: [
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' }
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
     ]
   }
 ];
