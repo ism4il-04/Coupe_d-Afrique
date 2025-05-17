@@ -2,57 +2,57 @@
 const groupes = [
     {
         nom: "Groupe A",
-        icon: "🇰🇲",
+        icon: "bi-flag-fill",
         equipes: [
-            { nom: "Comores", flag: "Images/flags/comoros.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Comores", flag: "Images/flags/comores.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Mali", flag: "Images/flags/mali.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Maroc", flag: "Images/flags/morocco.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Zambie", flag: "Images/flags/zambia.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 }
+            { nom: "Maroc", flag: "Images/flags/maroc.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Zambie", flag: "Images/flags/zambie.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 }
         ]
     },
     {
         nom: "Groupe B",
-        icon: "🇦🇴",
+      
         equipes: [
             { nom: "Angola", flag: "Images/flags/angola.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Égypte", flag: "Images/flags/egypt.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Égypte", flag: "Images/flags/egypte.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Afrique du Sud", flag: "Images/flags/south_africa.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Zimbabwe", flag: "Images/flags/zimbabwe.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 }
         ]
     },
     {
         nom: "Groupe C",
-        icon: "🇳🇬",
+       
         equipes: [
             { nom: "Nigeria", flag: "Images/flags/nigeria.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Tanzanie", flag: "Images/flags/tanzania.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Tunisie", flag: "Images/flags/tunisia.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Tanzanie", flag: "Images/flags/tanzanie.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Tunisie", flag: "Images/flags/tunisie.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Ouganda", flag: "Images/flags/uganda.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 }
         ]
     },
     {
         nom: "Groupe D",
-        icon: "🇧🇯",
+       
         equipes: [
             { nom: "Bénin", flag: "Images/flags/benin.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Botswana", flag: "Images/flags/botswana.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "RD Congo", flag: "Images/flags/dr_congo.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "RD Congo", flag: "Images/flags/rd_congo.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Sénégal", flag: "Images/flags/senegal.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 }
         ]
     },
     {
         nom: "Groupe E",
-        icon: "🇩🇿",
+       
         equipes: [
-            { nom: "Algérie", flag: "Images/flags/algeria.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Algérie", flag: "Images/flags/algerie.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Burkina Faso", flag: "Images/flags/burkina_faso.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Guinée équatoriale", flag: "Images/flags/equatorial_guinea.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Guinée équatoriale", flag: "Images/flags/guinee_equatoriale.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Soudan", flag: "Images/flags/sudan.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 }
         ]
     },
     {
         nom: "Groupe F",
-        icon: "🇨🇲",
+    
         equipes: [
             { nom: "Cameroun", flag: "Images/flags/cameroon.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Côte d'Ivoire", flag: "Images/flags/cote_divoire.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
@@ -83,7 +83,7 @@ function createGroupTable(groupe) {
             <tbody>
                 ${groupe.equipes.map(equipe => `
                     <tr class="team-row" data-team="${equipe.nom}">
-                        <td><img src="${equipe.flag}" alt="${equipe.nom}" class="team-flag"></td>
+                        <td><img src="${equipe.flag}" alt="Drapeau ${equipe.nom}" class="flag-icon"></td>
                         <td>${equipe.nom}</td>
                         <td>${equipe.played}</td>
                         <td>${equipe.won}</td>
@@ -109,8 +109,8 @@ function updateTeamModal(equipe) {
         <div class="team-info">
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <img src="${equipe.flag}" alt="${equipe.nom}" class="team-flag mb-3">
-                    <h3 class="team-name">${equipe.nom}</h3>
+                    <i class="bi ${equipe.flag} text-primary" style="font-size: 4rem;"></i>
+                    <h3 class="team-name mt-3">${equipe.nom}</h3>
                 </div>
                 <div class="col-md-8">
                     <div class="team-stats">
