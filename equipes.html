@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipes - CAN 2025</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="equipes.css">
+</head>
+
+<body style="padding-top:120px;">
+   <!-- Barre Interactive -->
+   <div class="interactive-bar">
+    <div class="bar-pattern left"></div>
+    <div class="interactive-content">
+        <div class="bar-pattern right"></div>
+
+        <div id="logo-container">
+            <i><img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180" ></i>
+        </div>
+        <div class="interactive-item active" data-section="can2025-description">
+            <i class="fas fa-home home-icon"></i>
+            <span>Accueil</span>
+        </div>
+        <div class="interactive-item" data-section="maroc">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Maroc</span>
+        </div>
+        <div class="interactive-item" data-section="matches">
+            <i class="fas fa-futbol"></i>
+            <span>Matches</span>
+        </div>
+        <div class="interactive-item" data-section="groups">
+            <i class="fas fa-users"></i>
+            <span>Groupes</span>
+        </div>
+        <div class="interactive-item" data-section="videos">
+            <i class="fas fa-play-circle"></i>
+            <span>Vidéos</span>
+        </div>
+        <div class="interactive-item" data-section="stats">
+            <i class="fas fa-map-marked-alt"></i>
+            <span>Stades et villes hôtes</span>
+        </div>
+        <div class="interactive-item" data-section="teams">
+            <i class="fas fa-flag"></i>
+            <span>Équipes</span>
+        </div>
+        <div class="bar-pattern right"></div>
+    
+    </div>
+
+</div>
+
+    <!-- En-tête de la page -->
+    <header class="teams-header">
+        <div class="container">
+            <h1>Équipes Qualifiées</h1>
+            <p>Découvrez les 24 équipes participant à la CAN 2025 au Maroc</p>
+            <div class="teams-counter">
+                <div class="counter-item">
+                    <span class="counter-number" data-count="24">0</span>
+                    <span class="counter-label">Équipes</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" data-count="6">0</span>
+                    <span class="counter-label">Groupes</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" data-count="52">0</span>
+                    <span class="counter-label">Matches</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filtres -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-5 mb-3 mb-md-0">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0" id="searchTeam" placeholder="Rechercher une équipe...">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="fas fa-users"></i>
+                        </span>
+                        <select class="form-select border-start-0" id="groupFilter">
+                            <option value="all">Tous les groupes</option>
+                            <option value="A">Groupe A</option>
+                            <option value="B">Groupe B</option>
+                            <option value="C">Groupe C</option>
+                            <option value="D">Groupe D</option>
+                            <option value="E">Groupe E</option>
+                            <option value="F">Groupe F</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="view-toggles">
+                        <button class="btn btn-outline-primary active" id="gridView">
+                            <i class="fas fa-th"></i> Grille
+                        </button>
+                        <button class="btn btn-outline-primary" id="groupView">
+                            <i class="fas fa-layer-group"></i> Groupes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Liste des équipes -->
+    <section class="teams-section">
+        <div class="container">
+            <div class="view-container">
+                <!-- Vue Grille -->
+                <div class="row" id="teamsContainer">
+                    <!-- Les équipes seront ajoutées dynamiquement ici via JavaScript -->
+                </div>
+                
+                <!-- Vue Groupes (caché par défaut) -->
+                <div class="groups-view" id="groupsContainer" style="display: none;">
+                    <div class="row">
+                        <!-- Les groupes seront ajoutés dynamiquement ici via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal pour les détails de l'équipe -->
+    <div class="modal fade" id="teamModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0 p-0">
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-3 bg-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div id="teamModalContent">
+                    <!-- Le contenu sera ajouté dynamiquement -->
+                </div>
+                <div class="modal-footer">
+                    <div class="team-navigation">
+                        <button class="btn btn-outline-primary" id="prevTeam">
+                            <i class="fas fa-chevron-left"></i> Équipe précédente
+                        </button>
+                        <button class="btn btn-outline-primary" id="nextTeam">
+                            Équipe suivante <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>CAN 2025 - Maroc</h5>
+                    <p>La plus grande compétition de football africain</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="equipes.js"></script>
+    <script>
+        // Gestion de la barre interactive
+        document.addEventListener('DOMContentLoaded', () => {
+            const interactiveItems = document.querySelectorAll('.interactive-item');
+            
+            // Gestion du clic sur le logo pour retourner à la page d'accueil
+            const logoContainer = document.getElementById('logo-container');
+            if (logoContainer) {
+                logoContainer.addEventListener('click', () => {
+                    window.location.href = 'index.html';
+                });
+                // Ajouter le style du curseur pointer
+                logoContainer.style.cursor = 'pointer';
+            }
+            
+            // Gestion du clic sur les éléments de la barre
+            interactiveItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const section = item.dataset.section;
+                    
+                    // Redirection vers les pages correspondantes
+                    switch(section) {
+                        case 'can2025-description':
+                        case 'maroc':
+                            window.location.href = `index.html#${section}`;
+                            break;
+                        case 'matches':
+                            window.location.href = 'matches.html';
+                            break;
+                        case 'groups':
+                            window.location.href = 'groupes.html';
+                            break;
+                        case 'videos':
+                            window.location.href = 'videos.html';
+                            break;
+                        case 'stats':
+                            window.location.href = 'stats.html';
+                            break;
+                        case 'teams':
+                            // Déjà sur la page des équipes
+                            break;
+                    }
+                });
+            });
+
+            // Animation du compteur
+            const counters = document.querySelectorAll('.counter-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const count = function(timestamp) {
+                    const current = parseInt(counter.innerText);
+                    if (current < target) {
+                        const increment = Math.ceil(target / 20);
+                        counter.innerText = Math.min(current + increment, target);
+                        requestAnimationFrame(count);
+                    }
+                };
+                requestAnimationFrame(count);
+            });
+
+            // Écouteurs d'événements pour le filtrage
+            document.getElementById('searchTeam').addEventListener('input', filterTeams);
+            document.getElementById('groupFilter').addEventListener('change', filterTeams);
+
+            // Gestion des vues (grille/groupes)
+            const gridView = document.getElementById('gridView');
+            const groupView = document.getElementById('groupView');
+            const teamsContainer = document.getElementById('teamsContainer');
+            const groupsContainer = document.getElementById('groupsContainer');
+
+            gridView.addEventListener('click', () => {
+                gridView.classList.add('active');
+                groupView.classList.remove('active');
+                teamsContainer.style.display = 'flex';
+                groupsContainer.style.display = 'none';
+            });
+
+            groupView.addEventListener('click', () => {
+                groupView.classList.add('active');
+                gridView.classList.remove('active');
+                teamsContainer.style.display = 'none';
+                groupsContainer.style.display = 'block';
+                
+                // Générer l'affichage par groupes s'il est vide
+                if (groupsContainer.querySelector('.group-card') === null) {
+                    generateGroupsView();
+                }
+            });
+
+            // Fonction pour générer la vue par groupes (simplifiée)
+            function generateGroupsView() {
+                const groups = {A: [], B: [], C: [], D: [], E: [], F: []};
+                
+                // Regrouper les équipes par groupe
+                teams.forEach(team => {
+                    if (groups[team.group]) {
+                        groups[team.group].push(team);
+                    }
+                });
+                
+                // Vider le conteneur
+                groupsContainer.innerHTML = '<div class="row"></div>';
+                const groupsRow = groupsContainer.querySelector('.row');
+                
+                // Créer les cartes de groupe (2 par ligne)
+                Object.keys(groups).forEach(groupKey => {
+                    const groupTeams = groups[groupKey];
+                    const groupCard = document.createElement('div');
+                    groupCard.className = 'col-md-6 mb-4';
+                    
+                    let groupContent = `
+                        <div class="group-card">
+                            <div class="group-header">
+                                <h3>Groupe ${groupKey}</h3>
+                            </div>
+                            <div class="group-teams">
+                    `;
+                    
+                    groupTeams.forEach(team => {
+                        groupContent += `
+                            <div class="group-team-item" data-team-id="${team.id}">
+                                <div class="team-flag">
+                                    <img src="${team.flag}" alt="${team.name}" width="50" height="35">
+                                </div>
+                                <div class="team-name">${team.name}</div>
+                            </div>
+                        `;
+                    });
+                    
+                    groupContent += `
+                            </div>
+                        </div>
+                    `;
+                    
+                    groupCard.innerHTML = groupContent;
+                    groupsRow.appendChild(groupCard);
+                });
+                
+                // Ajouter le message et le bouton pour plus de détails
+                const detailsMessage = document.createElement('div');
+                detailsMessage.className = 'col-12 text-center mt-4 mb-5 groups-more-details';
+                detailsMessage.innerHTML = `
+                    <div class="more-details-container">
+                        <p>Pour plus de détails sur les groupes, les classements et les statistiques</p>
+                        <a href="groupes.html" class="btn btn-primary more-details-btn">
+                            <i class="fas fa-users me-2"></i>Consulter la page Groupes
+                        </a>
+                    </div>
+                `;
+                groupsRow.appendChild(detailsMessage);
+                
+                // Ajouter les écouteurs d'événements pour les équipes dans la vue groupes
+                document.querySelectorAll('.group-team-item').forEach(teamItem => {
+                    teamItem.addEventListener('click', () => {
+                        const teamId = parseInt(teamItem.dataset.teamId);
+                        const team = teams.find(t => t.id === teamId);
+                        if (team) {
+                            document.getElementById('teamModalContent').innerHTML = createModalContent(team);
+                            currentTeamId = teamId; // Mettre à jour l'ID de l'équipe actuelle
+                            const modal = new bootstrap.Modal(document.getElementById('teamModal'));
+                            modal.show();
+                        }
+                    });
+                });
+            }
+
+            // Navigation entre les équipes dans le modal
+            const prevTeamBtn = document.getElementById('prevTeam');
+            const nextTeamBtn = document.getElementById('nextTeam');
+            let currentTeamId = 0;
+
+            prevTeamBtn.addEventListener('click', () => {
+                navigateTeam(-1);
+            });
+
+            nextTeamBtn.addEventListener('click', () => {
+                navigateTeam(1);
+            });
+
+            function navigateTeam(direction) {
+                if (currentTeamId === 0) return;
+                
+                let newIndex = teams.findIndex(t => t.id === currentTeamId) + direction;
+                
+                // Gérer le bouclage
+                if (newIndex < 0) newIndex = teams.length - 1;
+                if (newIndex >= teams.length) newIndex = 0;
+                
+                const newTeam = teams[newIndex];
+                currentTeamId = newTeam.id;
+                
+                // Mettre à jour le contenu du modal
+                document.getElementById('teamModalContent').innerHTML = createModalContent(newTeam);
+                console.log('Navigation vers équipe:', newTeam.name, 'ID:', newTeam.id);
+            }
+
+            // Mise à jour de l'ouverture du modal pour définir l'équipe actuelle
+            const teamModal = document.getElementById('teamModal');
+            
+            // Écouteur pour les cartes d'équipe dans la vue grille
+            document.addEventListener('click', function(e) {
+                const teamCard = e.target.closest('.team-card');
+                if (teamCard) {
+                    const teamId = parseInt(teamCard.dataset.teamId);
+                    currentTeamId = teamId;
+                }
+            });
+            
+            // Mise à jour sur l'affichage du modal
+            teamModal.addEventListener('shown.bs.modal', (event) => {
+                console.log('Modal shown, current team ID:', currentTeamId);
+            });
+        });
+    </script>
+</body>
+</html>
