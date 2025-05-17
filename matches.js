@@ -43,8 +43,8 @@ const matchData = [
     tour: 'Phase de groupes - Groupes A et B',
     matches: [
       { teams: 'Mali vs Zambie', time: '15:30', stadium: 'STADE MOHAMMED V CASABLANCA' },
-      { teams: 'Afrique du Sud vs Angola', time: '20:30', stadium: 'GRAND STADE DE MARRAKECH MARRAKECH' },
-      { teams: 'Égypte vs Zimbabwe', time: '18:00', stadium: 'GRAND STADE D\'AGADIR' }
+      { teams: 'Égypte vs Zimbabwe', time: '18:00', stadium: 'GRAND STADE D\'AGADIR' },
+      { teams: 'Afrique du Sud vs Angola', time: '20:30', stadium: 'GRAND STADE DE MARRAKECH MARRAKECH' }
     ]
   },
   {
@@ -54,8 +54,8 @@ const matchData = [
     matches: [
       { teams: 'Nigeria vs Tanzanie', time: '13:00', stadium: 'COMPLEXE SPORTIF DE FES' },
       { teams: 'Tunisie vs Ouganda', time: '15:30', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' },
-      { teams: 'Rép. Dém. Congo vs Bénin', time: '20:30', stadium: 'STADE EL BARID RABAT 3' },
-      { teams: 'Sénégal vs Botswana', time: '18:00', stadium: 'GRAND STADE DE TANGER TANGIER' }
+      { teams: 'Sénégal vs Botswana', time: '18:00', stadium: 'GRAND STADE DE TANGER TANGIER' },
+      { teams: 'Rép. Dém. Congo vs Bénin', time: '20:30', stadium: 'STADE EL BARID RABAT 3' }
     ]
   },
   {
@@ -65,8 +65,8 @@ const matchData = [
     matches: [
       { teams: 'Algérie vs Soudan', time: '13:00', stadium: 'COMPLEXE SPORTIF PRINCE HÉRITIER MOULAY EL HASSAN RABAT 2' },
       { teams: 'Burkina Faso vs Guinée Équatoriale', time: '15:30', stadium: 'STADE MOHAMMED V CASABLANCA' },
-      { teams: 'Cameroun vs Gabon', time: '20:30', stadium: 'GRAND STADE DE MARRAKECH MARRAKECH' },
-      { teams: 'Côte d\'Ivoire vs Mozambique', time: '18:00', stadium: 'GRAND STADE D\'AGADIR' }
+      { teams: 'Côte d\'Ivoire vs Mozambique', time: '18:00', stadium: 'GRAND STADE D\'AGADIR' },
+      { teams: 'Cameroun vs Gabon', time: '20:30', stadium: 'GRAND STADE DE MARRAKECH MARRAKECH' }
     ]
   },
   {
@@ -76,8 +76,8 @@ const matchData = [
     matches: [
       { teams: 'Maroc vs Mali', time: '13:00', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' },
       { teams: 'Zambie vs Comores', time: '15:30', stadium: 'STADE MOHAMMED V CASABLANCA' },
-      { teams: 'Angola vs Zimbabwe', time: '20:30', stadium: 'GRAND STADE DE MARRAKECH' },
-      { teams: 'Égypte vs Afrique du Sud', time: '18:00', stadium: 'GRAND STADE D\'AGADIR' }
+      { teams: 'Égypte vs Afrique du Sud', time: '18:00', stadium: 'GRAND STADE D\'AGADIR' },
+      { teams: 'Angola vs Zimbabwe', time: '20:30', stadium: 'GRAND STADE DE MARRAKECH' }
     ]
   },
   {
@@ -87,8 +87,8 @@ const matchData = [
     matches: [
       { teams: 'Nigeria vs Tunisie', time: '13:00', stadium: 'COMPLEXE SPORTIF DE FES' },
       { teams: 'Ouganda vs Tanzanie', time: '13:30', stadium: 'STADE EL BARID RABAT 3' },
-      { teams: 'Bénin vs Botswana', time: '20:30', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' },
-      { teams: 'Sénégal vs Rép. Dém. Congo', time: '18:00', stadium: 'GRAND STADE DE TANGER TANGIER' }
+      { teams: 'Sénégal vs Rép. Dém. Congo', time: '18:00', stadium: 'GRAND STADE DE TANGER TANGIER' },
+      { teams: 'Bénin vs Botswana', time: '20:30', stadium: 'STADE ANNEXE OLYMPIQUE COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 4' }
     ]
   },
   {
@@ -219,6 +219,9 @@ const matchData = [
 /* Calcul de l'offset pour le défilement (hauteur des barres + padding) */
 const SCROLL_OFFSET = 220; // 120px (barre interactive) + 80px (barre calendrier) + 20px padding
 
+/* Variable pour suivre le numéro global des matches */
+let globalMatchNumber = 1;
+
 /* Fonction utilitaire pour formater les équipes et obtenir leurs codes de pays */
 function formatTeams(teamsString) {
   const [team1, team2] = teamsString.split(' vs '); // Sépare les noms des équipes
@@ -291,7 +294,7 @@ matchData.forEach(day => {
   `;
   
   // Création des cartes de match
-  day.matches.forEach((match, index) => {
+  day.matches.forEach((match) => {
     const teams = formatTeams(match.teams);
     innerHTML += `
       <div class="card mb-3 match-card">
@@ -299,7 +302,7 @@ matchData.forEach(day => {
           <div class="row align-items-center">
             <!-- Numéro du match -->
             <div class="col-auto">
-              <span class="badge bg-primary">Match ${index + 1}</span>
+              <span class="badge bg-primary">Match ${globalMatchNumber}</span>
             </div>
             <!-- Affichage des équipes avec leurs drapeaux -->
             <div class="col">
@@ -327,6 +330,7 @@ matchData.forEach(day => {
         </div>
       </div>
     `;
+    globalMatchNumber++; // Incrémente le numéro global du match
   });
 
   matchSection.innerHTML = innerHTML;
