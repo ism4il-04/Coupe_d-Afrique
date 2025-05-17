@@ -392,17 +392,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gestion de la barre interactive
     const interactiveItems = document.querySelectorAll('.interactive-item');
 
-    // Fonction pour mettre à jour l'élément actif
-    function updateActiveItem(targetId) {
-        interactiveItems.forEach(item => {
-            if (item.dataset.section === targetId) {
-                item.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
-        });
-    }
-
     // Gestion du clic sur les éléments de la barre
     interactiveItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -411,13 +400,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Navigation vers les différentes pages
             switch(targetId) {
                 case 'can2025-description':
-                    window.location.href = 'index.html#can2025-description';
+                    window.location.href = 'index.html';
                     break;
                 case 'maroc':
                     window.location.href = 'index.html#maroc';
                     break;
                 case 'matches':
-                    // Déjà sur la page matches
+                    // Déjà sur la page matches, ne rien faire
                     break;
                 case 'groups':
                     window.location.href = 'groupes.html';
@@ -436,5 +425,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialiser le calendrier
-    initializeCalendar();
+    updateActiveDate();
 });
