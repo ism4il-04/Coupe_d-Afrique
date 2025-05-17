@@ -13,6 +13,73 @@ document.addEventListener('DOMContentLoaded', function() {
         { ville: 'Fès', stades: ['Stade de Fès'] }
     ];
 
+    // Fonctions pour toutes les modals
+    window.openPriceModal = function() {
+        document.getElementById('priceModal').style.display = 'flex';
+    }
+
+    window.closePriceModal = function() {
+        document.getElementById('priceModal').style.display = 'none';
+    }
+
+    window.openFesPriceModal = function() {
+        document.getElementById('fesPriceModal').style.display = 'flex';
+    }
+
+    window.closeFesPriceModal = function() {
+        document.getElementById('fesPriceModal').style.display = 'none';
+    }
+
+    window.openTangerPriceModal = function() {
+        document.getElementById('tangerPriceModal').style.display = 'flex';
+    }
+
+    window.closeTangerPriceModal = function() {
+        document.getElementById('tangerPriceModal').style.display = 'none';
+    }
+
+    window.openMarrakechPriceModal = function() {
+        document.getElementById('marrakechPriceModal').style.display = 'flex';
+    }
+
+    window.closeMarrakechPriceModal = function() {
+        document.getElementById('marrakechPriceModal').style.display = 'none';
+    }
+
+    // Fonctions pour les modales des stades de Rabat
+    window.openMoulayAbdellahModal = function() {
+        document.getElementById('moulayAbdellahModal').style.display = 'flex';
+    }
+
+    window.closeMoulayAbdellahModal = function() {
+        document.getElementById('moulayAbdellahModal').style.display = 'none';
+    }
+
+    window.openMoulayHassanModal = function() {
+        document.getElementById('moulayHassanModal').style.display = 'flex';
+    }
+
+    window.closeMoulayHassanModal = function() {
+        document.getElementById('moulayHassanModal').style.display = 'none';
+    }
+
+    window.openAlBaridModal = function() {
+        document.getElementById('alBaridModal').style.display = 'flex';
+    }
+
+    window.closeAlBaridModal = function() {
+        document.getElementById('alBaridModal').style.display = 'none';
+    }
+
+    // Fonction pour la modale du stade d'Agadir
+    window.openAdrarPriceModal = function() {
+        document.getElementById('adrarPriceModal').style.display = 'flex';
+    }
+
+    window.closeAdrarPriceModal = function() {
+        document.getElementById('adrarPriceModal').style.display = 'none';
+    }
+
     function highlightText(element, searchText) {
         const html = element.innerHTML;
         const regex = new RegExp(searchText, 'gi');
@@ -22,12 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function resetHighlights() {
         document.querySelectorAll('.highlight').forEach(el => {
             const parent = el.parentNode;
-            parent.textContent = parent.textContent; // Supprime les balises span mais garde le texte
+            parent.textContent = parent.textContent;
         });
     }
 
     function searchStades(query) {
-        query = query.toLowerCase();
+        query = query.toLowerCase().trim();
         searchResults.innerHTML = '';
         resetHighlights();
         
@@ -39,7 +106,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const matches = [];
         
         stadesData.forEach(cityData => {
-            if (cityData.ville.toLowerCase().includes(query)) {
+            const villeLower = cityData.ville.toLowerCase();
+            // Ajout de conditions spéciales pour Fès
+            if (villeLower.includes(query) || 
+                (query === 'fes' && villeLower === 'fès') || 
+                (query === 'fès' && villeLower === 'fès')) {
                 matches.push({
                     text: cityData.ville,
                     type: 'ville'
@@ -47,7 +118,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             cityData.stades.forEach(stade => {
-                if (stade.toLowerCase().includes(query)) {
+                const stadeLower = stade.toLowerCase();
+                if (stadeLower.includes(query) || 
+                    (query === 'fes' && stadeLower.includes('fès')) || 
+                    (query === 'fès' && stadeLower.includes('fès'))) {
                     matches.push({
                         text: stade,
                         ville: cityData.ville,
@@ -75,28 +149,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     );
 
                     if (stadeSection) {
-                        // Réinitialise toutes les sections
                         document.querySelectorAll('.stade-info').forEach(section => {
                             section.style.backgroundColor = 'white';
                             section.style.transform = 'scale(1)';
                         });
 
-                        // Met en évidence la section trouvée
                         stadeSection.style.backgroundColor = '#fff3cd';
                         stadeSection.style.transform = 'scale(1.02)';
                         
-                        // Ajoute la mise en surbrillance du texte recherché
                         resetHighlights();
                         const textElements = stadeSection.querySelectorAll('h2, h3, p, li');
                         textElements.forEach(el => highlightText(el, match.text));
 
-                        // Défilement doux vers la section
                         stadeSection.scrollIntoView({ 
                             behavior: 'smooth',
                             block: 'center'
                         });
 
-                        // Réinitialise après un délai
                         setTimeout(() => {
                             stadeSection.style.backgroundColor = 'white';
                             stadeSection.style.transform = 'scale(1)';
@@ -124,7 +193,6 @@ document.addEventListener('DOMContentLoaded', function() {
         searchStades(searchInput.value);
     });
 
-    // Fermer les résultats quand on clique ailleurs
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.search-container')) {
             searchResults.style.display = 'none';
@@ -132,39 +200,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Polyfill pour :contains
-    jQuery.expr[':'].contains = function(a, i, m) {
-        return jQuery(a).text().toUpperCase()
-            .indexOf(m[3].toUpperCase()) >= 0;
-    };
+    // Mise à jour de la fonction de fermeture des modales
+    window.onclick = function(event) {
+        const modals = [
+            document.getElementById('priceModal'),
+            document.getElementById('fesPriceModal'),
+            document.getElementById('tangerPriceModal'),
+            document.getElementById('marrakechPriceModal'),
+            document.getElementById('moulayAbdellahModal'),
+            document.getElementById('moulayHassanModal'),
+            document.getElementById('alBaridModal'),
+            document.getElementById('adrarPriceModal')
+        ];
+        
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
 });
-function openPriceModal() {
-    document.getElementById('priceModal').style.display = 'flex';
-}
-
-function closePriceModal() {
-    document.getElementById('priceModal').style.display = 'none';
-}
-
-// Fermer la modal si on clique en dehors
-window.onclick = function(event) {
-    const modal = document.getElementById('priceModal');
-    if (event.target == modal) {
-        modal.style.display = 'none';
-    }
-}
-function openFesPriceModal() {
-    document.getElementById('fesPriceModal').style.display = 'flex';
-}
-
-function closeFesPriceModal() {
-    document.getElementById('fesPriceModal').style.display = 'none';
-}
-
-// Fermer la modal si on clique en dehors
-window.onclick = function(event) {
-    const fesModal = document.getElementById('fesPriceModal');
-    if (event.target == fesModal) {
-        fesModal.style.display = 'none';
-    }
-}
