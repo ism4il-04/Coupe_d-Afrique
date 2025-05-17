@@ -1,31 +1,37 @@
+// Attendre que le document soit complètement chargé avant d'exécuter le code
 document.addEventListener('DOMContentLoaded', function() {
+    // Récupération des éléments de recherche du DOM
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
     const searchResults = document.getElementById('searchResults');
     
-    // Add smooth hover effect for image containers
+    // Ajout d'un effet de survol fluide pour les conteneurs d'images
     document.querySelectorAll('.image-container').forEach(container => {
+        // Gestion du mouvement de la souris sur l'image
         container.addEventListener('mousemove', (e) => {
+            // Récupération des dimensions du conteneur
             const rect = container.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            // Calculate distance from center (0 to 1)
+            // Calcul de la distance par rapport au centre (de 0 à 1)
             const distanceX = (x - centerX) / centerX;
             const distanceY = (y - centerY) / centerY;
             
-            // Apply subtle tilt effect
+            // Application de l'effet de rotation 3D subtil
             const tiltX = distanceY * 3;
             const tiltY = -distanceX * 3;
             
+            // Application de la transformation à l'image
             const image = container.querySelector('.clickable-image');
             if (image) {
                 image.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.02)`;
             }
         });
         
+        // Réinitialisation de la transformation quand la souris quitte l'image
         container.addEventListener('mouseleave', () => {
             const image = container.querySelector('.clickable-image');
             if (image) {
@@ -34,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Données des stades avec coordonnées GPS
+    // Base de données des stades avec leurs informations
     const stadesData = [
         { 
             ville: 'Rabat',
@@ -106,49 +112,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
+    // Stockage des instances de cartes
     let maps = {};
 
-    // Fonction pour initialiser la carte OpenStreetMap
+    // Fonction pour initialiser une carte OpenStreetMap
     function initMap(coords, elementId) {
-        console.log('Initializing map for:', elementId);
+        console.log('Initialisation de la carte pour:', elementId);
         
-        // Wait for the modal to be fully visible
+        // Attendre que la modale soit visible
         setTimeout(() => {
-            // Clear existing map if any
+            // Nettoyer la carte existante si elle existe
             if (maps[elementId]) {
                 maps[elementId].remove();
             }
 
+            // Vérifier si le conteneur existe
             const container = document.getElementById(elementId);
             if (!container) {
-                console.error('Map container not found:', elementId);
-            return;
-        }
+                console.error('Conteneur de carte non trouvé:', elementId);
+                return;
+            }
 
             try {
-                // Initialize the map
+                // Initialiser la nouvelle carte
                 const map = L.map(elementId).setView([coords.lat, coords.lng], 15);
                 maps[elementId] = map;
 
-                // Add OpenStreetMap tiles
+                // Ajouter les tuiles OpenStreetMap
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     maxZoom: 19,
                     attribution: '© OpenStreetMap contributors'
                 }).addTo(map);
 
-                // Add marker
+                // Ajouter un marqueur sur la position du stade
                 L.marker([coords.lat, coords.lng]).addTo(map);
 
-                // Force a resize to ensure the map renders correctly
+                // Forcer une mise à jour pour assurer le bon rendu
                 map.invalidateSize();
-                console.log('Map initialized successfully for:', elementId);
+                console.log('Carte initialisée avec succès pour:', elementId);
             } catch (error) {
-                console.error('Error initializing map:', error);
+                console.error('Erreur lors de l\'initialisation de la carte:', error);
             }
         }, 100);
     }
 
-    // Fonctions pour toutes les modals
+    // Fonctions d'ouverture et fermeture des modales pour chaque stade
     window.openPriceModal = function() {
         const modal = document.getElementById('priceModal');
         modal.style.display = 'flex';
@@ -239,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('olympiqueModal').style.display = 'none';
     }
 
-    // Mise à jour de la fonction de fermeture des modales
+    // Fermeture des modales en cliquant à l'extérieur
     window.onclick = function(event) {
         const modals = [
             document.getElementById('priceModal'),
@@ -260,43 +268,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Toggle stadium view function
+    // Fonction pour basculer l'affichage du plan du stade
     window.toggleStadiumView = function(sectionId) {
+        // Récupération de la section du stade
         const section = document.getElementById(sectionId);
+        // Si la section est cachée, l'afficher et faire défiler jusqu'à elle
         if (section.style.display === 'none') {
             section.style.display = 'block';
             section.scrollIntoView({ behavior: 'smooth' });
         } else {
+            // Sinon, cacher la section
             section.style.display = 'none';
         }
     }
 
-    // Fonction pour normaliser les chaînes (enlever les accents)
+    // Fonction pour normaliser les chaînes (retirer les accents et mettre en minuscules)
     function normalizeString(str) {
         return str.normalize("NFD")
-                 .replace(/[\u0300-\u036f]/g, "")
-                 .toLowerCase();
+                 .replace(/[\u0300-\u036f]/g, "") // Supprime les accents
+                 .toLowerCase(); // Convertit en minuscules
     }
 
-    // Enhanced search functionality with city sections
+    // Fonction de recherche améliorée avec sections de villes
     function searchStades(searchTerm) {
+        // Réinitialisation et affichage des résultats
         searchResults.innerHTML = '';
         searchResults.style.display = 'block';
         
         const results = [];
-        const cityResults = new Set();
+        const cityResults = new Set(); // Ensemble pour stocker les villes uniques
         const normalizedSearchTerm = normalizeString(searchTerm);
         
+        // Parcours des données des stades
         stadesData.forEach(city => {
-            // Search in city name
+            // Recherche dans le nom de la ville
             const normalizedCityName = normalizeString(city.ville);
             const cityMatch = normalizedCityName.includes(normalizedSearchTerm);
             if (cityMatch) {
                 cityResults.add(city.ville);
             }
             
+            // Recherche dans les stades de chaque ville
             city.stades.forEach(stade => {
-                // Search in stadium name and details
                 const normalizedStadeName = normalizeString(stade.nom);
                 const normalizedAddress = normalizeString(stade.adresse);
                 if (cityMatch || 
@@ -310,21 +323,24 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Display city quick links if found
+        // Affichage des liens rapides vers les villes si trouvées
         if (cityResults.size > 0) {
             const citySection = document.createElement('div');
             citySection.className = 'city-section-results';
             citySection.innerHTML = '<h4>Villes</h4>';
             
+            // Création des éléments cliquables pour chaque ville
             cityResults.forEach(city => {
                 const cityDiv = document.createElement('div');
                 cityDiv.className = 'city-result';
                 cityDiv.innerHTML = `<i class="fas fa-city"></i>${city}`;
+                
+                // Ajout du gestionnaire de clic pour faire défiler jusqu'à la section de la ville
                 cityDiv.onclick = () => {
-                    // Scroll to city section using normalized name for class
                     const normalizedClassName = normalizeString(city).replace(/\s+/g, '-');
                     const cityElement = document.querySelector(`.${normalizedClassName}-section`);
                     if (cityElement) {
+                        // Animation de défilement et mise en surbrillance
                         cityElement.scrollIntoView({ behavior: 'smooth' });
                         cityElement.classList.add('highlight-section');
                         setTimeout(() => {
@@ -340,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
             searchResults.appendChild(citySection);
         }
 
-        // Display stadium results
+        // Affichage des résultats des stades
         if (results.length > 0) {
             const stadiumSection = document.createElement('div');
             stadiumSection.className = 'stadium-section-results';
@@ -348,12 +364,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 stadiumSection.innerHTML = '<h4>Stades</h4>';
             }
             
+            // Création des éléments pour chaque stade trouvé
             results.forEach(result => {
                 const resultDiv = document.createElement('div');
                 resultDiv.className = 'search-result-item';
                 
+                // Obtention du nom de la fonction modale pour ce stade
                 const modalFunctionName = getModalFunctionName(result.stade.nom);
                 
+                // Création du contenu HTML pour le résultat
                 resultDiv.innerHTML = `
                     <div class="search-result-content" onclick="${modalFunctionName}()">
                         <div class="search-result-icon">
@@ -368,18 +387,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `;
 
-                // Ajouter un gestionnaire de clic pour faire défiler jusqu'à la section du stade
+                // Gestionnaire de clic pour faire défiler jusqu'à la section du stade
                 resultDiv.onclick = () => {
                     const citySection = document.querySelector(`.${result.ville.toLowerCase()}-section`);
                     if (citySection) {
                         citySection.scrollIntoView({ behavior: 'smooth' });
                         citySection.classList.add('highlight-section');
-                    setTimeout(() => {
+                        setTimeout(() => {
                             citySection.classList.remove('highlight-section');
-                    }, 2000);
+                        }, 2000);
                     }
                     searchResults.style.display = 'none';
-                    searchInput.value = ''; // Clear search input
+                    searchInput.value = '';
                 };
 
                 stadiumSection.appendChild(resultDiv);
@@ -387,12 +406,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             searchResults.appendChild(stadiumSection);
         } else if (cityResults.size === 0) {
+            // Affichage du message si aucun résultat trouvé
             searchResults.innerHTML = '<p class="no-results">Aucun résultat trouvé</p>';
         }
     }
 
-    // Helper function to get the modal function name
+    // Fonction pour obtenir le nom de la fonction modale correspondante à chaque stade
     function getModalFunctionName(stadeName) {
+        // Mapping des noms de stades vers leurs fonctions modales respectives
         const modalFunctions = {
             'Stade Prince Moulay Abdellah': 'openMoulayAbdellahModal',
             'Stade Moulay Hassan': 'openMoulayHassanModal',
@@ -407,7 +428,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return modalFunctions[stadeName] || 'alert("Modal non disponible")';
     }
 
-    // Event listeners for search
+    // Écouteurs d'événements pour la recherche
     searchButton.addEventListener('click', () => {
         const searchTerm = searchInput.value.trim();
         if (searchTerm) {
@@ -415,6 +436,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Gestion de la recherche avec la touche Entrée
     searchInput.addEventListener('keyup', (e) => {
         const searchTerm = searchInput.value.trim();
         if (e.key === 'Enter' && searchTerm) {
@@ -422,7 +444,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Close search results when clicking outside
+    // Fermeture des résultats de recherche lors d'un clic à l'extérieur
     document.addEventListener('click', (e) => {
         if (!searchResults.contains(e.target) && 
             e.target !== searchInput && 
@@ -431,15 +453,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add jQuery extension for case-insensitive contains
+    // Extension jQuery pour la recherche insensible à la casse
     jQuery.expr[':'].contains = function(a, i, m) {
         return jQuery(a).text().toLowerCase()
             .indexOf(m[3].toLowerCase()) >= 0;
     };
 
-    // Ajout de l'événement input pour la recherche en temps réel
+    // Recherche en temps réel pendant la saisie
     searchInput.addEventListener('input', function() {
         const searchTerm = this.value.trim();
+        // Afficher les résultats si au moins 2 caractères sont saisis
         if (searchTerm.length >= 2) {
             searchStades(searchTerm);
             searchResults.style.display = 'block';
@@ -448,15 +471,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Gestion du focus sur l'input
+    // Gestion du focus sur le champ de recherche
     searchInput.addEventListener('focus', function() {
         const searchTerm = this.value.trim();
+        // Afficher les résultats existants si la recherche contient au moins 2 caractères
         if (searchTerm.length >= 2) {
             searchResults.style.display = 'block';
         }
     });
 
-    // Maintenir les résultats visibles lors du clic dans la zone de résultats
+    // Empêcher la fermeture des résultats lors d'un clic dans la zone de résultats
     searchResults.addEventListener('click', function(e) {
         e.stopPropagation();
     });
