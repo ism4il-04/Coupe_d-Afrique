@@ -1,92 +1,140 @@
 <!DOCTYPE html>
+<!-- Déclare le type de document : HTML5 -->
+
 <html lang="en">
+<!-- Début du document HTML, avec la langue définie sur "en" (anglais) -->
+
 <head>
     <meta charset="UTF-8">
+    <!-- Définit l'encodage des caractères à UTF-8 pour supporter les caractères spéciaux -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Permet une mise en page responsive sur les différents appareils (mobiles, tablettes...) -->
+
     <title>CAN 2025 - Matches</title>
+    <!-- Titre de l'onglet dans le navigateur -->
+
     <link rel="stylesheet" href="bootstrap-5.3.5-dist/css/bootstrap.min.css"/>
+    <!-- Lien vers la feuille de style Bootstrap pour utiliser ses composants -->
+
     <link rel="stylesheet" href="matches.css">
+    <!-- Lien vers une feuille de style personnalisée pour la page des matchs -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Lien vers la bibliothèque d'icônes Font Awesome version 6.0.0 -->
 </head>
+
 <body>
- 
-<!-- Barre Interactive -->
+
+<!-- Début de la barre interactive en haut de la page -->
 <div class="interactive-bar">
     <div class="interactive-content">
+        <!-- Conteneur pour le logo de la CAN -->
         <div id="logo-container">
             <i><img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180" ></i>
         </div>
+
+        <!-- Bouton d'accueil -->
         <div class="interactive-item" data-section="can2025-description">
             <i class="fas fa-home home-icon"></i>
             <span>Accueil</span>
         </div>
+
+        <!-- Bouton "Maroc" -->
         <div class="interactive-item" data-section="maroc">
             <i class="fas fa-map-marker-alt"></i>
             <span>Maroc</span>
         </div>
-        <div class="interactive-item active " data-section="matches">
+
+        <!-- Bouton "Matches" (actif) -->
+        <div class="interactive-item active" data-section="matches">
             <i class="fas fa-futbol"></i>
             <span>Matches</span>
         </div>
+
+        <!-- Bouton "Groupes" -->
         <div class="interactive-item" data-section="groups">
             <i class="fas fa-users"></i>
             <span>Groupes</span>
         </div>
-        <div class="interactive-item " data-section="videos">
+
+        <!-- Bouton "Vidéos" -->
+        <div class="interactive-item" data-section="videos">
             <i class="fas fa-play-circle"></i>
             <span>Vidéos</span>
         </div>
+
+        <!-- Bouton "Stades et villes hôtes" -->
         <div class="interactive-item" data-section="stats">
             <i class="fas fa-map-marked-alt"></i>
             <span>Stades et villes hôtes</span>
         </div>
+
+        <!-- Bouton "Équipes" -->
         <div class="interactive-item" data-section="teams">
             <i class="fas fa-flag"></i>
             <span>Équipes</span>
         </div>
     </div>
 </div>
-    <!-- Barre Calendrier -->
-    <div class="calendar-bar d-flex align-items-center">
-        <div class="calendar-nav" onclick="scrollCalendar(-1)">&#8592;</div>
-        <div id="calendarDates" class="d-flex flex-nowrap overflow-auto w-100"></div>
-        <div class="calendar-nav" onclick="scrollCalendar(1)">&#8594;</div>
+
+<!-- Barre de calendrier (pour naviguer entre les dates de match) -->
+<div class="calendar-bar d-flex align-items-center">
+    <div class="calendar-nav" onclick="scrollCalendar(-1)">&#8592;</div>
+    <!-- Bouton flèche gauche pour faire défiler vers la gauche -->
+
+    <div id="calendarDates" class="d-flex flex-nowrap overflow-auto w-100"></div>
+    <!-- Conteneur pour les dates de match qui seront générées dynamiquement -->
+
+    <div class="calendar-nav" onclick="scrollCalendar(1)">&#8594;</div>
+    <!-- Bouton flèche droite pour faire défiler vers la droite -->
+</div>
+
+<!-- Inclusion du script Bootstrap -->
+<script type="text/javascript" src="bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Inclusion du fichier JavaScript personnalisé pour les matchs -->
+<script type="text/javascript" src="matches.js"></script>
+
+<!-- Pied de page -->
+<footer class="footer">
+    <div class="footer-content">
+        <!-- Section CAN 2025 -->
+        <div class="footer-section">
+            <h3>CAN 2025</h3>
+            <p>Coupe d'Afrique des Nations<br>Maroc</p>
+        </div>
+
+        <!-- Section réseaux sociaux -->
+        <div class="footer-section">
+            <h3>Suivez-nous</h3>
+            <div class="social-links">
+                <!-- Liens vers les réseaux sociaux officiels -->
+                <a href="https://www.facebook.com/TheAFCON"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/CAF_Online?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/caf_online?igsh=MXVvajljaXVlenFvaw=="><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- Liens rapides vers les autres pages -->
+        <div class="footer-section">
+            <h3>Liens rapides</h3>
+            <ul>
+                <li><a href="matches.html">Matches</a></li>
+                <li><a href="groupes.html">Groupes</a></li>
+                <li><a href="videos.html">Vidéos</a></li>
+                <li><a href="stades.html">Stades et villes hôtes</a></li>
+                <li><a href="equipes.html">Équipes</a></li>
+            </ul>
+        </div>
     </div>
 
-    <script type="text/javascript" src="bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="matches.js"></script>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>CAN 2025</h3>
-                <p>Coupe d'Afrique des Nations<br>Maroc</p>
-            </div>
-            <div class="footer-section">
-                <h3>Suivez-nous</h3>
-                <div class="social-links">  
-                    <a href="https://www.facebook.com/TheAFCON"><i class="fab fa-facebook"></i></a>
-                    <a href="https://x.com/CAF_Online?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/caf_online?igsh=MXVvajljaXVlenFvaw=="><i class="fab fa-instagram"></i></a>
-
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Liens rapides</h3>
-                <ul>
-                    <li><a href="matches.html">Matches</a></li>
-                    <li><a href="groupes.html">Groupes</a></li>
-                    <li><a href="videos.html">Vidéos</a></li>
-                    <li><a href="stades.html">Stades et villes hôtes</a></li>
-                    <li><a href="equipes.html">Équipes</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 CAN - Tous droits réservés</p>
-        </div>
-    </footer>
+    <!-- Bas du pied de page -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 CAN - Tous droits réservés</p>
+        <!-- Mention légale des droits d’auteur -->
+    </div>
+</footer>
 
 </body>
 </html>

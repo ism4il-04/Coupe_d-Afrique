@@ -135,32 +135,6 @@ body {
     border-color: #FF5252;
 }
 
-/* Style alternatif commenté (conservé comme référence) */
-/* .interactive-item {
-    color: rgb(202, 56, 56);
-    text-align: center;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.interactive-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-}
-
-.interactive-item i {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.interactive-item span {
-    font-size: 0.9rem;
-    display: block;
-} */
-
 /* Grande section en haut avec image de fond et titre */
 .teams-header {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Images/CAN.jpeg');
@@ -426,10 +400,7 @@ body {
     }
 }
 
-/* ===============================
-   MODAL DE DÉTAILS D'ÉQUIPE
-   ===============================
-   Style du popup qui apparaît quand on clique sur une équipe */
+/*Style du popup qui apparaît quand on clique sur une équipe */
 
 /* Disposition des joueurs clés */
 .key-players {
@@ -654,59 +625,66 @@ body {
     border-bottom: none;
 }
 
+/* Style pour chaque élément de statistique (ex. : nombre de victoires, buts, etc.) */
 .stat-item {
-    flex: 1;
-    text-align: center;
-    padding: 1.25rem;
-    background: white;
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
-    border-right: 1px solid #eee;
+    flex: 1; /* Chaque élément prend une part égale dans un conteneur flex */
+    text-align: center; /* Centrage du contenu */
+    padding: 1.25rem; /* Espacement intérieur */
+    background: white; /* Fond blanc */
+    border-radius: 0; /* Pas d’arrondi des coins */
+    box-shadow: none; /* Pas d’ombre */
+    border: none; /* Pas de bordure */
+    border-right: 1px solid #eee; /* Bordure droite fine et claire pour séparer les éléments */
 }
 
+/* Supprime la bordure droite pour le dernier élément (évite une ligne inutile à droite) */
 .stat-item:last-child {
     border-right: none;
 }
 
+/* Style de la valeur numérique dans la statistique (ex. : 10, 3 buts, etc.) */
 .stat-value {
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    margin-bottom: 0.25rem;
+    font-size: 2.25rem; /* Grande taille de police */
+    font-weight: 700; /* Police en gras */
+    color: var(--secondary-color); /* Couleur secondaire définie ailleurs */
+    margin-bottom: 0.25rem; /* Petit espace en dessous */
 }
 
+/* Style du libellé de la statistique (ex. : "buts", "matchs") */
 .stat-label {
-    color: #555;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    color: #555; /* Couleur gris foncé */
+    font-size: 0.7rem; /* Petite taille de police */
+    font-weight: 600; /* Police semi-gras */
+    text-transform: uppercase; /* Texte en majuscules */
+    letter-spacing: 0.5px; /* Espacement entre les lettres pour une meilleure lisibilité */
 }
 
-/* Effet de superposition du coach */
+/* Bloc représentant l'entraîneur de l’équipe */
 .team-coach {
-    text-align: center;
-    padding: 1.5rem;
-    background-color: var(--light-color);
-    border-radius: 12px;
-    margin-top: 1rem;
-    border: 1px solid var(--border-color);
+    text-align: center; /* Centrage du contenu */
+    padding: 1.5rem; /* Espacement intérieur généreux */
+    background-color: var(--light-color); /* Fond clair, variable CSS */
+    border-radius: 12px; /* Coins arrondis */
+    margin-top: 1rem; /* Espace au-dessus du bloc */
+    border: 1px solid var(--border-color); /* Bordure fine de couleur personnalisée */
 }
 
+/* Titre du bloc entraîneur (ex. : "Entraîneur") */
 .team-coach h4 {
-    color: var(--accent-color);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--accent-color); /* Couleur d'accentuation */
+    font-size: 0.9rem; /* Taille de police modérée */
+    margin-bottom: 0.5rem; /* Espace sous le titre */
+    text-transform: uppercase; /* Texte en majuscules */
+    letter-spacing: 1px; /* Espacement entre les lettres */
 }
 
+/* Nom de l'entraîneur */
 .team-coach p {
-    font-size: 1.4rem;
-    color: var(--secondary-color);
-    font-weight: 700;
+    font-size: 1.4rem; /* Grande taille pour le nom */
+    color: var(--secondary-color); /* Couleur secondaire */
+    font-weight: 700; /* Texte en gras */
 }
+
 
 /* Animation pour le modal */
 .modal.fade .modal-dialog {
@@ -924,25 +902,28 @@ body {
     flex-wrap: wrap;
 }
 
+/* Carte contenant les informations d’un groupe */
 .group-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    margin-bottom: 30px;
-    height: 100%;
+    background: white; /* Fond blanc */
+    border-radius: 15px; /* Coins arrondis */
+    overflow: hidden; /* Cache tout débordement */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Ombre portée douce */
+    transition: all 0.3s ease; /* Animation fluide pour tout changement */
+    margin-bottom: 30px; /* Marge inférieure entre cartes */
+    height: 100%; /* Hauteur à 100% du conteneur parent */
 }
 
+/* En-tête de la carte du groupe (nom du groupe) */
 .group-header {
-    background: var(--gradient-primary);
-    color: white;
-    padding: 1.5rem;
-    text-align: center;
+    background: var(--gradient-primary); /* Dégradé défini dans les variables CSS */
+    color: white; /* Texte blanc */
+    padding: 1.5rem; /* Espacement intérieur */
+    text-align: center; /* Centrage du texte */
     position: relative;
     overflow: hidden;
 }
 
+/* Motif SVG subtil dans l’arrière-plan de l’en-tête */
 .group-header::before {
     content: '';
     position: absolute;
@@ -950,119 +931,134 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml,<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><circle cx="3" cy="3" r="1.5" fill="white" fill-opacity="0.1"/></svg>');
+    background: url('data:image/svg+xml,<svg ...>'); /* Cercle blanc translucide */
     background-size: 30px 30px;
-    opacity: 0.3;
+    opacity: 0.3; /* Transparence faible */
 }
 
+/* Titre de l'en-tête du groupe */
 .group-header h3 {
     margin: 0;
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 1.8rem; /* Grande taille pour le nom du groupe */
+    font-weight: 700; /* Gras */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Légère ombre sur le texte */
     position: relative;
 }
 
+/* Conteneur des équipes dans le groupe */
 .group-teams {
-    padding: 1rem;
+    padding: 1rem; /* Espacement intérieur */
 }
 
+/* Élément représentant une équipe dans la liste */
 .group-team-item {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem;
-    border-bottom: 1px solid var(--border-color);
-    cursor: pointer;
-    transition: all 0.3s ease;
+    display: flex; /* Disposition en ligne */
+    align-items: center; /* Alignement vertical centré */
+    padding: 0.75rem; /* Espacement intérieur */
+    border-bottom: 1px solid var(--border-color); /* Ligne de séparation */
+    cursor: pointer; /* Curseur en forme de main au survol */
+    transition: all 0.3s ease; /* Animation fluide */
     background: transparent;
     border-radius: 8px;
 }
 
+/* Retire la bordure inférieure pour la dernière équipe */
 .group-team-item:last-child {
     border-bottom: none;
 }
 
+/* Effets au survol d’une équipe */
 .group-team-item:hover {
-    background: rgba(232, 179, 65, 0.1);
-    transform: translateX(10px);
-    border-bottom-color: transparent;
+    background: rgba(232, 179, 65, 0.1); /* Légère coloration de fond */
+    transform: translateX(10px); /* Décalage vers la droite */
+    border-bottom-color: transparent; /* Supprime la bordure */
 }
 
+/* Drapeau de l’équipe */
 .team-flag {
     width: 50px;
     height: 35px;
     overflow: hidden;
     border-radius: 5px;
-    margin-right: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 1rem; /* Espacement à droite du drapeau */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
     transition: all 0.3s ease;
-    transform: perspective(300px) rotateY(0);
+    transform: perspective(300px) rotateY(0); /* Préparation à l’effet 3D */
 }
 
+/* Image dans le drapeau : occupe toute la place sans déformation */
 .team-flag img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+/* Effet 3D sur le drapeau au survol */
 .group-team-item:hover .team-flag {
-    transform: perspective(300px) rotateY(10deg);
-    box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.2);
+    transform: perspective(300px) rotateY(10deg); /* Rotation 3D */
+    box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
 }
 
+/* Nom de l’équipe */
 .group-team-item .team-name {
-    flex-grow: 1;
-    font-weight: 600;
-    color: var(--secondary-color);
+    flex-grow: 1; /* Prend toute la largeur restante */
+    font-weight: 600; /* Texte en semi-gras */
+    color: var(--secondary-color); /* Couleur secondaire */
     transition: all 0.3s ease;
 }
 
+/* Effet sur le nom de l’équipe au survol */
 .group-team-item:hover .team-name {
-    color: var(--accent-color);
-    transform: translateX(5px);
+    color: var(--accent-color); /* Change de couleur */
+    transform: translateX(5px); /* Léger décalage vers la droite */
 }
 
-/* Styles pour la navigation entre équipes dans le modal - améliorations */
+/* Barre de navigation entre équipes dans une fenêtre modale */
 .team-navigation {
-    display: flex;
-    justify-content: space-between;
+    display: flex; /* Alignement horizontal */
+    justify-content: space-between; /* Espacement entre les boutons */
     width: 100%;
 }
 
+/* Boutons de navigation dans le modal */
 .team-navigation .btn {
     padding: 0.6rem 1.5rem;
-    border-radius: 30px;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
+    border-radius: 30px; /* Forme arrondie */
+    border: 2px solid var(--primary-color); /* Bordure avec la couleur principale */
+    color: var(--primary-color); /* Texte dans la même couleur */
     transition: all 0.3s ease;
     font-weight: 600;
 }
 
+/* Effets au survol sur les boutons de navigation */
 .team-navigation .btn:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(232, 179, 65, 0.3);
+    background-color: var(--primary-color); /* Fond coloré */
+    color: white; /* Texte en blanc */
+    transform: translateY(-3px); /* Légère élévation */
+    box-shadow: 0 4px 10px rgba(232, 179, 65, 0.3); /* Ombre douce */
 }
 
+/* Icônes à l’intérieur des boutons */
 .team-navigation .btn i {
     transition: transform 0.3s ease;
 }
 
+/* Déplacement des flèches à gauche/droite au survol */
 .team-navigation .btn:hover i.fa-chevron-left {
     transform: translateX(-5px);
 }
-
 .team-navigation .btn:hover i.fa-chevron-right {
     transform: translateX(5px);
 }
 
+/* Pied de page du modal : suppression de la bordure et padding ajusté */
 .modal-footer {
     border-top: none;
     padding-top: 0;
     padding-bottom: 2rem;
     background-color: white;
 }
+
 
 /* Footer */
 .footer {
