@@ -6,10 +6,11 @@
     --text-color: #333;
     --light-bg: #f8f9fa;
     --transition: all 0.3s ease;
-    --green-color: #2ecc71;
-    --red-color: #e74c3c;
+    --green-color: #4CAF50;
+    --red-color: #FF5252;
+    --light-green: rgba(76, 175, 80, 0.2);
+    --light-red: rgba(255, 82, 82, 0.2);
 }
-
 /* Styles généraux */
 body {
     font-family: 'Montserrat', sans-serif;
@@ -18,92 +19,94 @@ body {
     min-height: 100vh;
 }
 
+
 /* Barre Interactive */
 .interactive-bar {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 10px 0;
-    height: 70px;
 }
 
 .interactive-content {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0 20px;
-    height: 100%;
 }
 
 .interactive-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 8px 15px;
+    padding: 10px 20px;
     cursor: pointer;
     transition: var(--transition);
-    border-radius: 5px;
+    border-radius: 8px;
     color: var(--text-color);
-    text-decoration: none;
-    font-weight: 500;
-    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
 }
 
-.interactive-item i {
-    font-size: 1.2rem;
-    margin-right: 8px;
-    color: var(--accent-color);
-    transition: var(--transition);
+.interactive-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--light-red), var(--light-green));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
-.interactive-item span {
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.interactive-item:hover {
-    background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(231, 76, 60, 0.1));
-    transform: translateY(-2px);
-}
-
-.interactive-item:hover i {
-    transform: scale(1.1);
+.interactive-item:hover::after {
+    transform: scaleX(1);
 }
 
 .interactive-item.active {
-    background: linear-gradient(135deg, var(--accent-color), #c0392b);
-    color: white;
-    box-shadow: 0 4px 15px rgba(139, 20, 43, 0.3);
+    background: linear-gradient(45deg, var(--light-red), var(--light-green));
+    color: var(--text-color);
 }
 
-.interactive-item.active i {
-    color: white;
+.interactive-item i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--accent-color);
 }
 
-#logo-container {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+.interactive-item span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.interactive-item:hover {
+    background: var(--light-bg);
+    transform: translateY(-2px);
 }
 
 #logo-container img {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s ease;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    border: 3px solid transparent;
+    border-radius: 18px;
+    background: linear-gradient(120deg, #FF5252 30%, #4CAF50 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: box-shadow 0.4s, border-color 0.4s;
+    box-shadow: 0 2px 16px rgba(76, 175, 80, 0.08), 0 2px 8px rgba(255, 82, 82, 0.08);
+    padding: 2px;
 }
 
-#logo-container:hover img {
-    transform: scale(1.05) rotate(-2deg);
+#logo-container img:hover {
+    box-shadow: 0 0 24px 4px #FF5252, 0 0 32px 8px #4CAF50;
+    border-color: #FF5252;
 }
+
 
 /* Hero Section */
 .hero-section {
@@ -343,18 +346,84 @@ body {
 }
 
 /* Footer */
-footer {
-    margin-top: 3rem;
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, var(--light-red), var(--light-green));
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
 }
 
 .social-links a {
     font-size: 1.5rem;
     transition: var(--transition);
+    position: relative;
 }
 
 .social-links a:hover {
-    color: var(--primary-color) !important;
+    color: var(--red-color);
     transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+.social-links a:hover + a {
+    color: var(--green-color);
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Navbar Styles */

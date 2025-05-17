@@ -11,80 +11,49 @@
     <link rel="stylesheet" href="videos.css">
 </head>
 <body>  
-    
-    <!-- Barre Interactive -->
-    <div class="interactive-bar">
-        <div class="interactive-content">
-            <div id="logo-container" onclick="window.location.href='index.html'">
-                <i><img src="Images/can2025_logo.png" alt="Logo CAN 2025" height="100" width="80"></i>
-            </div>
-            <div class="interactive-item" data-section="can2025-description" onclick="window.location.href='index.html#can2025-description'">
-                <i class="fas fa-info-circle"></i>
-                <span>CAN 2025</span>
-            </div>
-            <div class="interactive-item" data-section="maroc" onclick="window.location.href='index.html#maroc'">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Maroc</span>
-            </div>
-            <div class="interactive-item" data-section="matches" onclick="window.location.href='matches.html'">
-                <i class="fas fa-futbol"></i>
-                <span>Matches</span>
-            </div>
-            <div class="interactive-item" data-section="groups" onclick="window.location.href='groupes.html'">
-                <i class="fas fa-users"></i>
-                <span>Groupes</span>
-            </div>
-            <div class="interactive-item active" data-section="videos" onclick="window.location.href='videos.html'">
-                <i class="fas fa-play-circle"></i>
-                <span>Vidéos</span>
-            </div>
-            <div class="interactive-item" data-section="stats" onclick="window.location.href='stats.html'">
-                <i class="fas fa-chart-bar"></i>
-                <span>Stats</span>
-            </div>
-            <div class="interactive-item" data-section="teams" onclick="window.location.href='equipes.html'">
-                <i class="fas fa-flag"></i>
-                <span>Équipes</span>
-            </div>
+   
+<!-- Barre Interactive -->
+<div class="interactive-bar">
+    <div class="interactive-content">
+        <div id="logo-container">
+            <i><img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180" ></i>
+        </div>
+        <div class="interactive-item" data-section="can2025-description">
+            <i class="fas fa-home home-icon"></i>
+            <span>Accueil</span>
+        </div>
+        <div class="interactive-item" data-section="maroc">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Maroc</span>
+        </div>
+        <div class="interactive-item " data-section="matches">
+            <i class="fas fa-futbol"></i>
+            <span>Matches</span>
+        </div>
+        <div class="interactive-item" data-section="groups">
+            <i class="fas fa-users"></i>
+            <span>Groupes</span>
+        </div>
+        <div class="interactive-item active" data-section="videos">
+            <i class="fas fa-play-circle"></i>
+            <span>Vidéos</span>
+        </div>
+        <div class="interactive-item" data-section="stats">
+            <i class="fas fa-map-marked-alt"></i>
+            <span>Stades et villes hôtes</span>
+        </div>
+        <div class="interactive-item" data-section="teams">
+            <i class="fas fa-flag"></i>
+            <span>Équipes</span>
         </div>
     </div>
+</div>
     <!-- Hero Section -->
     <div class="hero-section">
-        <div class="container">
-            <h1 class="display-4 text-white">Vidéos CAN 2025</h1>
+        <div class="container text-center">
+            <img src="Images/téléchargement.png" alt="Photo CAN" class="img-fluid mb-3" style="max-height:180px; display:block; margin-left:auto; margin-right:auto;">
+            <h1 class="display-4 text-white">Vidéos CAN </h1>
             <p class="lead text-white">Revivez les meilleurs moments de la Coupe d'Afrique des Nations</p>
-        </div>
-    </div>
-
-
-    <!-- Filtres Section -->
-    <div class="container mt-4">
-        <div class="filters-section">
-            <div class="row">
-                <div class="col-md-4">
-                    <select class="form-select" id="categoryFilter">
-                        <option value="all">Toutes les catégories</option>
-                        <option value="highlights">Meilleurs moments</option>
-                        <option value="interviews">Interviews</option>
-                        <option value="resumes">Résumés de matchs</option>
-                        <option value="reportages">Reportages</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <select class="form-select" id="teamFilter">
-                        <option value="all">Toutes les équipes</option>
-                        <!-- Les équipes seront ajoutées dynamiquement -->
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="searchInput" placeholder="Rechercher une vidéo...">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -120,23 +89,36 @@
         </div>
     </div>
 
+   
     <!-- Footer -->
-    <footer class="bg-dark text-white mt-5">
-        <div class="container py-4">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>CAN 2024</h5>
-                    <p>Suivez tous les matchs de la Coupe d'Afrique des Nations 2024 en Côte d'Ivoire.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <h5>Suivez-nous</h5>
-                    <div class="social-links">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CAN 2025</h3>
+                <p>Coupe d'Afrique des Nations<br>Maroc</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="matches.html">Matches</a></li>
+                    <li><a href="groupes.html">Groupes</a></li>
+                    <li><a href="videos.html">Vidéos</a></li>
+                    <li><a href="stades.html">Stades et villes hôtes</a></li>
+                    <li><a href="equipes.html">Équipes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CAN - Tous droits réservés</p>
         </div>
     </footer>
 
@@ -154,4 +136,4 @@
     });
     </script>
 </body>
-</html> 
+</html>

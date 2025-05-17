@@ -376,3 +376,38 @@ function updateActiveDate() {
 // Ajouter les écouteurs d'événements pour la synchronisation
 window.addEventListener('scroll', updateActiveDate);
 window.addEventListener('load', updateActiveDate);
+
+// Gestion de la barre interactive
+const interactiveItems = document.querySelectorAll('.interactive-item');
+
+// Gestion du clic sur les éléments de la barre
+interactiveItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const targetId = item.dataset.section;
+        
+        // Navigation vers les différentes pages
+        switch(targetId) {
+            case 'can2025-description':
+                window.location.href = 'index.html';
+                break;
+            case 'maroc':
+                window.location.href = 'index.html#maroc';
+                break;
+            case 'matches':
+                // Déjà sur la page matches, ne rien faire
+                break;
+            case 'groups':
+                window.location.href = 'groupes.html';
+                break;
+            case 'videos':
+                window.location.href = 'videos.html';
+                break;
+            case 'stats':
+                window.location.href = 'stades.html';
+                break;
+            case 'teams':
+                window.location.href = 'equipes.html';
+                break;
+        }
+    });
+});
