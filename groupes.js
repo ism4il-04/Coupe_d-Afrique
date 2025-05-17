@@ -2,7 +2,7 @@
 const groupes = [
     {
         nom: "Groupe A",
-        icon: "bi-flag-fill",
+        icon: "",
         equipes: [
             { nom: "Comores", flag: "Images/flags/comores.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Mali", flag: "Images/flags/mali.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
@@ -12,7 +12,7 @@ const groupes = [
     },
     {
         nom: "Groupe B",
-      
+      icon: "",
         equipes: [
             { nom: "Angola", flag: "Images/flags/angola.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Égypte", flag: "Images/flags/egypte.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
@@ -22,7 +22,7 @@ const groupes = [
     },
     {
         nom: "Groupe C",
-       
+        icon: "",
         equipes: [
             { nom: "Nigeria", flag: "Images/flags/nigeria.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Tanzanie", flag: "Images/flags/tanzanie.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
@@ -32,7 +32,7 @@ const groupes = [
     },
     {
         nom: "Groupe D",
-       
+        icon: "",
         equipes: [
             { nom: "Bénin", flag: "Images/flags/benin.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Botswana", flag: "Images/flags/botswana.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
@@ -42,7 +42,7 @@ const groupes = [
     },
     {
         nom: "Groupe E",
-       
+        icon: "",
         equipes: [
             { nom: "Algérie", flag: "Images/flags/algerie.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Burkina Faso", flag: "Images/flags/burkina_faso.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
@@ -52,10 +52,10 @@ const groupes = [
     },
     {
         nom: "Groupe F",
-    
+        icon: "",
         equipes: [
-            { nom: "Cameroun", flag: "Images/flags/cameroon.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
-            { nom: "Côte d'Ivoire", flag: "Images/flags/cote_divoire.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Cameroun", flag: "Images/flags/cameroun.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
+            { nom: "Côte d'Ivoire", flag: "Images/flags/cote_ivoire.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Gabon", flag: "Images/flags/gabon.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 },
             { nom: "Mozambique", flag: "Images/flags/mozambique.png", played: 0, won: 0, drawn: 0, lost: 0, for: 0, against: 0, diff: 0, points: 0 }
         ]
@@ -83,7 +83,7 @@ function createGroupTable(groupe) {
             <tbody>
                 ${groupe.equipes.map(equipe => `
                     <tr class="team-row" data-team="${equipe.nom}">
-                        <td><img src="${equipe.flag}" alt="Drapeau ${equipe.nom}" class="flag-icon"></td>
+                        <td><img src="${equipe.flag}" alt="Drapeau ${equipe.nom}" class="flag-icon" style="width:50px;height:34px;display:block;margin:0 auto 10px;"></td>
                         <td>${equipe.nom}</td>
                         <td>${equipe.played}</td>
                         <td>${equipe.won}</td>
@@ -109,7 +109,7 @@ function updateTeamModal(equipe) {
         <div class="team-info">
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <i class="bi ${equipe.flag} text-primary" style="font-size: 4rem;"></i>
+                    <img src="${equipe.flag}" alt="Drapeau ${equipe.nom}" class="flag-icon" style="width:50px;height:34px;display:block;margin:0 auto 10px;">
                     <h3 class="team-name mt-3">${equipe.nom}</h3>
                 </div>
                 <div class="col-md-8">
@@ -198,3 +198,37 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 }); 
+// Gestion de la barre interactive
+const interactiveItems = document.querySelectorAll('.interactive-item');
+
+// Gestion du clic sur les éléments de la barre
+interactiveItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const targetId = item.dataset.section;
+        
+        // Navigation vers les différentes pages
+        switch(targetId) {
+            case 'can2025-description':
+                window.location.href = 'index.html';
+                break;
+            case 'maroc':
+                window.location.href = 'index.html#maroc';
+                break;
+            case 'matches':
+                // Déjà sur la page matches, ne rien faire
+                break;
+            case 'groups':
+                window.location.href = 'groupes.html';
+                break;
+            case 'videos':
+                window.location.href = 'videos.html';
+                break;
+            case 'stats':
+                window.location.href = 'stades.html';
+                break;
+            case 'teams':
+                window.location.href = 'equipes.html';
+                break;
+        }
+    });
+});

@@ -32,66 +32,7 @@ body {
     padding: 10px 0;
 }
 
-.interactive-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.interactive-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: var(--transition);
-    border-radius: 8px;
-    color: var(--text-color);
-    position: relative;
-    overflow: hidden;
-}
-
-.interactive-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, var(--light-red), var(--light-green));
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.interactive-item:hover::after {
-    transform: scaleX(1);
-}
-
-.interactive-item.active {
-    background: linear-gradient(45deg, var(--light-red), var(--light-green));
-    color: var(--text-color);
-}
-
-.interactive-item i {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    color: var(--accent-color);
-}
-
-.interactive-item span {
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.interactive-item:hover {
-    background: var(--light-bg);
-    transform: translateY(-2px);
-}
-
-/* Barre de calendrier */
+/* Styles de la barre de calendrier */
 .calendar-bar {
     position: fixed;
     top: 120px;
