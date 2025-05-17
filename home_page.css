@@ -6,6 +6,10 @@
     --text-color: #333;
     --light-bg: #f8f9fa;
     --transition: all 0.3s ease;
+    --green-color: #4CAF50;
+    --red-color: #FF5252;
+    --light-green: rgba(76, 175, 80, 0.2);
+    --light-red: rgba(255, 82, 82, 0.2);
 }
 
 /* Styles généraux */
@@ -21,7 +25,7 @@ body {
 /* Hero Section */
 .hero-section {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                 url('Images/can_coupe_20213.jpg') center/cover;
     position: relative;
     display: flex;
@@ -29,84 +33,175 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--red-color) 0%, transparent 50%, var(--green-color) 100%);
+    opacity: 0.2;
+    animation: gradientShift 8s ease infinite;
 }
 
 .hero-content {
     z-index: 2;
     animation: fadeIn 1s ease-out;
+    position: relative;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-content::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(to right, var(--red-color), var(--green-color));
+    animation: borderPulse 2s ease-in-out infinite;
 }
 
 .main-title {
-    font-size: 5rem;
-    font-weight: 700;
+    font-size: 6rem;
+    font-weight: 900;
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
     animation: slideDown 1s ease-out;
+    background: linear-gradient(to bottom, #ffffff, var(--primary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
 }
 
 .subtitle {
-    font-size: 2rem;
-    margin: 1rem 0;
+    font-size: 2.5rem;
+    margin: 1.5rem 0;
     animation: slideUp 1s ease-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 2px;
 }
 
 .location {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 2rem;
+    margin-bottom: 3rem;
     animation: slideUp 1s ease-out 0.3s backwards;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
 }
 
 .countdown {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 2rem;
+    gap: 30px;
+    margin-top: 4rem;
     animation: fadeIn 1s ease-out 0.6s backwards;
+    perspective: 1000px;
 }
 
 .countdown-item {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 10px;
-    min-width: 120px;
+    padding: 30px;
+    border-radius: 15px;
+    min-width: 160px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.countdown-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--red-color), var(--green-color));
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.countdown-item::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
 }
 
 .countdown-item:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px) scale(1.05) rotateX(10deg);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(255, 255, 255, 0.2),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.countdown-item:hover::before {
+    opacity: 0.15;
 }
 
 .countdown-item span {
     display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 5px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(to bottom, #ffffff, var(--primary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+    text-shadow: 0 0 25px rgba(240, 193, 75, 0.6);
+    animation: numberPulse 2s infinite;
 }
 
 .countdown-item p {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     margin: 0;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.countdown-item.pulse {
-    animation: pulse 1s ease-in-out;
+@keyframes borderPulse {
+    0% { width: 50px; opacity: 0.5; }
+    50% { width: 150px; opacity: 1; }
+    100% { width: 50px; opacity: 0.5; }
 }
 
 .hero-overlay {
@@ -147,6 +242,29 @@ body {
     transition: var(--transition);
     border-radius: 8px;
     color: var(--text-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.interactive-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--light-red), var(--light-green));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.interactive-item:hover::after {
+    transform: scaleX(1);
+}
+
+.interactive-item.active {
+    background: linear-gradient(45deg, var(--light-red), var(--light-green));
+    color: var(--text-color);
 }
 
 .interactive-item i {
@@ -163,15 +281,6 @@ body {
 .interactive-item:hover {
     background: var(--light-bg);
     transform: translateY(-2px);
-}
-
-.interactive-item.active {
-    background: var(--accent-color);
-    color: white;
-}
-
-.interactive-item.active i {
-    color: white;
 }
 
 /* Content Sections */
@@ -210,6 +319,18 @@ body {
     font-size: 2.5rem;
     color: var(--secondary-color);
     margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--light-red), var(--light-green));
 }
 
 .section-text p {
@@ -284,11 +405,13 @@ body {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
+    border: 1px solid transparent;
 }
 
 .news-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--light-green);
 }
 
 .news-card img {
@@ -305,6 +428,18 @@ body {
     font-size: 1.3rem;
     margin-bottom: 10px;
     color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.news-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, var(--light-red), var(--light-green));
 }
 
 .news-content p {
@@ -336,6 +471,18 @@ body {
 .footer-section h3 {
     color: var(--primary-color);
     margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, var(--light-red), var(--light-green));
 }
 
 .footer-section ul {
@@ -364,6 +511,19 @@ body {
 
 .social-links a {
     font-size: 1.5rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.social-links a:hover {
+    color: var(--red-color);
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+.social-links a:hover + a {
+    color: var(--green-color);
+    opacity: 0.8;
 }
 
 .footer-bottom {
@@ -387,6 +547,43 @@ body {
 @keyframes slideUp {
     from { transform: translateY(50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+@keyframes numberPulse {
+    0% {
+        text-shadow: 0 0 20px rgba(240, 193, 75, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(240, 193, 75, 0.8),
+                     0 0 40px rgba(240, 193, 75, 0.4);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(240, 193, 75, 0.5);
+    }
+}
+
+@keyframes borderGlow {
+    0% {
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
 }
 
 /* Responsive Design */
@@ -466,4 +663,40 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-color);
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: 0.5s;
+}
+
+.btn:hover::after {
+    left: 100%;
+}
+
+#logo-container img {
+    border: 3px solid transparent;
+    border-radius: 18px;
+    background: linear-gradient(120deg, #FF5252 30%, #4CAF50 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: box-shadow 0.4s, border-color 0.4s;
+    box-shadow: 0 2px 16px rgba(76, 175, 80, 0.08), 0 2px 8px rgba(255, 82, 82, 0.08);
+    padding: 2px;
+}
+
+#logo-container img:hover {
+    box-shadow: 0 0 24px 4px #FF5252, 0 0 32px 8px #4CAF50;
+    border-color: #FF5252;
 }
