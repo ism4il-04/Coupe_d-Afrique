@@ -1,38 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Configuration de base du document -->
+    <!-- Méta-données pour le SEO et l'affichage -->
     <meta charset="UTF-8">
-    <!-- Configuration de l'affichage mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stades - CAN 2025</title>
 
-    <!-- Intégration des ressources externes -->
-    <!-- Framework Bootstrap pour la mise en page responsive -->
+    <!-- Importation des bibliothèques CSS externes -->
+    <!-- Bootstrap pour la mise en page responsive -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bibliothèque d'icônes Font Awesome -->
+    <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <!-- Leaflet pour les cartes interactives -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     
-    <!-- jQuery pour les interactions JavaScript -->
+    <!-- Importation des bibliothèques JavaScript -->
+    <!-- jQuery pour les interactions dynamiques -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <!-- JavaScript de Leaflet pour les cartes -->
+    <!-- Leaflet pour les fonctionnalités de carte -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
-    <!-- Feuilles de style et scripts personnalisés -->
+    <!-- Styles et scripts personnalisés -->
     <link rel="stylesheet" href="stades.css">
     <script src="stades.js"></script>
 </head>
 <body>
 
-    <!-- Barre Interactive -->
+    <!-- Barre de navigation interactive avec logo et liens -->
     <div class="interactive-bar">
         <div class="interactive-content">
-            <!-- Logo et lien vers la page d'accueil -->
             <div id="logo-container">
                 <i><img src="Images/téléchargement.png" alt="Logo CAN" height="100" width="180" ></i>
             </div>
@@ -66,39 +62,29 @@
             </div>
         </div>
     </div>
-    <!-- Barre de recherche -->
+    <!-- Barre de recherche interactive -->
     <div class="search-container">
-        <!-- Barre de recherche avec champ de saisie et bouton -->
+        <!-- Champ de recherche avec bouton -->
         <div class="search-box">
-            <!-- Champ de saisie avec placeholder explicatif -->
-            <input type="text" 
-                   id="searchInput" 
-                   placeholder="Rechercher une ville ou un stade..." 
-                   aria-label="Champ de recherche">
-            <!-- Bouton de recherche avec icône -->
-            <button type="button" 
-                    id="searchButton" 
-                    aria-label="Lancer la recherche">
+            <input type="text" id="searchInput" placeholder="Rechercher une ville ou un stade...">
+            <button type="button" id="searchButton">
                 <i class="fas fa-search"></i>
             </button>
         </div>
-        <!-- Zone d'affichage des résultats de recherche -->
-        <div id="searchResults" 
-             class="search-results" 
-             role="region" 
-             aria-live="polite">
-        </div>
+        <!-- Conteneur pour les résultats de recherche dynamiques -->
+        <div id="searchResults" class="search-results"></div>
     </div>
 
+    <!-- Conteneur principal du contenu -->
     <div class="content-container">
-        <!-- Titre principal -->
+        <!-- Titre principal de la page -->
         <div class="row mb-4">
             <div class="col-12">
                 <h1 class="main-title">Les Stades de la CAN 2025</h1>
             </div>
         </div>
 
-        <!-- Contenu principal -->
+        <!-- Section de présentation avec vidéo -->
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="stade-info">
@@ -127,67 +113,47 @@
             </div>
         </div>
 
-        <!-- Section des stades de Rabat -->
+        <!-- Sections des stades par ville -->
+        <!-- Chaque section suit le même modèle:
+             - En-tête de ville
+             - Présentation du/des stade(s)
+             - Modale avec détails complets
+        -->
+
+        <!-- Section Rabat - Présentation des stades -->
         <div class="city-section rabat-section">
-            <!-- En-tête de la section avec titre et description -->
+            <!-- En-tête avec description de la ville -->
             <div class="city-header">
                 <h3>Les Stades de Rabat</h3>
                 <p>La capitale royale accueille trois stades prestigieux, chacun avec son caractère unique, offrant une infrastructure exceptionnelle pour la CAN 2025.</p>
             </div>
 
-            <!-- Carousel Bootstrap pour la présentation des stades -->
-            <div id="rabatStadesCarousel" 
-                 class="carousel slide" 
-                 data-bs-ride="carousel" 
-                 data-bs-interval="5000"
-                 aria-label="Carousel des stades de Rabat">
-                
+            <!-- Carousel Bootstrap pour naviguer entre les stades -->
+            <div id="rabatStadesCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
                 <!-- Indicateurs de navigation du carousel -->
                 <div class="carousel-indicators">
-                    <!-- Bouton pour le Stade Prince Moulay Abdellah -->
-                    <button type="button" 
-                            data-bs-target="#rabatStadesCarousel" 
-                            data-bs-slide-to="0" 
-                            class="active" 
-                            aria-current="true" 
-                            aria-label="Stade Prince Moulay Abdellah"></button>
-                    <!-- Bouton pour le Stade Moulay Hassan -->
-                    <button type="button" 
-                            data-bs-target="#rabatStadesCarousel" 
-                            data-bs-slide-to="1" 
-                            aria-label="Stade Moulay Hassan"></button>
-                    <!-- Bouton pour le Stade Al Barid -->
-                    <button type="button" 
-                            data-bs-target="#rabatStadesCarousel" 
-                            data-bs-slide-to="2" 
-                            aria-label="Stade Al Barid"></button>
-                    <!-- Bouton pour le Stade Olympique -->
-                    <button type="button" 
-                            data-bs-target="#rabatStadesCarousel" 
-                            data-bs-slide-to="3" 
-                            aria-label="Stade Olympique"></button>
+                    <button type="button" data-bs-target="#rabatStadesCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Stade Prince Moulay Abdellah"></button>
+                    <button type="button" data-bs-target="#rabatStadesCarousel" data-bs-slide-to="1" aria-label="Stade Moulay Hassan"></button>
+                    <button type="button" data-bs-target="#rabatStadesCarousel" data-bs-slide-to="2" aria-label="Stade Al Barid"></button>
+                    <button type="button" data-bs-target="#rabatStadesCarousel" data-bs-slide-to="3" aria-label="Stade Olympique"></button>
                 </div>
 
-                <!-- Contenu du carousel avec les slides des stades -->
+                <!-- Contenu du carousel avec les stades -->
                 <div class="carousel-inner">
-                    <!-- Premier slide : Stade Prince Moulay Abdellah -->
+                    <!-- Stade Prince Moulay Abdellah - Premier stade -->
                     <div class="carousel-item active">
                         <div class="stadium-showcase">
                             <div class="stade-info">
-                                <!-- Conteneur de l'image avec effet au survol -->
+                                <!-- Image du stade avec lien vers la modale -->
                                 <div class="image-container">
-                                    <img src="Images/MoulayAbdelah.jpeg" 
-                                         alt="Stade Prince Moulay Abdellah" 
-                                         class="clickable-image" 
-                                         onclick="openMoulayAbdellahModal()"
-                                         title="Cliquez pour plus de détails">
+                                    <img src="Images/MoulayAbdelah.jpeg" alt="Stade Prince Moulay Abdellah" class="clickable-image" onclick="openMoulayAbdellahModal()">
                                 </div>
-                                <!-- Section des informations détaillées -->
+                                <!-- Informations principales du stade -->
                                 <div class="texte-stade">
                                     <h4>Stade Prince Moulay Abdellah</h4>
                                     <p>Le plus grand stade de la capitale, rénové en 2022, offre des installations de premier ordre et une acoustique exceptionnelle pour les matchs les plus prestigieux de la CAN 2025.</p>
                                     
-                                    <!-- Statistiques clés du stade -->
+                                    <!-- Statistiques clés (capacité, rénovation) -->
                                     <div class="stadium-stats">
                                         <div class="stat-item">
                                             <div class="stat-label">Capacité</div>
@@ -199,7 +165,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Liste des équipements et caractéristiques -->
+                                    <!-- Caractéristiques principales -->
                                     <div class="stadium-features">
                                         <div class="feature-item">
                                             <i class="fas fa-volume-up"></i>
@@ -215,7 +181,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Informations pratiques d'accès -->
+                                    <!-- Informations pratiques -->
                                     <div class="stadium-quick-info">
                                         <div class="quick-info-item">
                                             <i class="fas fa-subway"></i>
@@ -231,10 +197,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Bouton d'action pour la modale de détails -->
-                                    <button class="view-details-btn" 
-                                            onclick="openMoulayAbdellahModal()"
-                                            aria-label="Voir les détails du Stade Prince Moulay Abdellah">
+                                    <button class="view-details-btn" onclick="openMoulayAbdellahModal()">
                                         <i class="fas fa-info-circle"></i>
                                         Voir les détails
                                     </button>
@@ -243,24 +206,17 @@
                         </div>
                     </div>
 
-                    <!-- Deuxième slide : Stade Moulay Hassan -->
+                    <!-- Stade Moulay Hassan -->
                     <div class="carousel-item">
                         <div class="stadium-showcase">
                             <div class="stade-info">
-                                <!-- Conteneur de l'image avec effet au survol -->
                                 <div class="image-container">
-                                    <img src="Images/moulayLhassan.jpeg" 
-                                         alt="Stade Moulay Hassan" 
-                                         class="clickable-image" 
-                                         onclick="openMoulayHassanModal()"
-                                         title="Cliquez pour plus de détails">
+                                    <img src="Images/moulayLhassan.jpeg" alt="Stade Moulay Hassan" class="clickable-image" onclick="openMoulayHassanModal()">
                                 </div>
-                                <!-- Section des informations détaillées -->
                                 <div class="texte-stade">
                                     <h4>Stade Moulay Hassan</h4>
                                     <p>Un stade historique modernisé offrant une expérience intimiste et authentique, idéal pour les matchs de groupe de la CAN 2025.</p>
                                     
-                                    <!-- Statistiques clés du stade -->
                                     <div class="stadium-stats">
                                         <div class="stat-item">
                                             <div class="stat-label">Capacité</div>
@@ -272,7 +228,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Liste des équipements et caractéristiques -->
                                     <div class="stadium-features">
                                         <div class="feature-item">
                                             <i class="fas fa-history"></i>
@@ -312,24 +267,17 @@
                         </div>
                     </div>
 
-                    <!-- Troisième slide : Stade Al Barid -->
+                    <!-- Stade Al Barid -->
                     <div class="carousel-item">
                         <div class="stadium-showcase">
                             <div class="stade-info">
-                                <!-- Conteneur de l'image avec effet au survol -->
                                 <div class="image-container">
-                                    <img src="Images/lbaridStade.jpg" 
-                                         alt="Stade Al Barid" 
-                                         class="clickable-image" 
-                                         onclick="openAlBaridModal()"
-                                         title="Cliquez pour plus de détails">
+                                    <img src="Images/lbaridStade.jpg" alt="Stade Al Barid" class="clickable-image" onclick="openAlBaridModal()">
                                 </div>
-                                <!-- Section des informations détaillées -->
                                 <div class="texte-stade">
                                     <h4>Stade Al Barid</h4>
                                     <p>Un stade compact et moderne offrant une proximité unique avec le terrain et une atmosphère électrique pour les matchs de la CAN 2025.</p>
                                     
-                                    <!-- Statistiques clés du stade -->
                                     <div class="stadium-stats">
                                         <div class="stat-item">
                                             <div class="stat-label">Capacité</div>
@@ -341,7 +289,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Liste des équipements et caractéristiques -->
                                     <div class="stadium-features">
                                         <div class="feature-item">
                                             <i class="fas fa-compress-arrows-alt"></i>
@@ -357,7 +304,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Informations pratiques d'accès -->
                                     <div class="stadium-quick-info">
                                         <div class="quick-info-item">
                                             <i class="fas fa-train"></i>
@@ -373,7 +319,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Bouton d'action pour la modale de détails -->
                                     <button class="view-details-btn" onclick="openAlBaridModal()">
                                         <i class="fas fa-info-circle"></i>
                                         Voir les détails
@@ -383,24 +328,17 @@
                         </div>
                     </div>
 
-                    <!-- Quatrième slide : Stade Olympique -->
+                    <!-- Ajout du Stade Olympique -->
                     <div class="carousel-item">
                         <div class="stadium-showcase">
                             <div class="stade-info">
-                                <!-- Conteneur de l'image avec effet au survol -->
                                 <div class="image-container">
-                                    <img src="Images/Olympique_Stadiums.jpg" 
-                                         alt="Stade Olympique" 
-                                         class="clickable-image" 
-                                         onclick="openOlympiqueModal()"
-                                         title="Cliquez pour plus de détails">
+                                    <img src="Images/Olympique_Stadiums.jpg" alt="Stade Olympique" class="clickable-image" onclick="openOlympiqueModal()">
                                 </div>
-                                <!-- Section des informations détaillées -->
                                 <div class="texte-stade">
                                     <h4>Stade Olympique</h4>
                                     <p>Un complexe sportif moderne offrant une expérience immersive unique, avec des installations de pointe et une architecture innovante qui en fait un lieu idéal pour les grands événements de la CAN 2025.</p>
                                     
-                                    <!-- Statistiques clés du stade -->
                                     <div class="stadium-stats">
                                         <div class="stat-item">
                                             <div class="stat-label">Capacité</div>
@@ -412,7 +350,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Liste des équipements et caractéristiques -->
                                     <div class="stadium-features">
                                         <div class="feature-item">
                                             <i class="fas fa-running"></i>
@@ -428,7 +365,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Informations pratiques d'accès -->
                                     <div class="stadium-quick-info">
                                         <div class="quick-info-item">
                                             <i class="fas fa-subway"></i>
@@ -444,7 +380,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Bouton d'action pour la modale de détails -->
                                     <button class="view-details-btn" onclick="openOlympiqueModal()">
                                         <i class="fas fa-info-circle"></i>
                                         Voir les détails
@@ -455,7 +390,7 @@
                     </div>
                 </div>
 
-                <!-- Contrôles de navigation du carousel -->
+                <!-- Enhanced Navigation Controls -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#rabatStadesCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Précédent</span>
@@ -467,34 +402,27 @@
             </div>
         </div>
 
-        <!-- Modale détaillée pour le Stade Prince Moulay Abdellah -->
+        <!-- Modal pour Stade Prince Moulay Abdellah -->
         <div id="moulayAbdellahModal" class="modal">
             <div class="modal-content">
-                <!-- Bouton de fermeture de la modale -->
                 <span class="close-button" onclick="closeMoulayAbdellahModal()">&times;</span>
-                <!-- En-tête de la modale -->
                 <div class="modal-header">
                     <h3>Stade Prince Moulay Abdellah - Rabat</h3>
                 </div>
-                <!-- Corps de la modale -->
                 <div class="modal-body">
                     <div class="row">
-                        <!-- Colonne gauche : Informations détaillées -->
                         <div class="col-md-6">
-                            <!-- Informations générales du stade -->
                             <div class="stadium-info">
                                 <h4>Informations du Stade</h4>
-                                <p><i class="fas fa-users"></i> Capacité: 53000 places</p>
+                                <p><i class="fas fa-users"></i> Capacité:  53000 places</p>
                                 <p><i class="fas fa-map-marker-alt"></i> Avenue Hassan II, Rabat</p>
                                 <p><i class="fas fa-calendar"></i> Inauguré en: 1983</p>
                                 <p><i class="fas fa-info-circle"></i> Dernière rénovation: 2022</p>
-                                <!-- Lien vers Google Maps -->
                                 <a href="https://www.google.com/maps?q=33.9590,-6.8649" target="_blank" class="maps-button">
                                     <i class="fas fa-map-marked-alt"></i>
                                     Voir sur Google Maps
                                 </a>
                             </div>
-                            <!-- Informations sur la ville -->
                             <div class="city-info">
                                 <h4>À propos de Rabat</h4>
                                 <p><i class="fas fa-city"></i> Capitale administrative du Maroc</p>
@@ -502,7 +430,6 @@
                                 <p><i class="fas fa-temperature-high"></i> Climat: Méditerranéen modéré</p>
                                 <p><i class="fas fa-landmark"></i> Sites à visiter: Kasbah des Oudayas, Tour Hassan, Chellah</p>
                             </div>
-                            <!-- Informations sur les transports -->
                             <div class="transport-info">
                                 <h4>Transport</h4>
                                 <div class="transport-options">
@@ -512,23 +439,19 @@
                                     <p><i class="fas fa-taxi"></i> Taxis: Station permanente</p>
                                 </div>
                             </div>
-                            <!-- Bouton pour afficher le plan du stade -->
                             <button class="view-stadium-button" onclick="toggleStadiumView('moulayAbdellahStadiumView')">
                                 <i class="fas fa-eye"></i>
                                 Voir le plan du stade
                             </button>
                         </div>
-                        <!-- Colonne droite : Carte et image -->
                         <div class="col-md-6">
-                            <!-- Conteneur pour la carte interactive -->
                             <div class="map-container" id="moulayAbdellahMap"></div>
-                            <!-- Grande image du stade -->
                             <div class="stadium-image-large">
                                 <img src="Images/MoulayAbdelah.jpeg" alt="Stade Prince Moulay Abdellah" class="full-width-image">
                             </div>
                         </div>
                     </div>
-                    <!-- Section du plan interactif du stade -->
+                    <!-- Stadium View Section -->
                     <div id="moulayAbdellahStadiumView" class="stadium-view-section" style="display: none;">
                         <h4>Plan du Stade</h4>
                         <div class="stadium-layout">
@@ -544,9 +467,9 @@
                                             <li>Accès salon VIP</li>
                                             <li>Service de restauration</li>
                                             <li>Parking réservé</li>
-        </ul>
-    </div>
-                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
                                 <div class="zone-indicator category1">
                                     <span class="zone-dot zone-category1"></span>
                                     <div class="zone-details">
@@ -559,8 +482,8 @@
                                             <li>Accès aux buvettes premium</li>
                                             <li>Position idéale pour les actions de jeu</li>
                                         </ul>
-                        </div>
-                    </div>
+                                    </div>
+                                </div>
                                 <div class="zone-indicator category2">
                                     <span class="zone-dot zone-category2"></span>
                                     <div class="zone-details">
@@ -573,8 +496,8 @@
                                             <li>Zones familles disponibles</li>
                                             <li>Proximité des animations</li>
                                         </ul>
-                </div>
-            </div>
+                                    </div>
+                                </div>
                                 <div class="zone-indicator category3">
                                     <span class="zone-dot zone-category3"></span>
                                     <div class="zone-details">
@@ -587,8 +510,8 @@
                                             <li>Accès aux buvettes standard</li>
                                             <li>Expérience supporter authentique</li>
                                         </ul>
-        </div>
-            </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -597,34 +520,27 @@
         </div>
         
 
-        <!-- Modale détaillée pour le Stade Moulay Hassan -->
+        <!-- Modal pour Stade Moulay Hassan -->
         <div id="moulayHassanModal" class="modal">
             <div class="modal-content">
-                <!-- Bouton de fermeture de la modale -->
                 <span class="close-button" onclick="closeMoulayHassanModal()">&times;</span>
-                <!-- En-tête de la modale -->
                 <div class="modal-header">
                     <h3>Stade Moulay Hassan - Rabat</h3>
                 </div>
-                <!-- Corps de la modale -->
                 <div class="modal-body">
                     <div class="row">
-                        <!-- Colonne gauche : Informations détaillées -->
                         <div class="col-md-6">
-                            <!-- Informations générales du stade -->
                             <div class="stadium-info">
                                 <h4>Informations du Stade</h4>
                                 <p><i class="fas fa-users"></i> Capacité: 22 000 places</p>
                                 <p><i class="fas fa-map-marker-alt"></i> Avenue Al Massira, Rabat</p>
                                 <p><i class="fas fa-calendar"></i> Inauguré en: 1955</p>
                                 <p><i class="fas fa-info-circle"></i> Dernière rénovation: 2020</p>
-                                <!-- Lien vers Google Maps -->
                                 <a href="https://www.google.com/maps?q=34.0186,-6.8317" target="_blank" class="maps-button">
                                     <i class="fas fa-map-marked-alt"></i>
                                     Voir sur Google Maps
                                 </a>
                             </div>
-                            <!-- Informations sur la ville -->
                             <div class="city-info">
                                 <h4>À propos de Rabat</h4>
                                 <p><i class="fas fa-city"></i> Capitale administrative du Maroc</p>
@@ -632,7 +548,6 @@
                                 <p><i class="fas fa-temperature-high"></i> Climat: Méditerranéen modéré</p>
                                 <p><i class="fas fa-landmark"></i> Sites à visiter: Kasbah des Oudayas, Tour Hassan, Chellah</p>
                             </div>
-                            <!-- Informations sur les transports -->
                             <div class="transport-info">
                                 <h4>Transport</h4>
                                 <div class="transport-options">
@@ -642,31 +557,24 @@
                                     <p><i class="fas fa-taxi"></i> Taxis: Station permanente</p>
                                 </div>
                             </div>
-                            <!-- Bouton pour afficher le plan du stade -->
                             <button class="view-stadium-button" onclick="toggleStadiumView('moulayHassanStadiumView')">
                                 <i class="fas fa-eye"></i>
                                 Voir le plan du stade
                             </button>
                         </div>
-                        <!-- Colonne droite : Carte et image -->
                         <div class="col-md-6">
-                            <!-- Conteneur pour la carte interactive -->
                             <div class="map-container" id="moulayHassanMap"></div>
-                            <!-- Grande image du stade -->
                             <div class="stadium-image-large">
                                 <img src="Images/moulayLhassan.jpeg" alt="Stade Moulay Hassan" class="full-width-image">
                             </div>
                         </div>
                     </div>
-                    <!-- Section du plan interactif du stade -->
+                    <!-- Stadium View Section -->
                     <div id="moulayHassanStadiumView" class="stadium-view-section" style="display: none;">
                         <h4>Plan du Stade</h4>
-                        <!-- Plan du stade avec zones interactives -->
                         <div class="stadium-layout">
                             <img src="Images/moulayLhassan.jpeg" alt="Plan du Stade" class="stadium-layout-image">
-                            <!-- Indicateurs des différentes zones -->
                             <div class="zone-indicators">
-                                <!-- Zone VIP -->
                                 <div class="zone-indicator vip">
                                     <span class="zone-dot zone-vip"></span>
                                     <div class="zone-details">
@@ -678,9 +586,8 @@
                                             <li>Service de restauration</li>
                                             <li>Parking réservé</li>
                                         </ul>
-                                    </div>
                                 </div>
-                                <!-- Tribune Centrale -->
+                            </div>
                                 <div class="zone-indicator category1">
                                     <span class="zone-dot zone-category1"></span>
                                     <div class="zone-details">
@@ -691,9 +598,8 @@
                                             <li>Places couvertes</li>
                                             <li>Proximité terrain</li>
                                         </ul>
-                                    </div>
-                                </div>
-                                <!-- Tribune Latérale -->
+                        </div>
+                    </div>
                                 <div class="zone-indicator category2">
                                     <span class="zone-dot zone-category2"></span>
                                     <div class="zone-details">
@@ -703,9 +609,8 @@
                                             <li>Places couvertes</li>
                                             <li>Bonne visibilité</li>
                                         </ul>
-                                    </div>
-                                </div>
-                                <!-- Tribune Populaire -->
+                </div>
+            </div>
                                 <div class="zone-indicator category3">
                                     <span class="zone-dot zone-category3"></span>
                                     <div class="zone-details">
@@ -715,8 +620,8 @@
                                             <li>Ambiance garantie</li>
                                             <li>Esprit supporters</li>
                                         </ul>
-                                    </div>
-                                </div>
+        </div>
+            </div>
                             </div>
                         </div>
                     </div>
@@ -724,34 +629,27 @@
             </div>
         </div>
 
-        <!-- Modale détaillée pour le Stade Al Barid -->
+        <!-- Modal pour Stade Al Barid -->
         <div id="alBaridModal" class="modal">
             <div class="modal-content">
-                <!-- Bouton de fermeture de la modale -->
                 <span class="close-button" onclick="closeAlBaridModal()">&times;</span>
-                <!-- En-tête de la modale -->
                 <div class="modal-header">
                     <h3>Stade Al Barid - Rabat</h3>
                 </div>
-                <!-- Corps de la modale -->
                 <div class="modal-body">
                     <div class="row">
-                        <!-- Colonne gauche : Informations détaillées -->
                         <div class="col-md-6">
-                            <!-- Informations générales du stade -->
                             <div class="stadium-info">
                                 <h4>Informations du Stade</h4>
                                 <p><i class="fas fa-users"></i> Capacité: 18 000 places</p>
                                 <p><i class="fas fa-map-marker-alt"></i> Rue Al Barid, Rabat</p>
                                 <p><i class="fas fa-calendar"></i> Inauguré en: 1960</p>
                                 <p><i class="fas fa-info-circle"></i> Dernière rénovation: 2018</p>
-                                <!-- Lien vers Google Maps -->
                                 <a href="https://www.google.com/maps?q=33.9716,-6.8498" target="_blank" class="maps-button">
                                     <i class="fas fa-map-marked-alt"></i>
                                     Voir sur Google Maps
                                 </a>
                             </div>
-                            <!-- Informations sur la ville -->
                             <div class="city-info">
                                 <h4>À propos de Rabat</h4>
                                 <p><i class="fas fa-city"></i> Capitale administrative du Maroc</p>
@@ -759,7 +657,6 @@
                                 <p><i class="fas fa-temperature-high"></i> Climat: Méditerranéen modéré</p>
                                 <p><i class="fas fa-landmark"></i> Sites à visiter: Kasbah des Oudayas, Tour Hassan, Chellah</p>
                             </div>
-                            <!-- Informations sur les transports -->
                             <div class="transport-info">
                                 <h4>Transport</h4>
                                 <div class="transport-options">
@@ -769,23 +666,19 @@
                                     <p><i class="fas fa-taxi"></i> Taxis: Station permanente</p>
                                 </div>
                             </div>
-                            <!-- Bouton pour afficher le plan du stade -->
                             <button class="view-stadium-button" onclick="toggleStadiumView('alBaridStadiumView')">
                                 <i class="fas fa-eye"></i>
                                 Voir le plan du stade
                             </button>
                         </div>
-                        <!-- Colonne droite : Carte et image -->
                         <div class="col-md-6">
-                            <!-- Conteneur pour la carte interactive -->
                             <div class="map-container" id="alBaridMap"></div>
-                            <!-- Grande image du stade -->
                             <div class="stadium-image-large">
                                 <img src="Images/lbaridStade.jpg" alt="Stade Al Barid" class="full-width-image">
                             </div>
                         </div>
                     </div>
-                    <!-- Section du plan interactif du stade -->
+                    <!-- Stadium View Section -->
                     <div id="alBaridStadiumView" class="stadium-view-section" style="display: none;">
                         <h4>Plan du Stade</h4>
                         <div class="stadium-layout">
@@ -845,34 +738,27 @@
             </div>
         </div>
 
-        <!-- Modale détaillée pour le Stade Olympique -->
+        <!-- Modal pour le Stade Olympique -->
         <div id="olympiqueModal" class="modal">
             <div class="modal-content">
-                <!-- Bouton de fermeture de la modale -->
                 <span class="close-button" onclick="closeOlympiqueModal()">&times;</span>
-                <!-- En-tête de la modale -->
                 <div class="modal-header">
                     <h3>Stade Olympique - Rabat</h3>
                 </div>
-                <!-- Corps de la modale -->
                 <div class="modal-body">
                     <div class="row">
-                        <!-- Colonne gauche : Informations détaillées -->
                         <div class="col-md-6">
-                            <!-- Informations générales du stade -->
                             <div class="stadium-info">
                                 <h4>Informations du Stade</h4>
                                 <p><i class="fas fa-users"></i> Capacité: 25 000 places</p>
                                 <p><i class="fas fa-map-marker-alt"></i> Avenue de l'Olympique, Rabat</p>
                                 <p><i class="fas fa-calendar"></i> Inauguré en: 2015</p>
                                 <p><i class="fas fa-info-circle"></i> Dernière rénovation: 2023</p>
-                                <!-- Lien vers Google Maps -->
                                 <a href="https://www.google.com/maps?q=34.0231,-6.8344" target="_blank" class="maps-button">
                                     <i class="fas fa-map-marked-alt"></i>
                                     Voir sur Google Maps
                                 </a>
                             </div>
-                            <!-- Informations sur la ville -->
                             <div class="city-info">
                                 <h4>À propos de Rabat</h4>
                                 <p><i class="fas fa-city"></i> Capitale administrative du Maroc</p>
@@ -880,7 +766,6 @@
                                 <p><i class="fas fa-temperature-high"></i> Climat: Méditerranéen modéré</p>
                                 <p><i class="fas fa-landmark"></i> Sites à visiter: Kasbah des Oudayas, Tour Hassan, Chellah</p>
                             </div>
-                            <!-- Informations sur les transports -->
                             <div class="transport-info">
                                 <h4>Transport</h4>
                                 <div class="transport-options">
@@ -890,31 +775,24 @@
                                     <p><i class="fas fa-taxi"></i> Taxis: Station permanente</p>
                                 </div>
                             </div>
-                            <!-- Bouton pour afficher le plan du stade -->
                             <button class="view-stadium-button" onclick="toggleStadiumView('olympiqueStadiumView')">
                                 <i class="fas fa-eye"></i>
                                 Voir le plan du stade
                             </button>
                         </div>
-                        <!-- Colonne droite : Carte et image -->
                         <div class="col-md-6">
-                            <!-- Conteneur pour la carte interactive -->
                             <div class="map-container" id="olympiqueMap"></div>
-                            <!-- Grande image du stade -->
                             <div class="stadium-image-large">
                                 <img src="Images/Olympique_Stadiums.jpg" alt="Stade Olympique" class="full-width-image">
                             </div>
                         </div>
                     </div>
-                    <!-- Section du plan interactif du stade -->
+                    <!-- Stadium View Section -->
                     <div id="olympiqueStadiumView" class="stadium-view-section" style="display: none;">
                         <h4>Plan du Stade</h4>
-                        <!-- Plan du stade avec zones interactives -->
                         <div class="stadium-layout">
                             <img src="Images/Olympique_Stadiums.jpg" alt="Plan du Stade" class="stadium-layout-image">
-                            <!-- Indicateurs des différentes zones -->
                             <div class="zone-indicators">
-                                <!-- Zone VIP -->
                                 <div class="zone-indicator vip">
                                     <span class="zone-dot zone-vip"></span>
                                     <div class="zone-details">
@@ -929,7 +807,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- Tribune Centrale -->
                                 <div class="zone-indicator category1">
                                     <span class="zone-dot zone-category1"></span>
                                     <div class="zone-details">
@@ -943,7 +820,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- Tribune Latérale -->
                                 <div class="zone-indicator category2">
                                     <span class="zone-dot zone-category2"></span>
                                     <div class="zone-details">
@@ -957,7 +833,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- Tribune Populaire -->
                                 <div class="zone-indicator category3">
                                     <span class="zone-dot zone-category3"></span>
                                     <div class="zone-details">
@@ -978,31 +853,22 @@
             </div>
         </div>
 
-        <!-- Section du stade d'Agadir -->
+        <!-- Section Agadir avec stade unique -->
         <div class="city-section agadir-section">
-            <!-- En-tête de la section avec titre et description -->
             <div class="city-header">
                 <h3>Le Stade d'Agadir</h3>
                 <p>Découvrez le Stade Adrar, un chef-d'œuvre architectural moderne qui incarne l'excellence des infrastructures sportives marocaines.</p>
             </div>
 
-            <!-- Présentation du stade -->
             <div class="stadium-showcase">
                 <div class="stade-info">
-                    <!-- Conteneur de l'image avec effet au survol -->
-                    <div class="image-container">
-                        <img src="Images/ملعب-ادرار.jpg" 
-                             alt="Stade Adrar Agadir" 
-                             class="clickable-image" 
-                             onclick="openAdrarPriceModal()"
-                             title="Cliquez pour plus de détails">
+            <div class="image-container">
+                <img src="Images/ملعب-ادرار.jpg" alt="Stade Adrar Agadir" class="clickable-image" onclick="openAdrarPriceModal()">
                     </div>
-                    <!-- Section des informations détaillées -->
                     <div class="texte-stade">
                         <h4>Stade Adrar</h4>
                         <p>Un chef-d'œuvre architectural moderne qui intègre des technologies de pointe pour la gestion de l'énergie et de l'eau. Sa conception unique, inspirée des vallées de l'Atlas, offre une excellente visibilité depuis toutes les tribunes.</p>
                         
-                        <!-- Statistiques clés du stade -->
                         <div class="stadium-stats">
                             <div class="stat-item">
                                 <div class="stat-label">Capacité</div>
@@ -1014,7 +880,6 @@
                             </div>
                         </div>
 
-                        <!-- Liste des équipements et caractéristiques -->
                         <div class="stadium-features">
                             <div class="feature-item">
                                 <i class="fas fa-leaf"></i>
@@ -1060,7 +925,7 @@
                 <span class="close-button" onclick="closeAdrarPriceModal()">&times;</span>
                 <div class="modal-header">
                     <h3>Stade Adrar - Agadir</h3>
-                                </div>
+                </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -1081,7 +946,7 @@
                                 <p><i class="fas fa-users"></i> Population: ~450 000 habitants</p>
                                 <p><i class="fas fa-temperature-high"></i> Climat: Méditerranéen océanique</p>
                                 <p><i class="fas fa-landmark"></i> Sites à visiter: Kasbah d'Agadir, Plage d'Agadir, Souk El Had, Marina d'Agadir</p>
-                        </div>
+                            </div>
                             <div class="transport-info">
                                 <h4>Transport</h4>
                                 <div class="transport-options">
@@ -1100,9 +965,9 @@
                             <div class="map-container" id="adrarMap"></div>
                             <div class="stadium-image-large">
                                 <img src="Images/ملعب-ادرار.jpg" alt="Stade Adrar Agadir" class="full-width-image">
-                                </div>
                             </div>
                         </div>
+                    </div>
                     <!-- Stadium View Section -->
                     <div id="adrarStadiumView" class="stadium-view-section" style="display: none;">
                         <h4>Plan du Stade</h4>
@@ -1163,31 +1028,22 @@
             </div>
         </div>
 
-        <!-- Section du stade de Casablanca -->
+        <!-- Section Casablanca avec stade mythique -->
         <div class="city-section casablanca-section">
-            <!-- En-tête de la section avec titre et description -->
             <div class="city-header">
                 <h3>Le Stade de Casablanca</h3>
                 <p>Le mythique Stade Mohammed V, véritable temple du football marocain, accueillera les matchs les plus prestigieux de la CAN 2025.</p>
             </div>
 
-            <!-- Présentation du stade -->
             <div class="stadium-showcase">
                 <div class="stade-info">
-                    <!-- Conteneur de l'image avec effet au survol -->
-                    <div class="image-container">
-                        <img src="Images/DONOR.jpg" 
-                             alt="Stade Mohammed V Casablanca" 
-                             class="clickable-image" 
-                             onclick="openPriceModal()"
-                             title="Cliquez pour plus de détails">
+            <div class="image-container">
+                <img src="Images/DONOR.jpg" alt="Stade Mohammed V Casablanca" class="clickable-image" onclick="openPriceModal()">
                     </div>
-                    <!-- Section des informations détaillées -->
                     <div class="texte-stade">
                         <h4>Stade Mohammed V</h4>
                         <p>Un stade historique au cœur de la métropole, modernisé pour offrir une expérience exceptionnelle. Domicile des géants du football marocain, le Raja et le Wydad, il incarne l'essence même du football africain.</p>
                         
-                        <!-- Statistiques clés du stade -->
                         <div class="stadium-stats">
                             <div class="stat-item">
                                 <div class="stat-label">Capacité</div>
@@ -1196,10 +1052,9 @@
                             <div class="stat-item">
                                 <div class="stat-label">Inauguration</div>
                                 <div class="stat-value">1955</div>
-                            </div>
-                        </div>
+            </div>
+        </div>
 
-                        <!-- Liste des équipements et caractéristiques -->
                         <div class="stadium-features">
                             <div class="feature-item">
                                 <i class="fas fa-futbol"></i>
@@ -1215,7 +1070,6 @@
                             </div>
                         </div>
 
-                        <!-- Informations pratiques d'accès -->
                         <div class="stadium-quick-info">
                             <div class="quick-info-item">
                                 <i class="fas fa-subway"></i>
@@ -1231,7 +1085,6 @@
                             </div>
                         </div>
 
-                        <!-- Bouton d'action pour la modale de détails -->
                         <button class="view-details-btn" onclick="openPriceModal()">
                             <i class="fas fa-info-circle"></i>
                             Voir les détails
@@ -1241,34 +1094,27 @@
             </div>
         </div>
 
-        <!-- Modale détaillée pour le Stade Mohammed V -->
+        <!-- Modal pour le Stade Mohammed V -->
         <div id="priceModal" class="modal">
             <div class="modal-content">
-                <!-- Bouton de fermeture de la modale -->
                 <span class="close-button" onclick="closePriceModal()">&times;</span>
-                <!-- En-tête de la modale -->
                 <div class="modal-header">
                     <h3>Stade Mohammed V - Casablanca</h3>
                 </div>
-                <!-- Corps de la modale -->
                 <div class="modal-body">
                     <div class="row">
-                        <!-- Colonne gauche : Informations détaillées -->
                         <div class="col-md-6">
-                            <!-- Informations générales du stade -->
                             <div class="stadium-info">
                                 <h4>Informations du Stade</h4>
                                 <p><i class="fas fa-users"></i> Capacité: 45 891 places</p>
                                 <p><i class="fas fa-map-marker-alt"></i> 5 Boulevard Mohammed V, Casablanca</p>
                                 <p><i class="fas fa-calendar"></i> Inauguré en: 1955</p>
                                 <p><i class="fas fa-info-circle"></i> Dernière rénovation: 2023</p>
-                                <!-- Lien vers Google Maps -->
                                 <a href="https://www.google.com/maps?q=33.5821,-7.6470" target="_blank" class="maps-button">
                                     <i class="fas fa-map-marked-alt"></i>
                                     Voir sur Google Maps
                                 </a>
                             </div>
-                            <!-- Informations sur la ville -->
                             <div class="city-info">
                                 <h4>À propos de Casablanca</h4>
                                 <p><i class="fas fa-city"></i> Capitale économique et plus grande ville du Maroc</p>
@@ -1296,9 +1142,9 @@
                             <div class="map-container" id="casablancaMap"></div>
                             <div class="stadium-image-large">
                                 <img src="Images/DONOR.jpg" alt="Stade Mohammed V Casablanca" class="full-width-image">
-                                </div>
                             </div>
                         </div>
+                    </div>
                     <!-- Stadium View Section -->
                     <div id="casablancaStadiumView" class="stadium-view-section" style="display: none;">
                         <h4>Plan du Stade</h4>
@@ -1369,7 +1215,7 @@
             </div>
         </div>
 
-        <!-- Tanger Section -->
+        <!-- Section Tanger avec stade moderne -->
         <div class="city-section tanger-section">
             <div class="city-header">
                 <h3>Le Stade de Tanger</h3>
@@ -1441,7 +1287,7 @@
                 <span class="close-button" onclick="closeTangerPriceModal()">&times;</span>
                 <div class="modal-header">
                     <h3>Stade Ibn-Battouta - Tanger</h3>
-                                </div>
+                </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -1483,9 +1329,9 @@
                             <div class="map-container" id="tangerMap"></div>
                             <div class="stadium-image-large">
                                 <img src="Images/stade-ibn-battuta-tanger-1.webp" alt="Stade Ibn-Battouta Tanger" class="full-width-image">
-                                </div>
                             </div>
                         </div>
+                    </div>
                     <!-- Stadium View Section -->
                     <div id="tangerStadiumView" class="stadium-view-section" style="display: none;">
                         <h4>Plan du Stade</h4>
@@ -1556,7 +1402,7 @@
             </div>
         </div>
 
-        <!-- Marrakech Section -->
+        <!-- Section Marrakech avec stade traditionnel -->
         <div class="city-section marrakech-section">
             <div class="city-header">
                 <h3>Le Stade de Marrakech</h3>
@@ -1628,7 +1474,7 @@
                 <span class="close-button" onclick="closeMarrakechPriceModal()">&times;</span>
                 <div class="modal-header">
                     <h3>Stade de Marrakech</h3>
-                                </div>
+                </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -1669,9 +1515,9 @@
                             <div class="map-container" id="marrakechMap"></div>
                             <div class="stadium-image-large">
                                 <img src="Images/Marrakech.jpg" alt="Stade de Marrakech" class="full-width-image">
-                                </div>
                             </div>
                         </div>
+                    </div>
                     <!-- Stadium View Section -->
                     <div id="marrakechStadiumView" class="stadium-view-section" style="display: none;">
                         <h4>Plan du Stade</h4>
@@ -1736,7 +1582,7 @@
             </div>
         </div>
 
-        <!-- Fès Section -->
+        <!-- Section Fès avec stade historique -->
         <div class="city-section fes-section">
             <div class="city-header">
                 <h3>Le Stade de Fès</h3>
@@ -1808,7 +1654,7 @@
                 <span class="close-button" onclick="closeFesPriceModal()">&times;</span>
                 <div class="modal-header">
                     <h3>Stade de Fès</h3>
-                                </div>
+                </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -1849,9 +1695,9 @@
                             <div class="map-container" id="fesMap"></div>
                             <div class="stadium-image-large">
                                 <img src="Images/stadeFes1.avif" alt="Stade de Fès" class="full-width-image">
-                                </div>
                             </div>
                         </div>
+                    </div>
                     <!-- Stadium View Section -->
                     <div id="fesStadiumView" class="stadium-view-section" style="display: none;">
                         <h4>Plan du Stade</h4>
@@ -1920,47 +1766,66 @@
     </div>
 
    
-    <!-- Footer -->
+    <!-- Pied de page avec informations et liens sociaux -->
     <footer class="footer">
+        <!-- Contenu principal du footer -->
         <div class="footer-content">
+            <!-- Section d'information sur la CAN -->
             <div class="footer-section">
                 <h3>CAN 2025</h3>
                 <p>Coupe d'Afrique des Nations<br>Maroc</p>
             </div>
+            <!-- Section des réseaux sociaux -->
             <div class="footer-section">
                 <h3>Suivez-nous</h3>
+                <!-- Liens vers les réseaux sociaux avec icônes -->
                 <div class="social-links">  
-                    <a href="https://www.facebook.com/TheAFCON"><i class="fab fa-facebook"></i></a>
-                    <a href="https://x.com/CAF_Online?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/caf_online?igsh=MXVvajljaXVlenFvaw=="><i class="fab fa-instagram"></i></a>
-
+                    <a href="https://www.facebook.com/TheAFCON" title="Facebook officiel de la CAN"><i class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/CAF_Online" title="Twitter officiel de la CAF"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/caf_online" title="Instagram officiel de la CAF"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
+            <!-- Section des liens rapides -->
             <div class="footer-section">
                 <h3>Liens rapides</h3>
+                <!-- Navigation rapide du site -->
                 <ul>
-                    <li><a href="matches.html">Matches</a></li>
-                    <li><a href="groupes.html">Groupes</a></li>
-                    <li><a href="videos.html">Vidéos</a></li>
-                    <li><a href="stades.html">Stades et villes hôtes</a></li>
-                    <li><a href="equipes.html">Équipes</a></li>
+                    <li><a href="matches.html" title="Calendrier des matches">Matches</a></li>
+                    <li><a href="groupes.html" title="Groupes de la compétition">Groupes</a></li>
+                    <li><a href="videos.html" title="Vidéos et highlights">Vidéos</a></li>
+                    <li><a href="stades.html" title="Informations sur les stades">Stades et villes hôtes</a></li>
+                    <li><a href="equipes.html" title="Équipes participantes">Équipes</a></li>
                 </ul>
             </div>
         </div>
+        <!-- Copyright et mentions légales -->
         <div class="footer-bottom">
             <p>&copy; 2025 CAN - Tous droits réservés</p>
         </div>
     </footer>
-    <!-- Bootstrap JS et Popper.js -->
+
+    <!-- Scripts de fonctionnalités -->
+    <!-- Bootstrap pour les composants interactifs -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script de recherche -->
+    <!-- Script de recherche personnalisé -->
     <script>
+        // Initialisation du système de recherche
         $(document).ready(function() {
+            // Gestionnaire d'événement pour le bouton de recherche
             $('#searchButton').click(function() {
                 var searchTerm = $('#searchInput').val();
+                // Vérification et exécution de la recherche
                 if (searchTerm) {
-                    // Appel à la fonction de recherche
+                    searchStades(searchTerm);
+                }
+            });
+
+            // Gestionnaire d'événement pour la recherche en temps réel
+            $('#searchInput').on('keyup', function() {
+                var searchTerm = $(this).val();
+                // Mise à jour des résultats si le terme de recherche est suffisant
+                if (searchTerm.length > 2) {
                     searchStades(searchTerm);
                 }
             });
