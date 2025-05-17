@@ -34,7 +34,7 @@ const matchData = [
     label: 'dim. 21 déc.',
     tour: 'Phase de groupes - Groupe A',
     matches: [
-      { teams: 'Maroc vs Comores', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Maroc vs Comores', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' }
     ]
   },
   {
@@ -44,7 +44,7 @@ const matchData = [
     matches: [
       { teams: 'Mali vs Zambie', time: 'à déterminer', stadium: 'STADE MOHAMMED V CASABLANCA' },
       { teams: 'Afrique du Sud vs Angola', time: 'à déterminer', stadium: 'GRAND STADE DE MARRAKECH MARRAKECH' },
-      { teams: 'Égypte vs Zimbabwe', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'Égypte vs Zimbabwe', time: 'à déterminer', stadium: 'GRAND STADE D\'AGADIR' }
     ]
   },
   {
@@ -211,7 +211,7 @@ const matchData = [
     label: 'dim. 18 jan.',
     tour: 'Finale',
     matches: [
-      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'à déterminer' }
+      { teams: 'en attente vs en attente', time: 'à déterminer', stadium: 'COMPLEXE SPORTIF PRINCE MOULAY ABDELLAH RABAT 1' }
     ]
   }
 ];
