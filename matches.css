@@ -89,7 +89,7 @@
     top: 120px;            /* Position sous la barre de navigation */
     width: 100%;           /* Pleine largeur */
     height: 80px;          /* Hauteur fixe */
-    background-color: #e63946;  /* Fond rouge */
+    background-color: #C1272D;  /* Rouge du drapeau marocain */
     z-index: 999;          /* Au-dessus du contenu mais sous la navigation */
     color: white;          /* Texte blanc */
     display: flex;         /* Utilise Flexbox */
@@ -111,7 +111,7 @@
 
 /* Effet au survol des dates */
 .calendar-date:hover {
-    background-color: #2ecc71; /* Vert vif au survol */
+    background-color: #006233; /* Vert du drapeau marocain */
     color: white;             /* Texte blanc au survol */
 }
 
@@ -137,8 +137,8 @@
 
 /* Style pour la date active */
 .calendar-date.active {
-    background-color: white;
-    color: #e63946;
+    background-color: #006233; /* Vert du drapeau marocain */
+    color: white;
     font-weight: bold;
 }
 
