@@ -4,8 +4,8 @@ const videos = [
         id: 1,
         title: "Meilleurs moments du match d'ouverture",
         description: "Revivez les temps forts du match d'ouverture de la CAN 2024 entre la Côte d'Ivoire et la Guinée-Bissau.",
-        thumbnail: "Images/videos/opening_match.jpg",
-        videoUrl: "https://www.youtube.com/embed/example1",
+        thumbnail: "Images/CAN-2023-ouverture.jpg",
+        videoUrl: "https://www.youtube.com/embed/PV5K80irzuA",
         category: "highlights",
         date: "2024-01-13",
         teams: ["Côte d'Ivoire", "Guinée-Bissau"],
@@ -13,10 +13,10 @@ const videos = [
     },
     {
         id: 2,
-        title: "Interview du sélectionneur du Sénégal",
-        description: "Aliou Cissé revient sur la préparation des Lions de la Téranga pour la CAN 2024.",
-        thumbnail: "Images/videos/senegal_interview.jpg",
-        videoUrl: "https://www.youtube.com/embed/example2",
+        title: "Interview du sélectionneur du Maroc",
+        description: "Walid Regragui revient sur la préparation des Lions d'Atlas pour la CAN 2025.",
+        thumbnail: "Images/Walid-regragui.jpeg",
+        videoUrl: "https://www.youtube.com/embed/0Rhxilrwe9g",
         category: "interviews",
         date: "2024-01-12",
         teams: ["Sénégal"],
@@ -24,25 +24,47 @@ const videos = [
     },
     {
         id: 3,
-        title: "Résumé du match Maroc - RD Congo",
-        description: "Les temps forts du match entre le Maroc et la RD Congo en phase de groupes.",
-        thumbnail: "Images/videos/morocco_drc.jpg",
-        videoUrl: "https://www.youtube.com/embed/example3",
+        title: "Résumé du match Maroc - Afrique du Sud  CAN 2023",
+        description: "Les temps forts du match entre le Maroc et l'Afrique du sud en quart de finale.",
+        thumbnail: "Images/marocvRsa.jpg",
+        videoUrl: "https://www.youtube.com/embed/Qp-mqec-mNI",
         category: "resumes",
-        date: "2024-01-14",
-        teams: ["Maroc", "RD Congo"],
+        date: "2024-01-31",
+        teams: ["Maroc", "RSA"],
         duration: "4:15"
     },
     {
         id: 4,
-        title: "Reportage : Les stades de la CAN 2024",
-        description: "Découvrez les stades qui accueilleront les matchs de la CAN 2024 en Côte d'Ivoire.",
-        thumbnail: "Images/videos/stadiums.jpg",
-        videoUrl: "https://www.youtube.com/embed/example4",
+        title: "Reportage : Les stades de la CAN 2025",
+        description: "Découvrez les stades qui accueilleront les matchs de la CAN 2025 en Maroc.",
+        thumbnail: "Images/CAF.webp",
+        videoUrl: "https://www.youtube.com/embed/MDoGpSAE0Fc",
         category: "reportages",
-        date: "2024-01-11",
+        date: "2024-01-31",
         teams: [],
         duration: "12:30"
+    },
+    {
+        id: 5,
+        title: "Finale CAN 2024 : Côte d'Ivoire vs Nigeria",
+        description: "Revivez la finale épique de la CAN 2024 entre la Côte d'Ivoire et le Nigeria, avec tous les moments forts et les buts.",
+        thumbnail: "Images/final2023.jpg",
+        videoUrl: "https://www.youtube.com/embed/_S9sFlf3zXU",
+        category: "finale",
+        date: "2024-02-11",
+        teams: ["Côte d'Ivoire", "Nigeria"],
+        duration: "10:00"
+    },
+    {
+        id: 6,
+        title: "U-17 Champions : Maroc 2025",
+        description: "Les équipes U-17 de Maroc gagne la CAN 2025 , nous attendons l'equipe A.",
+        thumbnail: "Images/u17Champions.jpg",
+        videoUrl: "URL_ADDRESS.youtube.com/embed/nz7KqFR81SM",
+        category: "Autres Competiotions",
+        date: "2025-04-19",
+        teams: ["Sénégal"],
+        duration: "8:45"
     }
 ];
 
@@ -171,3 +193,37 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 }); 
+// Gestion de la barre interactive
+const interactiveItems = document.querySelectorAll('.interactive-item');
+
+// Gestion du clic sur les éléments de la barre
+interactiveItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const targetId = item.dataset.section;
+        
+        // Navigation vers les différentes pages
+        switch(targetId) {
+            case 'can2025-description':
+                window.location.href = 'index.html';
+                break;
+            case 'maroc':
+                window.location.href = 'index.html#maroc';
+                break;
+            case 'matches':
+                // Déjà sur la page matches, ne rien faire
+                break;
+            case 'groups':
+                window.location.href = 'groupes.html';
+                break;
+            case 'videos':
+                window.location.href = 'videos.html';
+                break;
+            case 'stats':
+                window.location.href = 'stades.html';
+                break;
+            case 'teams':
+                window.location.href = 'equipes.html';
+                break;
+        }
+    });
+});
