@@ -200,7 +200,7 @@ function animateTitle() {
 // Compte à rebours jusqu'au début de la CAN 2024
 function initCountdown() {
     const countdownElement = document.querySelector('.countdown');
-    const startDate = new Date('2025-12-21T00:00:00');
+    const startDate = new Date('2025-12-21T20:00:00');
     let previousValues = {
         days: -1,
         hours: -1,
